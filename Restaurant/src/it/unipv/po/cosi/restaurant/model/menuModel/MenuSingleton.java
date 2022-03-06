@@ -51,5 +51,3 @@ public class MenuSingleton {
 		
 	}
 }
-
-//Ciao Vito
