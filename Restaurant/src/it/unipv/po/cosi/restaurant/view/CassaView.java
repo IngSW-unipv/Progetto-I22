@@ -64,8 +64,7 @@ public class CassaView {
 		TableButton btnNewButton = new TableButton(1,null);
 		btnNewButton.addActionListener(new TableActionListener(btnNewButton, frame.getContentPane()));
 		frame.getContentPane().add(btnNewButton);
-		
-
+	
 		
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = kit.getScreenSize();
