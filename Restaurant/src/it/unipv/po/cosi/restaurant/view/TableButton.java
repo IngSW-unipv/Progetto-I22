@@ -22,7 +22,6 @@ public class TableButton extends JButton {
 	}
 	
 	
-	
 	public int getNumber() {
 		return number;
 	}
