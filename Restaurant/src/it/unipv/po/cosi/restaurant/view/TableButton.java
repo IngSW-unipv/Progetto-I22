@@ -20,7 +20,6 @@ public class TableButton extends JButton {
 		this.setIcon(icon);
 		
 	}
-	
 	 
 	public int getNumber() {
 		return number;
