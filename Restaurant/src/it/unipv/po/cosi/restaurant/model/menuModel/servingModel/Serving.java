@@ -64,6 +64,6 @@ public class Serving {
 	public ArrayList<Modifier> getModifiers() {
 		return modifiers;
 	}
-	
+	 
 	
 }
