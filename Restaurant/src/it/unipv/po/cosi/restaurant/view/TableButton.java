@@ -27,7 +27,6 @@ public class TableButton extends JButton {
 		return number;
 	}
 
-	
 	public void setNumber(int number) {
 		this.number = number;
 	}

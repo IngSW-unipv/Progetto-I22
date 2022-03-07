@@ -66,7 +66,6 @@ public class CassaView {
 		frame.getContentPane().add(btnNewButton);
 		
 
-		
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = kit.getScreenSize();
 		int screenHeight = screenSize.height;
