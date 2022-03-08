@@ -36,6 +36,7 @@ public class CassaView {
 		});
 	}
 	
+	
 
 	/**
 	 * Create the application.
