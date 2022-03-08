@@ -5,18 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.*;
 import java.awt.GridLayout;
-import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-
 import it.unipv.po.cosi.restaurant.model.orderModel.Status;
-
-import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Panel;
