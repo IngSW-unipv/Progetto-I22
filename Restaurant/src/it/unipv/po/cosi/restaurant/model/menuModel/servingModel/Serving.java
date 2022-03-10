@@ -4,14 +4,16 @@ import java.util.ArrayList;
 
 public class Serving {
 	
+	private int id;
 	private String name;
 	private Category category;
 	private float price;
 	private ArrayList<Modifier> modifiers;
 	private int quantity;
 	
-	public Serving(String name, Category category, float price) {
+	public Serving(int id, String name, float price, Category category) {
 		
+		this.id = id;
 		this.name = name;
 		this.category = category;
 		this.price = price;	
@@ -64,6 +66,15 @@ public class Serving {
 	public ArrayList<Modifier> getModifiers() {
 		return modifiers;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	 
+	
 	
 }

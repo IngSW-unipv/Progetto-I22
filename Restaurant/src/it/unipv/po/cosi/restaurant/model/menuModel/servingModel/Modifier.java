@@ -4,9 +4,9 @@ public class Modifier {
 
 	private String name;
 	private Category category;
-	private double price;
+	private float price;
 	
-	public Modifier(String name, Category category, double price) {
+	public Modifier(String name, Category category, float price) {
 		
 		this.name = name;
 		this.category = category;

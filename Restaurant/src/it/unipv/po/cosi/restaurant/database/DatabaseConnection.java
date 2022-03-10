@@ -41,24 +41,24 @@ public class DatabaseConnection {
 		return true;
 	}
 	
-	public static Connection closeConnection(Connection c) {
+	public static boolean closeConnection(Connection c) {
 		if(!isOpen(c)) {
-			return null;
+			return false;
 		}
 		
 		try 
 		{
 			c.close();
-			c= null;
+			c = null;
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
-			return null;
+			return false;
 			
 		}
 		
-		return c;
+		return true;
 	}
 	
 	

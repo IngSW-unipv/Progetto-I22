@@ -16,6 +16,12 @@ public class Table {
 		
 	}
 	
+	public Table(int number) {
+		
+		this.number = number;
+		
+	}
+	
 	public String getBill() {
 		
 	String temp = "";

@@ -10,11 +10,35 @@ public class Order {
 	private int id;
 	private static int counter;
 	private ArrayList<Serving> servings;
+	private Table table;
 	
 	public Order() {
 		
 		id = counter++;
 		servings = new ArrayList<Serving>();
+			
+	}
+	
+	public Order(Table table) {
+		
+		id = counter++;
+		servings = new ArrayList<Serving>();
+		this.table = table;
+		
+	}
+	
+	public Order(int id) {
+		
+		this.id = id;
+		servings = new ArrayList<Serving>();
+		
+	}
+	
+	public Order(Table table, int id) {
+		
+		this.id = id;
+		servings = new ArrayList<Serving>();
+		this.table = table;
 		
 	}
 	
@@ -86,6 +110,16 @@ public class Order {
 	public ArrayList<Serving> getServings() {
 		return servings;
 	}
+
+	public Table getTable() {
+		return table;
+	}
+
+	public void setTable(Table table) {
+		this.table = table;
+	}
+	
+	
 	
 	
 }
