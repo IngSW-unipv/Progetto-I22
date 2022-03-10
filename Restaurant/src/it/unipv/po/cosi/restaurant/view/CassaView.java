@@ -62,13 +62,13 @@ public class CassaView {
 	
 		
 		
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		Dimension screenSize = kit.getScreenSize();
-		int screenHeight = screenSize.height;
-		int screenWidth = screenSize.width;
-		frame.setSize(screenWidth,screenHeight);
-		frame.setLocationRelativeTo(null);
-	
+//		Toolkit kit = Toolkit.getDefaultToolkit();
+//		Dimension screenSize = kit.getScreenSize();
+//		int screenHeight = screenSize.height;
+//		int screenWidth = screenSize.width;
+//		frame.setSize(screenWidth,screenHeight);
+//		frame.setLocationRelativeTo(null);
+//	
 	}
 	
 }
