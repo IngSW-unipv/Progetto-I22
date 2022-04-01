@@ -2,7 +2,6 @@ package it.unipv.po.cosi.restaurant.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Driver;
 
 public class DatabaseConnection {
 
@@ -12,10 +11,10 @@ public class DatabaseConnection {
 		String usr = null;
 		String password = null;
 		
-		DbDriver = "com.mysql.jdbc.Driver";
+		DbDriver = "com.mysql.cj.jdbc.Driver";
 		DbURL = "jdbc:mysql://localhost:3306/" + schema;
 		usr = "root";
-		password = "";
+		password = "0123";
 	
 		if(isOpen(c)) {
 			closeConnection(c);

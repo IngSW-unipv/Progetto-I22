@@ -18,7 +18,7 @@ public class DbControllerSingleton {
 	
 	public DbControllerSingleton() {
 		super();
-		this.schema = "RESTAURANT";
+		this.schema = "restaurants";
 		c = DatabaseConnection.startConnection(c, schema);
 	}
 

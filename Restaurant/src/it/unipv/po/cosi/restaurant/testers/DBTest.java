@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
+
 public class DBTest {
 
 	public static void main(String[] args) {
@@ -18,7 +19,6 @@ public class DBTest {
 			System.out.println(serving.getName());
 		}
 			
-
 	}
 
 }
