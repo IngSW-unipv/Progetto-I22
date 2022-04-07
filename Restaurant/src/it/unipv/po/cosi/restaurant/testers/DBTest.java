@@ -1,8 +1,10 @@
 package it.unipv.po.cosi.restaurant.testers;
-import java.util.ArrayList;
 
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
+import it.unipv.po.cosi.restaurant.model.orderModel.Order;
+import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
 public class DBTest {
 
@@ -10,15 +12,16 @@ public class DBTest {
 	
 		DbControllerSingleton c= new DbControllerSingleton();
 		
-		ArrayList<Serving> arr = new ArrayList<Serving>();
+		Order order = new Order(new Table(3), 856);
 		
-		arr = c.selectAllServings();
+		Serving serv = new Serving(1, "margherita", 15, new Category("pizzeria"));
+		Serving serv2 = new Serving(2, "marinara", 18, new Category("pizzeria"));
 		
-		for (Serving serving : arr) {
-			
-			System.out.println(serving.getName());
-		}
-			
+		order.addServing(serv);
+		order.addServing(serv2);
+		
+		c.insertOrder(order);
+	
 	}
 
 }

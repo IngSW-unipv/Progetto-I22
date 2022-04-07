@@ -18,7 +18,7 @@ public class DbControllerSingleton {
 	
 	public DbControllerSingleton() {
 		super();
-		this.schema = "restaurants";
+		this.schema = "restaurant";
 		c = DatabaseConnection.startConnection(c, schema);
 	}
 
@@ -63,7 +63,7 @@ public class DbControllerSingleton {
 		
 		try {
 			st1 = c.createStatement();
-			String query = "SELECT * FROM ORDER";
+			String query = "SELECT * FROM ORDERING";
 			rs1 = st1.executeQuery(query);
 	
 			while(rs1.next()) {
@@ -73,7 +73,7 @@ public class DbControllerSingleton {
 				Statement st2 = c.createStatement();
 				query = "SELECT S.* FROM"
 				+ "NATURAL JOIN (SELECT ID AS SERVING, NAME, PRICE, CATEGORY FROM RESTAURANTS.SERVING)S"
-				+ "NATURAL JOIN (SELECT ID AS 'ORDER', RESTAURANTS.ORDER.TABLE, TOTAL FROM RESTAURANTS.ORDER WHERE ID = "
+				+ "NATURAL JOIN (SELECT ID AS 'ORDERING', RESTAURANT.ORDERING.TABLE, TOTAL FROM RESTAURANT.ORDERING WHERE ID = "
 				+ order.getId();
 				ResultSet rs2 = st2.executeQuery(query);
 				
@@ -99,23 +99,33 @@ public class DbControllerSingleton {
 		
 	}
 	
-	public ArrayList<Order> insertOrder(Order order) {
-		
-		ArrayList<Order> result = new ArrayList<>();
+	public void insertOrder(Order order) {
 		
 		Statement st1;
 		
 		try {
 			st1 = c.createStatement();
-			String query = "INSERT INTO ORDER VALUES (" + order.getId() + "," + order.getTable() + "," + order.getSubtotal() + ")" + ";";
-			st1.executeQuery(query);
+			String query = "INSERT INTO RESTAURANT.ORDERING VALUES (" + order.getId() + "," + order.getTable().getNumber() + "," + order.getSubtotal() + ");";
+			st1.executeUpdate(query);
 			
 			for (Serving serving : order.getServings()) {
 				
 				st1 = c.createStatement();
-				query = "INSERT INTO ORDER_SERVING VALUES (" + order.getId() + "," + serving.getId() + ")" + ";";
-				st1.executeQuery(query);
-				
+				st1.addBatch("ALTER TABLE `restaurant`.`order_serving` "
+						+ "DROP FOREIGN KEY `FK4`;");
+				st1.addBatch("ALTER TABLE `restaurant`.`order_serving` "
+						+ "DROP FOREIGN KEY `FK5`;");
+				st1.addBatch("INSERT INTO order_serving (ordering, serving) VALUES (" + order.getId() + "," + serving.getId() + " );");
+				st1.addBatch("ALTER TABLE `restaurant`.`order_serving` "
+						+ "ADD CONSTRAINT `FK4` "
+						+ "FOREIGN KEY (`ordering`) "
+						+ "REFERENCES `restaurant`.`ordering` (`ID`);");
+				st1.addBatch("ALTER TABLE `restaurant`.`order_serving` "
+						+ "ADD CONSTRAINT `FK5` "
+						+ "FOREIGN KEY (`serving`) "
+						+ "REFERENCES `restaurant`.`serving` (`ID`);");
+				st1.executeBatch();
+	
 			}
 			
 			
@@ -126,8 +136,6 @@ public class DbControllerSingleton {
 			e.printStackTrace();
 			
 		}
-		
-		return result;
 		
 	}
 	
@@ -142,7 +150,7 @@ public class DbControllerSingleton {
 			st1 = c.createStatement();
 			String query = "SELECT S.* FROM"
 					+ "NATURAL JOIN (SELECT ID AS SERVING, NAME, PRICE, CATEGORY FROM RESTAURANTS.SERVING)S"
-					+ "NATURAL JOIN (SELECT ID AS 'ORDER', RESTAURANTS.ORDER.TABLE, TOTAL FROM RESTAURANTS.ORDER WHERE ID = "
+					+ "NATURAL JOIN (SELECT ID AS 'ORDERING', RESTAURANT.ORDERING.TABLE, TOTAL FROM RESTAURANT.ORDERING WHERE ID = "
 					+ id;
 			rs1 = st1.executeQuery(query);
 	
