@@ -124,10 +124,6 @@ public class DbControllerSingleton {
 	}
 	
 	
-	
-	
-	
-	
 //SERVING
 	public ArrayList<Serving> selectAllServings() {
 		
