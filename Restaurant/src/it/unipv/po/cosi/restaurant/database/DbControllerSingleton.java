@@ -1,6 +1,7 @@
 package it.unipv.po.cosi.restaurant.database;
 
 import java.sql.Statement;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -29,7 +30,6 @@ public class DbControllerSingleton {
 		String RelativePath	 = "../../../../../config/servings.csv";
 	    
 		Statement st1;
-		ResultSet rs1;
 		
 		try {
 			st1 = c.createStatement(); 
@@ -37,9 +37,9 @@ public class DbControllerSingleton {
 					+ "into table serving "
 					+ "CHARACTER SET UTF8MB4 "
 					+ "FIELDS TERMINATED BY ';' "
-					+ "ENCLOSED BY '\"'\n"
-					+ "LINES TERMINATED BY '\\n'";
-			rs1 = st1.executeQuery(query);
+					+ "ENCLOSED BY '\"' "
+					+ "LINES TERMINATED BY '\\n';";
+			st1.executeUpdate(query);
 		}
 		catch(Exception e){
 			
@@ -51,26 +51,35 @@ public class DbControllerSingleton {
 		
 		public void initializeCategories() {
 			
-			String RelativePath	 = "../../../../../config/categories.csv";
-		    
-			Statement st1;
-			ResultSet rs1;
+			File f = new File("");
 			
-			try {
-				st1 = c.createStatement(); 
-				String query = "LOAD DATA LOCAL INFILE " + RelativePath
-						+ "into table category "
-						+ "CHARACTER SET UTF8MB4 "
-						+ "FIELDS TERMINATED BY ';' "
-						+ "ENCLOSED BY '\"'\n"
-						+ "LINES TERMINATED BY '\\n'";
-				rs1 = st1.executeQuery(query);
-			}
-			catch(Exception e){
-				
-				e.printStackTrace();
-				
-			}
+			
+			String absolutePath = f.getAbsolutePath();
+	
+			System.out.println(absolutePath);
+			System.out.println(f.exists());
+			System.out.println(f.isFile());
+			
+			//String RelativePath	 = "../../../../../../../../config/categories.csv";
+		    
+//			Statement st1;
+			
+//			try {
+//				st1 = c.createStatement(); 
+//				String query = "LOAD DATA LOCAL INFILE " + absolutePath
+//						+ " into table category "
+//						+ "CHARACTER SET UTF8MB4 "
+//						+ "FIELDS TERMINATED BY ';' "
+//						+ "ENCLOSED BY '\"' "
+//						+ "LINES TERMINATED BY '\\n';";
+//				st1.executeUpdate(query);
+			
+//			}
+//			catch(Exception e){
+//				
+//				e.printStackTrace();
+//				
+//			}
 		}
 			
 			public void initializeModifiers() {
@@ -78,17 +87,16 @@ public class DbControllerSingleton {
 				String RelativePath	 = "../../../../../config/modifiers.csv";
 			    
 				Statement st1;
-				ResultSet rs1;
-				
+							
 				try {
 					st1 = c.createStatement(); 
 					String query = "LOAD DATA LOCAL INFILE " + RelativePath
 							+ "into table modifier "
 							+ "CHARACTER SET UTF8MB4 "
 							+ "FIELDS TERMINATED BY ';' "
-							+ "ENCLOSED BY '\"'\n"
-							+ "LINES TERMINATED BY '\\n'";
-					rs1 = st1.executeQuery(query);
+							+ "ENCLOSED BY '\"' "
+							+ "LINES TERMINATED BY '\\n';";
+					st1.executeQuery(query);
 				}
 		
 		catch (Exception e) {
@@ -103,7 +111,6 @@ public class DbControllerSingleton {
 				String RelativePath	 = "../../../../../config/tables.csv";
 			    
 				Statement st1;
-				ResultSet rs1;
 				
 				try {
 					st1 = c.createStatement(); 
@@ -111,9 +118,9 @@ public class DbControllerSingleton {
 							+ "into table table "
 							+ "CHARACTER SET UTF8MB4 "
 							+ "FIELDS TERMINATED BY ';' "
-							+ "ENCLOSED BY '\"'\n"
-							+ "LINES TERMINATED BY '\\n'";
-					rs1 = st1.executeQuery(query);
+							+ "ENCLOSED BY '\"' "
+							+ "LINES TERMINATED BY '\\n';";
+					st1.executeUpdate(query);
 				}
 		
 		catch (Exception e) {
