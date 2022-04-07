@@ -29,17 +29,67 @@ public class DbControllerSingleton {
 		String RelativePath	 = "../../../../../config/servings.csv";
 	    
 		Statement st1;
+		ResultSet rs1;
 		
 		try {
 			st1 = c.createStatement(); 
 			String query = "LOAD DATA LOCAL INFILE " + RelativePath
-					+ "into table menu "
+					+ "into table serving "
 					+ "CHARACTER SET UTF8MB4 "
 					+ "FIELDS TERMINATED BY ';' "
 					+ "ENCLOSED BY '\"'\n"
 					+ "LINES TERMINATED BY '\\n'";
-			st1.executeQuery(query);
+			rs1 = st1.executeQuery(query);
 		}
+		catch(Exception e){
+			
+			e.printStackTrace();
+			
+		}
+	}
+		
+		
+		public void initializeCategories() {
+			
+			String RelativePath	 = "../../../../../config/categories.csv";
+		    
+			Statement st1;
+			ResultSet rs1;
+			
+			try {
+				st1 = c.createStatement(); 
+				String query = "LOAD DATA LOCAL INFILE " + RelativePath
+						+ "into table category "
+						+ "CHARACTER SET UTF8MB4 "
+						+ "FIELDS TERMINATED BY ';' "
+						+ "ENCLOSED BY '\"'\n"
+						+ "LINES TERMINATED BY '\\n'";
+				rs1 = st1.executeQuery(query);
+			}
+			catch(Exception e){
+				
+				e.printStackTrace();
+				
+			}
+		}
+			
+			public void initializeModifiers() {
+				
+				String RelativePath	 = "../../../../../config/modifiers.csv";
+			    
+				Statement st1;
+				ResultSet rs1;
+				
+				try {
+					st1 = c.createStatement(); 
+					String query = "LOAD DATA LOCAL INFILE " + RelativePath
+							+ "into table modifier "
+							+ "CHARACTER SET UTF8MB4 "
+							+ "FIELDS TERMINATED BY ';' "
+							+ "ENCLOSED BY '\"'\n"
+							+ "LINES TERMINATED BY '\\n'";
+					rs1 = st1.executeQuery(query);
+				}
 		
 		catch (Exception e) {
 			
@@ -48,7 +98,30 @@ public class DbControllerSingleton {
 		}
 	}
 	
-	
+			public void initializeTables() {
+				
+				String RelativePath	 = "../../../../../config/tables.csv";
+			    
+				Statement st1;
+				ResultSet rs1;
+				
+				try {
+					st1 = c.createStatement(); 
+					String query = "LOAD DATA LOCAL INFILE " + RelativePath
+							+ "into table table "
+							+ "CHARACTER SET UTF8MB4 "
+							+ "FIELDS TERMINATED BY ';' "
+							+ "ENCLOSED BY '\"'\n"
+							+ "LINES TERMINATED BY '\\n'";
+					rs1 = st1.executeQuery(query);
+				}
+		
+		catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+	}
 	
 	
 	

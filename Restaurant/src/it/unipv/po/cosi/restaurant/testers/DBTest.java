@@ -22,6 +22,7 @@ public class DBTest {
 //		
 //		c.insertOrder(order);
 		
+		c.initializeServings();
 		
 	
 	}
