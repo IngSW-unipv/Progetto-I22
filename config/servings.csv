@@ -15,11 +15,11 @@
 14;Risotto ai frutti di mare;18;Cucina 
 15;Spaghetti allo scoglio;15;Cucina 
 16;Filetto al pepe rosa;22;Cucina 
-17;Filetto all’aceto balsamico;25;Cucina 
-18;Tartare di tonno su letto di stracciatella e pistacchi;18;Cucina 
-19;Gnocchi di patate viola al ragù di granchio;13;Cucina 
+17;Filetto aceto balsamico;25;Cucina 
+18;Tartare di tonno;18;Cucina 
+19;Gnocchi di patate viola al rag� di granchio;13;Cucina 
 20;Tiramisu;6;Cucina 
-21;Cheesecake alla nutella con crumble di gusci di ostriche;6;Cucina 
+21;Cheesecake alla nutella con crumble;6;Cucina 
 22;Tortino caldo al cioccolato;6;Cucina 
 23;Negroni;7;Bar 
 24;Negroni sbagliato;7;Bar 
@@ -28,7 +28,7 @@
 27;CocaCola;3.50;Bar 
 28;Fanta;3.50;Bar 
 29;Sprite;3.50;Bar 
-30;Margarita;7;Bar 
+30;Margarita;9;Bar 
 31;Amaro Montenegro;5;Bar 
 32;Amaro Lucano;5;Bar 
 33;Amaro del capo;5;Bar 
