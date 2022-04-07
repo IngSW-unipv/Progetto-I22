@@ -22,6 +22,34 @@ public class DbControllerSingleton {
 		c = DatabaseConnection.startConnection(c, schema);
 	}
 
+// populate table with menu .csv file //
+	
+	public void initializeServings() {
+		
+String RelativePath	 = "";
+	    
+		Statement st1;
+		
+		try {
+			st1 = c.createStatement();
+			String query = "";
+			
+		}
+		
+		catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 //SERVING
 	public ArrayList<Serving> selectAllServings() {
 		
