@@ -31,7 +31,7 @@ String RelativePath	 = "";
 		Statement st1;
 		
 		try {
-			st1 = c.createStatement();
+			st1 = c.createStatement(); 
 			String query = "";
 			
 		}
