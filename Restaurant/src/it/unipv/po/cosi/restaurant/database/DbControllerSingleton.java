@@ -26,14 +26,19 @@ public class DbControllerSingleton {
 	
 	public void initializeServings() {
 		
-String RelativePath	 = "";
+		String RelativePath	 = "../../../../../config/servings.csv";
 	    
 		Statement st1;
 		
 		try {
 			st1 = c.createStatement(); 
-			String query = "";
-			
+			String query = "LOAD DATA LOCAL INFILE " + RelativePath
+					+ "into table menu "
+					+ "CHARACTER SET UTF8MB4 "
+					+ "FIELDS TERMINATED BY ';' "
+					+ "ENCLOSED BY '\"'\n"
+					+ "LINES TERMINATED BY '\\n'";
+			st1.executeQuery(query);
 		}
 		
 		catch (Exception e) {
@@ -272,7 +277,7 @@ String RelativePath	 = "";
 		
 		try {
 			st1 = c.createStatement();
-			String query = "SELECT * FROM TABLE;";
+			String query = "SELECT * FROM RESTAURANT.TABLE;";
 			rs1 = st1.executeQuery(query);
 	
 			while(rs1.next()) {

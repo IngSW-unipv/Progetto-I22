@@ -11,6 +11,8 @@ public class MenuSingleton {
 	
 	private MenuSingleton() {
 		
+		//Using Exoert pattern
+		
 		this.servings = new ArrayList<Serving>();
 		
 	}

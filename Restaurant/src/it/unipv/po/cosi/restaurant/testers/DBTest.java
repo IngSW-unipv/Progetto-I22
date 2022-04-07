@@ -12,15 +12,17 @@ public class DBTest {
 	
 		DbControllerSingleton c= new DbControllerSingleton();
 		
-		Order order = new Order(new Table(3), 856);
+//		Order order = new Order(new Table(3), 856);
+//		
+//		Serving serv = new Serving(1, "margherita", 15, new Category("pizzeria"));
+//		Serving serv2 = new Serving(2, "marinara", 18, new Category("pizzeria"));
+//		
+//		order.addServing(serv);
+//		order.addServing(serv2);
+//		
+//		c.insertOrder(order);
 		
-		Serving serv = new Serving(1, "margherita", 15, new Category("pizzeria"));
-		Serving serv2 = new Serving(2, "marinara", 18, new Category("pizzeria"));
 		
-		order.addServing(serv);
-		order.addServing(serv2);
-		
-		c.insertOrder(order);
 	
 	}
 
