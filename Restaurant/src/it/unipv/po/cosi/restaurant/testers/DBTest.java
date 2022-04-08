@@ -22,10 +22,10 @@ public class DBTest {
 //		
 //		c.insertOrder(order);
 		
-		c.initializeCategories();
+//		c.initializeCategories();
 //		c.initializeTables();
 //		c.initializeModifiers();
-//		c.initializeServings();
+		c.initializeServings();
 		
 	
 	}
