@@ -51,7 +51,7 @@ public class DbControllerSingleton {
 		
 		public void initializeCategories() {
 			
-			File f = new File("");
+			File f = new File("src/it/unipv/po/cosi/restaurant/database/config/categories.csv");
 			
 			
 			String absolutePath = f.getAbsolutePath();
@@ -60,26 +60,24 @@ public class DbControllerSingleton {
 			System.out.println(f.exists());
 			System.out.println(f.isFile());
 			
-			//String RelativePath	 = "../../../../../../../../config/categories.csv";
-		    
-//			Statement st1;
+			Statement st1 = null;
 			
-//			try {
-//				st1 = c.createStatement(); 
-//				String query = "LOAD DATA LOCAL INFILE " + absolutePath
-//						+ " into table category "
-//						+ "CHARACTER SET UTF8MB4 "
-//						+ "FIELDS TERMINATED BY ';' "
-//						+ "ENCLOSED BY '\"' "
-//						+ "LINES TERMINATED BY '\\n';";
-//				st1.executeUpdate(query);
+			try {
+				st1 = c.createStatement(); 
+				String query = "LOAD DATA LOCAL INFILE ' " + absolutePath + " '"
+						+ " into table category "
+						+ "CHARACTER SET UTF8MB4 "
+						+ "FIELDS TERMINATED BY ';' "
+						+ "ENCLOSED BY '\"'"
+						+ "LINES TERMINATED BY '\n';";
+				st1.executeUpdate(query);
 			
-//			}
-//			catch(Exception e){
-//				
-//				e.printStackTrace();
-//				
-//			}
+			}
+			catch(Exception e){
+				
+				e.printStackTrace();
+				
+			}
 		}
 			
 			public void initializeModifiers() {
