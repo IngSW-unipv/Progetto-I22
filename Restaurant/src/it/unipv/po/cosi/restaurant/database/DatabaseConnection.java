@@ -15,6 +15,7 @@ public class DatabaseConnection {
 		DbURL = "jdbc:mysql://localhost:3306/" + schema + "?--local_infile=1**";
 		usr = "root";
 		password = "0123";
+		
 	
 		if(isOpen(c)) {
 			closeConnection(c);
