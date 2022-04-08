@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import it.unipv.po.cosi.restaurant.database.classDAO.CategoryDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.ModifierDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.ServingDAO;
+import it.unipv.po.cosi.restaurant.database.classDAO.TableDAO;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
@@ -26,139 +27,38 @@ public class DbControllerSingleton {
 		c = DatabaseConnection.startConnection(c, schema);
 	}
 
-// populate table with menu .csv file //
+// populate table with menu .csv file //		
 	
-//	public void initializeServings() {
-//		
-//		String RelativePath	 = "../../../../../config/servings.csv";
-//	    
-//		Statement st1;
-//		
-//		try {
-//			st1 = c.createStatement(); 
-//			String query = "LOAD DATA LOCAL INFILE " + RelativePath
-//					+ "into table serving "
-//					+ "CHARACTER SET UTF8MB4 "
-//					+ "FIELDS TERMINATED BY ';' "
-//					+ "ENCLOSED BY '\"' "
-//					+ "LINES TERMINATED BY '\\n';";
-//			st1.executeUpdate(query);
-//		}
-//		catch(Exception e){
-//			
-//			e.printStackTrace();
-//			
-//		}
-//	}
+	
+	public void initializeServings() {
 		
+		ServingDAO serv = new ServingDAO();
+		serv.initializeServings(c);
 		
-//		public void initializeCategories() {
-//			
-//			File f = new File("src/it/unipv/po/cosi/restaurant/database/config/categories.csv");
-//			
-//			
-//			String absolutePath = f.getAbsolutePath();
-//	
-//			System.out.println(absolutePath);
-//			System.out.println(f.exists());
-//			System.out.println(f.isFile());
-//			
-//			Statement st1 = null;
-//			
-//			try {
-//				st1 = c.createStatement(); 
-//				String query = "LOAD DATA LOCAL INFILE ' " + absolutePath + " '"
-//						+ " into table category "
-//						+ "CHARACTER SET UTF8MB4 "
-//						+ "FIELDS TERMINATED BY ';' "
-//						+ "ENCLOSED BY '\"'"
-//						+ "LINES TERMINATED BY '\n';";
-//				st1.executeUpdate(query);
-//			
-//			}
-//			catch(Exception e){
-//				
-//				e.printStackTrace();
-//				
-//			}
-//		}
-		
-	
-	
-			public void initializeServings() {
-				ServingDAO serv = new ServingDAO();
-				serv.initializeServings(c);
-				
-			}
+	}
 			
 	
+	public void initializeCategories() {
 	
+		CategoryDAO cat = new CategoryDAO();
+		cat.initializeCategories(c);
 	
+	}
+						
 	
-			public void initializeCategories()
-			{
-				CategoryDAO cat = new CategoryDAO();
-				cat.initializeCategories(c);
-			}
-			
-			
-			
-			
-			
-			
-//			public void initializeModifiers() {
-//				
-//				String RelativePath	 = "../../../../../config/modifiers.csv";
-//			    
-//				Statement st1;
-//							
-//				try {
-//					st1 = c.createStatement(); 
-//					String query = "LOAD DATA LOCAL INFILE " + RelativePath
-//							+ "into table modifier "
-//							+ "CHARACTER SET UTF8MB4 "
-//							+ "FIELDS TERMINATED BY ';' "
-//							+ "ENCLOSED BY '\"' "
-//							+ "LINES TERMINATED BY '\\n';";
-//					st1.executeQuery(query);
-//				}
-//		
-//		catch (Exception e) {
-//			
-//			e.printStackTrace();
-//			
-//		}
-//	}
-			
-			
-			public void initializeModifiers() {
-				ModifierDAO mod = new ModifierDAO();
-				mod.initializeModifiers(c);
-			}
+	public void initializeModifiers() {
+	
+		ModifierDAO mod = new ModifierDAO();
+		mod.initializeModifiers(c);
+	
+	}
 			
 	
-			public void initializeTables() {
-				
-				String RelativePath	 = "../../../../../config/tables.csv";
-			    
-				Statement st1;
-				
-				try {
-					st1 = c.createStatement(); 
-					String query = "LOAD DATA LOCAL INFILE " + RelativePath
-							+ "into table table "
-							+ "CHARACTER SET UTF8MB4 "
-							+ "FIELDS TERMINATED BY ';' "
-							+ "ENCLOSED BY '\"' "
-							+ "LINES TERMINATED BY '\\n';";
-					st1.executeUpdate(query);
-				}
-		
-		catch (Exception e) {
-			
-			e.printStackTrace();
-			
-		}
+	public void initializeTables() {
+	
+		TableDAO tab = new TableDAO();
+		tab.initializeTables(c);
+	
 	}
 	
 	

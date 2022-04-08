@@ -4,17 +4,9 @@ import java.io.File;
 import java.sql.Connection;
 import java.sql.Statement;
 
+public class CategoryDAO {	
 
-
-
-public class CategoryDAO {
-
-	
-	
-
-	public CategoryDAO(){}
-	
-	
+	public CategoryDAO() {}
 	
 	
 	public void initializeCategories(Connection c) {

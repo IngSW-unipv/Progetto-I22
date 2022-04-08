@@ -8,10 +8,7 @@ public class ModifierDAO {
 
 	public ModifierDAO() {}
 	
-	
-	
 	public void initializeModifiers(Connection c) {
-		
 	    
 		File f = new File("src/it/unipv/po/cosi/restaurant/database/config/modifiers.csv");
 		String absolutePath = f.getAbsolutePath();
@@ -33,14 +30,11 @@ public class ModifierDAO {
 			st1.executeQuery(query);
 		}
 
-catch (Exception e) {
+		catch (Exception e) {
 	
-	e.printStackTrace();
+			e.printStackTrace();
 	
-}
-}
-	
-	
-	
+		}
+	}
 	
 }

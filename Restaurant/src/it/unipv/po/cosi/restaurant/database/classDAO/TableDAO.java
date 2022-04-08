@@ -5,11 +5,8 @@ import java.sql.Connection;
 import java.sql.Statement;
 
 public class TableDAO {
-
 	
 	public TableDAO() {}
-
-	
 
 	public void initializeTables(Connection c) {
 		
@@ -34,11 +31,10 @@ public class TableDAO {
 			st1.executeUpdate(query);
 		}
 
-catch (Exception e) {
+		catch (Exception e) {
+
+			e.printStackTrace();
 	
-	e.printStackTrace();
-	
-}
-}
-	
+		}
+	}	
 }

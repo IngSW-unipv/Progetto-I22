@@ -6,13 +6,11 @@ import java.sql.Statement;
 
 public class ServingDAO {
 	
-	
-	
-public ServingDAO() {}
-	
-	
-public void initializeServings(Connection c) {
+	public ServingDAO() {}
 		
+		
+	public void initializeServings(Connection c) {
+			
 		File f	 = new File("src/it/unipv/po/cosi/restaurant/database/config/servings.csv");
 	    
 		String absolutePath = f.getAbsolutePath();
@@ -21,7 +19,7 @@ public void initializeServings(Connection c) {
 		System.out.println(f.exists());
 		System.out.println(f.isFile());
 		Statement st1;
-		
+			
 		try {
 			st1 = c.createStatement(); 
 			String query = "LOAD DATA LOCAL INFILE ' " + absolutePath + " ' "
@@ -39,19 +37,6 @@ public void initializeServings(Connection c) {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }
