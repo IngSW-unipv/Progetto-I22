@@ -5,14 +5,14 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
-	public static Connection startConnection( Connection c, String schema) {
+	public static Connection startConnection( Connection c, String schema ) {
 		String DbDriver = null;
 		String DbURL = null;
 		String usr = null;
 		String password = null;
 		
 		DbDriver = "com.mysql.cj.jdbc.Driver";
-		DbURL = "jdbc:mysql://localhost:3306/" + schema;
+		DbURL = "jdbc:mysql://localhost:3306/" + schema + "?--local_infile=1**";
 		usr = "root";
 		password = "0123";
 	
