@@ -24,8 +24,8 @@ public class DBTest {
 		
 //		c.initializeCategories();
 //		c.initializeTables();
-//		c.initializeModifiers();
-		c.initializeServings();
+		c.initializeModifiers();
+//		c.initializeServings();
 		
 	
 	}
