@@ -6,6 +6,7 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
+@SuppressWarnings("unused")
 public class DBTest {
 
 	public static void main(String[] args) {
@@ -22,10 +23,10 @@ public class DBTest {
 //		
 //		c.insertOrder(order);
 		
-//		c.initializeCategories();
-//		c.initializeTables();
+		c.initializeCategories();
+		c.initializeTables();
 		c.initializeModifiers();
-//		c.initializeServings();
+		c.initializeServings();
 		
 	
 	}

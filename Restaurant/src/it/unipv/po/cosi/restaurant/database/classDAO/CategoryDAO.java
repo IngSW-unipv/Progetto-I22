@@ -6,8 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
 public class CategoryDAO {	
 
@@ -32,9 +36,9 @@ public class CategoryDAO {
 
 				st1 = c.createStatement(); 
 				String query = "INSERT INTO category (name) VALUE ('" + line + "');";
-				st1.executeUpdate(query);
+			//	st1.executeUpdate(query);
 				
-				System.out.println(query+"\n");
+				System.out.println(query);
 				
 				line=br.readLine();
 				
@@ -45,42 +49,48 @@ public class CategoryDAO {
 			
 			
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
+			
 			e1.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
-//		System.out.println(absolutePath);
-//		System.out.println(f.exists());
-//		System.out.println(f.isFile());
-//		
-//		Statement st1 = null;
-//		
-//		try {
-//	
-//			st1 = c.createStatement(); 
-//			String query = "LOAD DATA INFILE ' " + absolutePath + " '"
-//					+ " into table category "
-//					+ "CHARACTER SET UTF8MB4 "
-//					+ "FIELDS TERMINATED BY ';' "
-//					+ "ENCLOSED BY '\"'"
-//					+ "LINES TERMINATED BY '\n';";
-//			st1.executeUpdate(query);
-//		
-//		}
-//		catch(Exception e){
-//			
-//			e.printStackTrace();
-//			
-//		}
 	}
 	
+	public ArrayList<Category> selectAllCategories(Connection c) {
+		
+		ArrayList<Category> result = new ArrayList<>();
+		
+		Statement st1;
+		ResultSet rs1;
+		
+		try {
+			st1 = c.createStatement();
+			String query = "SELECT * FROM CATEGORY;";
+			rs1 = st1.executeQuery(query);
 	
+			while(rs1.next()) {
+				
+				Category category = new Category(rs1.getString(1));
+				result.add(category);
+				
+			}
+		}
+		
+		catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		return result;
+		
+	}
+
 	
 	
 }
