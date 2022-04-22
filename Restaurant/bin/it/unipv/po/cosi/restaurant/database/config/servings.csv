@@ -1,7 +1,7 @@
 0;Margherita ;5;Pizzeria;1
 1;Marinara;4;Pizzeria;1
-2;Napoli;6;Pizzeria;1
-3;Cotto e funghi;7;Pizzeria;1
+2;Napoli;6;Pizzeria;0
+3;Cotto e funghi;7;Pizzeria;0
 4;Quattro formaggi ;7;Pizzeria;1
 5;Salsiccia e friarelli;8;Pizzeria;1
 6;Quattro stagioni;6;Pizzeria;1
@@ -40,3 +40,5 @@
 39;Cotoletta alla milanese;12;Cucina;0
 40;Fiorino al vapore;15;Bar;1
 41;c;3;Bar;1
+42;c1;67;Bar;1
+43;ciao;9;Cucina;0

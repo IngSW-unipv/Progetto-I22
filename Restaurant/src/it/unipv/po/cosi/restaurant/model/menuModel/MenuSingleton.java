@@ -58,5 +58,12 @@ public class MenuSingleton {
 		return true;
 		
 	}
+
+	public ArrayList<Serving> getServingsArray() {
+		return servings;
+	}
+
+
+	
 	
 }

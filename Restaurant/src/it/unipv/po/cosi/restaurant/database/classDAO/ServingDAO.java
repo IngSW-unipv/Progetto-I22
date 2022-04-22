@@ -31,69 +31,57 @@ public class ServingDAO {
 			MenuSingleton menu = MenuSingleton.getInstance();
 			int i = 0;
 			Statement st1, st2;
-			ResultSet rs;
+			ResultSet rs, rs1;
 			String qry = "select max(id) from restaurant.serving;";
 			String line=br.readLine();
-			
+			boolean flag;
 			
 			st2 = c.createStatement();
 			rs = st2.executeQuery(qry);
 			
 			rs.next();
-			Serving.setStartingID(rs.getInt(1));
+			int max = rs.getInt(1);
+			Serving.setStartingID(max);
+			System.out.println(max);
 			
-//			st2.executeUpdate("update restaurant.serving set active = 0 where id;");
-			
-			st2.addBatch("ALTER TABLE `restaurant`.`serving` "
-						+ "DROP FOREIGN KEY `FK3`;");
-			st2.addBatch("ALTER TABLE `restaurant`.`order_serving` "
-					+ "DROP FOREIGN KEY `FK5`;");
-			
-			st2.addBatch("TRUNCATE `restaurant`.`serving`;"); // TRUNCATE TABLE
-			
-			st2.addBatch("ALTER TABLE `restaurant`.`serving` "
-						+ "ADD CONSTRAINT `FK3` "
-						+ "FOREIGN KEY (`category`) "
-						+ "REFERENCES `restaurant`.`category` (`name`);");
-			st2.addBatch("ALTER TABLE `restaurant`.`order_serving` "
-					+ "ADD CONSTRAINT `FK5` "
-					+ "FOREIGN KEY (`serving`) "
-					+ "REFERENCES `restaurant`.`serving` (`ID`);");
-			st2.executeBatch();
-
 			
 			while(line!=null) {
 			
-				
+				flag = false;
+
 				String[] entries=line.split(";");
+				System.out.println(entries[4]);
 				
+				for(i=1;i<=max;i++) {
+					
+					
+					rs1 = st2.executeQuery("select name from serving where id ="+ i +";");
+					rs1.next();
+					
+					if(entries[1].equals(rs1.getString(1))) {
+						
+						st2.executeUpdate("update restaurant.serving set active =" + entries[4] + " where id =" + i + ";");
+						flag = true;
+					}
 				
-//				for(i=0;i<rs.getInt(1);i++) {
-//					
-//					if(entries[1].equals(st2.executeQuery("select name from serving where id ="+ i +";").getString(1))) {
-//						
-//						st2.executeUpdate("update restaurant.serving set active = 1 where id =" + i + ";");
-//						
-//					}
-//					else {
-//						
-//						
-//						
-//					}
-//				
-//				}
+				}
 				
-				Serving serving = new Serving(entries[1], Float.parseFloat(entries[2]), new Category(entries[3]));
+				if(!flag) {
 				
-				menu.addServing(serving);
+						Serving serving = new Serving(entries[1], Float.parseFloat(entries[2]), new Category(entries[3]));
+						
+						menu.addServing(serving);
+						
+						st1 = c.createStatement();
+						String query =  "INSERT INTO serving (id, name, price, category, active) VALUE ('"
+										+ serving.getId() + "','"  + serving.getName() + "','" + serving.getPrice() 
+										+ "','" + serving.getCategory().getName() + "','" + entries[4] +"');";
+						
+						st1.executeUpdate(query);
+						System.out.println(query);
+						
+				}
 				
-				st1 = c.createStatement();
-				String query =  "INSERT INTO serving (id, name, price, category) VALUE ('"
-								+ serving.getId() + "','"  + serving.getName() + "','" + serving.getPrice() 
-								+ "','" + serving.getCategory().getName()  + "');";
-				
-				st1.executeUpdate(query);
-				System.out.println(query);
 				line=br.readLine();
 			}
 			
