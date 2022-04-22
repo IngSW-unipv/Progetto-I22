@@ -10,16 +10,27 @@ public class Serving {
 	private float price;
 	private ArrayList<Modifier> modifiers;
 	private int quantity;
+	private static int startingID;
 	
-	public Serving(int id, String name, float price, Category category) {
-		
-		this.id = id;
-		this.name = name;
-		this.category = category;
-		this.price = price;	
-		modifiers = new ArrayList<Modifier>();
-		
-	}
+//	public Serving(int id, String name, float price, Category category) {
+//		
+//		this.id = id;
+//		this.name = name;
+//		this.category = category;
+//		this.price = price;	
+//		modifiers = new ArrayList<Modifier>();
+//		
+//	}
+//	
+	public Serving(String name, float price, Category category) {
+			
+			this.id = ++startingID;
+			this.name = name;
+			this.category = category;
+			this.price = price;	
+			modifiers = new ArrayList<Modifier>();
+			
+		}
 	
 	public boolean addModifier(Modifier modifier) {
 		
@@ -75,6 +86,10 @@ public class Serving {
 		this.id = id;
 	}
 	 
-	
+	public static void setStartingID(int id) {
+		
+		startingID = id;
+		
+	}
 	
 }

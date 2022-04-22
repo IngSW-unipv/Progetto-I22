@@ -32,8 +32,9 @@ public class TableDAO {
 			while(line!=null) {
 				
 				st1 = c.createStatement();
-				String query = "INSERT INTO table (name) VALUE ('" + line + "');";
-//				st1.executeUpdate(query);
+				String query = "INSERT INTO restaurant.table (number) VALUE ('" + line + "');";
+				st1.executeUpdate(query);
+				System.out.println();
 				
 				System.out.println(query);
 				line=br.readLine();

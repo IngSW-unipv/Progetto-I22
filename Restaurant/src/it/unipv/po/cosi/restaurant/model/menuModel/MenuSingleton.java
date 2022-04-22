@@ -43,9 +43,15 @@ public class MenuSingleton {
 			
 		}
 		
-		return null;
+		return null;		
 		
 	}
+	
+	public void addServing(Serving serving) {
+		
+		servings.add(serving);
+	}
+	
 	
 	public boolean update() {
 		

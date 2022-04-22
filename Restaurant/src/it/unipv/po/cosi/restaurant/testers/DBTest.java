@@ -23,9 +23,9 @@ public class DBTest {
 //		
 //		c.insertOrder(order);
 		
-		c.initializeCategories();
-		c.initializeTables();
-		c.initializeModifiers();
+//		c.initializeCategories();
+//		c.initializeTables();
+//		c.initializeModifiers();
 		c.initializeServings();
 		
 	

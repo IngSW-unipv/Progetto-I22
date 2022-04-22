@@ -36,7 +36,7 @@ public class CategoryDAO {
 
 				st1 = c.createStatement(); 
 				String query = "INSERT INTO category (name) VALUE ('" + line + "');";
-			//	st1.executeUpdate(query);
+				st1.executeUpdate(query);
 				
 				System.out.println(query);
 				

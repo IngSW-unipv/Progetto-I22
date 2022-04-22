@@ -1,40 +1,42 @@
-0;Margherita ;5;Pizzeria 
-1;Marinara;4;Pizzeria 
-2;Napoli;6;Pizzeria 
-3;Cotto e funghi;7;Pizzeria 
-4;Quattro formaggi ;7;Pizzeria 
-5;Salsiccia e friarelli;8;Pizzeria 
-6;Quattro stagioni;6;Pizzeria 
-7;Diavola;6;Pizzeria 
-8;Wurstel e patatine;7;Pizzeria 
-9;Stracchino e rucola;8;Pizzeria 
-10;Crudo ;7;Pizzeria 
-11;Tagliolini al pesto;9;Cucina 
-12;Pasta pomodoro e basilico;8;Cucina 
-13;Spaghetti alle vongole;15;Cucina 
-14;Risotto ai frutti di mare;18;Cucina 
-15;Spaghetti allo scoglio;15;Cucina 
-16;Filetto al pepe rosa;22;Cucina 
-17;Filetto aceto balsamico;25;Cucina 
-18;Tartare di tonno;18;Cucina 
-19;Gnocchi di patate viola al ragu di granchio;13;Cucina 
-20;Tiramisu;6;Cucina 
-21;Cheesecake alla nutella con crumble;6;Cucina 
-22;Tortino caldo al cioccolato;6;Cucina 
-23;Negroni;7;Bar 
-24;Negroni sbagliato;7;Bar 
-25;Hugo;7;Bar 
-26;Mojito;3.50;Bar 
-27;CocaCola;3.50;Bar 
-28;Fanta;3.50;Bar 
-29;Sprite;3.50;Bar 
-30;Margarita;9;Bar 
-31;Amaro Montenegro;5;Bar 
-32;Amaro Lucano;5;Bar 
-33;Amaro del capo;5;Bar 
-34;Acqua naturale 50cl;2;Bar 
-35;Acqua frizzante 50cl;2;Bar 
-36;Acqua naturale 75L;3;Bar 
-37;Acqua naturale 75cl;3;Bar 
-38;Malfatti al pesto di pistacchi;10;Cucina 
-39;Cotoletta alla milanese;12;Cucina 
+0;Margherita ;5;Pizzeria;1
+1;Marinara;4;Pizzeria;1
+2;Napoli;6;Pizzeria;1
+3;Cotto e funghi;7;Pizzeria;1
+4;Quattro formaggi ;7;Pizzeria;1
+5;Salsiccia e friarelli;8;Pizzeria;1
+6;Quattro stagioni;6;Pizzeria;1
+7;Diavola;6;Pizzeria;1
+8;Wurstel e patatine;7;Pizzeria;1
+9;Stracchino e rucola;8;Pizzeria;1
+10;Crudo ;7;Pizzeria;1
+11;Tagliolini al pesto;9;Cucina;0
+12;Pasta pomodoro e basilico;8;Cucina;1
+13;Spaghetti alle vongole;15;Cucina;1
+14;Risotto ai frutti di mare;18;Cucina;1
+15;Spaghetti allo scoglio;15;Cucina;1
+16;Filetto al pepe rosa;22;Cucina;0
+17;Filetto aceto balsamico;25;Cucina;1
+18;Tartare di tonno;18;Cucina;1
+19;Gnocchi di patate viola al ragu di granchio;13;Cucina;1
+20;Tiramisu;6;Cucina;1
+21;Cheesecake alla nutella con crumble;6;Cucina;0
+22;Tortino caldo al cioccolato;6;Cucina;1
+23;Negroni;7;Bar;1
+24;Negroni sbagliato;7;Bar;1
+25;Hugo;7;Bar;1
+26;Mojito;3.50;Bar;1
+27;CocaCola;3.50;Bar;0
+28;Fanta;3.50;Bar;1
+29;Sprite;3.50;Bar;1
+30;Margarita;9;Bar;1
+31;Amaro Montenegro;5;Bar;1
+32;Amaro Lucano;5;Bar;1
+33;Amaro del capo;5;Bar;1
+34;Acqua naturale 50cl;2;Bar;0
+35;Acqua frizzante 50cl;2;Bar;1
+36;Acqua naturale 75L;3;Bar;1
+37;Acqua naturale 75cl;3;Bar;1
+38;Malfatti al pesto di pistacchi;10;Cucina;0
+39;Cotoletta alla milanese;12;Cucina;0
+40;Fiorino al vapore;15;Bar;1
+41;c;3;Bar;1

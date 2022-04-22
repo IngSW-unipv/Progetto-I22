@@ -40,7 +40,7 @@ public class ModifierDAO {
 				String query = "INSERT INTO modifier (name, price, category) VALUE ('" 
 								+ entries[0] + "','"  + entries[1] + "','" + entries[2]  + "');";
 
-//				st1.executeUpdate(query);
+				st1.executeUpdate(query);
 				System.out.println(query);
 				line=br.readLine();
 			}

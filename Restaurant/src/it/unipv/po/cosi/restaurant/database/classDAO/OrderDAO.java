@@ -88,6 +88,7 @@ public class OrderDAO {
 	public Order selectOrder(int id, Connection c) {
 		
 		Order result = new Order(id);
+		ArrayList<Category> categories = new ArrayList<Category>();
 		
 		Statement st1;
 		ResultSet rs1;
@@ -102,7 +103,19 @@ public class OrderDAO {
 	
 			while(rs1.next()) {
 				
-				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(3), new Category(rs1.getString(4)));
+				Category cat = null;
+				
+				for (Category category : categories) {
+				
+					if(category.getName().equals(rs1.getString(3))) {
+						
+						cat=category;
+						
+					}
+					
+				}
+				
+				Serving serving = new Serving(rs1.getString(1), rs1.getFloat(2), cat);
 				result.addServing(serving);
 				
 			}
