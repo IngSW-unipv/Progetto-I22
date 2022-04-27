@@ -22,9 +22,9 @@ public class Serving {
 //		
 //	}
 //	
-	public Serving(String name, float price, Category category) {
+	public Serving(int id, String name, float price, Category category) {
 			
-			this.id = ++startingID;
+			this.id = id;
 			this.name = name;
 			this.category = category;
 			this.price = price;	
@@ -92,4 +92,8 @@ public class Serving {
 		
 	}
 	
+	@Override
+	public String toString() {
+		return name;
+	}
 }

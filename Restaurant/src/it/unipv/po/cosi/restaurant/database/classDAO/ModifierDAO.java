@@ -61,7 +61,7 @@ public class ModifierDAO {
 
 	}
 	
-	public ArrayList<Modifier> selectAllModifiers(Connection c) {
+	public ArrayList<Modifier> selectAllModifiers(Connection c, ArrayList<Category> categories) {
 		
 		ArrayList<Modifier> result = new ArrayList<>();
 		
@@ -75,7 +75,18 @@ public class ModifierDAO {
 	
 			while(rs1.next()) {
 				
-				Modifier modifier = new Modifier(rs1.getString(1), new Category(rs1.getString(3)), rs1.getFloat(2));
+				Category cat = null;
+				
+				for (Category category : categories) {
+				
+					if(category.getName().equals(rs1.getString(3))) {
+						
+						cat=category;
+						
+					}
+					
+				}
+				Modifier modifier = new Modifier(rs1.getString(1), cat, rs1.getFloat(2));
 				result.add(modifier);
 				
 			}

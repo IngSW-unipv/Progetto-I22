@@ -28,7 +28,6 @@ public class ServingDAO {
 		try {
 			FileReader fr = new FileReader(absolutePath);
 			BufferedReader br = new BufferedReader(fr);
-			MenuSingleton menu = MenuSingleton.getInstance();
 			int i = 0;
 			Statement st1, st2;
 			ResultSet rs, rs1;
@@ -63,19 +62,19 @@ public class ServingDAO {
 						st2.executeUpdate("update restaurant.serving set active =" + entries[4] + " where id =" + i + ";");
 						flag = true;
 					}
-				
+					
 				}
 				
 				if(!flag) {
 				
-						Serving serving = new Serving(entries[1], Float.parseFloat(entries[2]), new Category(entries[3]));
+//						Serving serving = new Serving(entries[1], Float.parseFloat(entries[2]), new Category(entries[3]));
 						
-						menu.addServing(serving);
+//						menu.addServing(serving);
 						
 						st1 = c.createStatement();
-						String query =  "INSERT INTO serving (id, name, price, category, active) VALUE ('"
-										+ serving.getId() + "','"  + serving.getName() + "','" + serving.getPrice() 
-										+ "','" + serving.getCategory().getName() + "','" + entries[4] +"');";
+						String query =  "INSERT INTO serving (name, price, category, active) VALUE ('"
+										+ entries[1] + "','" + entries[2] 
+										+ "','" + entries[3] + "','" + entries[4] +"');";
 						
 						st1.executeUpdate(query);
 						System.out.println(query);
@@ -84,7 +83,8 @@ public class ServingDAO {
 				
 				line=br.readLine();
 			}
-			
+		
+			br.close();
 			
 		} catch (FileNotFoundException e1) {
 			
@@ -96,13 +96,14 @@ public class ServingDAO {
 			
 			e.printStackTrace();
 		}
+		
 	}
 	
 	
-	public ArrayList<Serving> selectAllServings(Connection c) {
+	
+	public ArrayList<Serving> selectAllServings(Connection c, ArrayList<Category> categories) {
 		
 		ArrayList<Serving> result = new ArrayList<>();
-		ArrayList<Category> categories = new ArrayList<Category>();
 		
 		Statement st1;
 		ResultSet rs1;
@@ -126,7 +127,7 @@ public class ServingDAO {
 					
 				}
 				
-				Serving serving = new Serving(rs1.getString(1), rs1.getFloat(2), cat);
+				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(3), cat);
 				result.add(serving);
 								
 			}
@@ -142,6 +143,47 @@ public class ServingDAO {
 		
 	}
 
+	
+	
+	public void initializeActiveServings(Connection c, ArrayList<Category> categories) {
+		
+		Statement st1;
+		ResultSet rs1;
+		ArrayList<Serving> list = new ArrayList<Serving>();
+		
+		try {
+			st1 = c.createStatement();
+			String query = "SELECT * FROM SERVING where active = 1";
+			rs1 = st1.executeQuery(query);
+			
+	
+			while(rs1.next()) {
+				
+				Category cat = null;
+				
+				for (Category category : categories) {
+				
+					if(category.getName().equals(rs1.getString(3))) {
+						
+						cat=category;
+						
+					}
+					
+				}
+				
+				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(4), cat);
+				MenuSingleton.getInstance().addServing(serving);
+								
+			}
+		}
+		
+		catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+	}
+}
 
 	
-}
+

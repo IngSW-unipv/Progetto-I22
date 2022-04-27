@@ -85,10 +85,9 @@ public class OrderDAO {
 		
 	}
 	
-	public Order selectOrder(int id, Connection c) {
+	public Order selectOrder(int id, Connection c, ArrayList<Category> categories) {
 		
 		Order result = new Order(id);
-		ArrayList<Category> categories = new ArrayList<Category>();
 		
 		Statement st1;
 		ResultSet rs1;
@@ -115,7 +114,7 @@ public class OrderDAO {
 					
 				}
 				
-				Serving serving = new Serving(rs1.getString(1), rs1.getFloat(2), cat);
+				Serving serving = new Serving(rs1.getInt(1),rs1.getString(2) , rs1.getFloat(4), cat);
 				result.addServing(serving);
 				
 			}

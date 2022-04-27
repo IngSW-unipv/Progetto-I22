@@ -27,10 +27,11 @@ public class DBTest {
 //		c.initializeCategories();
 //		c.initializeTables();
 //		c.initializeModifiers();
-		c.initializeServings();
+//		c.initializeServings();
+		c.initializeActiveServings();
 		
-		for (Serving porcodio : MenuSingleton.getInstance().getServingsArray()) {
-			System.out.println(porcodio);
+		for (Serving plate : MenuSingleton.getInstance().getServingsArray()) {
+			System.out.println(plate);
 		}
 	
 	}

@@ -1,4 +1,4 @@
-package it.unipv.po.cosi.restaurant.model.orderModel;
+ package it.unipv.po.cosi.restaurant.model.orderModel;
 
 import java.util.ArrayList;
 
@@ -11,12 +11,13 @@ public class Order {
 	private static int counter;
 	private ArrayList<Serving> servings;
 	private Table table;
+	private float total;
 	
 	public Order() {
 		
 		id = counter++;
 		servings = new ArrayList<Serving>();
-			
+		this.total = 0;	
 	}
 	
 	public Order(Table table) {
@@ -24,6 +25,7 @@ public class Order {
 		id = counter++;
 		servings = new ArrayList<Serving>();
 		this.table = table;
+		this.total = 0;
 		
 	}
 	
@@ -31,7 +33,15 @@ public class Order {
 		
 		this.id = id;
 		servings = new ArrayList<Serving>();
-		
+		this.total = 0;
+	}
+	
+	public Order(int id, float total) {
+			
+			this.total = total;
+			this.id = id;
+			servings = new ArrayList<Serving>();
+			
 	}
 	
 	public Order(Table table, int id) {
@@ -39,7 +49,7 @@ public class Order {
 		this.id = id;
 		servings = new ArrayList<Serving>();
 		this.table = table;
-		
+		this.total = 0;
 	}
 	
 	public boolean addServing(Serving serving) {
@@ -91,14 +101,15 @@ public class Order {
 
 	public float getSubtotal() {
 		
-		float temp = 0.0f;
+		float tmp = 0.0f;
 		
 		for (Serving serving : servings) {
 			
-			temp += serving.getPrice();			
+			tmp += serving.getPrice();			
 		}
 		
-		return temp;
+		this.total = tmp;
+		return tmp;
 		
 	}
 	

@@ -68,8 +68,13 @@ public class DbControllerSingleton {
 //SERVING
 	public ArrayList<Serving> selectAllServings() {
 		
-		return serv.selectAllServings(c);
+		return serv.selectAllServings(c, cat.selectAllCategories(c));
 		
+	}
+	
+	public void initializeActiveServings() {
+		
+		serv.initializeActiveServings(c, cat.selectAllCategories(c));
 	}
 	
 //ORDER
@@ -82,13 +87,15 @@ public class DbControllerSingleton {
 	}
 	
 	public Order selectOrder(int id, Connection c) {
-		return ord.selectOrder(id, c);
+		return ord.selectOrder(id, c, cat.selectAllCategories(c));
 	}
+	
+	
 
 //MODIFIER
 	public ArrayList<Modifier> selectAllModifiers(Connection c) {
 		
-		return mod.selectAllModifiers(c);
+		return mod.selectAllModifiers(c, cat.selectAllCategories(c));
 		
 	}
 	
