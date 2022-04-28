@@ -11,17 +11,25 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
 import it.unipv.po.cosi.restaurant.model.menuModel.MenuSingleton;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 public class ServingDAO {
 	
-	public ServingDAO() {}
+	private String schema;
+	private Connection c;
+	
+	public ServingDAO() {
+		this.schema = "restaurant";
+	}
 		
 		
-	public void initializeServings(Connection c) {
-			
+	public void initializeServings() {
+		
+		c = DatabaseConnection.startConnection(c, schema);
+		
 		File f	 = new File("src/it/unipv/po/cosi/restaurant/database/config/servings.csv");
 	  	String absolutePath = f.getAbsolutePath();
 	  	
@@ -96,15 +104,17 @@ public class ServingDAO {
 			
 			e.printStackTrace();
 		}
-		
+	
+		DatabaseConnection.closeConnection(c);
 	}
 	
 	
 	
-	public ArrayList<Serving> selectAllServings(Connection c, ArrayList<Category> categories) {
+	public ArrayList<Serving> selectAllServings(ArrayList<Category> categories) {
 		
-		ArrayList<Serving> result = new ArrayList<>();
+		c = DatabaseConnection.startConnection(c, schema);
 		
+		ArrayList<Serving> result = new ArrayList<>();		
 		Statement st1;
 		ResultSet rs1;
 		
@@ -139,13 +149,17 @@ public class ServingDAO {
 			
 		}
 		
+		DatabaseConnection.closeConnection(c);
+		
 		return result;
 		
 	}
 
 	
 	
-	public void initializeActiveServings(Connection c, ArrayList<Category> categories) {
+	public void initializeActiveServings(ArrayList<Category> categories) {
+		
+		c = DatabaseConnection.startConnection(c, schema);
 		
 		Statement st1;
 		ResultSet rs1;
@@ -182,6 +196,8 @@ public class ServingDAO {
 			e.printStackTrace();
 			
 		}
+		
+		DatabaseConnection.closeConnection(c);
 	}
 }
 

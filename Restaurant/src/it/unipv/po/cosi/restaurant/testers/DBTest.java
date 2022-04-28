@@ -24,10 +24,10 @@ public class DBTest {
 //		
 //		c.insertOrder(order);
 		
-//		c.initializeCategories();
-//		c.initializeTables();
-//		c.initializeModifiers();
-//		c.initializeServings();
+		c.initializeCategories();
+		c.initializeTables();
+		c.initializeModifiers();
+		c.initializeServings();
 		c.initializeActiveServings();
 		
 		for (Serving plate : MenuSingleton.getInstance().getServingsArray()) {

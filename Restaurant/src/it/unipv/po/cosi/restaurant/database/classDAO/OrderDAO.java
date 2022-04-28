@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
@@ -11,14 +12,20 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 import java.sql.Connection;
 
 public class OrderDAO {
+	
+	private String schema;
+	private Connection c;
 
-	public OrderDAO() {}
+	public OrderDAO() {
+		this.schema = "restaurant";
+	}
 	
 	
-	public ArrayList<Order> selectAllOrders(Connection c) {
+	public ArrayList<Order> selectAllOrders() {
+		
+		c = DatabaseConnection.startConnection(c, schema);
 		
 		ArrayList<Order> result = new ArrayList<>();
-		
 		Statement st1;
 		ResultSet rs1;
 		
@@ -41,12 +48,15 @@ public class OrderDAO {
 			
 		}
 		
+		DatabaseConnection.closeConnection(c);
+		
 		return result;
 		
 	}
 	
-	public void insertOrder(Order order, Connection c) {
+	public void insertOrder(Order order) {
 		
+		c = DatabaseConnection.startConnection(c, schema);
 		Statement st1;
 		
 		try {
@@ -83,12 +93,15 @@ public class OrderDAO {
 			
 		}
 		
+		DatabaseConnection.closeConnection(c);
+		
 	}
 	
-	public Order selectOrder(int id, Connection c, ArrayList<Category> categories) {
+	public Order selectOrder(int id, ArrayList<Category> categories) {
+		
+		c = DatabaseConnection.startConnection(c, schema);
 		
 		Order result = new Order(id);
-		
 		Statement st1;
 		ResultSet rs1;
 		
@@ -125,6 +138,8 @@ public class OrderDAO {
 			e.printStackTrace();
 			
 		}
+		
+		DatabaseConnection.closeConnection(c);
 		
 		return result;
 		

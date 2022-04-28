@@ -11,18 +11,24 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
 public class CategoryDAO {	
+	
+	private String schema;
+	private Connection c;
 
-	public CategoryDAO() {}
+	public CategoryDAO() {
+		this.schema = "restaurant";
+	}
 	
 	
-	public void initializeCategories(Connection c) {
+	public void initializeCategories() {
+		
+		c = DatabaseConnection.startConnection(c, schema);
 		
 		File f = new File("src/it/unipv/po/cosi/restaurant/database/config/categories.csv");
-		
-		
 		String absolutePath = f.getAbsolutePath();
 		
 		try {
@@ -58,13 +64,16 @@ public class CategoryDAO {
 			
 			e.printStackTrace();
 		}
+		
+		DatabaseConnection.closeConnection(c);
 
 	}
 	
-	public ArrayList<Category> selectAllCategories(Connection c) {
+	public ArrayList<Category> selectAllCategories() {
+		
+		c = DatabaseConnection.startConnection(c, schema);
 		
 		ArrayList<Category> result = new ArrayList<>();
-		
 		Statement st1;
 		ResultSet rs1;
 		
@@ -86,6 +95,8 @@ public class CategoryDAO {
 			e.printStackTrace();
 			
 		}
+		
+		DatabaseConnection.closeConnection(c);
 		
 		return result;
 		

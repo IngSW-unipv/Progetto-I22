@@ -11,19 +11,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 public class ModifierDAO {
-
-	public ModifierDAO() {}
 	
-	public void initializeModifiers(Connection c) {
+	private String schema;
+	private Connection c;
+
+	public ModifierDAO() {
+		this.schema = "restaurant";
+	}
+	
+	public void initializeModifiers() {
 	    
+		c = DatabaseConnection.startConnection(c, schema);
+		
 		File f = new File("src/it/unipv/po/cosi/restaurant/database/config/modifiers.csv");
 		String absolutePath = f.getAbsolutePath();
-		
 		
 		try {
 			FileReader fr = new FileReader(absolutePath);
@@ -59,12 +66,15 @@ public class ModifierDAO {
 			e.printStackTrace();
 		}
 
+		DatabaseConnection.closeConnection(c);
+		
 	}
 	
-	public ArrayList<Modifier> selectAllModifiers(Connection c, ArrayList<Category> categories) {
+	public ArrayList<Modifier> selectAllModifiers(ArrayList<Category> categories) {
+		
+		c = DatabaseConnection.startConnection(c, schema);
 		
 		ArrayList<Modifier> result = new ArrayList<>();
-		
 		Statement st1;
 		ResultSet rs1;
 		
@@ -97,6 +107,8 @@ public class ModifierDAO {
 			e.printStackTrace();
 			
 		}
+		
+		DatabaseConnection.closeConnection(c);
 		
 		return result;
 		

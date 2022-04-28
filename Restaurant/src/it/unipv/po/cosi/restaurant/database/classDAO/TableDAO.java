@@ -11,14 +11,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
 public class TableDAO {
 	
-	public TableDAO() {}
+	private String schema;
+	private Connection c;
+	
+	public TableDAO() {
+		this.schema = "restaurant";
+	}
 
-	public void initializeTables(Connection c) {
+	public void initializeTables() {
 		
+		c = DatabaseConnection.startConnection(c, schema);
 		File f = new File("src/it/unipv/po/cosi/restaurant/database/config/tables.csv");		
 		String absolutePath = f.getAbsolutePath();
 
@@ -54,12 +61,14 @@ public class TableDAO {
 			e.printStackTrace();
 		}
 
+		DatabaseConnection.closeConnection(c);
 	}	
 	
-	public ArrayList<Table> selectAllTable(Connection c) {
+	public ArrayList<Table> selectAllTable() {
+		
+		c = DatabaseConnection.startConnection(c, schema);
 		
 		ArrayList<Table> result = new ArrayList<>();
-		
 		Statement st1;
 		ResultSet rs1;
 		
@@ -82,7 +91,10 @@ public class TableDAO {
 		
 		}
 		
+		DatabaseConnection.closeConnection(c);
+		
 		return result;
+		
 		
 	}
 	

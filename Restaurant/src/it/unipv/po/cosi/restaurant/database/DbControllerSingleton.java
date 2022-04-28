@@ -36,7 +36,7 @@ public class DbControllerSingleton {
 	public void initializeServings() {
 		
 		
-		serv.initializeServings(c);
+		serv.initializeServings();
 		
 	}
 			
@@ -44,7 +44,7 @@ public class DbControllerSingleton {
 	public void initializeCategories() {
 	
 		
-		cat.initializeCategories(c);
+		cat.initializeCategories();
 	
 	}
 						
@@ -52,7 +52,7 @@ public class DbControllerSingleton {
 	public void initializeModifiers() {
 	
 		
-		mod.initializeModifiers(c);
+		mod.initializeModifiers();
 	
 	}
 			
@@ -60,7 +60,7 @@ public class DbControllerSingleton {
 	public void initializeTables() {
 	
 		
-		tab.initializeTables(c);
+		tab.initializeTables();
 	
 	}
 	
@@ -68,56 +68,48 @@ public class DbControllerSingleton {
 //SERVING
 	public ArrayList<Serving> selectAllServings() {
 		
-		return serv.selectAllServings(c, cat.selectAllCategories(c));
+		return serv.selectAllServings(cat.selectAllCategories());
 		
 	}
 	
 	public void initializeActiveServings() {
 		
-		serv.initializeActiveServings(c, cat.selectAllCategories(c));
+		serv.initializeActiveServings(cat.selectAllCategories());
 	}
 	
 //ORDER
-	public ArrayList<Order> selectAllOrders(Connection c) {
-		return ord.selectAllOrders(c);
+	public ArrayList<Order> selectAllOrders() {
+		return ord.selectAllOrders();
 	}
 	
-	public void insertOrder(Order order, Connection c) {
-		ord.insertOrder(order, c);
+	public void insertOrder(Order order) {
+		ord.insertOrder(order);
 	}
 	
-	public Order selectOrder(int id, Connection c) {
-		return ord.selectOrder(id, c, cat.selectAllCategories(c));
+	public Order selectOrder(int id) {
+		return ord.selectOrder(id, cat.selectAllCategories());
 	}
 	
 	
 
 //MODIFIER
-	public ArrayList<Modifier> selectAllModifiers(Connection c) {
+	public ArrayList<Modifier> selectAllModifiers() {
 		
-		return mod.selectAllModifiers(c, cat.selectAllCategories(c));
+		return mod.selectAllModifiers(cat.selectAllCategories());
 		
 	}
 	
 //CATEGORY
-	public ArrayList<Category> selectAllCategories(Connection c) {
+	public ArrayList<Category> selectAllCategories() {
 	
-		return cat.selectAllCategories(c);
+		return cat.selectAllCategories();
 		
 	}
 
 //TABLE
-	public ArrayList<Table> selectAllTable(Connection c) {
+	public ArrayList<Table> selectAllTable() {
 		
-		return tab.selectAllTable(c);
+		return tab.selectAllTable();
 		
-	}
-	
-//CLOSE CONNECTION
-	public boolean closeConnection() {
-		
-		return DatabaseConnection.closeConnection(c);	
-		
-	}
-	
+	}	
 }
