@@ -61,5 +61,8 @@ public class Table {
 		this.order = order;
 	}
 
-	
+	@Override
+	public String toString() {
+		return number + "";
+	}
 }

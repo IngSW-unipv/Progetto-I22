@@ -16,7 +16,9 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
 public class DbControllerSingleton {
-
+	
+	private static DbControllerSingleton instance;
+	
 	private String schema;
 	private Connection c;
 	ServingDAO serv = new ServingDAO();
@@ -25,14 +27,25 @@ public class DbControllerSingleton {
 	TableDAO tab = new TableDAO();
 	OrderDAO ord = new OrderDAO();
 	
-	public DbControllerSingleton() {
+	private DbControllerSingleton() {
+		
 		super();
 		this.schema = "restaurant";
 		c = DatabaseConnection.startConnection(c, schema);
+		
 	}
 
 // populate table with menu .csv file //		
 	
+	public static DbControllerSingleton getInstance() {
+		
+		if (instance == null) {
+			
+			instance = new DbControllerSingleton();
+		}
+		
+		return instance;
+	}
 	
 	public void initializeServings() {
 		

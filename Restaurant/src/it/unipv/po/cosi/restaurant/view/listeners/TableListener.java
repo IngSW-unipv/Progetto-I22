@@ -19,35 +19,33 @@ public class TableListener extends JPanel implements ActionListener {
 	private JPanel p;
 	private JButton tavolo;
 	private JTextArea display;
-	private TablePanel t;
+	private TablePanel tp;
 	private JPanel north;
 	
 	
 	public TableListener(JButton tavolo, TablePanel t, JFrame f) {
-	this.t = t;
-	this.tavolo = tavolo;
-	this.f = f;
+		this.tp = t;
+		this.tavolo = tavolo;
+		this.f = f;
 
 	}
 	
 	
 	public void actionPerformed(ActionEvent e) {
 	
-		this.t.setVisible(false);
+		this.tp.setVisible(false);
+		
 		//	MainMenu.getCommand();
 		
 		p = new JPanel();
 		//f = new JFrame();
 		p.setVisible(true);	
+		
 		p.setLayout(new BorderLayout());
-		TableSubMenu t = new TableSubMenu(MainMenu.add, MainMenu.remove, MainMenu.back, this.t);
+		TableSubMenu t = new TableSubMenu(MainMenu.add, MainMenu.remove, MainMenu.back, this.tp);
 		
 		Container c = f.getContentPane();
-		c.add(p, BorderLayout.CENTER);
-		p.add(t, BorderLayout.NORTH);
 		
-		
-	
 		//viene creata una text area sulla quale verranno stampate le specifiche dell'ordine.
 		this.display = new JTextArea();
 		display.setBackground(Color.black);
@@ -57,6 +55,13 @@ public class TableListener extends JPanel implements ActionListener {
 		display.setEditable(false);
 		Status s = new Status(tavolo);
 		c.add(s, BorderLayout.EAST);	
+		
+		c.add(p, BorderLayout.CENTER);
+		p.add(t, BorderLayout.NORTH);
+		MainMenu.setActivePanel(p);
+		
+	
+
 	
 		//this.t.setVisible(true);
 	

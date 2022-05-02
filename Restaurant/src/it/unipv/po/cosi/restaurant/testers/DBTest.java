@@ -12,7 +12,8 @@ public class DBTest {
 
 	public static void main(String[] args) {
 	
-		DbControllerSingleton c= new DbControllerSingleton();
+		DbControllerSingleton c = DbControllerSingleton.getInstance();
+
 		
 //		Order order = new Order(new Table(3), 856);
 //		
@@ -28,6 +29,7 @@ public class DBTest {
 //		c.initializeTables();
 //		c.initializeModifiers();
 //		c.initializeServings();
+		c.populateCategoriesArray();
 		c.populateServingsArray();
 		
 		

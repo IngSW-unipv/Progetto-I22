@@ -9,12 +9,13 @@ import java.awt.event.*;
 
 public class BackListener implements ActionListener {
 	
-	private TablePanel t;
+	private JPanel t;
 	
 
-	public BackListener(TablePanel t)
-	{
+	public BackListener(JPanel t){
+		
 		this.t = t;
+
 	}
 	
 	

@@ -23,7 +23,7 @@ public class CommandPanel extends JPanel{
 //		graphicButton(adder);
 		
 		
-		Icon icon = new ImageIcon(MainMenu.lente);
+		Icon icon = new ImageIcon(MainMenu.lens);
 		JButton search = new JButton(icon);
 		search.setText("Search");
 		add(search);

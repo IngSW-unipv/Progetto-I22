@@ -14,10 +14,11 @@ public class MainMenu extends JFrame {
 
 	
 	private TablePanel tp;
+	private static JPanel activePanel;
 	private static CommandPanel commands;
 	public final static String logo = "src/it/unipv/po/cosi/restaurant/view/properties/R1.png";
 	public final static String add = "src/it/unipv/po/cosi/restaurant/view/properties/add.png";
-	public final static String lente = "src/it/unipv/po/cosi/restaurant/view/properties/lente.png";
+	public final static String lens = "src/it/unipv/po/cosi/restaurant/view/properties/lente.png";
 	//public final static String editMenu = "src/it/unipv/po/cosi/restaurant/view/properties/editMenu.png";
 	//public final static String rev = "src/it/unipv/po/cosi/restaurant/view/properties/revert.png";
 	public final static String remove = "src/it/unipv/po/cosi/restaurant/view/properties/minus.png";
@@ -34,7 +35,7 @@ public class MainMenu extends JFrame {
 		
 		int n = getTablesNumb();
 		this.tp = new TablePanel(n, this);
-		
+		this.activePanel = tp;
 		Container c = getContentPane();
 
 		commands = new CommandPanel();
@@ -42,12 +43,16 @@ public class MainMenu extends JFrame {
 		
 		c.add(tp, BorderLayout.CENTER);
 				
-		LowerPanel lp = new LowerPanel();
-		c.add(lp, BorderLayout.SOUTH);
+		//LowerPanel lp = new LowerPanel();
+		//c.add(lp, BorderLayout.SOUTH);
+		
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-	
+		
+		
+		
 	}
 	
 	
@@ -99,6 +104,21 @@ public class MainMenu extends JFrame {
 	 * legenda:
 	 * pTables = path file configurazione Tavoli
 	 * */
+	
+	
+	public TablePanel getTablePanel() {
+		return tp;
+	}
+	
+	
+	public static void setActivePanel(JPanel p){
+		activePanel = p;
+	}
+	
+	
+	public static JPanel getActivePanel() {
+		return activePanel;
+	}
 	
 	
 }
