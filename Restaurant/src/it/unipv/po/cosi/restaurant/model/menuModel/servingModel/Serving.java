@@ -10,9 +10,8 @@ public class Serving {
 	private float price;
 	private ArrayList<Modifier> modifiers;
 	private int quantity;
-	private static int startingID;
 	
-//	public Serving(int id, String name, float price, Category category) {
+	//	public Serving(int id, String name, float price, Category category) {
 //		
 //		this.id = id;
 //		this.name = name;
@@ -87,8 +86,6 @@ public class Serving {
 	}
 	 
 	public static void setStartingID(int id) {
-		
-		startingID = id;
 		
 	}
 	

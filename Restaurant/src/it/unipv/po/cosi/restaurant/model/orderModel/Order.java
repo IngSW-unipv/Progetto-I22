@@ -13,6 +13,8 @@ public class Order {
 	private Table table;
 	private float total;
 	
+
+
 	public Order() {
 		
 		id = counter++;
@@ -130,7 +132,9 @@ public class Order {
 		this.table = table;
 	}
 	
-	
+	public float getTotal() {
+		return total;
+	}
 	
 	
 }

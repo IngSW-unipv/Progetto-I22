@@ -49,6 +49,7 @@ public class TableDAO {
 				
 			}
 			
+			br.close();
 			
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block

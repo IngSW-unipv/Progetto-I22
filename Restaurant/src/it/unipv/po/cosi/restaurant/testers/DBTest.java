@@ -1,7 +1,7 @@
 package it.unipv.po.cosi.restaurant.testers;
 
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
-import it.unipv.po.cosi.restaurant.model.menuModel.MenuSingleton;
+import it.unipv.po.cosi.restaurant.model.menuModel.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
@@ -24,13 +24,14 @@ public class DBTest {
 //		
 //		c.insertOrder(order);
 		
-		c.initializeCategories();
-		c.initializeTables();
-		c.initializeModifiers();
-		c.initializeServings();
-		c.initializeActiveServings();
+//		c.initializeCategories();
+//		c.initializeTables();
+//		c.initializeModifiers();
+//		c.initializeServings();
+		c.populateServingsArray();
 		
-		for (Serving plate : MenuSingleton.getInstance().getServingsArray()) {
+		
+		for (Serving plate : RestaurantModel.getInstance().getServingsArray()) {
 			System.out.println(plate);
 		}
 	

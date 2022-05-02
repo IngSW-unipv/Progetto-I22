@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
-import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 public class ModifierDAO {
 	
@@ -69,6 +68,7 @@ public class ModifierDAO {
 		DatabaseConnection.closeConnection(c);
 		
 	}
+	
 	
 	public ArrayList<Modifier> selectAllModifiers(ArrayList<Category> categories) {
 		

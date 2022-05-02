@@ -12,7 +12,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
-import it.unipv.po.cosi.restaurant.model.menuModel.MenuSingleton;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
@@ -157,13 +156,13 @@ public class ServingDAO {
 
 	
 	
-	public void initializeActiveServings(ArrayList<Category> categories) {
+	public ArrayList<Serving> initializeActiveServings(ArrayList<Category> categories) {
 		
 		c = DatabaseConnection.startConnection(c, schema);
 		
+		ArrayList<Serving> rslt = new ArrayList<Serving>();
 		Statement st1;
 		ResultSet rs1;
-		ArrayList<Serving> list = new ArrayList<Serving>();
 		
 		try {
 			st1 = c.createStatement();
@@ -186,7 +185,7 @@ public class ServingDAO {
 				}
 				
 				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(4), cat);
-				MenuSingleton.getInstance().addServing(serving);
+				rslt.add(serving);
 								
 			}
 		}
@@ -198,7 +197,9 @@ public class ServingDAO {
 		}
 		
 		DatabaseConnection.closeConnection(c);
+		return rslt;
 	}
+	
 }
 
 	

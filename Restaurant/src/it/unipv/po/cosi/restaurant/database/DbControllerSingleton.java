@@ -8,6 +8,7 @@ import it.unipv.po.cosi.restaurant.database.classDAO.ModifierDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.OrderDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.ServingDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.TableDAO;
+import it.unipv.po.cosi.restaurant.model.menuModel.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
@@ -68,16 +69,18 @@ public class DbControllerSingleton {
 //SERVING
 	public ArrayList<Serving> selectAllServings() {
 		
-		return serv.selectAllServings(cat.selectAllCategories());
+		return serv.selectAllServings(RestaurantModel.getInstance().getCategoriesArray());
 		
 	}
 	
-	public void initializeActiveServings() {
+	public void populateServingsArray() {
 		
-		serv.initializeActiveServings(cat.selectAllCategories());
+		populateServingHiding();
 	}
+	
 	
 //ORDER
+	
 	public ArrayList<Order> selectAllOrders() {
 		return ord.selectAllOrders();
 	}
@@ -87,29 +90,71 @@ public class DbControllerSingleton {
 	}
 	
 	public Order selectOrder(int id) {
-		return ord.selectOrder(id, cat.selectAllCategories());
+		return ord.selectOrder(id, RestaurantModel.getInstance().getCategoriesArray());
 	}
-	
 	
 
 //MODIFIER
+	
 	public ArrayList<Modifier> selectAllModifiers() {
 		
-		return mod.selectAllModifiers(cat.selectAllCategories());
+		return mod.selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray());
 		
 	}
 	
+	public void populateModifiersArray() {
+		
+		populateModifiersHiding();
+		
+	}
+	
+	
 //CATEGORY
+	
 	public ArrayList<Category> selectAllCategories() {
 	
 		return cat.selectAllCategories();
 		
 	}
+	
+	public void populateCategoriesArray() {
+		
+		populateCategoriesHiding();
+	}
+	
 
 //TABLE
-	public ArrayList<Table> selectAllTable() {
+	
+	public ArrayList<Table> selectAllTables() {
 		
 		return tab.selectAllTable();
+
+	}
+	
+	public void populateTalesArray() {
 		
-	}	
+		populateTablesHiding();
+	}
+	
+	// STRUCTURE HIDING PATTERN //
+	
+	private void populateServingHiding() {  
+		
+		RestaurantModel.getInstance().populateServing(serv.initializeActiveServings(RestaurantModel.getInstance().getCategoriesArray()));
+	}
+	
+	private void populateModifiersHiding() {
+		
+		RestaurantModel.getInstance().populateModifiers(mod.selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray()));
+	}
+	
+	private void populateCategoriesHiding() {
+		
+		RestaurantModel.getInstance().populateCategories(cat.selectAllCategories());
+	}
+	
+	private void populateTablesHiding() {
+		
+		RestaurantModel.getInstance().populateTables(tab.selectAllTable());
+	}
 }
