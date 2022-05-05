@@ -26,10 +26,15 @@ public class Status extends JPanel{
 		add(status3);
 		add(status4);
 		
-		graphicButton(status1);
-		graphicButton(status2);
-		graphicButton(status3);
-		graphicButton(status4);
+		status1.setBackground(Color.black);
+		status2.setForeground(Color.black);
+		status3.setForeground(Color.black);
+		status4.setForeground(Color.black);
+		
+//		graphicButton(status1);
+//		graphicButton(status2);
+//		graphicButton(status3);
+//		graphicButton(status4);
 		
 		
 		
