@@ -4,48 +4,51 @@ import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JButton;
 
+import it.unipv.po.cosi.restaurant.model.orderModel.Table;
+
 public class JTableButton extends JButton {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	int ID;
+	
+	private Table table;
 	
 	
 	
-	public JTableButton(int ID) {
+	public JTableButton(Table table) {
 		super();
-		this.ID = ID;
+		this.table = table;
 		// TODO Auto-generated constructor stub
 	}
 
-	public JTableButton(Action a, int ID) {
+	public JTableButton(Action a, Table table) {
 		super(a);
-		this.ID = ID;
+		this.table = table;
 		// TODO Auto-generated constructor stub
 	}
 
-	public JTableButton(Icon icon, int ID) {
+	public JTableButton(Icon icon, Table table) {
 		super(icon);
-		this.ID = ID;
+		this.table = table;
 		// TODO Auto-generated constructor stub
 	}
 
-	public JTableButton(String text, Icon icon, int ID) {
+	public JTableButton(String text, Icon icon, Table table) {
 		super(text, icon);
-		this.ID = ID;
+		this.table = table;
 		// TODO Auto-generated constructor stub
 	}
 
-	public JTableButton(String text, int ID) {
+	public JTableButton(String text, Table table) {
 		super(text);
-		this.ID = ID;
+		this.table = table;
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getID() {
-		return ID;
+	public Table getTable() {
+		return table;
 	}
 	
 	

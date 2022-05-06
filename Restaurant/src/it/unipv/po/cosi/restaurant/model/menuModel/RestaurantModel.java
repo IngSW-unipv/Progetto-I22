@@ -19,6 +19,10 @@ public class RestaurantModel {
 		//Using Exoert pattern
 		
 		this.servings = new ArrayList<Serving>();
+		this.tables = new ArrayList<Table>();
+		this.orders = new ArrayList<Order>();
+		this.modifiers = new ArrayList<Modifier>();
+		this.categories = new ArrayList<Category>();
 		
 	}
 	

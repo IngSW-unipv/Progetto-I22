@@ -2,15 +2,17 @@ package it.unipv.po.cosi.restaurant.view2;
 
 import javax.swing.JFrame;
 import javax.swing.border.Border;
+
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
+import it.unipv.po.cosi.restaurant.model.orderModel.Table;
+
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
-
 import javax.imageio.ImageIO;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.BorderLayout;
@@ -36,7 +38,7 @@ public class MainView extends JFrame {
 	
 	
 	
-	public MainView(int n) throws IOException {
+	public MainView(ArrayList<Table> tables, ArrayList<Category> categories) throws IOException {
 		
 		try {
 		    UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName());
@@ -45,16 +47,17 @@ public class MainView extends JFrame {
 		 }
 		
 		tableButtons = new ArrayList<JTableButton>();
-		initComponents(n);
+		initComponents(tables, categories);
 	
 	}
 	
-	private void initComponents(int n) throws IOException {
+	private void initComponents(ArrayList<Table> tables, ArrayList<Category> categories) throws IOException {
 		
 		// TABLE PANEL //
-		orderView = new OrderView();
+		int nTables = tables.size();
+		orderView = new OrderView(categories);
 		tablePane = new JPanel();
-		tablePane.setLayout(new GridLayout((int)Math.ceil(Math.sqrt(n)), (int)Math.ceil(Math.sqrt(n)), 15, 15));
+		tablePane.setLayout(new GridLayout((int)Math.ceil(Math.sqrt(nTables)), (int)Math.ceil(Math.sqrt(nTables)), 15, 15));
 		
 		// LEGEND PANE //
 		
@@ -83,13 +86,13 @@ public class MainView extends JFrame {
 		editPane.add(editButton, BorderLayout.NORTH);
 //		editPane.add(legendPane, BorderLayout.CENTER);
 		
-		for(int i=0; i<=n; i++) {
+		for(Table table: tables) {
 			
-			JTableButton butt = new JTableButton(""+i, i);
+			JTableButton butt = new JTableButton(""+table.getNumber(), table);
 			butt.setFont(new java.awt.Font("Synchro LET", 1, 24));
 			butt.setOpaque(true);
 //			butt.setBorderPainted(false);
-			butt.setBackground(Color.green);
+			butt.setBackground(new Color(0,191,57));
 //			butt.setVisible(false);
 			tableButtons.add(butt);
 			tablePane.add(butt);
@@ -143,7 +146,7 @@ public class MainView extends JFrame {
 		
 		for(JTableButton b: tableButtons) {
 			
-			if(id==b.getID()) {
+			if(id==b.getTable().getNumber()) {
 				return b;
 			}		
 		}

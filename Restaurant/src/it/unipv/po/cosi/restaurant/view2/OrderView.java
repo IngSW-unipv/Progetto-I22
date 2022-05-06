@@ -1,10 +1,11 @@
 package it.unipv.po.cosi.restaurant.view2;
 
-import javax.swing.JFrame;
-
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
@@ -14,8 +15,10 @@ import java.awt.FlowLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.CardLayout;
 import java.util.Collections;
 import java.util.List;
+
 
 public class OrderView extends JFrame {
 	
@@ -29,58 +32,75 @@ public class OrderView extends JFrame {
 	private JPanel statusControlPane;
 	private JButton backButton;
 	private JStatusButton freeButton;
+	private JStatusButton prenotedButton;
 	private JStatusButton orderedButton;
 	private JStatusButton waitingButton;
 	private JStatusButton payingSoonButton;
 	private JTableButton source = null;
 	private JList<Serving> orderList;
-//	private DefaultListModel<Serving> orderListModel;
 	private JList<Serving> servingList;
-//	private DefaultListModel<Serving> servingListModel;
+	private JPanel scrollingContainer;
+	private JPanel scrollingRightContainer;
+	private ArrayList<JButton> categoryButtons;
+	private JPanel categoryButtonPane;
 	
-	public OrderView() {
+	public OrderView(ArrayList<Category> categories) {
 		
-		initComponents();
+		initComponents(categories);
 	}
 
-	private void initComponents() {
+	private void initComponents(ArrayList<Category> categories) {
 		
 	// LIST PANE //
 		
+		scrollingContainer = new JPanel();
+		scrollingContainer.setLayout(new GridLayout(1, 2));
+		scrollingRightContainer = new JPanel();
+		scrollingRightContainer.setLayout(new BorderLayout());
+		categoryButtons = new ArrayList<JButton>(); 
+		categoryButtonPane = new JPanel();
 		// ORDER LIST SCROLLER //
 		
 //		orderListModel = new DefaultListModel<Serving>();
 		orderList = new JList<Serving>();
-		orderList.setFont(new java.awt.Font("Arial", 0, 24));
+		orderList.setFont(new java.awt.Font("Arial", 0, 32));
 		orderScroller = new JScrollPane(orderList);
+		orderList.setFixedCellHeight(80);
 		orderList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		orderList.setLayoutOrientation(JList.VERTICAL);
 		orderList.setVisibleRowCount(-1);
-//		listScroller.setPreferredSize(new Dimension(250, 80));
 		
 		orderList.setForeground(Color.black);
 		orderList.setVisible(true);
 		orderList.setBackground(Color.white);
-		
-//		orderList.setModel(orderListModel);
 		
 		
 		// SERVING LIST SCROLLER //
 
 //		servingListModel = new DefaultListModel<Serving>();
 		servingList = new JList<Serving>();
-		servingList.setFont(new java.awt.Font("Arial", 0, 24));
-		servingScroller = new JScrollPane(orderList);
+		servingList.setFont(new java.awt.Font("Arial", 0, 36));
+		servingScroller = new JScrollPane(servingList);
+		servingList.setFixedCellHeight(100);
 		servingList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		servingList.setLayoutOrientation(JList.VERTICAL);
 		servingList.setVisibleRowCount(-1);
-//		listScroller.setPreferredSize(new Dimension(250, 80));
 		
 		servingList.setForeground(Color.black);
 		servingList.setVisible(true);
 		servingList.setBackground(Color.white);
 		
-//		servingList.setModel(servingListModel);
+		
+		for(Category c: categories) {
+			
+			JButton butt = new JButton(c.getName());
+			butt.setFont(new java.awt.Font("Arial", 0, 40));
+			butt.setMinimumSize(new Dimension(0, 80));
+			categoryButtons.add(butt);
+			categoryButtonPane.setLayout(new GridLayout(1, 3));
+			categoryButtonPane.add(butt);
+			
+		}
 		
 		
 	// BACK BUTTON //
@@ -94,13 +114,15 @@ public class OrderView extends JFrame {
 		// STATUS CONTROL PANE //
 		
 		statusControlPane = new JPanel();
-		statusControlPane.setLayout(new GridLayout(4, 1));
+		statusControlPane.setLayout(new GridLayout(5, 1));
 		statusControlPane.add(freeButton = new JStatusButton("FREE", 1));
+		statusControlPane.add(prenotedButton = new JStatusButton("PRENOTED", 5));
 		statusControlPane.add(orderedButton = new JStatusButton("ORDERED", 2));
 		statusControlPane.add(waitingButton = new JStatusButton("WAITING", 3));
 		statusControlPane.add(payingSoonButton = new JStatusButton("PAYING SOON", 4));
 		
 		freeButton.setFont(new java.awt.Font("Arial", 4, 26));
+		prenotedButton.setFont(new java.awt.Font("Arial", 4, 26));
 		orderedButton.setFont(new java.awt.Font("Arial", 4, 26));
 		waitingButton.setFont(new java.awt.Font("Arial", 4, 26));
 		payingSoonButton.setFont(new java.awt.Font("Arial", 4, 26));
@@ -112,14 +134,17 @@ public class OrderView extends JFrame {
 		  Dimension screenSize = kit.getScreenSize(); 
 		  int screenHeight = screenSize.height;
 		  int screenWidth = screenSize.width;
-//		  setSize(screenWidth,(int)(screenHeight-0.1*screenHeight)); 
-		  setSize(screenWidth/2,(screenHeight/2));
+		  setSize(screenWidth,(int)(screenHeight-0.1*screenHeight)); 
+//		  setSize(screenWidth/2,(screenHeight/2));
 	      setResizable(true);
 	      
-		getContentPane().add(orderScroller, BorderLayout.WEST);
-		getContentPane().add(servingScroller, BorderLayout.CENTER);
-		getContentPane().add(mainButtonPane, BorderLayout.NORTH);
-		getContentPane().add(statusControlPane, BorderLayout.EAST);
+		scrollingContainer.add(orderScroller);
+		scrollingContainer.add(scrollingRightContainer);
+		scrollingRightContainer.add(servingScroller, BorderLayout.CENTER);
+		scrollingRightContainer.add(categoryButtonPane, BorderLayout.NORTH );
+		add(scrollingContainer, BorderLayout.CENTER);
+		add(mainButtonPane, BorderLayout.NORTH);
+		add(statusControlPane, BorderLayout.EAST);
 		
 	}
 
@@ -163,17 +188,14 @@ public class OrderView extends JFrame {
 		return payingSoonButton;
 	}
 
-	public JList<Serving> getServingList() {
-		return orderList;
-	}
 	
-//	public void addElementToList(Serving o) {
-//		this.orderListModel.add(0, o);
-//	}
-//
-//	public DefaultListModel<Serving> getListModel() {
-//		return orderListModel;
-//	}
+	public JStatusButton getPrenotedButton() {
+		return prenotedButton;
+	}
+
+	public JList<Serving> getServingList() {
+		return servingList;
+	}
 
 	public JScrollPane getServingScroller() {
 		return servingScroller;
