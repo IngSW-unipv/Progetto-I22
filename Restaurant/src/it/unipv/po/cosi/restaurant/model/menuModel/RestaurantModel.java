@@ -124,6 +124,18 @@ public class RestaurantModel {
 		return categories;
 	}
 	
+	public ArrayList<Serving> getServingsPerCategory(Category c) {
+		
+		ArrayList<Serving> rslt = new ArrayList<Serving>();
+		
+		for(Serving s: servings) {
+			
+			if(c.equals(s.getCategory())) {
+				rslt.add(s);
+			}
+		}
+		return rslt;
+	}
 	// METODO CHE NON SO A COSA SERVA //
 	
 	public boolean update() {

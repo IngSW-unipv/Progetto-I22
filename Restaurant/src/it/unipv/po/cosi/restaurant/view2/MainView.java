@@ -58,7 +58,7 @@ public class MainView extends JFrame {
 		orderView = new OrderView(categories);
 		tablePane = new JPanel();
 		tablePane.setLayout(new GridLayout((int)Math.ceil(Math.sqrt(nTables)), (int)Math.ceil(Math.sqrt(nTables)), 15, 15));
-		
+		tablePane.setBorder(BorderFactory.createLineBorder(Color.black));
 		// LEGEND PANE //
 		
 //		BufferedImage image = ImageIO.read(new File("src/view/source/legenda.svg"));

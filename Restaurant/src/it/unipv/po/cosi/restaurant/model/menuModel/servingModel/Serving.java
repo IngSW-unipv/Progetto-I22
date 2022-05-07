@@ -2,7 +2,7 @@ package it.unipv.po.cosi.restaurant.model.menuModel.servingModel;
 
 import java.util.ArrayList;
 
-public class Serving {
+public class Serving implements Comparable<Serving> {
 	
 	private int id;
 	private String name;
@@ -93,4 +93,11 @@ public class Serving {
 	public String toString() {
 		return name;
 	}
+
+	@Override
+	public int compareTo(Serving o) {
+		
+		return name.compareTo(o.getName());
+	}
+
 }

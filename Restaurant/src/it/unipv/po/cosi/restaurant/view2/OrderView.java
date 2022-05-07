@@ -41,8 +41,12 @@ public class OrderView extends JFrame {
 	private JList<Serving> servingList;
 	private JPanel scrollingContainer;
 	private JPanel scrollingRightContainer;
-	private ArrayList<JButton> categoryButtons;
+	private ArrayList<JCategoryButton> categoryButtons;
 	private JPanel categoryButtonPane;
+	private JButton addToOrderButton;
+	private JButton removeFromOrderButton;
+	private JPanel scrollingLeftContainer;
+	
 	
 	public OrderView(ArrayList<Category> categories) {
 		
@@ -55,10 +59,17 @@ public class OrderView extends JFrame {
 		
 		scrollingContainer = new JPanel();
 		scrollingContainer.setLayout(new GridLayout(1, 2));
+		scrollingLeftContainer = new JPanel();
+		scrollingLeftContainer.setLayout(new BorderLayout());
 		scrollingRightContainer = new JPanel();
 		scrollingRightContainer.setLayout(new BorderLayout());
-		categoryButtons = new ArrayList<JButton>(); 
+		categoryButtons = new ArrayList<JCategoryButton>(); 
 		categoryButtonPane = new JPanel();
+		addToOrderButton = new JButton("⊕ Aggiungi");
+		addToOrderButton.setFont(new java.awt.Font("Arial", 0, 32));
+		removeFromOrderButton = new JButton("⊖ Rimuovi");
+		removeFromOrderButton.setFont(new java.awt.Font("Arial", 0, 32));
+		scrollingRightContainer.add(addToOrderButton, BorderLayout.SOUTH);
 		// ORDER LIST SCROLLER //
 		
 //		orderListModel = new DefaultListModel<Serving>();
@@ -93,7 +104,7 @@ public class OrderView extends JFrame {
 		
 		for(Category c: categories) {
 			
-			JButton butt = new JButton(c.getName());
+			JCategoryButton butt = new JCategoryButton(c.getName(), c);
 			butt.setFont(new java.awt.Font("Arial", 0, 40));
 			butt.setMinimumSize(new Dimension(0, 80));
 			categoryButtons.add(butt);
@@ -138,10 +149,13 @@ public class OrderView extends JFrame {
 //		  setSize(screenWidth/2,(screenHeight/2));
 	      setResizable(true);
 	      
-		scrollingContainer.add(orderScroller);
+		scrollingContainer.add(scrollingLeftContainer);
 		scrollingContainer.add(scrollingRightContainer);
 		scrollingRightContainer.add(servingScroller, BorderLayout.CENTER);
+		scrollingLeftContainer.add(orderScroller, BorderLayout.CENTER);
+		scrollingLeftContainer.add(removeFromOrderButton, BorderLayout.SOUTH);
 		scrollingRightContainer.add(categoryButtonPane, BorderLayout.NORTH );
+		
 		add(scrollingContainer, BorderLayout.CENTER);
 		add(mainButtonPane, BorderLayout.NORTH);
 		add(statusControlPane, BorderLayout.EAST);
@@ -203,6 +217,18 @@ public class OrderView extends JFrame {
 
 	public JList<Serving> getOrderList() {
 		return orderList;
+	}
+
+	public ArrayList<JCategoryButton> getCategoryButtons() {
+		return categoryButtons;
+	}
+
+	public JButton getAddToOrderButton() {
+		return addToOrderButton;
+	}
+
+	public JButton getRemoveFromOrderButton() {
+		return removeFromOrderButton;
 	}
 	
 	
