@@ -58,7 +58,11 @@ public class MVCController {
 	            	populateOrderList(table.getOrder().getServings());
 	            }
 	            else {
-
+	            	Order o = new Order(table);
+					table.setOrder(o);
+					o.setTable(table);
+	            	model.addOrder(o);
+	            	populateOrderList(o.getServings());
 	            }
 	               
 	         }
@@ -178,20 +182,11 @@ public class MVCController {
 				if(view.getOrderView().getServingList().getSelectedValue()== null) {
 					
 				}
-				else { 	if(view.getOrderView().getSource().getTable().getOrder()==null) {
-		            	
-							
-							Order o = new Order(table);
-							table.setOrder(o);
-			            	model.addOrder(o);
-			            	o.addServing(view.getOrderView().getServingList().getSelectedValue());
-			            	populateOrderList(o.getServings());
-						}
-						else {
+				else { 	
 							Order o = view.getOrderView().getSource().getTable().getOrder();
 			            	o.addServing(view.getOrderView().getServingList().getSelectedValue());
 			            	populateOrderList(o.getServings());
-						}
+		
 				}
 			}
 	    	  
