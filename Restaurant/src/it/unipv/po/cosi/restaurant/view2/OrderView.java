@@ -70,6 +70,8 @@ public class OrderView extends JFrame {
 		removeFromOrderButton = new JButton("⊖ Rimuovi");
 		removeFromOrderButton.setFont(new java.awt.Font("Arial", 0, 32));
 		scrollingRightContainer.add(addToOrderButton, BorderLayout.SOUTH);
+		
+		
 		// ORDER LIST SCROLLER //
 		
 //		orderListModel = new DefaultListModel<Serving>();
@@ -145,9 +147,10 @@ public class OrderView extends JFrame {
 		  Dimension screenSize = kit.getScreenSize(); 
 		  int screenHeight = screenSize.height;
 		  int screenWidth = screenSize.width;
-		  setSize(screenWidth,(int)(screenHeight-0.1*screenHeight)); 
+		  setSize(screenWidth,screenHeight); 
 //		  setSize(screenWidth/2,(screenHeight/2));
 	      setResizable(true);
+	      
 	      
 		scrollingContainer.add(scrollingLeftContainer);
 		scrollingContainer.add(scrollingRightContainer);

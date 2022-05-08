@@ -87,18 +87,7 @@ public class Order {
 
 	public boolean removeServing(Serving serving) {
 		
-		for (Serving serv : servings) {
-			
-			if(serving.equals(serv)) {
-					
-					servings.remove(serv);
-					return true;
-					
-			}
-		}	
-			
-		return false;
-			
+		return this.servings.remove(serving);
 	}
 
 	public float getSubtotal() {

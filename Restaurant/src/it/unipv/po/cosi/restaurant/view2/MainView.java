@@ -83,6 +83,7 @@ public class MainView extends JFrame {
 		editPane.setSize(300, 1000);
 		editButton = new JButton(" Impostazioni ");
 		editButton.setFont(new java.awt.Font("Synchro LET", 1, 24));
+//		editButton.setContentAreaFilled(false);
 		editPane.add(editButton, BorderLayout.NORTH);
 //		editPane.add(legendPane, BorderLayout.CENTER);
 		
@@ -110,11 +111,11 @@ public class MainView extends JFrame {
 		  Dimension screenSize = kit.getScreenSize(); 
 		  int screenHeight = screenSize.height;
 		  int screenWidth = screenSize.width;
-		  setSize(screenWidth,(int)(screenHeight-0.1*screenHeight)); 
+		  setSize(screenWidth,screenHeight); 
 //		  ssetLocation(screenWidth/4,screenHeight/4);
 	      
 //	      setExtendedState(JFrame.MAXIMIZED_BOTH);
-		  setResizable(false);
+		  setResizable(true);
 	      add(tablePane, BorderLayout.CENTER);
 		  add(editPane, BorderLayout.EAST);
 		  

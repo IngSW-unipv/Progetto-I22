@@ -179,15 +179,19 @@ public class MVCController {
 			
 			private void manageAction(Table table) {
 				
-				if(view.getOrderView().getServingList().getSelectedValue()== null) {
-					
+				if(view.getOrderView().getServingList().getSelectedValue()!= null) {
+							
+						Order o = view.getOrderView().getSource().getTable().getOrder();
+		            	o.addServing(view.getOrderView().getServingList().getSelectedValue());
+		            	populateOrderList(o.getServings());
+		    			view.getSingleButton(view.getOrderView().getSource().getTable().getNumber()).setBackground(new Color(252,93,93));   // RED
+		    			view.getSingleButton(view.getOrderView().getSource().getTable().getNumber()).getTable().setStatus(Status.ORDERED);
+
 				}
-				else { 	
-							Order o = view.getOrderView().getSource().getTable().getOrder();
-			            	o.addServing(view.getOrderView().getServingList().getSelectedValue());
-			            	populateOrderList(o.getServings());
+				 	
+							
 		
-				}
+				
 			}
 	    	  
 	      };
@@ -195,6 +199,30 @@ public class MVCController {
 	      view.getOrderView().getAddToOrderButton().addActionListener(addServingListener);
 	      
 	 
+	      // REMOVE SERVING LISTENER //
+	      
+	      ActionListener removeServingListener = new ActionListener( ) {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				manageAction();
+				
+			}
+			
+			private void manageAction() {
+				
+				if(view.getOrderView().getOrderList().getSelectedValue()!= null) {
+					
+					Order o = view.getOrderView().getSource().getTable().getOrder();
+					Serving s = view.getOrderView().getOrderList().getSelectedValue();
+					o.removeServing(s);
+					populateOrderList(o.getServings());
+				}
+			}
+	    	  
+	      };
+	      
+	      view.getOrderView().getRemoveFromOrderButton().addActionListener(removeServingListener);
 	 }				//// END OF addListener() METHOD ////
 	 
 	 					
