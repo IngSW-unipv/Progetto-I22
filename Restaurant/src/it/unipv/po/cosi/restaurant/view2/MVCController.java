@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 
+import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.model.menuModel.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
@@ -223,6 +224,29 @@ public class MVCController {
 	      };
 	      
 	      view.getOrderView().getRemoveFromOrderButton().addActionListener(removeServingListener);
+	      
+	      
+	      // POWER OFF LISTENER //
+	      
+	      ActionListener shutDownListener = new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				manageAction();
+			}
+			
+			private void manageAction() {
+				
+				for(Order o: model.getOrdersArray()) {
+					DbControllerSingleton.getInstance().insertOrder(o);
+				}
+				System.exit(0);
+			}
+	    	  
+	      };
+	      
+	      view.getShutDownButton().addActionListener(shutDownListener);
 	 }				//// END OF addListener() METHOD ////
 	 
 	 					

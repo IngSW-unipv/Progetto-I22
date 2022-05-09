@@ -1,24 +1,20 @@
 package it.unipv.po.cosi.restaurant.view2;
 
-import javax.swing.JFrame;
 import javax.swing.border.Border;
 
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
+import it.unipv.po.cosi.restaurant.view.mainInterface.MainMenu;
 
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
 import javax.imageio.ImageIO;
-import java.awt.GraphicsConfiguration;
-import java.awt.HeadlessException;
+
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.Color;
-import java.awt.GridLayout;
+
 import java.util.Collections;
 import java.awt.*;
 
@@ -34,8 +30,8 @@ public class MainView extends JFrame {
 	private JButton editButton;
 	private OrderView orderView;
 	private JPanel legendPane;
-
-	
+	private JButton shutDownButton;
+	private JPanel pane;
 	
 	
 	public MainView(ArrayList<Table> tables, ArrayList<Category> categories) throws IOException {
@@ -81,10 +77,15 @@ public class MainView extends JFrame {
 		editPane = new JPanel();
 		editPane.setLayout(new BorderLayout());
 		editPane.setSize(300, 1000);
-		editButton = new JButton(" Impostazioni ");
-		editButton.setFont(new java.awt.Font("Synchro LET", 1, 24));
+		pane = new JPanel(new FlowLayout());
+		editButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/settings.PNG"));
+		shutDownButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/powerOffWhite.PNG"));
+		shutDownButton.setBackground(Color.red);
 //		editButton.setContentAreaFilled(false);
-		editPane.add(editButton, BorderLayout.NORTH);
+//		editPane.add(editButton, BorderLayout.SOUTH);
+		editPane.add(pane, BorderLayout.NORTH);
+		pane.add(editButton);
+		pane.add(shutDownButton);
 //		editPane.add(legendPane, BorderLayout.CENTER);
 		
 		for(Table table: tables) {
@@ -105,7 +106,7 @@ public class MainView extends JFrame {
 		// THIS VIEW // 
 		
 		  setLayout(new BorderLayout());
-	      setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+	      setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 	      
 	      Toolkit kit = Toolkit.getDefaultToolkit(); 
 		  Dimension screenSize = kit.getScreenSize(); 
@@ -139,6 +140,10 @@ public class MainView extends JFrame {
 		return editButton;
 	}
 	
+	public JButton getShutDownButton() {
+		return shutDownButton;
+	}
+
 	public OrderView getOrderView() {
 		return orderView;
 	}
