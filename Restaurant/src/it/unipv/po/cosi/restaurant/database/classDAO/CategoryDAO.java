@@ -36,23 +36,47 @@ public class CategoryDAO {
 			BufferedReader br = new BufferedReader(fr);
 			
 			Statement st1;
-
+			ResultSet rs1, rs_num;
 			String line = br.readLine();
+			
+			st1 = c.createStatement(); 
+			rs_num = st1.executeQuery("select count(*) from restaurant.category");
+			rs_num.next();
+			int totcat = rs_num.getInt(1);
+			String[] categories = new String[totcat];
+			rs1 = st1.executeQuery("select * from restaurant.category");
+			
+			for(int i=0;i<totcat;i++) {
+
+				rs1.next();
+				categories[i] = rs1.getString(1); 
+				System.out.println(categories[i]);
+
+			}
+			
 			while(line!=null) {				
 
-				st1 = c.createStatement(); 
-				String query = "INSERT INTO category (name) VALUE ('" + line + "');";
-				st1.executeUpdate(query);
+				boolean flag = false;
 				
-				System.out.println(query);
+				for(int i=0;i<totcat;i++) {
+					if(line.equals(categories[i])) {
+						flag = true;
+					}
+				}
 				
+				if(!flag) {
+					
+					String query = "INSERT INTO category (name) VALUE ('" + line + "');";
+					st1.executeUpdate(query);
+					System.out.println(query);
+				}
+						
 				line=br.readLine();
 				
 			}
 			
 			br.close();
 			fr.close();
-			
 			
 		} catch (FileNotFoundException e1) {
 			

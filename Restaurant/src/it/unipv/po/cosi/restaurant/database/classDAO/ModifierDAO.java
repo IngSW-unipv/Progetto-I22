@@ -36,18 +36,45 @@ public class ModifierDAO {
 			BufferedReader br = new BufferedReader(fr);
 			
 			Statement st1;
+			ResultSet rs1;	
 			
+			st1 = c.createStatement(); 
+			rs1 = st1.executeQuery("select count(*) from modifier");
+			rs1.next();
+			int nummod = rs1.getInt(1);
 			String line=br.readLine();
+
+			boolean flag;
+			
+			rs1 = st1.executeQuery("select name from restaurant.modifier");
+			
+			String[] mod = new String[nummod];
+			
+			for(int i=0; i<nummod; i++) {
+				rs1.next();
+				mod[i] = rs1.getString(1); 
+			}
+			
 			while(line!=null) {
 			
+				flag = false;
+				
 				String[] entries=line.split(";");
 				
-				st1 = c.createStatement(); 
-				String query = "INSERT INTO modifier (name, price, category) VALUE ('" 
-								+ entries[0] + "','"  + entries[1] + "','" + entries[2]  + "');";
-
-				st1.executeUpdate(query);
-				System.out.println(query);
+				for(int i=0;i<nummod;i++) {
+					if(entries[0].equals(mod[i])) {
+						flag = true;
+					}
+				}
+				
+				if(!flag) {
+					
+					String query = "INSERT INTO modifier (name, price, category) VALUE ('" 
+							+ entries[0] + "','"  + entries[1] + "','" + entries[2]  + "');";					
+					st1.executeUpdate(query);
+					System.out.println(query);
+				}
+				
 				line=br.readLine();
 			}
 			

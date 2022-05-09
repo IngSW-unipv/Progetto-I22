@@ -41,10 +41,8 @@ public class ServingDAO {
 			String qry = "select max(id) from restaurant.serving;";
 			String line=br.readLine();
 			boolean flag;
-			
 			st2 = c.createStatement();
 			rs = st2.executeQuery(qry);
-			
 			rs.next();
 			int max = rs.getInt(1);
 			Serving.setStartingID(max);
@@ -92,6 +90,7 @@ public class ServingDAO {
 			}
 		
 			br.close();
+			fr.close();
 			
 		} catch (FileNotFoundException e1) {
 			
