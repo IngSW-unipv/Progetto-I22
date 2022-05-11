@@ -15,10 +15,10 @@ public class GUITest {
 		
 			DbControllerSingleton dbc = DbControllerSingleton.getInstance();
 			
-			dbc.initializeCategories();
-			dbc.initializeTables();
-			dbc.initializeModifiers();
-			dbc.initializeServings();
+//			dbc.initializeCategories();
+//			dbc.initializeTables();
+//			dbc.initializeModifiers();
+//			dbc.initializeServings();
 			dbc.populateCategoriesArray();
 			dbc.populateServingsArray();
 			dbc.populateTalesArray();
