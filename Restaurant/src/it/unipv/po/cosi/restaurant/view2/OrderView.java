@@ -20,7 +20,7 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class OrderView extends JFrame {
+public class OrderView extends JPanel {
 	
 	/**
 	 * 
@@ -149,7 +149,7 @@ public class OrderView extends JFrame {
 		  int screenWidth = screenSize.width;
 		  setSize(screenWidth,screenHeight); 
 //		  setSize(screenWidth/2,(screenHeight/2));
-	      setResizable(true);
+//	      setResizable(true);
 	      
 	      
 		scrollingContainer.add(scrollingLeftContainer);
@@ -158,7 +158,7 @@ public class OrderView extends JFrame {
 		scrollingLeftContainer.add(orderScroller, BorderLayout.CENTER);
 		scrollingLeftContainer.add(removeFromOrderButton, BorderLayout.SOUTH);
 		scrollingRightContainer.add(categoryButtonPane, BorderLayout.NORTH );
-		
+		setLayout(new BorderLayout());
 		add(scrollingContainer, BorderLayout.CENTER);
 		add(mainButtonPane, BorderLayout.NORTH);
 		add(statusControlPane, BorderLayout.EAST);
