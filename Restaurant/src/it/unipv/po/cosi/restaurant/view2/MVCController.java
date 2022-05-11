@@ -52,7 +52,8 @@ public class MVCController {
 	         }
 
 	         private void manageAction(Table table) {
-	            view.getOrderView().setVisible(true);
+//	            view.getOrderView().setVisible(true);
+	        	 view.getC1().show(view.getCardPane(), "2");
 	            
 	            
 	            if(table.getOrder()!= null) {
@@ -136,7 +137,8 @@ public class MVCController {
 	    	  
 	    	  private void manageAction() {
 	    		  
-	    		  view.getOrderView().dispose();
+//	    		  view.getOrderView().dispose();
+	    		  view.getC1().show(view.getCardPane(), "1");
 	    	  }
 	      };
 	      

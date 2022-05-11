@@ -5,16 +5,13 @@ import javax.swing.border.Border;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 import it.unipv.po.cosi.restaurant.view.mainInterface.MainMenu;
-
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
 import javax.imageio.ImageIO;
-
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
 import java.util.Collections;
 import java.awt.*;
 
@@ -32,6 +29,9 @@ public class MainView extends JFrame {
 	private JPanel legendPane;
 	private JButton shutDownButton;
 	private JPanel pane;
+	private JPanel cardPane;
+	private JPanel mainPane;
+	private CardLayout c1;
 	
 	
 	public MainView(ArrayList<Table> tables, ArrayList<Category> categories) throws IOException {
@@ -71,6 +71,13 @@ public class MainView extends JFrame {
 //		legendPane.add(legend);
 //		legendPane.add(greenDot);
 		
+		
+		// CARD LAYOUT PANEL //
+		
+		
+		c1 = new CardLayout();
+		cardPane = new JPanel();
+		cardPane.setLayout(c1);
 		
 		// EDIT PANEL //
 		
@@ -117,15 +124,33 @@ public class MainView extends JFrame {
 	      
 //	      setExtendedState(JFrame.MAXIMIZED_BOTH);
 		  setResizable(true);
-	      add(tablePane, BorderLayout.CENTER);
-		  add(editPane, BorderLayout.EAST);
-		  
+		  mainPane = new JPanel();
+		  mainPane.setLayout(new BorderLayout());
+	      mainPane.add(tablePane, BorderLayout.CENTER);
+		  mainPane.add(editPane, BorderLayout.EAST);
+		  cardPane.add(mainPane, "1");
+		  cardPane.add(orderView, "2");
+		  c1.show(cardPane, "1");
+		  mainPane.setVisible(true);
+		  add(cardPane);
 		  
 		  
 	}
 
 	public ArrayList<JTableButton> getTableButtons() {
 		return tableButtons;
+	}
+	
+	public CardLayout getC1() {
+		return c1;
+	}
+	
+	public JPanel getCardPane() {
+		return cardPane;
+	}
+
+	public JPanel getMainPane() {
+		return mainPane;
 	}
 
 	public JPanel getTablePane() {
