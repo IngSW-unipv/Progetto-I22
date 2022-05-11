@@ -65,9 +65,12 @@ public class OrderView extends JFrame {
 		scrollingRightContainer.setLayout(new BorderLayout());
 		categoryButtons = new ArrayList<JCategoryButton>(); 
 		categoryButtonPane = new JPanel();
-		addToOrderButton = new JButton("⊕ Aggiungi");
+		addToOrderButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/add.png"));
+		addToOrderButton.setText("Aggiungi");
 		addToOrderButton.setFont(new java.awt.Font("Arial", 0, 32));
-		removeFromOrderButton = new JButton("⊖ Rimuovi");
+		
+		removeFromOrderButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/revert.png"));
+		removeFromOrderButton.setText("Rimuovi");
 		removeFromOrderButton.setFont(new java.awt.Font("Arial", 0, 32));
 		scrollingRightContainer.add(addToOrderButton, BorderLayout.SOUTH);
 		
