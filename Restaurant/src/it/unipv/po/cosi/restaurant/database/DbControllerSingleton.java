@@ -104,7 +104,7 @@ public class DbControllerSingleton {
 	}
 	
 	public void insertOrder(Order order) {
-		ord.insertOrder(order, ord.getMaxId(c));
+		ord.insertOrder(order);
 	}
 	
 	public Order selectOrder(int id) {

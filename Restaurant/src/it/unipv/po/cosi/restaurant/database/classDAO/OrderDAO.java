@@ -58,11 +58,11 @@ public class OrderDAO implements IDao{
 		
 	}
 	
-	public void insertOrder(Order order, int startId) {
+	public void insertOrder(Order order) {
 		
 		c = DatabaseConnection.startConnection(c, schema);
 		Statement st1;
-		Order.setStartingId(startId);
+
 		try {
 			st1 = c.createStatement();
 			String query = "INSERT INTO RESTAURANT.ORDERING VALUES (" + order.getId() + "," + order.getTable().getNumber() + "," + order.getSubtotal() + ");";
@@ -159,6 +159,7 @@ public class OrderDAO implements IDao{
 			st1 = c.createStatement();
 			String qry = "select max(id) from restaurant.ordering";
 			rs = st1.executeQuery(qry);
+			rs.next();
 			return rs.getInt(1);
 			
 		} catch (SQLException e) {

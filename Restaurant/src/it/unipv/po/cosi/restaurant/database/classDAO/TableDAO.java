@@ -44,7 +44,10 @@ public class TableDAO implements IDao{
 			int tot = rs_num.getInt(1);
 			int[] numbers = new int[tot];
 			rs1 = st1.executeQuery("select * from restaurant.table");
-
+			boolean aflag;
+			boolean dbflag;
+			ArrayList<String> check = new ArrayList<String>();
+			
 			for(int i=0;i<tot;i++) {
 
 				rs1.next();
@@ -55,16 +58,24 @@ public class TableDAO implements IDao{
 
 			while(line!=null) {
 
-				boolean flag = false;
+				aflag = false;
+				dbflag = false;
 				
-				for(int i=0;i<tot;i++) {
-					if(Integer.parseInt(line) == numbers[i]) {
-						flag = true;
+				for(String string: check) {
+					if(line.equals(string)) {
+						aflag = true;
 					}
 				}
 
-				if(!flag) {
+				for(int i=0;i<tot;i++) {
+					if(Integer.parseInt(line) == numbers[i]) {
+						dbflag = true;
+					}
+				}
 
+				if(!(aflag && dbflag)) {
+
+					check.add(line);
 					String query = "INSERT INTO restaurant.table (number) VALUE ('" + line + "');";
 					st1.executeUpdate(query);
 					System.out.println(query);
