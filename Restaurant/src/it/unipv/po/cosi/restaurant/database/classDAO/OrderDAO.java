@@ -1,6 +1,7 @@
 package it.unipv.po.cosi.restaurant.database.classDAO;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -142,6 +143,27 @@ public class OrderDAO {
 		DatabaseConnection.closeConnection(c);
 		
 		return result;
+		
+	}
+	
+	public int getMaxId(Connection c) {
+		
+		Statement st1;
+		ResultSet rs;
+		
+		try {
+			
+			st1 = c.createStatement();
+			String qry = "select max(id) from restaurant.ordering";
+			rs = st1.executeQuery(qry);
+			return rs.getInt(1);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
 		
 	}
 }

@@ -46,7 +46,8 @@ public class OrderView extends JPanel {
 	private JButton addToOrderButton;
 	private JButton removeFromOrderButton;
 	private JPanel scrollingLeftContainer;
-	
+	private JButton addModifierButton;
+	private JPanel servingSettingsPane;
 	
 	public OrderView(ArrayList<Category> categories) {
 		
@@ -65,13 +66,20 @@ public class OrderView extends JPanel {
 		scrollingRightContainer.setLayout(new BorderLayout());
 		categoryButtons = new ArrayList<JCategoryButton>(); 
 		categoryButtonPane = new JPanel();
-		addToOrderButton = new JButton("⊕ Aggiungi");
-		addToOrderButton.setFont(new java.awt.Font("Arial", 0, 32));
-		removeFromOrderButton = new JButton("⊖ Rimuovi");
-		removeFromOrderButton.setFont(new java.awt.Font("Arial", 0, 32));
-		scrollingRightContainer.add(addToOrderButton, BorderLayout.SOUTH);
-		
-		
+		addToOrderButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/add.png"));
+		addToOrderButton.setText("Aggiungi");;
+		addToOrderButton.setFont(new java.awt.Font("Arial", 0, 36));
+		removeFromOrderButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/revert.png"));
+		removeFromOrderButton.setText("Rimuovi");
+		removeFromOrderButton.setFont(new java.awt.Font("Arial", 0, 36));
+		servingSettingsPane = new JPanel();
+		servingSettingsPane.setLayout(new BorderLayout());
+		scrollingRightContainer.add(servingSettingsPane, BorderLayout.SOUTH);
+		addModifierButton = new JButton("Modifica");
+		addModifierButton.setFont(new java.awt.Font("Arial", 0, 36));
+		servingSettingsPane.add(addModifierButton, BorderLayout.EAST);
+		servingSettingsPane.add(addToOrderButton, BorderLayout.CENTER);
+		addModifierButton.setVisible(false);
 		// ORDER LIST SCROLLER //
 		
 //		orderListModel = new DefaultListModel<Serving>();
@@ -86,7 +94,7 @@ public class OrderView extends JPanel {
 		orderList.setForeground(Color.black);
 		orderList.setVisible(true);
 		orderList.setBackground(Color.white);
-		
+//		orderList.add(new JSeparator());
 		
 		// SERVING LIST SCROLLER //
 
@@ -142,12 +150,12 @@ public class OrderView extends JPanel {
 		
 		
 		// THIS VIEW OPIONS //
-		
-		Toolkit kit = Toolkit.getDefaultToolkit(); 
-		  Dimension screenSize = kit.getScreenSize(); 
-		  int screenHeight = screenSize.height;
-		  int screenWidth = screenSize.width;
-		  setSize(screenWidth,screenHeight); 
+//		
+//		Toolkit kit = Toolkit.getDefaultToolkit(); 
+//		  Dimension screenSize = kit.getScreenSize(); 
+//		  int screenHeight = screenSize.height;
+//		  int screenWidth = screenSize.width;
+//		  setSize(screenWidth,screenHeight); 
 //		  setSize(screenWidth/2,(screenHeight/2));
 //	      setResizable(true);
 	      
@@ -233,6 +241,11 @@ public class OrderView extends JPanel {
 	public JButton getRemoveFromOrderButton() {
 		return removeFromOrderButton;
 	}
+
+	public JButton getAddModifierButton() {
+		return addModifierButton;
+	}
+	
 	
 	
 }

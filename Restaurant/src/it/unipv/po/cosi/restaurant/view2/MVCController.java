@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.model.menuModel.RestaurantModel;
@@ -249,9 +251,37 @@ public class MVCController {
 	      };
 	      
 	      view.getShutDownButton().addActionListener(shutDownListener);
+	      
+	      
+	      
+	      // SERVING SELECTION LISTENER //
+	      
+	      ListSelectionListener servingSelectionListener = new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				manageAction();
+				
+			}
+			
+			private void manageAction() {
+				if(view.getOrderView().getServingList().getSelectedValue()!= null) {
+					
+					view.getOrderView().getAddModifierButton().setVisible(true);
+				}
+				else {
+					view.getOrderView().getAddModifierButton().setVisible(false);
+				}
+			}
+
+			
+	    	  
+	      };
+	      
+	      view.getOrderView().getServingList().addListSelectionListener(servingSelectionListener);
+	      
 	 }				//// END OF addListener() METHOD ////
-	 
-	 					
+	 			
 	 
 	 
 	 
