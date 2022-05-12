@@ -8,7 +8,7 @@ public class Order {
 
 	@SuppressWarnings("unused")
 	private int id;
-	private static int counter;
+	private static int startingId;
 	private ArrayList<Serving> servings;
 	private Table table;
 	private float total;
@@ -17,14 +17,14 @@ public class Order {
 
 	public Order() {
 		
-		id = counter++;
+		id = startingId++;
 		servings = new ArrayList<Serving>();
 		this.total = 0;	
 	}
 	
 	public Order(Table table) {
 		
-		id = counter++;
+		id = startingId++;
 		servings = new ArrayList<Serving>();
 		this.table = table;
 		this.total = 0;
@@ -123,6 +123,14 @@ public class Order {
 	
 	public float getTotal() {
 		return total;
+	}
+
+	public static int getStartingId() {
+		return startingId;
+	}
+
+	public static void setStartingId(int startingId) {
+		Order.startingId = startingId;
 	}
 	
 	

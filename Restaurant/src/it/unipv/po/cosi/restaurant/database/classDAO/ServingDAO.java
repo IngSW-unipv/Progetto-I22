@@ -12,20 +12,20 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
+import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
-public class ServingDAO {
+public class ServingDAO implements IDao{
 	
-	private String schema;
 	private Connection c;
 	
 	public ServingDAO() {
-		this.schema = "restaurant";
+		
 	}
 		
 		
-	public void initializeServings() {
+	public void initialize() {
 		
 		c = DatabaseConnection.startConnection(c, schema);
 		

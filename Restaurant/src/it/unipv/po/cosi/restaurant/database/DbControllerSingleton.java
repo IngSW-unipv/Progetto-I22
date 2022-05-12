@@ -8,6 +8,7 @@ import it.unipv.po.cosi.restaurant.database.classDAO.ModifierDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.OrderDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.ServingDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.TableDAO;
+import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DaoFactory;
 import it.unipv.po.cosi.restaurant.model.menuModel.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
@@ -21,18 +22,22 @@ public class DbControllerSingleton {
 	
 	private String schema;
 	private Connection c;
-	ServingDAO serv = new ServingDAO();
-	CategoryDAO cat = new CategoryDAO();
-	ModifierDAO mod = new ModifierDAO();
-	TableDAO tab = new TableDAO();
-	OrderDAO ord = new OrderDAO();
+	private ServingDAO serv; 
+	private CategoryDAO cat;
+	private ModifierDAO mod;
+	private TableDAO tab;
+	private OrderDAO ord;
 	
 	private DbControllerSingleton() {
 		
 		super();
 		this.schema = "restaurant";
 		c = DatabaseConnection.startConnection(c, schema);
-		
+		serv = DaoFactory.getServingDAO(serv);
+		cat = DaoFactory.getCategoryDAO(cat);
+		mod = DaoFactory.getModifierDAO(mod);
+		tab = DaoFactory.getTableDAO(tab);
+		ord = DaoFactory.getOrderDAO(ord);
 	}
 
 // populate table with menu .csv file //		
@@ -50,7 +55,7 @@ public class DbControllerSingleton {
 	public void initializeServings() {
 		
 		
-		serv.initializeServings();
+		serv.initialize();
 		
 	}
 			
@@ -58,7 +63,7 @@ public class DbControllerSingleton {
 	public void initializeCategories() {
 	
 		
-		cat.initializeCategories();
+		cat.initialize();
 	
 	}
 						
@@ -66,7 +71,7 @@ public class DbControllerSingleton {
 	public void initializeModifiers() {
 	
 		
-		mod.initializeModifiers();
+		mod.initialize();
 	
 	}
 			
@@ -74,7 +79,7 @@ public class DbControllerSingleton {
 	public void initializeTables() {
 	
 		
-		tab.initializeTables();
+		tab.initialize();
 	
 	}
 	
@@ -99,7 +104,7 @@ public class DbControllerSingleton {
 	}
 	
 	public void insertOrder(Order order) {
-		ord.insertOrder(order);
+		ord.insertOrder(order, ord.getMaxId(c));
 	}
 	
 	public Order selectOrder(int id) {

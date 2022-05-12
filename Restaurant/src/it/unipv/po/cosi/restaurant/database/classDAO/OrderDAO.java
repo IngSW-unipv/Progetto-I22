@@ -6,21 +6,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
+import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 import java.sql.Connection;
 
-public class OrderDAO {
+public class OrderDAO implements IDao{
 	
-	private String schema;
 	private Connection c;
 
 	public OrderDAO() {
-		this.schema = "restaurant";
+		
 	}
 	
+	public void initialize() {
+		
+	}
 	
 	public ArrayList<Order> selectAllOrders() {
 		
@@ -55,11 +58,11 @@ public class OrderDAO {
 		
 	}
 	
-	public void insertOrder(Order order) {
+	public void insertOrder(Order order, int startId) {
 		
 		c = DatabaseConnection.startConnection(c, schema);
 		Statement st1;
-		
+		Order.setStartingId(startId);
 		try {
 			st1 = c.createStatement();
 			String query = "INSERT INTO RESTAURANT.ORDERING VALUES (" + order.getId() + "," + order.getTable().getNumber() + "," + order.getSubtotal() + ");";
