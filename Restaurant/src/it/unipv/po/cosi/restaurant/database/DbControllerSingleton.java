@@ -51,6 +51,9 @@ public class DbControllerSingleton {
 		
 		return instance;
 	}
+	public void initializeOrders() {
+		ord.initialize();
+	}
 	
 	public void initializeServings() {
 		

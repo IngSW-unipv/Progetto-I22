@@ -19,6 +19,7 @@ public class GUITest {
 			dbc.initializeTables();
 			dbc.initializeModifiers();
 			dbc.initializeServings();
+			dbc.initializeOrders();
 			dbc.populateCategoriesArray();
 			dbc.populateServingsArray();
 			dbc.populateTalesArray();

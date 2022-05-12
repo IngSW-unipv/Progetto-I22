@@ -17,14 +17,14 @@ public class Order {
 
 	public Order() {
 		
-		id = startingId++;
+		id = ++startingId;
 		servings = new ArrayList<Serving>();
 		this.total = 0;	
 	}
 	
 	public Order(Table table) {
 		
-		id = startingId++;
+		id = ++startingId;
 		servings = new ArrayList<Serving>();
 		this.table = table;
 		this.total = 0;

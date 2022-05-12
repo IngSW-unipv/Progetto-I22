@@ -22,7 +22,7 @@ public class OrderDAO implements IDao{
 	}
 	
 	public void initialize() {
-		
+		Order.setStartingId(this.getMaxId());
 	}
 	
 	public ArrayList<Order> selectAllOrders() {
@@ -149,8 +149,9 @@ public class OrderDAO implements IDao{
 		
 	}
 	
-	public int getMaxId(Connection c) {
+	public int getMaxId() {
 		
+		c = DatabaseConnection.startConnection(c, schema);
 		Statement st1;
 		ResultSet rs;
 		
