@@ -45,43 +45,32 @@ public class ServingDAO implements IDao{
 			rs = st2.executeQuery(qry);
 			rs.next();
 			int max = rs.getInt(1);
-//			Serving.setStartingID(max);
-			System.out.println("max = "+max);
 			
-			System.out.println("porcodio\n\n\n\n\n");
 			while(line!=null) {
 			
 				flag = false;
 
 				String[] entries=line.split(";");
-//				System.out.println(entries[4]);
 				
 				for(i=1;i<=max;i++) {
-					
-					
-					System.out.println("i ="+i);
-					
+										
 					rs1 = st2.executeQuery("select name from serving where id ="+ i +";");
 					rs1.next();
 					
-					if(entries[1].equals(rs1.getString(1))) {
+					if(entries[0].equals(rs1.getString(1))) {
 						
-						st2.executeUpdate("update restaurant.serving set active =" + entries[4] + " where id =" + i + ";");
+						st2.executeUpdate("update restaurant.serving set active =" + entries[3] + " where id =" + i + ";");
 						flag = true;
 					}
 					
 				}
 				
 				if(!flag) {
-				
-//						Serving serving = new Serving(entries[1], Float.parseFloat(entries[2]), new Category(entries[3]));
-						
-//						menu.addServing(serving);
-						
+					
 						st1 = c.createStatement();
 						String query =  "INSERT INTO serving (name, price, category, active) VALUE ('"
-										+ entries[1] + "','" + entries[2] 
-										+ "','" + entries[3] + "','" + entries[4] +"');";
+										+ entries[0] + "','" + entries[1] 
+										+ "','" + entries[2] + "','" + entries[3] +"');";
 						
 						st1.executeUpdate(query);
 						System.out.println(query);

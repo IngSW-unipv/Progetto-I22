@@ -52,7 +52,6 @@ public class TableDAO implements IDao{
 
 				rs1.next();
 				numbers[i] = rs1.getInt(1); 
-				System.out.println(numbers[i]);
 
 			}
 
@@ -73,7 +72,7 @@ public class TableDAO implements IDao{
 					}
 				}
 
-				if(!(aflag && dbflag)) {
+				if(!aflag && !dbflag) {
 
 					check.add(line);
 					String query = "INSERT INTO restaurant.table (number) VALUE ('" + line + "');";
@@ -134,8 +133,5 @@ public class TableDAO implements IDao{
 
 		return result;
 
-
 	}
-
-
 }
