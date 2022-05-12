@@ -34,21 +34,18 @@ public class ModifierDAO implements IDao{
 		try {
 			FileReader fr = new FileReader(absolutePath);
 			BufferedReader br = new BufferedReader(fr);
-			
 			Statement st1;
 			ResultSet rs1;	
-			
 			st1 = c.createStatement(); 
 			rs1 = st1.executeQuery("select count(*) from modifier");
 			rs1.next();
 			int nummod = rs1.getInt(1);
 			String line=br.readLine();
-
-			boolean flag;
-			
 			rs1 = st1.executeQuery("select name from restaurant.modifier");
-			
 			String[] mod = new String[nummod];
+			boolean aflag;
+			boolean dbflag;
+			ArrayList<String> check = new ArrayList<String>();
 			
 			for(int i=0; i<nummod; i++) {
 				rs1.next();
@@ -57,22 +54,30 @@ public class ModifierDAO implements IDao{
 			
 			while(line!=null) {
 			
-				flag = false;
+				aflag = false;
+				dbflag = false;
 				
 				String[] entries=line.split(";");
 				
-				for(int i=0;i<nummod;i++) {
-					if(entries[0].equals(mod[i])) {
-						flag = true;
+				for (String string : check) {
+					if(entries[0].equals(string)) {
+						aflag = true;
 					}
 				}
 				
-				if(!flag) {
+				for(int i=0;i<nummod;i++) {
+					if(entries[0].equals(mod[i])) {
+						dbflag = true;
+					}
+				}
+				
+				if(!aflag && !dbflag) {
 					
 					String query = "INSERT INTO modifier (name, price, category) VALUE ('" 
 							+ entries[0] + "','"  + entries[1] + "','" + entries[2]  + "');";					
 					st1.executeUpdate(query);
 					System.out.println(query);
+					
 				}
 				
 				line=br.readLine();

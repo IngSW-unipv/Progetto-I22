@@ -45,27 +45,37 @@ public class CategoryDAO implements IDao{
 			int totcat = rs_num.getInt(1);
 			String[] categories = new String[totcat];
 			rs1 = st1.executeQuery("select * from restaurant.category");
+			boolean aflag;
+			boolean dbflag;
+			ArrayList<String> check = new ArrayList<String>();
 			
 			for(int i=0;i<totcat;i++) {
 
 				rs1.next();
 				categories[i] = rs1.getString(1); 
-				System.out.println(categories[i]);
 
 			}
 			
 			while(line!=null) {				
 
-				boolean flag = false;
+				aflag = false;
+				dbflag = false;
 				
-				for(int i=0;i<totcat;i++) {
-					if(line.equals(categories[i])) {
-						flag = true;
+				for (String string : check) {
+					if(line.equals(string)) {
+						aflag = true;
 					}
 				}
 				
-				if(!flag) {
+				for(int i=0;i<totcat;i++) {
+					if(line.equals(categories[i])) {
+						dbflag = true;
+					}
+				}
+				
+				if(!aflag && !dbflag) {
 					
+					check.add(line);
 					String query = "INSERT INTO category (name) VALUE ('" + line + "');";
 					st1.executeUpdate(query);
 					System.out.println(query);
