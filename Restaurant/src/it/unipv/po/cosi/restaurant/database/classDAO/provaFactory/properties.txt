@@ -1,0 +1,5 @@
+category.class.name=it.unipv.po.cosi.restaurant.database.classDAO.CategoryDAO
+serving.class.name=it.unipv.po.cosi.restaurant.database.classDAO.ServingDAO
+order.class.name=it.unipv.po.cosi.restaurant.database.classDAO.OrderDAO
+table.class.name=it.unipv.po.cosi.restaurant.database.classDAO.TableDAO
+modifier.class.name=it.unipv.po.cosi.restaurant.database.classDAO.ModifierDAO
