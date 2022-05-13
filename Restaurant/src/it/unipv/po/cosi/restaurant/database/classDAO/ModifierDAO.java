@@ -66,6 +66,7 @@ public class ModifierDAO implements IDao{
 				}
 				
 				for(int i=0;i<nummod;i++) {
+					System.out.println("provaaaa");
 					if(entries[0].equals(mod[i])) {
 						dbflag = true;
 					}
@@ -73,6 +74,7 @@ public class ModifierDAO implements IDao{
 				
 				if(!aflag && !dbflag) {
 					
+					check.add(entries[0]);
 					String query = "INSERT INTO modifier (name, price, category) VALUE ('" 
 							+ entries[0] + "','"  + entries[1] + "','" + entries[2]  + "');";					
 					st1.executeUpdate(query);
