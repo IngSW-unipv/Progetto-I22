@@ -80,7 +80,7 @@ public class CategoryDAO implements IDao{
 					st1.executeUpdate(query);
 					System.out.println(query);
 				}
-						
+					
 				line=br.readLine();
 				
 			}
