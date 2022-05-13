@@ -6,5 +6,5 @@ public interface IDao {
 
 	public final static String schema = "restaurant";
 	public void initialize();
-	//public ArrayList<Object> selectAll();
+	
 }

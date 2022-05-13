@@ -9,6 +9,7 @@ import it.unipv.po.cosi.restaurant.database.classDAO.OrderDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.ServingDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.TableDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DaoFactory;
+import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
@@ -22,22 +23,20 @@ public class DbControllerSingleton {
 	
 	private String schema;
 	private Connection c;
-	private ServingDAO serv; 
-	private CategoryDAO cat;
-	private ModifierDAO mod;
-	private TableDAO tab;
-	private OrderDAO ord;
+
+	private IDao serv;
+	private IDao cat;
+	private IDao mod;
+	private IDao tab;
+	private IDao ord;
+	
 	
 	private DbControllerSingleton() {
 		
 		super();
 		this.schema = "restaurant";
 		c = DatabaseConnection.startConnection(c, schema);
-		serv = DaoFactory.getServingDAO(serv);
-		cat = DaoFactory.getCategoryDAO(cat);
-		mod = DaoFactory.getModifierDAO(mod);
-		tab = DaoFactory.getTableDAO(tab);
-		ord = DaoFactory.getOrderDAO(ord);
+
 	}
 
 // populate table with menu .csv file //		
@@ -52,13 +51,13 @@ public class DbControllerSingleton {
 		return instance;
 	}
 	public void initializeOrders() {
-		ord.initialize();
+		DaoFactory.getOrderDAO(ord).initialize();
 	}
 	
 	public void initializeServings() {
 		
 		
-		serv.initialize();
+		DaoFactory.getServingDAO(serv).initialize();
 		
 	}
 			
@@ -66,7 +65,7 @@ public class DbControllerSingleton {
 	public void initializeCategories() {
 	
 		
-		cat.initialize();
+		DaoFactory.getCategoryDAO(cat).initialize();
 	
 	}
 						
@@ -74,7 +73,7 @@ public class DbControllerSingleton {
 	public void initializeModifiers() {
 	
 		
-		mod.initialize();
+		DaoFactory.getModifierDAO(mod).initialize();
 	
 	}
 			
@@ -82,7 +81,7 @@ public class DbControllerSingleton {
 	public void initializeTables() {
 	
 		
-		tab.initialize();
+		DaoFactory.getTableDAO(tab).initialize();
 	
 	}
 	
@@ -90,7 +89,7 @@ public class DbControllerSingleton {
 //SERVING
 	public ArrayList<Serving> selectAllServings() {
 		
-		return serv.selectAllServings(RestaurantModel.getInstance().getCategoriesArray());
+		return DaoFactory.getServingDAO(serv).selectAllServings(RestaurantModel.getInstance().getCategoriesArray());
 		
 	}
 	
@@ -103,15 +102,15 @@ public class DbControllerSingleton {
 //ORDER
 	
 	public ArrayList<Order> selectAllOrders() {
-		return ord.selectAllOrders();
+		return DaoFactory.getOrderDAO(ord).selectAllOrders();
 	}
 	
 	public void insertOrder(Order order) {
-		ord.insertOrder(order);
+		DaoFactory.getOrderDAO(ord).insertOrder(order);
 	}
 	
 	public Order selectOrder(int id) {
-		return ord.selectOrder(id, RestaurantModel.getInstance().getCategoriesArray());
+		return DaoFactory.getOrderDAO(ord).selectOrder(id, RestaurantModel.getInstance().getCategoriesArray());
 	}
 	
 
@@ -119,7 +118,7 @@ public class DbControllerSingleton {
 	
 	public ArrayList<Modifier> selectAllModifiers() {
 		
-		return mod.selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray());
+		return DaoFactory.getModifierDAO(mod).selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray());
 		
 	}
 	
@@ -134,7 +133,7 @@ public class DbControllerSingleton {
 	
 	public ArrayList<Category> selectAllCategories() {
 	
-		return cat.selectAllCategories();
+		return DaoFactory.getCategoryDAO(cat).selectAllCategories();
 		
 	}
 	
@@ -148,7 +147,7 @@ public class DbControllerSingleton {
 	
 	public ArrayList<Table> selectAllTables() {
 		
-		return tab.selectAllTable();
+		return DaoFactory.getTableDAO(tab).selectAllTable();
 
 	}
 	
@@ -161,21 +160,21 @@ public class DbControllerSingleton {
 	
 	private void populateServingHiding() {  
 		
-		RestaurantModel.getInstance().populateServing(serv.initializeActiveServings(RestaurantModel.getInstance().getCategoriesArray()));
+		RestaurantModel.getInstance().populateServing(DaoFactory.getServingDAO(serv).initializeActiveServings(RestaurantModel.getInstance().getCategoriesArray()));
 	}
 	
 	private void populateModifiersHiding() {
 		
-		RestaurantModel.getInstance().populateModifiers(mod.selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray()));
+		RestaurantModel.getInstance().populateModifiers(DaoFactory.getModifierDAO(mod).selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray()));
 	}
 	
 	private void populateCategoriesHiding() {
 		
-		RestaurantModel.getInstance().populateCategories(cat.selectAllCategories());
+		RestaurantModel.getInstance().populateCategories(DaoFactory.getCategoryDAO(cat).selectAllCategories());
 	}
 	
 	private void populateTablesHiding() {
 		
-		RestaurantModel.getInstance().populateTables(tab.selectAllTable());
+		RestaurantModel.getInstance().populateTables(DaoFactory.getTableDAO(tab).selectAllTable());
 	}
 }
