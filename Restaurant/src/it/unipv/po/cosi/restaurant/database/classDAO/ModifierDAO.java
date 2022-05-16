@@ -66,7 +66,6 @@ public class ModifierDAO implements IDao{
 				}
 				
 				for(int i=0;i<nummod;i++) {
-					System.out.println("provaaaa");
 					if(entries[0].equals(mod[i])) {
 						dbflag = true;
 					}

@@ -48,6 +48,8 @@ public class OrderView extends JPanel {
 	private JPanel scrollingLeftContainer;
 	private JButton addModifierButton;
 	private JPanel servingSettingsPane;
+	private JButton closeOrderButton;
+	private JTextField orderTitle;
 	
 	public OrderView(ArrayList<Category> categories) {
 		
@@ -130,17 +132,26 @@ public class OrderView extends JPanel {
 		mainButtonPane.setLayout(new BorderLayout());
 		mainButtonPane.add(backButton = new JButton("❮ Back"), BorderLayout.WEST);
 		backButton.setFont(new java.awt.Font("Synchro LET", 1, 36));
-		
+		closeOrderButton = new JButton("Close/Pay order");
+		closeOrderButton.setBackground(Color.red);
+		closeOrderButton.setForeground(Color.white);
+		closeOrderButton.setFont(new java.awt.Font("Synchro LET", 0, 36));
+		orderTitle = new JTextField("      Ordine: ");
+		orderTitle.setEditable(false);
+		orderTitle.setFont(new java.awt.Font("Arial", 0, 40));
+//		orderTitle.setCaretPosition(JTextField.CENTER);
+		mainButtonPane.add(closeOrderButton, BorderLayout.EAST);
+		mainButtonPane.add(orderTitle, BorderLayout.CENTER);
 		
 		// STATUS CONTROL PANE //
 		
 		statusControlPane = new JPanel();
 		statusControlPane.setLayout(new GridLayout(5, 1));
-		statusControlPane.add(freeButton = new JStatusButton("FREE", 1));
-		statusControlPane.add(prenotedButton = new JStatusButton("PRENOTED", 5));
-		statusControlPane.add(orderedButton = new JStatusButton("ORDERED", 2));
-		statusControlPane.add(waitingButton = new JStatusButton("WAITING", 3));
-		statusControlPane.add(payingSoonButton = new JStatusButton("PAYING SOON", 4));
+		statusControlPane.add(freeButton = new JStatusButton("LIBERO", 1));
+		statusControlPane.add(prenotedButton = new JStatusButton("PRENOTATO", 5));
+		statusControlPane.add(orderedButton = new JStatusButton("ORDINATO", 2));
+		statusControlPane.add(waitingButton = new JStatusButton("ATTESA DOLCE", 3));
+		statusControlPane.add(payingSoonButton = new JStatusButton("IN USCITA", 4));
 		
 		freeButton.setFont(new java.awt.Font("Arial", 4, 26));
 		prenotedButton.setFont(new java.awt.Font("Arial", 4, 26));
@@ -244,6 +255,10 @@ public class OrderView extends JPanel {
 
 	public JButton getAddModifierButton() {
 		return addModifierButton;
+	}
+
+	public JTextField getOrderTitle() {
+		return orderTitle;
 	}
 	
 	

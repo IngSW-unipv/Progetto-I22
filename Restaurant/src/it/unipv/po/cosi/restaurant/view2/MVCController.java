@@ -2,10 +2,11 @@ package it.unipv.po.cosi.restaurant.view2;
 
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+import javax.swing.*;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.event.ListSelectionEvent;
@@ -42,7 +43,8 @@ public class MVCController {
 	
 	 private void addListener() {
 		 
-		 
+		 	
+		 //-------------------------//
 		 // TABLE BUTTON LISTENERS //
 		
 		 ActionListener tableListener = new ActionListener() {
@@ -68,7 +70,7 @@ public class MVCController {
 	            	model.addOrder(o);
 	            	populateOrderList(o.getServings());
 	            }
-	               
+	            view.getOrderView().getOrderTitle().setText("      Ordine N° " + table.getOrder().getId()+" (Tavolo " +table.getNumber() + ")");   
 	         }
 	      };
 	      	for (JButton cb : view.getTableButtons()) {
@@ -78,7 +80,7 @@ public class MVCController {
 	      	
 	      	
 	      	
-	      	
+	      	//-------------------------//
 	      	// STATUS BUTTON LISTENERS //
 	
 	      ActionListener statusListener = new ActionListener() {
@@ -126,7 +128,7 @@ public class MVCController {
 	      
 	      
 	      
-	      
+	      //-----------------------//
 	      // BACK BUTTON LISTENER //
 	      
 	      ActionListener backListener = new ActionListener() {
@@ -145,8 +147,10 @@ public class MVCController {
 	      };
 	      
 	      view.getOrderView().getBackButton().addActionListener(backListener);
-	
 	      
+	      
+	
+	      //--------------------------//
 	      // CATEGORY BUTTON LISTENER //
 	      
 	      ActionListener categoryListener = new ActionListener() {
@@ -171,6 +175,8 @@ public class MVCController {
 	      }
 	      
 	      
+	      
+	      //-----------------------//
 	      // ADD SERVING LISTENER //
 	      
 	      ActionListener addServingListener = new ActionListener() {
@@ -192,10 +198,7 @@ public class MVCController {
 		    			view.getSingleButton(view.getOrderView().getSource().getTable().getNumber()).setBackground(new Color(252,93,93));   // RED
 		    			view.getSingleButton(view.getOrderView().getSource().getTable().getNumber()).getTable().setStatus(Status.ORDERED);
 
-				}
-				 	
-							
-		
+				}				
 				
 			}
 	    	  
@@ -203,7 +206,9 @@ public class MVCController {
 	      
 	      view.getOrderView().getAddToOrderButton().addActionListener(addServingListener);
 	      
-	 
+	      
+	      
+	      //-------------------------//
 	      // REMOVE SERVING LISTENER //
 	      
 	      ActionListener removeServingListener = new ActionListener( ) {
@@ -230,6 +235,8 @@ public class MVCController {
 	      view.getOrderView().getRemoveFromOrderButton().addActionListener(removeServingListener);
 	      
 	      
+	      
+	      //---------------------//
 	      // POWER OFF LISTENER //
 	      
 	      ActionListener shutDownListener = new ActionListener() {
@@ -254,6 +261,8 @@ public class MVCController {
 	      
 	      
 	      
+	      
+	      //----------------------------//
 	      // SERVING SELECTION LISTENER //
 	      
 	      ListSelectionListener servingSelectionListener = new ListSelectionListener() {
@@ -273,15 +282,68 @@ public class MVCController {
 					view.getOrderView().getAddModifierButton().setVisible(false);
 				}
 			}
-
 			
-	    	  
 	      };
 	      
 	      view.getOrderView().getServingList().addListSelectionListener(servingSelectionListener);
 	      
-	 }				//// END OF addListener() METHOD ////
-	 			
+	      
+	      
+	      
+	    //----------------------------//
+	    // ADDING MODIFIERS LISTENERS //
+	      
+	      ActionListener modifyServingListener = new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				manageAction();
+				
+			}
+	    	private void manageAction() {
+	    		// TODO 
+//	    		JFrame modifierFrame = new JFrame();
+//	    		modifierFrame.setSize(new Dimension(500, 500));
+//	    		
+//	    		modifierFrame.setVisible(true);
+	    		
+	    	}
+	    	
+	      };
+	      
+	      view.getOrderView().getAddModifierButton().addActionListener(modifyServingListener);
+	      
+	      
+	    //--------------------------//
+	    // SETTINGS BUTTON LISTENER //
+	      
+	      ActionListener settingsButtonListener = new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				manageAction();
+			}
+	    	
+			private void manageAction() {
+				// TODO
+				view.getC1().show(view.getCardPane(), "3");
+			}
+			
+	      };
+	      
+	      view.getEditButton().addActionListener(settingsButtonListener);
+	 }      
+	 
+	 
+	 
+					    //-------------------------//
+					    //-------------------------//
+	      				//-------------------------//
+					//// END OF addListener() METHOD ////
+	 					//-------------------------//
+						//-------------------------//
+						//-------------------------//
 	 
 	 
 	 

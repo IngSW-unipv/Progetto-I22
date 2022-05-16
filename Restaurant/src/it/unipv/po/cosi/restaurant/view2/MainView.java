@@ -1,7 +1,6 @@
 package it.unipv.po.cosi.restaurant.view2;
 
 import javax.swing.border.Border;
-
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 import it.unipv.po.cosi.restaurant.view.mainInterface.MainMenu;
@@ -31,11 +30,13 @@ public class MainView extends JFrame {
 	private JPanel pane;
 	private JPanel cardPane;
 	private JPanel mainPane;
+	private SettingsView settingsView;
 	private CardLayout c1;
 	
 	
 	public MainView(ArrayList<Table> tables, ArrayList<Category> categories) throws IOException {
-		
+		super();
+
 		try {
 		    UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName());
 		 } catch (Exception e) {
@@ -52,6 +53,7 @@ public class MainView extends JFrame {
 		// TABLE PANEL //
 		int nTables = tables.size();
 		orderView = new OrderView(categories);
+		settingsView = new SettingsView();
 		tablePane = new JPanel();
 		tablePane.setLayout(new GridLayout((int)Math.ceil(Math.sqrt(nTables)), (int)Math.ceil(Math.sqrt(nTables)), 15, 15));
 		tablePane.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -130,6 +132,7 @@ public class MainView extends JFrame {
 		  mainPane.add(editPane, BorderLayout.EAST);
 		  cardPane.add(mainPane, "1");
 		  cardPane.add(orderView, "2");
+		  cardPane.add(settingsView, "3");
 		  c1.show(cardPane, "1");
 		  mainPane.setVisible(true);
 		  add(cardPane);
