@@ -160,7 +160,7 @@ public class DbControllerSingleton {
 	
 	private void populateServingHiding() {  
 		
-		RestaurantModel.getInstance().populateServing(DaoFactory.getServingDAO(serv).initializeActiveServings(RestaurantModel.getInstance().getCategoriesArray()));
+		RestaurantModel.getInstance().populateServing(DaoFactory.getServingDAO(serv).selectAllServings(RestaurantModel.getInstance().getCategoriesArray()));
 	}
 	
 	private void populateModifiersHiding() {

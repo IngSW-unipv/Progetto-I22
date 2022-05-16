@@ -8,11 +8,13 @@ public class Table {
 	private int number;
 	private Status status;
 	private Order order;
+	private boolean activeFlag;
 	
-	public Table(int number, Status status) {
+	public Table(int number, Status status, boolean activeFlag) {
 		
 		this.number = number;
 		this.status = status;
+		this.activeFlag = activeFlag;
 		
 	}
 	

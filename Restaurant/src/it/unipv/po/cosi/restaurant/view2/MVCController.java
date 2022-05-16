@@ -147,7 +147,7 @@ public class MVCController {
 	      };
 	      
 	      view.getOrderView().getBackButton().addActionListener(backListener);
-	      
+	      view.getSettingsView().getBackButton().addActionListener(backListener);
 	      
 	
 	      //--------------------------//

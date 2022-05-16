@@ -10,6 +10,7 @@ public class Serving implements Comparable<Serving> {
 	private float price;
 	private ArrayList<Modifier> modifiers;
 	private int quantity;
+	private boolean activeFlag;
 	
 	//	public Serving(int id, String name, float price, Category category) {
 //		
@@ -21,13 +22,14 @@ public class Serving implements Comparable<Serving> {
 //		
 //	}
 //	
-	public Serving(int id, String name, float price, Category category) {
+	public Serving(int id, String name, float price, Category category, boolean activeFlag) {
 			
 			this.id = id;
 			this.name = name;
 			this.category = category;
 			this.price = price;	
 			modifiers = new ArrayList<Modifier>();
+			this.activeFlag = activeFlag;
 			
 		}
 	

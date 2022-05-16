@@ -2,6 +2,8 @@ package it.unipv.po.cosi.restaurant.view2;
 
 import javax.swing.border.Border;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 import it.unipv.po.cosi.restaurant.view.mainInterface.MainMenu;
 import java.awt.*;
@@ -34,7 +36,7 @@ public class MainView extends JFrame {
 	private CardLayout c1;
 	
 	
-	public MainView(ArrayList<Table> tables, ArrayList<Category> categories) throws IOException {
+	public MainView(ArrayList<Serving> servings, ArrayList<Category> categories, ArrayList<Modifier> modifiers, ArrayList<Table> tables) throws IOException {
 		super();
 
 		try {
@@ -44,16 +46,15 @@ public class MainView extends JFrame {
 		 }
 		
 		tableButtons = new ArrayList<JTableButton>();
-		initComponents(tables, categories);
-	
+		initComponents(servings,categories,modifiers,tables);
 	}
 	
-	private void initComponents(ArrayList<Table> tables, ArrayList<Category> categories) throws IOException {
+	private void initComponents(ArrayList<Serving> servings, ArrayList<Category> categories, ArrayList<Modifier> modifiers, ArrayList<Table> tables) throws IOException {
 		
 		// TABLE PANEL //
 		int nTables = tables.size();
 		orderView = new OrderView(categories);
-		settingsView = new SettingsView();
+		settingsView = new SettingsView(servings,categories,modifiers,tables);
 		tablePane = new JPanel();
 		tablePane.setLayout(new GridLayout((int)Math.ceil(Math.sqrt(nTables)), (int)Math.ceil(Math.sqrt(nTables)), 15, 15));
 		tablePane.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -174,6 +175,10 @@ public class MainView extends JFrame {
 
 	public OrderView getOrderView() {
 		return orderView;
+	}
+	
+	public SettingsView getSettingsView() {
+		return settingsView;
 	}
 
 	public JTableButton getSingleButton(int id) {

@@ -118,7 +118,7 @@ public class CategoryDAO implements IDao{
 	
 			while(rs1.next()) {
 				
-				Category category = new Category(rs1.getString(1));
+				Category category = new Category(rs1.getString(1), rs1.getBoolean(2));
 				result.add(category);
 				
 			}

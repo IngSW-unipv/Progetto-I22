@@ -5,12 +5,14 @@ public class Modifier {
 	private String name;
 	private Category category;
 	private float price;
+	private boolean activeFlag;
 	
-	public Modifier(String name, Category category, float price) {
+	public Modifier(String name, Category category, float price, boolean activeFlag) {
 		
 		this.name = name;
 		this.category = category;
 		this.price = price;	
+		this.activeFlag = activeFlag;
 		
 	}
 	

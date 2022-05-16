@@ -129,7 +129,7 @@ public class ModifierDAO implements IDao{
 					}
 					
 				}
-				Modifier modifier = new Modifier(rs1.getString(1), cat, rs1.getFloat(2));
+				Modifier modifier = new Modifier(rs1.getString(1), cat, rs1.getFloat(2), rs1.getBoolean(3));
 				result.add(modifier);
 				
 			}

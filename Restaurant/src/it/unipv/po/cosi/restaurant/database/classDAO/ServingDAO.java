@@ -123,10 +123,9 @@ public class ServingDAO implements IDao{
 						cat=category;
 						
 					}
-					
 				}
 				
-				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(3), cat);
+				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(3), cat, rs1.getBoolean(4));
 				result.add(serving);
 								
 			}
@@ -174,7 +173,7 @@ public class ServingDAO implements IDao{
 					
 				}
 				
-				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(4), cat);
+				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(4), cat, rs1.getBoolean(4));
 				rslt.add(serving);
 								
 			}
