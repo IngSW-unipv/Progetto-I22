@@ -18,9 +18,10 @@ public class Table {
 		
 	}
 	
-	public Table(int number) {
+	public Table(int number, boolean activeFlag) {
 		
 		this.number = number;
+		this.activeFlag = activeFlag;
 		
 	}
 	

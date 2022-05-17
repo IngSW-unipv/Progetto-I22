@@ -130,7 +130,7 @@ public class RestaurantModel {
 		
 		for(Serving s: servings) {
 			
-			if(c.equals(s.getCategory())) {
+			if(c.equals(s.getCategory()) && s.isActiveFlag()) {
 				rslt.add(s);
 			}
 		}

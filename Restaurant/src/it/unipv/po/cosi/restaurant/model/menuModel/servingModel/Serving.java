@@ -82,6 +82,14 @@ public class Serving implements Comparable<Serving> {
 	public int getId() {
 		return id;
 	}
+	
+	public boolean isActiveFlag() {
+		return activeFlag;
+	}
+	
+	public void setActiveFlag(boolean activeFlag) {
+		this.activeFlag = activeFlag;
+	}
 
 	public void setId(int id) {
 		this.id = id;

@@ -40,7 +40,7 @@ public class OrderDAO implements IDao{
 	
 			while(rs1.next()) {
 				
-				Order order = new Order(new Table(rs1.getInt(2)), rs1.getInt(1));
+				Order order = new Order(new Table(rs1.getInt(2), true), rs1.getInt(1));
 				
 				result.add(order);			
 			}

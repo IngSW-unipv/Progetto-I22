@@ -40,17 +40,27 @@ public class ServingDAO implements IDao{
 			ResultSet rs, rs1;
 			String qry = "select max(id) from restaurant.serving;";
 			String line=br.readLine();
-			boolean flag;
+			boolean aflag;
+			boolean dbflag;
 			st2 = c.createStatement();
 			rs = st2.executeQuery(qry);
 			rs.next();
 			int max = rs.getInt(1);
+			ArrayList<String> check = new ArrayList<String>();
 			
 			while(line!=null) {
 			
-				flag = false;
-
+				aflag = false;
+				dbflag = false;
+				
 				String[] entries=line.split(";");
+
+				for (String string : check) {
+					if(entries[0].equals(string)) {
+						aflag = true;
+					}
+				}
+				
 				
 				for(i=1;i<=max;i++) {
 										
@@ -58,19 +68,18 @@ public class ServingDAO implements IDao{
 					rs1.next();
 					
 					if(entries[0].equals(rs1.getString(1))) {
-						
-						st2.executeUpdate("update restaurant.serving set active =" + entries[3] + " where id =" + i + ";");
-						flag = true;
+						dbflag = true;
 					}
 					
 				}
 				
-				if(!flag) {
+				if(!aflag && !dbflag) {
 					
+						check.add(entries[0]);
 						st1 = c.createStatement();
-						String query =  "INSERT INTO serving (name, price, category, active) VALUE ('"
+						String query =  "INSERT INTO serving (name, price, category) VALUE ('"
 										+ entries[0] + "','" + entries[1] 
-										+ "','" + entries[2] + "','" + entries[3] +"');";
+										+ "','" + entries[2] + "');";
 						
 						st1.executeUpdate(query);
 						System.out.println(query);
@@ -97,6 +106,34 @@ public class ServingDAO implements IDao{
 		DatabaseConnection.closeConnection(c);
 	}
 	
+	
+	public void updateActiveServings(ArrayList<Serving> servings) {
+		
+		c = DatabaseConnection.startConnection(c, schema);
+		
+		Statement st1;
+		ResultSet rs;
+		
+		try {
+
+			st1 = c.createStatement();
+//			String query = "update serving set active = 'false' where id > 0;";
+//			st1.executeUpdate(query);
+			String query;
+			
+			for (Serving serving : servings) {
+				
+				query = "update serving set active = " + serving.isActiveFlag() + " where id = " + serving.getId() + ";"; 
+				st1.executeUpdate(query);
+				
+				
+			}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 	public ArrayList<Serving> selectAllServings(ArrayList<Category> categories) {
@@ -125,9 +162,9 @@ public class ServingDAO implements IDao{
 					}
 				}
 				
-				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(3), cat, rs1.getBoolean(4));
+				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(4), cat, Boolean.parseBoolean(rs1.getString(5)));
 				result.add(serving);
-								
+				
 			}
 		}
 		
@@ -173,7 +210,7 @@ public class ServingDAO implements IDao{
 					
 				}
 				
-				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(4), cat, rs1.getBoolean(4));
+				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(4), cat, rs1.getBoolean(5));
 				rslt.add(serving);
 								
 			}

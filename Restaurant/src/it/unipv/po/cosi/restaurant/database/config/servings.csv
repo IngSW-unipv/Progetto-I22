@@ -1,45 +1,47 @@
-Margherita ;5;Pizzeria;1
-Marinara;4;Pizzeria;1
-Napoli;6;Pizzeria;0
-Cotto e funghi;7;Pizzeria;0
-Quattro formaggi ;7;Pizzeria;1
-Salsiccia e friarelli;8;Pizzeria;1
-Quattro stagioni;6;Pizzeria;1
-Diavola;6;Pizzeria;1
-Wurstel e patatine;7;Pizzeria;1
-Stracchino e rucola;8;Pizzeria;1
-Crudo ;7;Pizzeria;1
-Tagliolini al pesto;9;Cucina;0
-Pasta pomodoro e basilico;8;Cucina;1
-Spaghetti alle vongole;15;Cucina;1
-Risotto ai frutti di mare;18;Cucina;1
-Spaghetti allo scoglio;15;Cucina;1
-Filetto al pepe rosa;22;Cucina;0
-Filetto aceto balsamico;25;Cucina;1
-Tartare di tonno;18;Cucina;1
-Gnocchi di patate viola al ragu di granchio;13;Cucina;1
-Tiramisu;6;Cucina;1
-Cheesecake alla nutella con crumble;6;Cucina;0
-Tortino caldo al cioccolato;6;Cucina;1
-Negroni;7;Bar;1
-Negroni sbagliato;7;Bar;1
-Hugo;7;Bar;1
-Mojito;3.50;Bar;1
-CocaCola;3.50;Bar;0
-Fanta;3.50;Bar;1
-Sprite;3.50;Bar;1
-Margarita;9;Bar;1
-Amaro Montenegro;5;Bar;1
-Amaro Lucano;5;Bar;1
-Amaro del capo;5;Bar;1
-Acqua naturale 50cl;2;Bar;0
-Acqua frizzante 50cl;2;Bar;1
-Acqua naturale 75L;3;Bar;1
-Acqua naturale 75cl;3;Bar;1
-Malfatti al pesto di pistacchi;10;Cucina;0
-Cotoletta alla milanese;12;Cucina;0
-Fiorino al vapore;15;Bar;1
-c;3;Bar;1
-c1;67;Bar;1
-ciao;9;Cucina;0
-pizza blu;8;Cucina;1
+Margherita ;5;Pizzeria
+Marinara;4;Pizzeria
+Napoli;6;Pizzeria
+Cotto e funghi;7;Pizzeria
+Quattro formaggi ;7;Pizzeria
+Salsiccia e friarelli;8;Pizzeria
+Quattro stagioni;6;Pizzeria
+Diavola;6;Pizzeria
+Wurstel e patatine;7;Pizzeria
+Stracchino e rucola;8;Pizzeria
+Crudo ;7;Pizzeria
+Tagliolini al pesto;9;Cucina
+Pasta pomodoro e basilico;8;Cucina
+Spaghetti alle vongole;15;Cucina
+Risotto ai frutti di mare;18;Cucina
+Spaghetti allo scoglio;15;Cucina
+Filetto al pepe rosa;22;Cucina
+Filetto aceto balsamico;25;Cucina
+Tartare di tonno;18;Cucina
+Gnocchi di patate viola al ragu di granchio;13;Cucina
+Tiramisu;6;Cucina
+Cheesecake alla nutella con crumble;6;Cucina
+Tortino caldo al cioccolato;6;Cucina
+Negroni;7;Bar
+Negroni sbagliato;7;Bar
+Hugo;7;Bar
+Mojito;3.50;Bar
+CocaCola;3.50;Bar
+Fanta;3.50;Bar
+Sprite;3.50;Bar
+Margarita;9;Bar
+Amaro Montenegro;5;Bar
+Amaro Lucano;5;Bar
+Amaro del capo;5;Bar
+Acqua naturale 50cl;2;Bar
+Acqua frizzante 50cl;2;Bar
+Acqua naturale 75L;3;Bar
+Acqua naturale 75cl;3;Bar
+Malfatti al pesto di pistacchi;10;Cucina
+Cotoletta alla milanese;12;Cucina
+Fiorino al vapore;15;Bar
+c;3;Bar
+c1;67;Bar
+ciao;9;Cucina
+pizza blu;8;Cucina
+ciao;5;Cucina
+c1;20;Cucina

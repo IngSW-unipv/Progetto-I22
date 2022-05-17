@@ -117,7 +117,7 @@ public class TableDAO implements IDao{
 
 			while(rs1.next()) {
 
-				Table table = new Table(rs1.getInt(1));
+				Table table = new Table(rs1.getInt(1), Boolean.parseBoolean(rs1.getString(2)));
 				result.add(table);
 
 			}

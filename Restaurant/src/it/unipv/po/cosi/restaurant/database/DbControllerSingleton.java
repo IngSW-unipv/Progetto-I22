@@ -98,6 +98,10 @@ public class DbControllerSingleton {
 		populateServingHiding();
 	}
 	
+	public void updateActiveServings() {
+		
+		DaoFactory.getServingDAO(serv).updateActiveServings(RestaurantModel.getInstance().getServingsArray());
+	}
 	
 //ORDER
 	

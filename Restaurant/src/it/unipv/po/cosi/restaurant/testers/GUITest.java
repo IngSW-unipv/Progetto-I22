@@ -15,11 +15,11 @@ public class GUITest {
 		
 			DbControllerSingleton dbc = DbControllerSingleton.getInstance();
 			
-//			dbc.initializeCategories();
-//			dbc.initializeTables();
-//			dbc.initializeModifiers();
+			dbc.initializeCategories();
+			dbc.initializeTables();
+			dbc.initializeModifiers();
 			dbc.initializeServings();
-//			dbc.initializeOrders();
+			dbc.initializeOrders();
 			dbc.populateCategoriesArray();
 			dbc.populateServingsArray();
 			dbc.populateModifiersArray();
@@ -28,6 +28,9 @@ public class GUITest {
 			RestaurantModel m = RestaurantModel.getInstance();
 			MainView v = new MainView(m.getServingsArray(), m.getCategoriesArray(), m.getModifiersArray(), m.getTablesArray());
 			v.setVisible(true);
+			
+//			m.getServingsArray().get(40).setActiveFlag(true);
+//			dbc.updateActiveServings();
 			
 //			Order o = new Order(m.getTablesArray().get(0));
 //			o.addServing(m.getServingsArray().get(0));
