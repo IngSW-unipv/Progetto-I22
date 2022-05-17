@@ -68,4 +68,13 @@ public class Table {
 	public String toString() {
 		return number + "";
 	}
+
+	public boolean isActiveFlag() {
+		return activeFlag;
+	}
+
+	public void setActiveFlag(boolean activeFlag) {
+		this.activeFlag = activeFlag;
+	}
+	
 }

@@ -79,6 +79,7 @@ public class SettingsView extends JPanel {
 			
 			ServingCheckBox a = new ServingCheckBox(serving.getName(),serving);
 			a.setFont(new java.awt.Font("Arial", 0, 24));
+			a.setSelected(serving.isActiveFlag());
 			servingPane.add(a);
 			servingChecks.add(a);
 		}
@@ -89,6 +90,7 @@ public class SettingsView extends JPanel {
 			
 			TableCheckBox a = new TableCheckBox(Integer.toString(table.getNumber()) ,table);
 			a.setFont(new java.awt.Font("Arial", 0, 24));
+			a.setSelected(table.isActiveFlag());
 			tablePane.add(a);
 			tableChecks.add(a);
 		}
@@ -99,6 +101,7 @@ public class SettingsView extends JPanel {
 			
 			CategoryCheckBox a = new CategoryCheckBox(category.getName(),category);
 			a.setFont(new java.awt.Font("Arial", 0, 24));
+			a.setSelected(category.isActiveFlag());
 			categoryPane.add(a);
 			categoryChecks.add(a);
 		}
@@ -109,6 +112,7 @@ public class SettingsView extends JPanel {
 			
 			ModifierCheckBox a = new ModifierCheckBox(modifier.getName(),modifier);
 			a.setFont(new java.awt.Font("Arial", 0, 24));
+			a.setSelected(modifier.isActiveFlag());
 			modifierPane.add(a);
 			modifierChecks.add(a);
 		}

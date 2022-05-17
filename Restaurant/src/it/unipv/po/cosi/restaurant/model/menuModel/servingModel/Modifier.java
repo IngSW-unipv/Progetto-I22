@@ -32,4 +32,13 @@ public class Modifier {
 	public String toString() {
 		return name;
 	}
+
+	public boolean isActiveFlag() {
+		return activeFlag;
+	}
+
+	public void setActiveFlag(boolean activeFlag) {
+		this.activeFlag = activeFlag;
+	}
+	
 }
