@@ -44,7 +44,6 @@ public class SettingsView extends JPanel {
 		categoryChecks = new ArrayList<CategoryCheckBox>();
 		
 		
-		
 //		try {
 //		    UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName());
 //		 } catch (Exception e) {

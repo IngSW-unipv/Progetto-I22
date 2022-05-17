@@ -335,27 +335,45 @@ public class MVCController {
 	      view.getEditButton().addActionListener(settingsButtonListener);
 	      
 	      
-	      
-	      
 	      ActionListener confirmListener = new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				manageAction();
-				
-			}
-	    	 
-			private void manageAction() {
-				
-				for (ServingCheckBox b : view.getSettingsView().getServingChecks()){
-					
-					b.getServing().setActiveFlag(b.isSelected());
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					manageAction();
 					
 				}
-			}
-	    	  
-	    	  
-	      };
+		    	 
+				private void manageAction() {
+					
+					for (ServingCheckBox b : view.getSettingsView().getServingChecks()){
+						
+						b.getServing().setActiveFlag(b.isSelected());
+						
+					}
+					
+					for (CategoryCheckBox b : view.getSettingsView().getCategoryChecks()){
+						
+						b.getCategory().setActiveFlag(b.isSelected());
+						
+					}
+				
+					for (ModifierCheckBox b : view.getSettingsView().getModifierChecks()){
+						
+						b.getModifier().setActiveFlag(b.isSelected());
+						
+					}
+					
+					for (TableCheckBox b : view.getSettingsView().getTableChecks()){
+						
+						b.getTable().setActiveFlag(b.isSelected());
+						
+					}
+					
+				}
+				
+		    	  
+		    	  
+		      };
 	      
 	      view.getSettingsView().getConfirmButton().addActionListener(confirmListener);
 	 }      

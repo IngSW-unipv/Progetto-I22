@@ -124,6 +124,20 @@ public class RestaurantModel {
 		return categories;
 	}
 	
+	public ArrayList<Category> getActiveCategories(){
+		
+		ArrayList<Category> rslt = new ArrayList<Category>();
+		
+		for(Category c: categories) {
+			
+			if(c.isActiveFlag()) {
+				rslt.add(c);
+			}
+		}
+		return rslt;	
+		
+	}
+	
 	public ArrayList<Serving> getServingsPerCategory(Category c) {
 		
 		ArrayList<Serving> rslt = new ArrayList<Serving>();
