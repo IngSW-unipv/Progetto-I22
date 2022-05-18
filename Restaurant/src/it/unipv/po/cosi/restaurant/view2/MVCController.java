@@ -287,7 +287,7 @@ public class MVCController {
 	      
 	      view.getOrderView().getServingList().addListSelectionListener(servingSelectionListener);
 	      
-	      
+	     
 	      
 	      
 	    //----------------------------//
@@ -345,6 +345,8 @@ public class MVCController {
 		    	 
 				private void manageAction() {
 					
+					view.getC1().show(view.getCardPane(), "1");
+					
 					for (ServingCheckBox b : view.getSettingsView().getServingChecks()){
 						
 						b.getServing().setActiveFlag(b.isSelected());
@@ -369,6 +371,12 @@ public class MVCController {
 						
 					}
 					
+					DbControllerSingleton.getInstance().updateActiveServings();
+					DbControllerSingleton.getInstance().updateActiveModifiers();
+					DbControllerSingleton.getInstance().updateActiveCategories();
+					DbControllerSingleton.getInstance().updateActiveTables();
+					WarningFrame warning = new WarningFrame("Riavvio necessario");
+					warning.setVisible(true);
 				}
 				
 		    	  

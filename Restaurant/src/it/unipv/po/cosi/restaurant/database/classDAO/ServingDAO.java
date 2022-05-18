@@ -12,11 +12,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
+import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
-public class ServingDAO implements IDao{
+public class ServingDAO extends DAOClass implements IDao{
 	
 	private Connection c;
 	
@@ -112,20 +113,16 @@ public class ServingDAO implements IDao{
 		c = DatabaseConnection.startConnection(c, schema);
 		
 		Statement st1;
-		ResultSet rs;
 		
 		try {
 
 			st1 = c.createStatement();
-//			String query = "update serving set active = 'false' where id > 0;";
-//			st1.executeUpdate(query);
 			String query;
 			
 			for (Serving serving : servings) {
 				
-				query = "update serving set active = " + serving.isActiveFlag() + " where id = " + serving.getId() + ";"; 
-				st1.executeUpdate(query);
-				
+				query = "update serving set active = '" + super.booleanToString(serving.isActiveFlag()) + "' where id = " + serving.getId() + ";";
+				st1.executeUpdate(query);	
 				
 			}
 		

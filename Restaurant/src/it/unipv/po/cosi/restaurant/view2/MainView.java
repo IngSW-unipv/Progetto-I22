@@ -100,15 +100,16 @@ public class MainView extends JFrame {
 		
 		for(Table table: tables) {
 			
-			JTableButton butt = new JTableButton(""+table.getNumber(), table);
-			butt.setFont(new java.awt.Font("Synchro LET", 1, 24));
-			butt.setOpaque(true);
-//			butt.setBorderPainted(false);
-			butt.setBackground(new Color(0,191,57));
-//			butt.setVisible(false);
-			tableButtons.add(butt);
-			tablePane.add(butt);
-			
+			if(table.isActiveFlag()) {
+				JTableButton butt = new JTableButton(""+table.getNumber(), table);
+				butt.setFont(new java.awt.Font("Synchro LET", 1, 24));
+				butt.setOpaque(true);
+	//			butt.setBorderPainted(false);
+				butt.setBackground(new Color(0,191,57));
+	//			butt.setVisible(false);
+				tableButtons.add(butt);
+				tablePane.add(butt);
+			}
 			
 		}
 		

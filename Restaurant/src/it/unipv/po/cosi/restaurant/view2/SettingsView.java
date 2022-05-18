@@ -66,10 +66,10 @@ public class SettingsView extends JPanel {
 		confirmButton.setBackground(Color.GREEN);
 		titleText = new JTextField("                              MODIFICA IL TUO RISTORANTE");
 		titleText.setFont(new java.awt.Font("Arial", 0, 30));
-		servingPane = new JPanel(new GridLayout(servings.size(), 1));
-		modifierPane =  new JPanel(new GridLayout(modifiers.size(), 1));
-		categoryPane = new JPanel(new GridLayout(categories.size(), 1));
-		tablePane = new JPanel(new GridLayout(tables.size(), 1));
+		servingPane = new JPanel(new GridLayout(servings.size()+20, 1, 0, 30));
+		modifierPane =  new JPanel(new GridLayout(modifiers.size()+20, 1, 0, 30));
+		categoryPane = new JPanel(new GridLayout(categories.size()+20, 1, 0, 30));
+		tablePane = new JPanel(new GridLayout(tables.size()+20, 1, 0, 30));
 		servingScroller = new JScrollPane();
 		
 //		servingCheck	
@@ -77,7 +77,7 @@ public class SettingsView extends JPanel {
 		for (Serving serving : servings) {
 			
 			ServingCheckBox a = new ServingCheckBox(serving.getName(),serving);
-			a.setFont(new java.awt.Font("Arial", 0, 24));
+			a.setFont(new java.awt.Font("Arial", 0, 28));
 			a.setSelected(serving.isActiveFlag());
 			servingPane.add(a);
 			servingChecks.add(a);
@@ -88,7 +88,7 @@ public class SettingsView extends JPanel {
 		for (Table table : tables) {
 			
 			TableCheckBox a = new TableCheckBox(Integer.toString(table.getNumber()) ,table);
-			a.setFont(new java.awt.Font("Arial", 0, 24));
+			a.setFont(new java.awt.Font("Arial", 0, 28));
 			a.setSelected(table.isActiveFlag());
 			tablePane.add(a);
 			tableChecks.add(a);
@@ -99,7 +99,7 @@ public class SettingsView extends JPanel {
 		for (Category category : categories) {
 			
 			CategoryCheckBox a = new CategoryCheckBox(category.getName(),category);
-			a.setFont(new java.awt.Font("Arial", 0, 24));
+			a.setFont(new java.awt.Font("Arial", 0, 28));
 			a.setSelected(category.isActiveFlag());
 			categoryPane.add(a);
 			categoryChecks.add(a);
@@ -110,7 +110,7 @@ public class SettingsView extends JPanel {
 		for (Modifier modifier : modifiers) {
 			
 			ModifierCheckBox a = new ModifierCheckBox(modifier.getName(),modifier);
-			a.setFont(new java.awt.Font("Arial", 0, 24));
+			a.setFont(new java.awt.Font("Arial", 0, 28));
 			a.setSelected(modifier.isActiveFlag());
 			modifierPane.add(a);
 			modifierChecks.add(a);
@@ -124,6 +124,8 @@ public class SettingsView extends JPanel {
 		servingScroller.setHorizontalScrollBar(null);
 		
 		// THIS PANE OPTIONS //
+		
+		
 		
 		setLayout(new BorderLayout());
 		mainPane.setLayout(new GridLayout(1,4));
@@ -163,7 +165,6 @@ public class SettingsView extends JPanel {
 	public JButton getConfirmButton() {
 		return confirmButton;
 	}
-	
 	
 	
 }

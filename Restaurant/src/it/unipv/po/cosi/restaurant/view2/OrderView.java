@@ -115,14 +115,14 @@ public class OrderView extends JPanel {
 		
 		
 		for(Category c: categories) {
-			
-			JCategoryButton butt = new JCategoryButton(c.getName(), c);
-			butt.setFont(new java.awt.Font("Arial", 0, 40));
-			butt.setMinimumSize(new Dimension(0, 80));
-			categoryButtons.add(butt);
-			categoryButtonPane.setLayout(new GridLayout(1, 3));
-			categoryButtonPane.add(butt);
-			
+			if(c.isActiveFlag()) {
+				JCategoryButton butt = new JCategoryButton(c.getName(), c);
+				butt.setFont(new java.awt.Font("Arial", 0, 40));
+				butt.setMinimumSize(new Dimension(0, 80));
+				categoryButtons.add(butt);
+				categoryButtonPane.setLayout(new GridLayout(1, 3));
+				categoryButtonPane.add(butt);
+			}
 		}
 		
 		

@@ -12,11 +12,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
+import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
-public class ModifierDAO implements IDao{
+public class ModifierDAO extends DAOClass implements IDao{
 	
 	private Connection c;
 
@@ -147,5 +149,28 @@ public class ModifierDAO implements IDao{
 		
 	}
 	
+	public void updateActiveModifiers(ArrayList<Modifier> modifiers) {
+		
+		c = DatabaseConnection.startConnection(c, schema);
+		
+		Statement st1;
+		
+		try {
+
+			st1 = c.createStatement();
+			String query;
+			
+			for (Modifier modifier : modifiers) {
+				
+				query = "update modifier set active = '" + super.booleanToString(modifier.isActiveFlag()) + "' where name = '" + modifier.getName() + "';"; 
+				st1.executeUpdate(query);	
+				
+			}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

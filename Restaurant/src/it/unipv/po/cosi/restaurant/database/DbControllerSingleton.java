@@ -132,6 +132,11 @@ public class DbControllerSingleton {
 		
 	}
 	
+	public void updateActiveModifiers() {
+		
+		DaoFactory.getModifierDAO(serv).updateActiveModifiers(RestaurantModel.getInstance().getModifiersArray());
+	}
+	
 	
 //CATEGORY
 	
@@ -146,6 +151,11 @@ public class DbControllerSingleton {
 		populateCategoriesHiding();
 	}
 	
+	public void updateActiveCategories() {
+		
+		DaoFactory.getCategoryDAO(serv).updateActiveCategories(RestaurantModel.getInstance().getCategoriesArray());
+	}
+	
 
 //TABLE
 	
@@ -158,6 +168,11 @@ public class DbControllerSingleton {
 	public void populateTalesArray() {
 		
 		populateTablesHiding();
+	}
+	
+	public void updateActiveTables() {
+		
+		DaoFactory.getTableDAO(serv).updateActiveTables(RestaurantModel.getInstance().getTablesArray());
 	}
 	
 	// STRUCTURE HIDING PATTERN //

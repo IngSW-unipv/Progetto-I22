@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
+import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
@@ -13,7 +14,7 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 import java.sql.Connection;
 
-public class OrderDAO implements IDao{
+public class OrderDAO extends DAOClass implements IDao{
 	
 	private Connection c;
 

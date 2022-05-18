@@ -10,12 +10,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
+import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
-public class CategoryDAO implements IDao{	
+
+public class CategoryDAO extends DAOClass implements IDao{	
 	
 	private Connection c;
 
@@ -136,6 +137,28 @@ public class CategoryDAO implements IDao{
 		
 	}
 
-	
+	public void updateActiveCategories(ArrayList<Category> categories) {
+		
+		c = DatabaseConnection.startConnection(c, schema);
+		
+		Statement st1;
+		
+		try {
+
+			st1 = c.createStatement();
+			String query;
+			
+			for (Category category : categories) {
+				
+				query = "update category set active = '" + super.booleanToString(category.isActiveFlag()) + "' where name = '" + category.getName() + "';"; 
+				st1.executeUpdate(query);	
+				
+			}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }
