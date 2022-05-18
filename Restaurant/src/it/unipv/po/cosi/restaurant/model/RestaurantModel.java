@@ -1,4 +1,4 @@
-package it.unipv.po.cosi.restaurant.model.menuModel;
+package it.unipv.po.cosi.restaurant.model;
 
 import java.util.ArrayList;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.*;

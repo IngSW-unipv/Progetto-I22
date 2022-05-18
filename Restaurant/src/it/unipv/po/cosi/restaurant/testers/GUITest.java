@@ -3,7 +3,7 @@ package it.unipv.po.cosi.restaurant.testers;
 import java.io.IOException;
 
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
-import it.unipv.po.cosi.restaurant.model.menuModel.RestaurantModel;
+import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.view2.MVCController;
 import it.unipv.po.cosi.restaurant.view2.MainView;
 
