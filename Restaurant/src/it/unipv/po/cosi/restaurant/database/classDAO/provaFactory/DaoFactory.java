@@ -1,9 +1,7 @@
 package it.unipv.po.cosi.restaurant.database.classDAO.provaFactory;
 
 import java.io.FileInputStream;
-import java.lang.reflect.Constructor;
 import java.util.Properties;
-
 import it.unipv.po.cosi.restaurant.database.classDAO.CategoryDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.ModifierDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.OrderDAO;

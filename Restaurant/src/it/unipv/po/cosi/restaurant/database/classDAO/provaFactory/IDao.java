@@ -1,6 +1,5 @@
 package it.unipv.po.cosi.restaurant.database.classDAO.provaFactory;
 
-import java.util.ArrayList;
 
 public interface IDao {
 

@@ -1,10 +1,8 @@
 package it.unipv.po.cosi.restaurant.view2;
 
 import java.awt.Dimension;
-import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
-import javax.swing.*;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +11,10 @@ import javax.swing.JTextField;
 
 public class WarningFrame extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField text;
 	private JButton confirmButton;
 	private JButton ignoreButton;

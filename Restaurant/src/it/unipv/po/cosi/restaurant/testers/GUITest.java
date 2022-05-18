@@ -4,8 +4,6 @@ import java.io.IOException;
 
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.model.menuModel.RestaurantModel;
-import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
-import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.view2.MVCController;
 import it.unipv.po.cosi.restaurant.view2.MainView;
 

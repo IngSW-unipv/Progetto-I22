@@ -1,20 +1,15 @@
 package it.unipv.po.cosi.restaurant.view2;
 
-import javax.swing.border.Border;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
-import it.unipv.po.cosi.restaurant.view.mainInterface.MainMenu;
 import java.awt.*;
-import java.awt.image.*;
 import java.io.*;
-import javax.imageio.ImageIO;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.util.Collections;
-import java.awt.*;
+
+
 
 public class MainView extends JFrame {
 
@@ -27,7 +22,7 @@ public class MainView extends JFrame {
 	private JPanel editPane;
 	private JButton editButton;
 	private OrderView orderView;
-	private JPanel legendPane;
+//	private JPanel legendPane;
 	private JButton shutDownButton;
 	private JPanel pane;
 	private JPanel cardPane;

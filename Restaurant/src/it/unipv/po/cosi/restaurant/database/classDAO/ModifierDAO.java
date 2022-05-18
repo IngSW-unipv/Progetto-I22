@@ -10,13 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
-import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
+
 
 public class ModifierDAO extends DAOClass implements IDao{
 	
@@ -168,7 +167,6 @@ public class ModifierDAO extends DAOClass implements IDao{
 			}
 		
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

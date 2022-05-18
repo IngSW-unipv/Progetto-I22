@@ -6,6 +6,10 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 public class ServingCheckBox extends JCheckBox {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Serving serving;
 
 	public ServingCheckBox(Serving serving) {

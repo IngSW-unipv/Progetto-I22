@@ -6,6 +6,10 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
 public class TableCheckBox extends JCheckBox{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Table table;
 
 	public TableCheckBox(Table table) {

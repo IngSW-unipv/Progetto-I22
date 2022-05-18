@@ -5,20 +5,12 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-
-import java.awt.GraphicsConfiguration;
-import java.awt.HeadlessException;
-import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.CardLayout;
-import java.util.Collections;
-import java.util.List;
 
 
 public class OrderView extends JPanel {

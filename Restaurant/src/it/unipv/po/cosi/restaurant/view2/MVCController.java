@@ -2,13 +2,11 @@ package it.unipv.po.cosi.restaurant.view2;
 
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.*;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.event.ListSelectionEvent;
@@ -456,13 +454,13 @@ public class MVCController {
 	 
 	 
 	 
-	 private void populateMenuList() {
-		 
-//		 view.getOrderView().setListModel(model.getOrders().get(0).getServinNamesArray());
-		 view.getOrderView().getServingList().setModel(getServingDefaultList(model.getServingsArray()));
-
-
-	 }
+//	 private void populateMenuList() {
+//		 
+////		 view.getOrderView().setListModel(model.getOrders().get(0).getServinNamesArray());
+//		 view.getOrderView().getServingList().setModel(getServingDefaultList(model.getServingsArray()));
+//
+//
+//	 }
 	 
 	 private void populateOrderList(ArrayList<Serving> servings) {
 		 

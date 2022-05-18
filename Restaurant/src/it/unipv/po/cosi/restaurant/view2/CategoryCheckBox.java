@@ -6,6 +6,10 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
 public class CategoryCheckBox extends JCheckBox {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Category category;
 
 	public CategoryCheckBox(Category category) {

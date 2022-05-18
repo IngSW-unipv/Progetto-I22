@@ -6,6 +6,10 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 
 public class ModifierCheckBox extends JCheckBox{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Modifier modifier;
 
 	public ModifierCheckBox(Modifier modifier) {

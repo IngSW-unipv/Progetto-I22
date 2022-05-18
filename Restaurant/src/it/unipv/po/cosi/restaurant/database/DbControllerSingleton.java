@@ -3,11 +3,6 @@ package it.unipv.po.cosi.restaurant.database;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import it.unipv.po.cosi.restaurant.database.classDAO.CategoryDAO;
-import it.unipv.po.cosi.restaurant.database.classDAO.ModifierDAO;
-import it.unipv.po.cosi.restaurant.database.classDAO.OrderDAO;
-import it.unipv.po.cosi.restaurant.database.classDAO.ServingDAO;
-import it.unipv.po.cosi.restaurant.database.classDAO.TableDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DaoFactory;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.RestaurantModel;
