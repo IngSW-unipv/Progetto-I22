@@ -1,6 +1,7 @@
 package it.unipv.po.cosi.restaurant.view2;
 
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 import javax.swing.*;
@@ -50,9 +51,18 @@ public class OrderView extends JPanel {
 	private JPanel servingSettingsPane;
 	private JButton closeOrderButton;
 	private JTextField orderTitle;
+	private JPanel menuCardPane;
+	private JPanel modifierPane;
+	private JPanel modifierButtonPane;
+	private JScrollPane modifierScroller;
+	private JList<Modifier> modifierList;
+	private JButton confirmModifiers;
+	private JButton rejectModifiers;
+	private CardLayout c1;
+	
 	
 	public OrderView(ArrayList<Category> categories) {
-		
+		  
 		initComponents(categories);
 	}
 
@@ -69,13 +79,32 @@ public class OrderView extends JPanel {
 		categoryButtons = new ArrayList<JCategoryButton>(); 
 		categoryButtonPane = new JPanel();
 		addToOrderButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/add.png"));
-		addToOrderButton.setText("Aggiungi");;
+		addToOrderButton.setText("Aggiungi");
 		addToOrderButton.setFont(new java.awt.Font("Arial", 0, 36));
 		removeFromOrderButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/revert.png"));
 		removeFromOrderButton.setText("Rimuovi");
 		removeFromOrderButton.setFont(new java.awt.Font("Arial", 0, 36));
 		servingSettingsPane = new JPanel();
 		servingSettingsPane.setLayout(new BorderLayout());
+		menuCardPane = new JPanel();
+		modifierPane = new JPanel(new BorderLayout());
+		modifierButtonPane = new JPanel(new BorderLayout());
+		modifierList = new JList<Modifier>();
+		modifierScroller = new JScrollPane(modifierList);
+		confirmModifiers = new JButton("Conferma");
+		confirmModifiers.setFont(new java.awt.Font("Arial", 0, 36));
+		confirmModifiers.setBackground(Color.decode("#00BF39"));
+		rejectModifiers = new JButton("Annulla");
+		rejectModifiers.setFont(new java.awt.Font("Arial", 0, 36));
+		modifierPane.add(modifierScroller, BorderLayout.CENTER);
+		modifierPane.add(modifierButtonPane, BorderLayout.SOUTH);
+		modifierButtonPane.add(confirmModifiers, BorderLayout.EAST);
+		modifierButtonPane.add(rejectModifiers, BorderLayout.WEST);
+		c1 =  new CardLayout();
+		menuCardPane.setLayout(c1);
+		menuCardPane.add(scrollingRightContainer, "1");
+		menuCardPane.add(modifierPane, "2");
+		c1.show(menuCardPane, "1");
 		scrollingRightContainer.add(servingSettingsPane, BorderLayout.SOUTH);
 		addModifierButton = new JButton("Modifica");
 		addModifierButton.setFont(new java.awt.Font("Arial", 0, 36));
@@ -104,6 +133,7 @@ public class OrderView extends JPanel {
 		servingList = new JList<Serving>();
 		servingList.setFont(new java.awt.Font("Arial", 0, 36));
 		servingScroller = new JScrollPane(servingList);
+		servingScroller.setHorizontalScrollBar(null);
 		servingList.setFixedCellHeight(100);
 		servingList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		servingList.setLayoutOrientation(JList.VERTICAL);
@@ -130,10 +160,11 @@ public class OrderView extends JPanel {
 		
 		mainButtonPane = new JPanel();
 		mainButtonPane.setLayout(new BorderLayout());
-		mainButtonPane.add(backButton = new JButton("❮ Back"), BorderLayout.WEST);
+		mainButtonPane.add(backButton = new JButton("Back"), BorderLayout.WEST);
 		backButton.setFont(new java.awt.Font("Synchro LET", 1, 36));
+		backButton.setIcon(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/back.png"));
 		closeOrderButton = new JButton("Close/Pay order");
-		closeOrderButton.setBackground(Color.red);
+		closeOrderButton.setBackground(Color.decode("#D00000"));
 		closeOrderButton.setForeground(Color.white);
 		closeOrderButton.setFont(new java.awt.Font("Synchro LET", 0, 36));
 		orderTitle = new JTextField("      Ordine: ");
@@ -172,7 +203,7 @@ public class OrderView extends JPanel {
 	      
 	      
 		scrollingContainer.add(scrollingLeftContainer);
-		scrollingContainer.add(scrollingRightContainer);
+		scrollingContainer.add(menuCardPane);
 		scrollingRightContainer.add(servingScroller, BorderLayout.CENTER);
 		scrollingLeftContainer.add(orderScroller, BorderLayout.CENTER);
 		scrollingLeftContainer.add(removeFromOrderButton, BorderLayout.SOUTH);
@@ -260,6 +291,27 @@ public class OrderView extends JPanel {
 	public JTextField getOrderTitle() {
 		return orderTitle;
 	}
+
+	public JList<Modifier> getModifierList() {
+		return modifierList;
+	}
+
+	public JButton getConfirmModifiers() {
+		return confirmModifiers;
+	}
+
+	public JButton getRejectModifiers() {
+		return rejectModifiers;
+	}
+
+	public JPanel getMenuCardPane() {
+		return menuCardPane;
+	}
+
+	public CardLayout getC1() {
+		return c1;
+	}
+	
 	
 	
 	

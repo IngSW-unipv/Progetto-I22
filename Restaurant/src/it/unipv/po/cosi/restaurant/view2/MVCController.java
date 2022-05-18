@@ -15,6 +15,7 @@ import javax.swing.event.ListSelectionListener;
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.model.menuModel.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Status;
@@ -297,21 +298,58 @@ public class MVCController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				manageAction();
 				
 			}
 	    	private void manageAction() {
-	    		// TODO 
-//	    		JFrame modifierFrame = new JFrame();
-//	    		modifierFrame.setSize(new Dimension(500, 500));
-//	    		
-//	    		modifierFrame.setVisible(true);
+	    		
+	    		view.getOrderView().getC1().show(view.getOrderView().getMenuCardPane(), "2");
 	    		
 	    	}
 	    	
 	      };
 	      
 	      view.getOrderView().getAddModifierButton().addActionListener(modifyServingListener);
+	      
+	      
+	      ActionListener confirmModifiersListener = new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					manageAction();
+					
+				}
+		    	private void manageAction() {
+		    		
+		    		view.getOrderView().getC1().show(view.getOrderView().getMenuCardPane(), "1");
+		    		//TODO
+		    	}
+		    	
+		      };
+		      
+		      view.getOrderView().getConfirmModifiers().addActionListener(confirmModifiersListener);
+		      
+		      
+		      ActionListener rejectModifiersListener = new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						manageAction();
+						
+					}
+			    	private void manageAction() {
+			    		
+			    		view.getOrderView().getC1().show(view.getOrderView().getMenuCardPane(), "1");
+			    		
+			    	}
+			    	
+			      };
+			      
+			      view.getOrderView().getRejectModifiers().addActionListener(rejectModifiersListener);
+			      
 	      
 	      
 	    //--------------------------//
@@ -423,7 +461,21 @@ public class MVCController {
 			for (Serving serving : servings) {
 				
 				s.add(i, serving);
-//				System.out.println(i + serving.getName());
+				i++;
+			} 
+			
+			return s;
+		}
+		
+
+		public DefaultListModel<Modifier> getModifierDefaultList(ArrayList<Modifier> modifiers) {
+			
+			DefaultListModel<Modifier> s = new DefaultListModel<Modifier>();
+			int i = 0;
+			
+			for (Modifier modifier : modifiers) {
+				
+				s.add(i, modifier);
 				i++;
 			} 
 			

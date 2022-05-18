@@ -51,6 +51,11 @@ public class MainView extends JFrame {
 	
 	private void initComponents(ArrayList<Serving> servings, ArrayList<Category> categories, ArrayList<Modifier> modifiers, ArrayList<Table> tables) throws IOException {
 		
+		// CARD LAYOUT PANEL //
+		c1 = new CardLayout();
+		cardPane = new JPanel();
+		cardPane.setLayout(c1);
+
 		// TABLE PANEL //
 		int nTables = tables.size();
 		orderView = new OrderView(categories);
@@ -75,12 +80,6 @@ public class MainView extends JFrame {
 //		legendPane.add(greenDot);
 		
 		
-		// CARD LAYOUT PANEL //
-		
-		
-		c1 = new CardLayout();
-		cardPane = new JPanel();
-		cardPane.setLayout(c1);
 		
 		// EDIT PANEL //
 		
@@ -90,7 +89,7 @@ public class MainView extends JFrame {
 		pane = new JPanel(new FlowLayout());
 		editButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/settings.PNG"));
 		shutDownButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/powerOffWhite.PNG"));
-		shutDownButton.setBackground(Color.red);
+		shutDownButton.setBackground(Color.decode("#D00000"));
 //		editButton.setContentAreaFilled(false);
 //		editPane.add(editButton, BorderLayout.SOUTH);
 		editPane.add(pane, BorderLayout.NORTH);
