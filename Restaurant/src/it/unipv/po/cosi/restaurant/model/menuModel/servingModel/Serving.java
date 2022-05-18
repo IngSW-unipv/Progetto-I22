@@ -101,7 +101,16 @@ public class Serving implements Comparable<Serving> {
 	
 	@Override
 	public String toString() {
-		return name;
+		
+		String rslt = name;
+		
+		for (Modifier modifier : modifiers) {
+			
+			rslt = rslt + " + " + modifier.getName();
+			
+		}
+		
+		return rslt;
 	}
 
 	@Override

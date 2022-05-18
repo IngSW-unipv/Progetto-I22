@@ -150,6 +150,20 @@ public class RestaurantModel {
 		}
 		return rslt;
 	}
+	
+	public ArrayList<Modifier> getModifiersPerCategory(Category c) {
+		
+		ArrayList<Modifier> rslt = new ArrayList<Modifier>();
+		
+		for(Modifier s: modifiers) {
+			
+			if(c.equals(s.getCategory()) && s.isActiveFlag()) {
+				rslt.add(s);
+			}
+		}
+		return rslt;
+	}
+	
 	// METODO CHE NON SO A COSA SERVA //
 	
 	public boolean update() {

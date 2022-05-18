@@ -1,12 +1,12 @@
-doppia mozzarella;2;pizzeria
-con cotto;2;pizzeria
-con crudo;2;pizzeria
-con ghiaccio;0;bar
-con limone;0;bar
-ben cotto;0;cucina
-ben cotta;0;pizzeria
-in bianco;0;cucina
-no formaggio;0;cucina
-senza glutine;0;cucina
-no formaggio;10;bar
-prova prova;0;pizzeria
+doppia mozzarella;2;Pizzeria
+prosc. cotto;2;Pizzeria
+prosc. crudo;2;Pizzeria
+ghiaccio;0;Bar
+limone;0;Bar
+ben cotto;0;Cucina
+ben cotta;0;Pizzeria
+in bianco;0;Cucina
+no formaggio;0;Cucina
+senza glutine;0;Cucina
+no formaggio;10;Bar
+prova prova;0;Pizzeria

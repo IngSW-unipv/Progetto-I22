@@ -111,6 +111,30 @@ public class OrderView extends JPanel {
 		servingSettingsPane.add(addModifierButton, BorderLayout.EAST);
 		servingSettingsPane.add(addToOrderButton, BorderLayout.CENTER);
 		addModifierButton.setVisible(false);
+		
+		
+		modifierList.setFont(new java.awt.Font("Arial", 0, 32));
+		modifierList.setFixedCellHeight(80);
+		modifierList.setLayoutOrientation(JList.VERTICAL);
+		modifierList.setVisibleRowCount(-1);
+		
+		modifierList.setSelectionModel(new DefaultListSelectionModel() {
+		    /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+		    public void setSelectionInterval(int index0, int index1) {
+		        if(super.isSelectedIndex(index0)) {
+		            super.removeSelectionInterval(index0, index1);
+		        }
+		        else {
+		            super.addSelectionInterval(index0, index1);
+		        }
+		    }
+		});
+		
 		// ORDER LIST SCROLLER //
 		
 //		orderListModel = new DefaultListModel<Serving>();
@@ -118,14 +142,11 @@ public class OrderView extends JPanel {
 		orderList.setFont(new java.awt.Font("Arial", 0, 32));
 		orderScroller = new JScrollPane(orderList);
 		orderList.setFixedCellHeight(80);
-		orderList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		orderList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		orderList.setLayoutOrientation(JList.VERTICAL);
 		orderList.setVisibleRowCount(-1);
 		
-		orderList.setForeground(Color.black);
-		orderList.setVisible(true);
-		orderList.setBackground(Color.white);
-//		orderList.add(new JSeparator());
+		
 		
 		// SERVING LIST SCROLLER //
 
@@ -135,7 +156,7 @@ public class OrderView extends JPanel {
 		servingScroller = new JScrollPane(servingList);
 		servingScroller.setHorizontalScrollBar(null);
 		servingList.setFixedCellHeight(100);
-		servingList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		servingList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		servingList.setLayoutOrientation(JList.VERTICAL);
 		servingList.setVisibleRowCount(-1);
 		

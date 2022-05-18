@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.*;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -305,12 +307,18 @@ public class MVCController {
 	    	private void manageAction() {
 	    		
 	    		view.getOrderView().getC1().show(view.getOrderView().getMenuCardPane(), "2");
+	    		Category cat = view.getOrderView().getServingList().getSelectedValue().getCategory();
+	    		
+	    		ArrayList<Modifier> modifiers = model.getModifiersPerCategory(cat);
+	    		view.getOrderView().getModifierList().setModel(getModifierDefaultList(modifiers));
 	    		
 	    	}
-	    	
+	    
 	      };
 	      
 	      view.getOrderView().getAddModifierButton().addActionListener(modifyServingListener);
+	      
+	      
 	      
 	      
 	      ActionListener confirmModifiersListener = new ActionListener() {
@@ -324,7 +332,18 @@ public class MVCController {
 		    	private void manageAction() {
 		    		
 		    		view.getOrderView().getC1().show(view.getOrderView().getMenuCardPane(), "1");
-		    		//TODO
+		    		List<Modifier> mod = view.getOrderView().getModifierList().getSelectedValuesList();
+		    		
+		    		Serving s = view.getOrderView().getServingList().getSelectedValue();
+		    		Serving s1 = new Serving(s.getId(), s.getName(), s.getPrice(), s.getCategory(), true);
+		    		
+		    		for (Modifier modifier : mod) {
+						s1.addModifier(modifier);
+					}
+		    		Order o = view.getOrderView().getSource().getTable().getOrder();
+		    		o.addServing(s1);
+		    		populateOrderList(o.getServings());
+		    		view.getOrderView().getSource().setBackground(new Color(252,93,93));
 		    	}
 		    	
 		      };
@@ -474,9 +493,9 @@ public class MVCController {
 			int i = 0;
 			
 			for (Modifier modifier : modifiers) {
-				
-				s.add(i, modifier);
-				i++;
+					
+					s.add(i, modifier);
+					i++;
 			} 
 			
 			return s;
