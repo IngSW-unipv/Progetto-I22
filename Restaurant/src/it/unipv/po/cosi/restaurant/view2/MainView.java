@@ -22,16 +22,18 @@ public class MainView extends JFrame {
 	private JPanel editPane;
 	private JButton editButton;
 	private OrderView orderView;
-//	private JPanel legendPane;
+	private JPanel legendPane;
 	private JButton shutDownButton;
 	private JPanel pane;
 	private JPanel cardPane;
 	private JPanel mainPane;
 	private SettingsView settingsView;
 	private CardLayout c1;
+	private JLabel legendImage;
+	private JButton historyButton;
+	private HistoryView historyView;
 	
-	
-	public MainView(ArrayList<Serving> servings, ArrayList<Category> categories, ArrayList<Modifier> modifiers, ArrayList<Table> tables) throws IOException {
+	public MainView(ArrayList<Serving> servings, ArrayList<Category> categories, ArrayList<Modifier> modifiers, ArrayList<Table> tables, int r, int c) throws IOException {
 		super();
 
 		try {
@@ -41,10 +43,10 @@ public class MainView extends JFrame {
 		 }
 		
 		tableButtons = new ArrayList<JTableButton>();
-		initComponents(servings,categories,modifiers,tables);
+		initComponents(servings,categories,modifiers,tables,r,c);
 	}
 	
-	private void initComponents(ArrayList<Serving> servings, ArrayList<Category> categories, ArrayList<Modifier> modifiers, ArrayList<Table> tables) throws IOException {
+	private void initComponents(ArrayList<Serving> servings, ArrayList<Category> categories, ArrayList<Modifier> modifiers, ArrayList<Table> tables, int r, int c) throws IOException {
 		
 		// CARD LAYOUT PANEL //
 		c1 = new CardLayout();
@@ -74,7 +76,10 @@ public class MainView extends JFrame {
 //		legendPane.add(legend);
 //		legendPane.add(greenDot);
 		
-		
+		legendPane = new JPanel();
+		legendImage = new JLabel();
+		legendImage.setIcon(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/legend.PNG"));
+		legendPane.add(legendImage);
 		
 		// EDIT PANEL //
 		
@@ -90,7 +95,12 @@ public class MainView extends JFrame {
 		editPane.add(pane, BorderLayout.NORTH);
 		pane.add(editButton);
 		pane.add(shutDownButton);
-//		editPane.add(legendPane, BorderLayout.CENTER);
+		historyButton = new JButton("Storico ordini");
+		historyButton.setFont(new java.awt.Font("Arial", 1, 24));
+		historyView = new HistoryView(r,c);
+		editPane.add(historyButton, BorderLayout.SOUTH);
+		editPane.add(legendPane, BorderLayout.CENTER);
+		cardPane.add(historyView,"4");
 		
 		for(Table table: tables) {
 			
@@ -185,5 +195,17 @@ public class MainView extends JFrame {
 			}		
 		}
 		return null;
-	} 
+	}
+
+	public JButton getHistoryButton() {
+		return historyButton;
+	}
+
+	public HistoryView getHistoryView() {
+		return historyView;
+	}
+	
+	
+
+	
 }

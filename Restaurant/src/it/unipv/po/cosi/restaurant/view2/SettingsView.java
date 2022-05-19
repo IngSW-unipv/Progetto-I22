@@ -55,7 +55,7 @@ public class SettingsView extends JPanel {
 		controlPane = new JPanel();
 		backButton = new JButton("Annulla");
 		backButton.setFont(new java.awt.Font("Arial", 0, 30));
-		backButton.setBackground(Color.RED);
+		backButton.setBackground(Color.decode("#D00000"));
 		backButton.setForeground(Color.WHITE);
 		confirmButton = new JButton("Conferma");
 		confirmButton.setFont(new java.awt.Font("Arial", 0, 30));

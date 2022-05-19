@@ -3,7 +3,9 @@ package it.unipv.po.cosi.restaurant.database.classDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
@@ -26,24 +28,39 @@ public class OrderDAO extends DAOClass implements IDao{
 		Order.setStartingId(this.getMaxId());
 	}
 	
-	public ArrayList<Order> selectAllOrders() {
+	public ArrayList<ArrayList<String>> selectAllOrders() {
 		
 		c = DatabaseConnection.startConnection(c, schema);
 		
-		ArrayList<Order> result = new ArrayList<>();
+		ArrayList<ArrayList<String>> rslt = new ArrayList<>();
+
+		
+		ArrayList<String> idArray = new ArrayList<>();
+		ArrayList<String> nameArray = new ArrayList<>();
+		ArrayList<String> totalArray = new ArrayList<>();
+		ArrayList<String> Array = new ArrayList<>();
+//		ArrayList<String> idArray = new ArrayList<>();
+
 		Statement st1;
 		ResultSet rs1;
 		
 		try {
 			st1 = c.createStatement();
-			String query = "SELECT * FROM ORDERING";
+			String query = "SELECT * "
+					+ "(SELECT ordering AS id, serving FROM order_serving) A "
+					+ "NATURAL JOIN "
+					+ "(SELECT * FROM restaurant.ordering) B "
+					+ "NATURAL JOIN "
+					+ "(SELECT id as serving, name  from serving) C";
 			rs1 = st1.executeQuery(query);
 	
+			
+			
 			while(rs1.next()) {
 				
-				Order order = new Order(new Table(rs1.getInt(2), true), rs1.getInt(1));
 				
-				result.add(order);			
+				
+				
 			}
 		}
 		
@@ -55,7 +72,8 @@ public class OrderDAO extends DAOClass implements IDao{
 		
 		DatabaseConnection.closeConnection(c);
 		
-		return result;
+		return rslt;
+		
 		
 	}
 	
@@ -66,7 +84,7 @@ public class OrderDAO extends DAOClass implements IDao{
 
 		try {
 			st1 = c.createStatement();
-			String query = "INSERT INTO RESTAURANT.ORDERING VALUES (" + order.getId() + "," + order.getTable().getNumber() + "," + order.getSubtotal() + ");";
+			String query = "INSERT INTO RESTAURANT.ORDERING VALUES (" + order.getId() + "," + order.getTable().getNumber() + "," + order.getSubtotal() + ",'" + order.getDateTime() + "');";
 			st1.executeUpdate(query);
 			
 			for (Serving serving : order.getServings()) {

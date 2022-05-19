@@ -25,7 +25,7 @@ public class GUITest {
 			dbc.populateTalesArray();
 			
 			RestaurantModel m = RestaurantModel.getInstance();
-			MainView v = new MainView(m.getServingsArray(), m.getCategoriesArray(), m.getModifiersArray(), m.getTablesArray());
+			MainView v = new MainView(m.getServingsArray(), m.getCategoriesArray(), m.getModifiersArray(), m.getTablesArray(),10,4);
 			v.setVisible(true);
 			
 //			m.getServingsArray().get(40).setActiveFlag(true);

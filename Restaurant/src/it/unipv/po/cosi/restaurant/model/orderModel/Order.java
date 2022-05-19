@@ -12,6 +12,7 @@ public class Order {
 	private ArrayList<Serving> servings;
 	private Table table;
 	private float total;
+	private String dateTime;
 	
 
 
@@ -20,6 +21,7 @@ public class Order {
 		id = ++startingId;
 		servings = new ArrayList<Serving>();
 		this.total = 0;	
+		this.dateTime = null;
 	}
 	
 	public Order(Table table) {
@@ -28,7 +30,7 @@ public class Order {
 		servings = new ArrayList<Serving>();
 		this.table = table;
 		this.total = 0;
-		
+		this.dateTime = null;
 	}
 	
 	public Order(int id) {
@@ -36,14 +38,15 @@ public class Order {
 		this.id = id;
 		servings = new ArrayList<Serving>();
 		this.total = 0;
+		this.dateTime = null;
 	}
 	
 	public Order(int id, float total) {
 			
-			this.total = total;
-			this.id = id;
-			servings = new ArrayList<Serving>();
-			
+		this.total = total;
+		this.id = id;
+		servings = new ArrayList<Serving>();
+		this.dateTime = null;	
 	}
 	
 	public Order(Table table, int id) {
@@ -52,6 +55,7 @@ public class Order {
 		servings = new ArrayList<Serving>();
 		this.table = table;
 		this.total = 0;
+		this.dateTime = null;
 	}
 	
 	public boolean addServing(Serving serving) {
@@ -132,6 +136,15 @@ public class Order {
 	public static void setStartingId(int startingId) {
 		Order.startingId = startingId;
 	}
+
+	public String getDateTime() {
+		return dateTime;
+	}
+
+	public void setDateTime(String dateTime) {
+		this.dateTime = dateTime;
+	}
+	
 	
 	
 }

@@ -173,13 +173,13 @@ public class OrderView extends JPanel {
 		
 		mainButtonPane = new JPanel();
 		mainButtonPane.setLayout(new BorderLayout());
-		mainButtonPane.add(backButton = new JButton("Back"), BorderLayout.WEST);
-		backButton.setFont(new java.awt.Font("Synchro LET", 1, 36));
+		mainButtonPane.add(backButton = new JButton("Indietro"), BorderLayout.WEST);
+		backButton.setFont(new java.awt.Font("Arial", 1, 36));
 		backButton.setIcon(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/back.png"));
 		closeOrderButton = new JButton("Close/Pay order");
 		closeOrderButton.setBackground(Color.decode("#D00000"));
 		closeOrderButton.setForeground(Color.white);
-		closeOrderButton.setFont(new java.awt.Font("Synchro LET", 0, 36));
+		closeOrderButton.setFont(new java.awt.Font("Arial", 0, 36));
 		orderTitle = new JTextField("      Ordine: ");
 		orderTitle.setEditable(false);
 		orderTitle.setFont(new java.awt.Font("Arial", 0, 40));
@@ -323,6 +323,10 @@ public class OrderView extends JPanel {
 
 	public CardLayout getC1() {
 		return c1;
+	}
+
+	public JButton getCloseOrderButton() {
+		return closeOrderButton;
 	}
 	
 	

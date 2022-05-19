@@ -4,7 +4,9 @@ package it.unipv.po.cosi.restaurant.view2;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -68,7 +70,6 @@ public class MVCController {
 	            	Order o = new Order(table);
 					table.setOrder(o);
 					o.setTable(table);
-	            	model.addOrder(o);
 	            	populateOrderList(o.getServings());
 	            }
 	            view.getOrderView().getOrderTitle().setText("      Ordine N° " + table.getOrder().getId()+" (Tavolo " +table.getNumber() + ")");   
@@ -144,12 +145,13 @@ public class MVCController {
 	    		  
 //	    		  view.getOrderView().dispose();
 	    		  view.getC1().show(view.getCardPane(), "1");
+
 	    	  }
 	      };
 	      
 	      view.getOrderView().getBackButton().addActionListener(backListener);
 	      view.getSettingsView().getBackButton().addActionListener(backListener);
-	      
+	      view.getHistoryView().getBackButton().addActionListener(backListener);
 	
 	      //--------------------------//
 	      // CATEGORY BUTTON LISTENER //
@@ -439,6 +441,56 @@ public class MVCController {
 		      };
 	      
 	      view.getSettingsView().getConfirmButton().addActionListener(confirmListener);
+	      
+			//	CLOSE ORDER LISTENER	//
+			
+			
+			ActionListener closeOrderListener = new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					manageAction();
+					
+				}
+
+				private void manageAction() {
+					
+					view.getC1().show(view.getCardPane(), "1");
+					Table t = view.getOrderView().getSource().getTable();
+					t.getOrder().setDateTime(Date.from(Instant.now()).toString());
+	            	model.addOrder(t.getOrder());
+					t.setOrder(null);
+					view.getOrderView().getSource().setBackground(new Color(0,191,57));
+					
+					
+				}
+				
+			};
+
+			view.getOrderView().getCloseOrderButton().addActionListener(closeOrderListener);
+			
+			
+			//	HYSTORY BUTTON LISTENER		//
+			
+			ActionListener hystoryButtonListener = new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					manageAction();
+					
+				}
+		    	private void manageAction() {
+		    		
+		    		view.getC1().show(view.getCardPane(),"4");
+		    		
+		    	}
+		    	
+		      };
+		      
+		      view.getHistoryButton().addActionListener(hystoryButtonListener);
+			
 	 }      
 	 
 	 
@@ -498,4 +550,7 @@ public class MVCController {
 			
 			return s;
 		}
+		
+
+
 }
