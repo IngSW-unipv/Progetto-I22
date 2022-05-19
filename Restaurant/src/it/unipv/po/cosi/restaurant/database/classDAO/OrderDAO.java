@@ -28,40 +28,67 @@ public class OrderDAO extends DAOClass implements IDao{
 		Order.setStartingId(this.getMaxId());
 	}
 	
-	public ArrayList<ArrayList<String>> selectAllOrders() {
+	public ArrayList<String[]> selectAllOrders() {
 		
 		c = DatabaseConnection.startConnection(c, schema);
 		
-		ArrayList<ArrayList<String>> rslt = new ArrayList<>();
+		ArrayList<String[]> rslt = new ArrayList<>();
 
 		
-		ArrayList<String> idArray = new ArrayList<>();
-		ArrayList<String> nameArray = new ArrayList<>();
-		ArrayList<String> totalArray = new ArrayList<>();
-		ArrayList<String> Array = new ArrayList<>();
-//		ArrayList<String> idArray = new ArrayList<>();
+		String idArray[] = new String[50];
+		String servingNameArray[] = new String[50];
+		String totalArray[] = new String[50];
+		String dateArray[] = new String[50];
+//		
+//		ArrayList<String> servingNameArray = new ArrayList<>();
+//		ArrayList<String> totalArray = new ArrayList<>();
+//		ArrayList<String> dateArray = new ArrayList<>();
 
 		Statement st1;
 		ResultSet rs1;
 		
 		try {
 			st1 = c.createStatement();
-			String query = "SELECT * "
+			
+			String query = "SELECT id, name as Piatto, total as Totale, time_date as Data FROM "
 					+ "(SELECT ordering AS id, serving FROM order_serving) A "
 					+ "NATURAL JOIN "
 					+ "(SELECT * FROM restaurant.ordering) B "
 					+ "NATURAL JOIN "
 					+ "(SELECT id as serving, name  from serving) C";
+			
 			rs1 = st1.executeQuery(query);
 	
-			
-			
-			while(rs1.next()) {
+//			while(rs1.next()) {
 				
-				
-				
-				
+//				System.out.println(rs1.getString(1));
+//				System.out.println(rs1.getString(2));
+//				System.out.println(rs1.getString(3));
+//				System.out.println(rs1.getString(4));
+				for(int i = 0;rs1.next();i++ ) {
+					
+					idArray[i] = rs1.getString(1);
+					servingNameArray[i] = rs1.getString(2);
+					totalArray[i] = rs1.getString(3);
+					dateArray[i] = rs1.getString(4);
+					
+					System.out.println(idArray[i]);
+					System.out.println(servingNameArray[i]);
+					System.out.println(totalArray[i]);
+					System.out.println(dateArray[i]);
+					
+//					idArray.add(rs1.getString(1));
+//					servingNameArray.add(rs1.getString(2));
+//					totalArray.add(rs1.getString(3));
+//					dateArray.add(rs1.getString(4));
+					
+//				}
 			}
+			
+			rslt.add(idArray);
+			rslt.add(servingNameArray);
+			rslt.add(totalArray);
+			rslt.add(dateArray);
 		}
 		
 		catch (Exception e) {

@@ -100,9 +100,9 @@ public class DbControllerSingleton {
 	
 //ORDER
 //	
-//	public ArrayList<Order> selectAllOrders() {
-//		return DaoFactory.getOrderDAO(ord).selectAllOrders();
-//	}
+	public ArrayList<String[]> selectAllOrders() {
+		return DaoFactory.getOrderDAO(ord).selectAllOrders();
+	}
 //	
 	public void insertOrder(Order order) {
 		DaoFactory.getOrderDAO(ord).insertOrder(order);

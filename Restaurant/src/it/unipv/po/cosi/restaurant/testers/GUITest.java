@@ -25,7 +25,7 @@ public class GUITest {
 			dbc.populateTalesArray();
 			
 			RestaurantModel m = RestaurantModel.getInstance();
-			MainView v = new MainView(m.getServingsArray(), m.getCategoriesArray(), m.getModifiersArray(), m.getTablesArray(),10,4);
+			MainView v = new MainView(m.getServingsArray(), m.getCategoriesArray(), m.getModifiersArray(), m.getTablesArray(),0,0);
 			v.setVisible(true);
 			
 //			m.getServingsArray().get(40).setActiveFlag(true);
@@ -39,10 +39,10 @@ public class GUITest {
 			MVCController c = new MVCController(m, v);
 //			System.out.println(m.getModifiersArray().get(0).getCategory().equals(m.getCategoriesArray().get(0)));
 //			for (Modifier string : m.getModifiersArray()) {
-//				
 //				System.out.println(string.getCategory());
 //			}
 			
+			v.getHistoryView().getHistoryTable().setModel(c.getOrderDefaultList(dbc.selectAllOrders()));	
 	}
 
 }

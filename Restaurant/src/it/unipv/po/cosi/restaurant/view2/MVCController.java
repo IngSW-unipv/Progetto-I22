@@ -8,12 +8,10 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
@@ -22,6 +20,7 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Status;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
+import javax.swing.table.DefaultTableModel;
 
 public class MVCController {
 	
@@ -551,6 +550,33 @@ public class MVCController {
 			return s;
 		}
 		
-
+		public DefaultTableModel getOrderDefaultList(ArrayList<String[]> source) {
+			
+			DefaultTableModel model = new DefaultTableModel(10,0);
+			
+//			model.addRow("",new String[] {"ID ORDINE", "PIATTO", "TOTALE", "DATA" });
+			
+			for (String[] array : source) {
+				
+				model.addColumn("", array);
+			}
+//			 new String[] {"ID", "PIATTO", "TOTALE ORDINE", "DATA" }
+			
+//			for(int i = 0; i<source.get(0).size(); i++) {
+//				
+//				
+//			}
+//			for (ArrayList<String> arrayList : source) {
+//				for (String s : arrayList) {
+//					System.out.println(s);
+//				}
+//			}
+//			for(int i=0;i<model.;i++) {
+//				
+//			}
+			
+			
+			return model;
+		}
 
 }
