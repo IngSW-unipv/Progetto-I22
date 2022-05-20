@@ -560,21 +560,6 @@ public class MVCController {
 				
 				model.addColumn("", array);
 			}
-//			 new String[] {"ID", "PIATTO", "TOTALE ORDINE", "DATA" }
-			
-//			for(int i = 0; i<source.get(0).size(); i++) {
-//				
-//				
-//			}
-//			for (ArrayList<String> arrayList : source) {
-//				for (String s : arrayList) {
-//					System.out.println(s);
-//				}
-//			}
-//			for(int i=0;i<model.;i++) {
-//				
-//			}
-			
 			
 			return model;
 		}

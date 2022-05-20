@@ -65,11 +65,22 @@ public class OrderDAO extends DAOClass implements IDao{
 //				System.out.println(rs1.getString(2));
 //				System.out.println(rs1.getString(3));
 //				System.out.println(rs1.getString(4));
-				for(int i = 0;rs1.next();i++ ) {
+			
+				idArray[0] = "ID ORDINE";
+				servingNameArray[0] = "PIATTO";
+				totalArray[0] = "TOTALE";
+				dateArray[0] = "DATA E ORA";
+				
+//				idArray[2] = "";
+//				servingNameArray[2] = "";
+//				totalArray[2] = "";
+//				dateArray[2] = "";
+			
+				for(int i = 1;rs1.next();i++ ) {
 					
 					idArray[i] = rs1.getString(1);
 					servingNameArray[i] = rs1.getString(2);
-					totalArray[i] = rs1.getString(3);
+					totalArray[i] = rs1.getString(3)+" €";
 					dateArray[i] = rs1.getString(4);
 					
 					System.out.println(idArray[i]);

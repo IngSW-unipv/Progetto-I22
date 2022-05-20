@@ -4,6 +4,7 @@ import java.awt.LayoutManager;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableModel;
 
 public class HistoryView extends JPanel{
@@ -12,16 +13,16 @@ public class HistoryView extends JPanel{
 	private JButton printButton;
 	private JTable historyTable;
 	private JPanel buttonPane;
-	private JPanel mainPane;
+	private JScrollPane scrollPane;
 	
 	public HistoryView(int r, int c) {
 		super();
 			
 		this.setLayout(new BorderLayout());
 		buttonPane = new JPanel(new BorderLayout());
-		mainPane = new JPanel(new BorderLayout());		
+		historyTable = new JTable(0,0);
+		scrollPane = new JScrollPane(historyTable);
 		this.add(buttonPane, BorderLayout.NORTH);
-		this.add(mainPane, BorderLayout.CENTER);
 		backButton = new JButton("Indietro");
 		printButton = new JButton("Stampa");
 		backButton.setFont(new java.awt.Font("Arial", 1, 36));
@@ -29,8 +30,16 @@ public class HistoryView extends JPanel{
 		printButton.setFont(new java.awt.Font("Synchro LET", 1, 36));
 		buttonPane.add(backButton, BorderLayout.WEST);
 		buttonPane.add(printButton, BorderLayout.EAST);
-		historyTable = new JTable(r,c);
-		mainPane.add(historyTable, BorderLayout.CENTER);
+
+//		historyTable.setMinimumSize(new Dimension(0, 30));
+		historyTable.setRowHeight(30);
+//		historyTable.getrow
+		DefaultTableCellRenderer centerRender = new DefaultTableCellRenderer();
+		centerRender.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
+		historyTable.setDefaultRenderer(String.class, centerRender);
+		
+		historyTable.setFont(new java.awt.Font("Arial", 0, 18));
+		this.add(scrollPane, BorderLayout.CENTER);
 		
 		
 	}
@@ -50,11 +59,6 @@ public class HistoryView extends JPanel{
 	public JPanel getButtonPane() {
 		return buttonPane;
 	}
-
-	public JPanel getMainPane() {
-		return mainPane;
-	}
-	
 	
 	
 }

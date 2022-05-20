@@ -28,20 +28,24 @@ public class WarningFrame extends JFrame {
 		Dimension screenSize = kit.getScreenSize(); 
 		int screenHeight = screenSize.height;
 		int screenWidth = screenSize.width;
-		setSize(screenWidth/4,screenHeight/4); 
-		setLocation(3*screenWidth/8,3*screenHeight/8);
+		setSize(490,190); 
+		setLocation((screenWidth/2)-490/2,(screenHeight/2)-190/2);
 		buttonPane = new JPanel();
 		
-		text = new JTextField("E' necessario riavviare l'applicazione per completare l'operazione");
+		text = new JTextField("  E' necessario riavviare l'applicazione per completare l'operazione  ");
+		text.setFont(new java.awt.Font("Arial", 0, 16));
 		text.setEditable(false);
 		confirmButton = new JButton("Conferma");
-		ignoreButton = new JButton("Ignora");
+		confirmButton.setFont(new java.awt.Font("Arial", 1, 22));
+		ignoreButton = new JButton("Ignora  ");
+		ignoreButton.setFont(new java.awt.Font("Arial", 1, 22));
 		setLayout(new BorderLayout());
 		buttonPane.setLayout(new BorderLayout());
 		buttonPane.add(confirmButton, BorderLayout.EAST);
 		buttonPane.add(ignoreButton, BorderLayout.WEST);
 		add(buttonPane, BorderLayout.SOUTH);
 		add(text, BorderLayout.CENTER);
+		
 	}
 
 	public JTextField getText() {
