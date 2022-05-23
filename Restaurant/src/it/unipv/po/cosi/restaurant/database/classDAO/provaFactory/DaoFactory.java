@@ -21,7 +21,7 @@ public class DaoFactory {
 	private static final String T_PROPERTYNAME="table.class.name";
 	private static final String M_PROPERTYNAME="modifier.class.name";
 	
-	public static CategoryDAO getCategoryDAO(IDao dao) {
+	public static CategoryDAO getCategoryDAO() {
 		
 		if(categories == null){
 			String categoryClassName;
@@ -43,7 +43,7 @@ public class DaoFactory {
 		return categories;
 	}
 	
-	public static ModifierDAO getModifierDAO(IDao dao) {
+	public static ModifierDAO getModifierDAO() {
 		
 		if(modifiers == null){
 			String modifierClassName;
@@ -65,7 +65,7 @@ public class DaoFactory {
 		return modifiers;
 	}
 	
-	public static OrderDAO getOrderDAO(IDao dao) {
+	public static OrderDAO getOrderDAO() {
 		
 		if(orders == null){
 			String ordersClassName;
@@ -87,7 +87,7 @@ public class DaoFactory {
 		return orders;
 	}
 	
-	public static ServingDAO getServingDAO(IDao dao) {
+	public static ServingDAO getServingDAO() {
 		
 		if(servings == null){
 			String servingClassName;
@@ -110,7 +110,7 @@ public class DaoFactory {
 	}
 	
 	@SuppressWarnings("deprecation")
-	public static TableDAO getTableDAO(IDao dao) {
+	public static TableDAO getTableDAO() {
 		
 		if(tables == null){
 			String tablesClassName;

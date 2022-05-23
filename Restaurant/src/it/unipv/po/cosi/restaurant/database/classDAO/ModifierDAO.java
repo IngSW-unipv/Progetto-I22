@@ -10,14 +10,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Observable;
+
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
-import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
+//import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 
 
-public class ModifierDAO extends DAOClass implements IDao{
+public class ModifierDAO implements IDao{
 	
 	private Connection c;
 
@@ -161,14 +163,26 @@ public class ModifierDAO extends DAOClass implements IDao{
 			
 			for (Modifier modifier : modifiers) {
 				
-				query = "update modifier set active = '" + super.booleanToString(modifier.isActiveFlag()) + "' where name = '" + modifier.getName() + "';"; 
+				query = "update modifier set active = '" + booleanToString(modifier.isActiveFlag()) + "' where name = '" + modifier.getName() + "';"; 
 				st1.executeUpdate(query);	
 				
 			}
-		
+			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
+	
+
+	
+	public String booleanToString(Boolean flag) {
+	
+	if(flag) {
+		return "true";
+	}
+	
+	return "false";
+}
 	
 }

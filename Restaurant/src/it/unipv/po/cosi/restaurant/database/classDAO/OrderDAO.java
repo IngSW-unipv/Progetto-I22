@@ -6,9 +6,9 @@ import java.sql.Statement;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Observable;
 
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
-import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
@@ -16,7 +16,7 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 import java.sql.Connection;
 
-public class OrderDAO extends DAOClass implements IDao{
+public class OrderDAO implements IDao{
 	
 	private Connection c;
 
@@ -228,4 +228,15 @@ public class OrderDAO extends DAOClass implements IDao{
 		return 0;
 		
 	}
+
+	@Override
+	public String booleanToString(Boolean flag) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+
 }

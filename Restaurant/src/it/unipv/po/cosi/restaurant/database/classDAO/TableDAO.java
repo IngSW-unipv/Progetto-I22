@@ -10,13 +10,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Observable;
 
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
-import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
-public class TableDAO extends DAOClass implements IDao{
+public class TableDAO implements IDao{
 
 	private Connection c;
 
@@ -149,11 +149,11 @@ public class TableDAO extends DAOClass implements IDao{
 			
 			for (Table table : tables) {
 				
-				query = "update restaurant.table set active = '" + super.booleanToString(table.isActiveFlag()) + "' where number = " + table.getNumber() + ";";
+				query = "update restaurant.table set active = '" + booleanToString(table.isActiveFlag()) + "' where number = " + table.getNumber() + ";";
 				st1.executeUpdate(query);
 			}
 			
-			
+
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -162,4 +162,14 @@ public class TableDAO extends DAOClass implements IDao{
 		
 		
 	}
+	
+	
+	public String booleanToString(Boolean flag) {
+		
+	if(flag) {
+		return "true";
+	}
+	
+	return "false";
+}
 }

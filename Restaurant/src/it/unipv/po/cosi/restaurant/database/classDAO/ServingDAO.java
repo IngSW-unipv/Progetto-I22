@@ -10,14 +10,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Observable;
 
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
-import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
-public class ServingDAO extends DAOClass implements IDao{
+public class ServingDAO implements IDao{
 	
 	private Connection c;
 	
@@ -121,11 +121,12 @@ public class ServingDAO extends DAOClass implements IDao{
 			
 			for (Serving serving : servings) {
 				
-				query = "update serving set active = '" + super.booleanToString(serving.isActiveFlag()) + "' where id = " + serving.getId() + ";";
+				query = "update serving set active = '" + booleanToString(serving.isActiveFlag()) + "' where id = " + serving.getId() + ";";
 				st1.executeUpdate(query);	
 				
 			}
 		
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -223,6 +224,27 @@ public class ServingDAO extends DAOClass implements IDao{
 		return rslt;
 	}
 	
+
+
+
+	public String booleanToString(Boolean flag) {
+		
+	if(flag) {
+		return "true";
+	}
+	
+	return "false";
+}
+
+
+
+
+
+
+
+
+
+
 }
 
 	

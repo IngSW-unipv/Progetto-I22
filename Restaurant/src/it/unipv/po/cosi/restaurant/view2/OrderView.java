@@ -6,6 +6,8 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,7 +15,7 @@ import java.awt.GridLayout;
 import java.awt.CardLayout;
 
 
-public class OrderView extends JPanel {
+public class OrderView extends JPanel{
 	
 	/**
 	 * 
@@ -328,6 +330,7 @@ public class OrderView extends JPanel {
 	public JButton getCloseOrderButton() {
 		return closeOrderButton;
 	}
+
 	
 	
 	

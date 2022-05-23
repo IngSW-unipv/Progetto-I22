@@ -5,5 +5,6 @@ public interface IDao {
 
 	public final static String schema = "restaurant";
 	public void initialize();
+	public String booleanToString(Boolean flag);
 	
 }
