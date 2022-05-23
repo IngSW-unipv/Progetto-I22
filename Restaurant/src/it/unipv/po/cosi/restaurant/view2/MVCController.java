@@ -251,9 +251,9 @@ public class MVCController {
 			
 			private void manageAction() {
 				
-				for(Order o: model.getOrdersArray()) {
-					DbControllerSingleton.getInstance().insertOrder(o);
-				}
+//				for(Order o: model.getOrdersArray()) {
+//					DbControllerSingleton.getInstance().insertOrder(o);
+//				}
 				System.exit(0);
 			}
 	    	  
@@ -459,10 +459,9 @@ public class MVCController {
 					Table t = view.getOrderView().getSource().getTable();
 					t.getOrder().setDateTime(Date.from(Instant.now()).toString());
 	            	model.addOrder(t.getOrder());
-					t.setOrder(null);
 					view.getOrderView().getSource().setBackground(new Color(0,191,57));
-					
-					
+					DbControllerSingleton.getInstance().insertOrder(t.getOrder());
+					t.setOrder(null);
 				}
 				
 			};
@@ -483,7 +482,7 @@ public class MVCController {
 		    	private void manageAction() {
 		    		
 		    		view.getC1().show(view.getCardPane(),"4");
-		    		
+		    		view.getHistoryView().getHistoryTable().setModel(getOrderDefaultList(DbControllerSingleton.getInstance().selectAllOrders()));
 		    	}
 		    	
 		      };
@@ -552,7 +551,7 @@ public class MVCController {
 		
 		public DefaultTableModel getOrderDefaultList(ArrayList<String[]> source) {
 			
-			DefaultTableModel model = new DefaultTableModel(10,0);
+			DefaultTableModel model = new DefaultTableModel(0,0);
 			
 //			model.addRow("",new String[] {"ID ORDINE", "PIATTO", "TOTALE", "DATA" });
 			

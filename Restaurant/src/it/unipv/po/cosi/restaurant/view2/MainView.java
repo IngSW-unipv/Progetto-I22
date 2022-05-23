@@ -97,7 +97,7 @@ public class MainView extends JFrame {
 		pane.add(shutDownButton);
 		historyButton = new JButton("Storico ordini");
 		historyButton.setFont(new java.awt.Font("Arial", 1, 24));
-		historyView = new HistoryView(r,c);
+		historyView = new HistoryView();
 		editPane.add(historyButton, BorderLayout.SOUTH);
 		editPane.add(legendPane, BorderLayout.CENTER);
 		cardPane.add(historyView,"4");

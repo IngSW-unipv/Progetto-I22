@@ -46,7 +46,7 @@ public class GUITest implements Runnable{
 //				System.out.println(string.getCategory());
 //			}
 			
-			v.getHistoryView().getHistoryTable().setModel(c.getOrderDefaultList(dbc.selectAllOrders()));	
+//			v.getHistoryView().getHistoryTable().setModel(c.getOrderDefaultList(dbc.selectAllOrders()));	
 	}
 
 	@Override

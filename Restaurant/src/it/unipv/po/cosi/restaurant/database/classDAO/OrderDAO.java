@@ -33,12 +33,13 @@ public class OrderDAO implements IDao{
 		c = DatabaseConnection.startConnection(c, schema);
 		
 		ArrayList<String[]> rslt = new ArrayList<>();
-
 		
-		String idArray[] = new String[50];
-		String servingNameArray[] = new String[50];
-		String totalArray[] = new String[50];
-		String dateArray[] = new String[50];
+		int maxId = this.getMaxId();
+		
+		String idArray[] = new String[maxId+1];
+		String servingNameArray[] = new String[maxId+1];
+		String totalArray[] = new String[maxId+1];
+		String dateArray[] = new String[maxId+1];
 //		
 //		ArrayList<String> servingNameArray = new ArrayList<>();
 //		ArrayList<String> totalArray = new ArrayList<>();

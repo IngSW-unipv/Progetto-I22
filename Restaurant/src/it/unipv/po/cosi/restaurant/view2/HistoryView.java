@@ -15,7 +15,7 @@ public class HistoryView extends JPanel{
 	private JPanel buttonPane;
 	private JScrollPane scrollPane;
 	
-	public HistoryView(int r, int c) {
+	public HistoryView() {
 		super();
 			
 		this.setLayout(new BorderLayout());
