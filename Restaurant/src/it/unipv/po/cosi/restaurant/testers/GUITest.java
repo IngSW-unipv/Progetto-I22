@@ -1,13 +1,17 @@
 package it.unipv.po.cosi.restaurant.testers;
 
+import java.io.File;
 import java.io.IOException;
+import java.lang.management.ManagementFactory;
+import java.util.List;
 
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.view2.MVCController;
 import it.unipv.po.cosi.restaurant.view2.MainView;
+import it.unipv.po.cosi.restaurant.view2.SelfRestart;
 
-public class GUITest {
+public class GUITest implements Runnable{
 
 	public static void main(String[] args) throws IOException {
 
@@ -45,4 +49,20 @@ public class GUITest {
 			v.getHistoryView().getHistoryTable().setModel(c.getOrderDefaultList(dbc.selectAllOrders()));	
 	}
 
+	@Override
+	public void run() {
+		try {
+			SelfRestart.restart(this);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	
+	
+	
+	
+	
 }

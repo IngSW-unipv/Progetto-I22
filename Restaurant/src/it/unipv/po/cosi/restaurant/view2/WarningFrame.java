@@ -7,7 +7,7 @@ import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 public class WarningFrame extends JFrame {
 
@@ -15,7 +15,7 @@ public class WarningFrame extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField text;
+	private JTextArea text;
 	private JButton confirmButton;
 	private JButton ignoreButton;
 	private JPanel buttonPane;
@@ -32,8 +32,8 @@ public class WarningFrame extends JFrame {
 		setLocation((screenWidth/2)-490/2,(screenHeight/2)-190/2);
 		buttonPane = new JPanel();
 		
-		text = new JTextField("  E' necessario riavviare l'applicazione per completare l'operazione  ");
-		text.setFont(new java.awt.Font("Arial", 0, 16));
+		text = new JTextArea("\n\t\tATTENZIONE:\n E' necessario riavviare l'applicazione per completare l'operazione  \n Il riavvio del sistema provocherà la perdita degli ordini aperti\n \n\t\tContinuare?");
+		text.setFont(new java.awt.Font("Arial", 1, 14));
 		text.setEditable(false);
 		confirmButton = new JButton("Conferma");
 		confirmButton.setFont(new java.awt.Font("Arial", 1, 22));
@@ -48,7 +48,11 @@ public class WarningFrame extends JFrame {
 		
 	}
 
-	public JTextField getText() {
+	public JButton getIgnoreButton() {
+		return ignoreButton;
+	}
+
+	public JTextArea getText() {
 		return text;
 	}
 
