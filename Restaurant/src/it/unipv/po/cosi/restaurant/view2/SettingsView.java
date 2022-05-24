@@ -68,6 +68,7 @@ public class SettingsView extends JPanel {
 		tablePane = new JPanel(new GridLayout(tables.size()+20, 1, 0, 30));
 		servingScroller = new JScrollPane();
 		
+		
 //		servingCheck	
 
 		for (Serving serving : servings) {

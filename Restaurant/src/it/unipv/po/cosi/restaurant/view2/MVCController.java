@@ -390,6 +390,7 @@ public class MVCController {
 	      
 	      view.getEditButton().addActionListener(settingsButtonListener);
 	      
+	           	// confirm listener //
 	      
 	      ActionListener confirmListener = new ActionListener() {
 
@@ -401,17 +402,24 @@ public class MVCController {
 		    	 
 				private void manageAction() {
 					
+					boolean updatedFlag = false;
 					view.getC1().show(view.getCardPane(), "1");
+					
 					
 					for (ServingCheckBox b : view.getSettingsView().getServingChecks()){
 						
-						b.getServing().setActiveFlag(b.isSelected());
+							b.getServing().setActiveFlag(b.isSelected());
 						
 					}
 					
 					for (CategoryCheckBox b : view.getSettingsView().getCategoryChecks()){
 						
-						b.getCategory().setActiveFlag(b.isSelected());
+						if(b.getCategory().isActiveFlag() != b.isSelected()) {
+							
+							b.getCategory().setActiveFlag(b.isSelected());
+							updatedFlag = true;
+						}
+						
 						
 					}
 				
@@ -423,7 +431,12 @@ public class MVCController {
 					
 					for (TableCheckBox b : view.getSettingsView().getTableChecks()){
 						
-						b.getTable().setActiveFlag(b.isSelected());
+						if(b.getTable().isActiveFlag() != b.isSelected()) {
+							
+							b.getTable().setActiveFlag(b.isSelected());
+							updatedFlag = true;
+						}
+						
 						
 					}
 					
@@ -431,8 +444,45 @@ public class MVCController {
 					DbControllerSingleton.getInstance().updateActiveModifiers();
 					DbControllerSingleton.getInstance().updateActiveCategories();
 					DbControllerSingleton.getInstance().updateActiveTables();
-					WarningFrame warning = new WarningFrame("Riavvio necessario");
-					warning.setVisible(true);
+					if(updatedFlag) {
+						
+						WarningFrame warning = new WarningFrame("Riavvio necessario");
+						warning.setVisible(true);
+						
+						ActionListener confirmWarningListener = new ActionListener() {
+
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								
+								manageAction2();
+							}
+							
+							private void manageAction2() {
+								
+							}
+							
+						};
+						
+						ActionListener ignoreWarningListener = new ActionListener() {
+
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								manageAction3();
+								
+							}
+							
+							private void manageAction3() {
+								warning.dispose();
+							}
+						};
+					
+					warning.getIgnoreButton().addActionListener(ignoreWarningListener);
+					
+					
+					}
+				
+				
+					
 				}
 				
 		    	  

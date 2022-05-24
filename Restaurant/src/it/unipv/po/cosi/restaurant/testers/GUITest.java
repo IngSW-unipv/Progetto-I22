@@ -11,7 +11,7 @@ import it.unipv.po.cosi.restaurant.view2.MVCController;
 import it.unipv.po.cosi.restaurant.view2.MainView;
 import it.unipv.po.cosi.restaurant.view2.SelfRestart;
 
-public class GUITest implements Runnable{
+public class GUITest implements Runnable {
 
 	public static void main(String[] args) throws IOException {
 
