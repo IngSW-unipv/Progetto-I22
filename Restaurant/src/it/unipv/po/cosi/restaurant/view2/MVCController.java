@@ -4,6 +4,7 @@ package it.unipv.po.cosi.restaurant.view2;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,6 +21,8 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Status;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
+import it.unipv.po.cosi.restaurant.testers.GUITest;
+
 import javax.swing.table.DefaultTableModel;
 
 public class MVCController {
@@ -454,15 +457,20 @@ public class MVCController {
 							@Override
 							public void actionPerformed(ActionEvent e) {
 								
-								manageAction2();
+								try {
+									manageAction2();
+								} catch (IOException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
 							}
 							
-							private void manageAction2() {
-								
+							private void manageAction2() throws IOException {
+								SelfRestart.restart(null);
 							}
 							
 						};
-						
+						warning.getConfirmButton().addActionListener(confirmWarningListener);
 						ActionListener ignoreWarningListener = new ActionListener() {
 
 							@Override
