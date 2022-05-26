@@ -81,7 +81,7 @@ public class OrderDAO implements IDao{
 					
 					idArray[i] = rs1.getString(1);
 					servingNameArray[i] = rs1.getString(2);
-					totalArray[i] = rs1.getString(3)+" $";
+					totalArray[i] = rs1.getString(3)+" euro";
 					dateArray[i] = rs1.getString(4);
 					
 					System.out.println(idArray[i]);
