@@ -4,7 +4,9 @@ package it.unipv.po.cosi.restaurant.view2;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
+import java.lang.management.ManagementFactory;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
@@ -466,11 +468,27 @@ public class MVCController {
 							}
 							
 							private void manageAction2() throws IOException {
-								SelfRestart.restart(null);
-							}
+								
+							
+//								SelfRestart.restart(null);
+								
+								
+								StringBuilder cmd = new StringBuilder();
+						        cmd.append(System.getProperty("java.home") + File.separator + "bin" + File.separator + "java ");
+						        for (String jvmArg : ManagementFactory.getRuntimeMXBean().getInputArguments()) {
+						            cmd.append(jvmArg + " ");
+						        }
+						        cmd.append("-cp ").append(ManagementFactory.getRuntimeMXBean().getClassPath()).append(" ");
+						        cmd.append(GUITest.class.getName()).append(" ");
+						        
+						        Runtime.getRuntime().exec(cmd.toString());
+						        System.exit(0);
+						    }
+								
 							
 						};
 						warning.getConfirmButton().addActionListener(confirmWarningListener);
+						
 						ActionListener ignoreWarningListener = new ActionListener() {
 
 							@Override
