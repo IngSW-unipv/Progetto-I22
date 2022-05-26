@@ -37,6 +37,8 @@ public class MainView extends JFrame {
 		super();
 
 		try {
+			this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+			this.setUndecorated(true);
 		    UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName());
 		 } catch (Exception e) {
 		            e.printStackTrace();
@@ -123,11 +125,6 @@ public class MainView extends JFrame {
 		  setLayout(new BorderLayout());
 	      setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 	      
-	      Toolkit kit = Toolkit.getDefaultToolkit(); 
-		  Dimension screenSize = kit.getScreenSize(); 
-		  int screenHeight = screenSize.height;
-		  int screenWidth = screenSize.width;
-		  setSize(screenWidth,screenHeight); 
 //		  ssetLocation(screenWidth/4,screenHeight/4);
 	      
 //	      setExtendedState(JFrame.MAXIMIZED_BOTH);
