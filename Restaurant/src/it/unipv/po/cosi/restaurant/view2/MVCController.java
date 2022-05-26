@@ -469,9 +469,6 @@ public class MVCController {
 							
 							private void manageAction2() throws IOException {
 								
-							
-//								SelfRestart.restart(null);
-								
 								
 								StringBuilder cmd = new StringBuilder();
 						        cmd.append(System.getProperty("java.home") + File.separator + "bin" + File.separator + "java ");
