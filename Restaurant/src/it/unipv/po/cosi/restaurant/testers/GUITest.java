@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.util.List;
 
+import it.unipv.po.cosi.restaurant.controller.MVCController;
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
-import it.unipv.po.cosi.restaurant.view2.MVCController;
 import it.unipv.po.cosi.restaurant.view2.MainView;
-import it.unipv.po.cosi.restaurant.view2.SelfRestart;
 
-public class GUITest implements Runnable {
+
+public class GUITest {
 
 	public static void main(String[] args) throws IOException {
 
@@ -40,6 +40,7 @@ public class GUITest implements Runnable {
 //			m.getTablesArray().get(0).setOrder(o);
 //			m.getTablesArray().get(1).setOrder(o);
 			
+			@SuppressWarnings("unused")
 			MVCController c = new MVCController(m, v);
 //			System.out.println(m.getModifiersArray().get(0).getCategory().equals(m.getCategoriesArray().get(0)));
 //			for (Modifier string : m.getModifiersArray()) {
@@ -49,20 +50,5 @@ public class GUITest implements Runnable {
 //			v.getHistoryView().getHistoryTable().setModel(c.getOrderDefaultList(dbc.selectAllOrders()));	
 	}
 
-	@Override
-	public void run() {
-		try {
-			SelfRestart.restart(this);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
 
-	
-	
-	
-	
-	
 }
