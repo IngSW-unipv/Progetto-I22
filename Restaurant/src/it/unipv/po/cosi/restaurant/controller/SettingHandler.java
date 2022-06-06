@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
+import it.unipv.po.cosi.restaurant.exception.WarningFrameException;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.testers.GUITest;
 import it.unipv.po.cosi.restaurant.view2.CategoryCheckBox;
@@ -50,11 +51,16 @@ public class SettingHandler extends MVCController{
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					manageAction();
+					try {
+						manageAction();
+					} catch (WarningFrameException e1) {
+						
+
+					}
 					
 				}
 		    	 
-				private void manageAction() {
+				private void manageAction() throws WarningFrameException {
 					
 					boolean updatedFlag = false;
 					view.getC1().show(view.getCardPane(), "1");
@@ -98,59 +104,7 @@ public class SettingHandler extends MVCController{
 					DbControllerSingleton.getInstance().updateActiveModifiers();
 					DbControllerSingleton.getInstance().updateActiveCategories();
 					DbControllerSingleton.getInstance().updateActiveTables();
-					if(updatedFlag) {
-						
-						WarningFrame warning = new WarningFrame("Riavvio necessario");
-						warning.setVisible(true);
-						
-						ActionListener confirmWarningListener = new ActionListener() {
-
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								
-								try {
-									manageAction2();
-								} catch (IOException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-							}
-							
-							private void manageAction2() throws IOException {
-								
-								
-								StringBuilder cmd = new StringBuilder();
-						        cmd.append(System.getProperty("java.home") + File.separator + "bin" + File.separator + "java ");
-						        for (String jvmArg : ManagementFactory.getRuntimeMXBean().getInputArguments()) {
-						            cmd.append(jvmArg + " ");
-						        }
-						        cmd.append("-cp ").append(ManagementFactory.getRuntimeMXBean().getClassPath()).append(" ");
-						        cmd.append(GUITest.class.getName()).append(" ");
-						        
-						        Runtime.getRuntime().exec(cmd.toString());
-						        System.exit(0);
-						    }
-								
-							
-						};
-						warning.getConfirmButton().addActionListener(confirmWarningListener);
-						
-						ActionListener ignoreWarningListener = new ActionListener() {
-
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								manageAction3();
-								
-							}
-							
-							private void manageAction3() {
-								warning.dispose();
-							}
-						};
-					
-					warning.getIgnoreButton().addActionListener(ignoreWarningListener);
-					
-					}
+					if(updatedFlag) throw new WarningFrameException();
 					
 				}
 	  
