@@ -59,12 +59,32 @@ public class Order {
 		this.dateTime = null;
 	}
 	
-	public boolean addServing(Serving serving) {
+	public void addServing(Serving serving) {
 		
-		servings.add(serving);
-		return true;
+		Boolean flag = false;
+		
+		for (Serving serv : servings) {
+			
+			if(serv.getId() == serving.getId()) {
+				serv.incrementQuantity();
+				flag = true;
+			}
+		}
+		if(!flag) {
+			Serving s = serving.copy();
+			servings.add(s);
+			s.setModifiers(serving.getModifiers());
+			s.incrementQuantity();
+			
+		}
 		
 	}
+	
+	public void addServingWithModifiers(Serving serving) {
+		
+		servings.add(serving);
+	}
+	
 	
 	public boolean decrementServing(Serving serving) {
 		

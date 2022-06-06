@@ -25,7 +25,7 @@ public class OrderDAO implements IDao{
 	}
 	
 	public void initialize() {
-		Order.setStartingId(this.getMaxId());
+		Order.setStartingId(this.getOrderingMaxId());
 	}
 	
 	public ArrayList<String[]> selectAllOrders() {
@@ -34,7 +34,7 @@ public class OrderDAO implements IDao{
 		
 		ArrayList<String[]> rslt = new ArrayList<>();
 		
-		int maxId = this.getMaxId();
+		int maxId = this.getOrderServingMaxId();
 		
 		String idArray[] = new String[maxId+1];
 		String servingNameArray[] = new String[maxId+1];
@@ -207,7 +207,7 @@ public class OrderDAO implements IDao{
 		
 	}
 	
-	public int getMaxId() {
+	public int getOrderingMaxId() {
 		
 		c = DatabaseConnection.startConnection(c, schema);
 		Statement st1;
@@ -217,6 +217,29 @@ public class OrderDAO implements IDao{
 			
 			st1 = c.createStatement();
 			String qry = "select max(id) from restaurant.ordering";
+			rs = st1.executeQuery(qry);
+			rs.next();
+			return rs.getInt(1);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+		
+	}
+	
+public int getOrderServingMaxId() {
+		
+		c = DatabaseConnection.startConnection(c, schema);
+		Statement st1;
+		ResultSet rs;
+		
+		try {
+			
+			st1 = c.createStatement();
+			String qry = "select max(id) from restaurant.order_serving";
 			rs = st1.executeQuery(qry);
 			rs.next();
 			return rs.getInt(1);

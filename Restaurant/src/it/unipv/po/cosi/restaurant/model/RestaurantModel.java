@@ -14,6 +14,7 @@ public class RestaurantModel {
 	private ArrayList<Category> categories;
 	private ArrayList<Monitor> monitors;
 	private static RestaurantModel jRestaurant;
+	private int maxId;
 	
 	private RestaurantModel() {
 		
@@ -25,6 +26,7 @@ public class RestaurantModel {
 		this.modifiers = new ArrayList<Modifier>();
 		this.categories = new ArrayList<Category>();
 		this.monitors = new ArrayList<Monitor>();
+		this.initializeMaxId();
 		
 	}
 	
@@ -176,8 +178,26 @@ public class RestaurantModel {
 		return rslt;
 	}
 	
+	public void initializeMaxId() {
+		
+		int max = 0;
+		for (Serving s : servings) {
+			
+			if(s.getId() > max) {
+				max = s.getId();
+			}	
+		}
+		this.maxId = max;
+	}
+	
+	public int getMaxId() {
+		return maxId;
+	}	
+	
 	// METODO CHE NON SO A COSA SERVA //
 	
+
+
 	public boolean update() {
 		
 		return true;

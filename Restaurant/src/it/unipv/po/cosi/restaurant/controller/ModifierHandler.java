@@ -64,13 +64,13 @@ public class ModifierHandler extends MVCController{
 		    		List<Modifier> mod = view.getOrderView().getModifierList().getSelectedValuesList();
 		    		
 		    		Serving s = view.getOrderView().getServingList().getSelectedValue();
-		    		Serving s1 = new Serving(s.getId(), s.getName(), s.getPrice(), s.getCategory(), true);
+		    		Serving s1 = new Serving(model.getMaxId()+1, s.getName(), s.getPrice(), s.getCategory());
 		    		
 		    		for (Modifier modifier : mod) {
 						s1.addModifier(modifier);
 					}
 		    		Order o = view.getOrderView().getSource().getTable().getOrder();
-		    		o.addServing(s1);
+		    		o.addServingWithModifiers(s1);
 		    		populateOrderList(o.getServings());
 		    		view.getOrderView().getSource().setBackground(new Color(252,93,93));
 		    	}

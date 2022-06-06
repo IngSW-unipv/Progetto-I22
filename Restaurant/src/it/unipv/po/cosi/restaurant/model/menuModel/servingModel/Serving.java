@@ -11,7 +11,6 @@ public class Serving implements Comparable<Serving> {
 	private ArrayList<Modifier> modifiers;
 	private int quantity;
 	private boolean activeFlag;
-	
 	//	public Serving(int id, String name, float price, Category category) {
 //		
 //		this.id = id;
@@ -30,8 +29,20 @@ public class Serving implements Comparable<Serving> {
 			this.price = price;	
 			modifiers = new ArrayList<Modifier>();
 			this.activeFlag = activeFlag;
+			this.quantity = 0;
 			
 		}
+	
+	public Serving(int id, String name, float price, Category category) {
+		
+		this.id = id;
+		this.name = name;
+		this.category = category;
+		this.price = price;	
+		modifiers = new ArrayList<Modifier>();
+		this.quantity = 0;
+		
+	}
 	
 	public boolean addModifier(Modifier modifier) {
 		
@@ -75,6 +86,14 @@ public class Serving implements Comparable<Serving> {
 		this.quantity = quantity;
 	}
 
+	public void incrementQuantity() {
+		quantity++;
+	}
+	
+	public void decrementQuantity() {
+		quantity--;
+	}
+	
 	public ArrayList<Modifier> getModifiers() {
 		return modifiers;
 	}
@@ -104,6 +123,10 @@ public class Serving implements Comparable<Serving> {
 		
 		String rslt = name;
 		
+		if(quantity>1) {
+			rslt = "x" + quantity + " " + rslt;
+		}
+		
 		for (Modifier modifier : modifiers) {
 			
 			rslt = rslt + " + " + modifier.getName();
@@ -119,4 +142,18 @@ public class Serving implements Comparable<Serving> {
 		return name.compareTo(o.getName());
 	}
 
+	public Serving copy() {
+		
+		Serving sCopy = new Serving(this.getId(), this.getName(), this.getPrice(), this.getCategory());
+		
+		return sCopy;
+	}
+
+	public void setModifiers(ArrayList<Modifier> modifiers) {
+		this.modifiers = modifiers;
+	}
+	
+	
+
+	
 }
