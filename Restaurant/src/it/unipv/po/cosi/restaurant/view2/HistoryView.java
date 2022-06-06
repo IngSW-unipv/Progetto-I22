@@ -10,7 +10,7 @@ import javax.swing.table.TableModel;
 public class HistoryView extends JPanel{
 
 	private JButton backButton;
-	private JButton printButton;
+	//private JButton printButton;
 	private JTable historyTable;
 	private JPanel buttonPane;
 	private JScrollPane scrollPane;
@@ -24,12 +24,12 @@ public class HistoryView extends JPanel{
 		scrollPane = new JScrollPane(historyTable);
 		this.add(buttonPane, BorderLayout.NORTH);
 		backButton = new JButton("Indietro");
-		printButton = new JButton("Stampa");
+		//printButton = new JButton("Stampa");
 		backButton.setFont(new java.awt.Font("Arial", 1, 36));
 		backButton.setIcon(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/back.png"));
-		printButton.setFont(new java.awt.Font("Synchro LET", 1, 36));
+//		printButton.setFont(new java.awt.Font("Synchro LET", 1, 36));
 		buttonPane.add(backButton, BorderLayout.WEST);
-		buttonPane.add(printButton, BorderLayout.EAST);
+//		buttonPane.add(printButton, BorderLayout.EAST);
 
 //		historyTable.setMinimumSize(new Dimension(0, 30));
 		historyTable.setRowHeight(30);
@@ -48,9 +48,9 @@ public class HistoryView extends JPanel{
 		return backButton;
 	}
 
-	public JButton getPrintButton() {
-		return printButton;
-	}
+//	public JButton getPrintButton() {
+//		return printButton;
+//	}
 
 	public JTable getHistoryTable() {
 		return historyTable;

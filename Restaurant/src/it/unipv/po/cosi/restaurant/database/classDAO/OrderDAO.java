@@ -51,7 +51,7 @@ public class OrderDAO implements IDao{
 		try {
 			st1 = c.createStatement();
 			
-			String query = "SELECT id, name as Piatto, total as Totale, time_date as Data FROM "
+			String query = "SELECT id, name as Piatto, total as Totale, time_date FROM "
 					+ "(SELECT ordering AS id, serving FROM order_serving) A "
 					+ "NATURAL JOIN "
 					+ "(SELECT * FROM restaurant.ordering) B "
@@ -216,7 +216,7 @@ public class OrderDAO implements IDao{
 		try {
 			
 			st1 = c.createStatement();
-			String qry = "select max(id) from restaurant.order_serving";
+			String qry = "select max(id) from restaurant.ordering";
 			rs = st1.executeQuery(qry);
 			rs.next();
 			return rs.getInt(1);

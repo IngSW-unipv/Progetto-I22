@@ -8,43 +8,36 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 public class Monitor {
 
 	private String name;
-	private Category[] pertinence;
+	private Category pertinence;
 	
-	public Monitor(Category[] pertinence) {
-		
-		name = "Monitor";
-		this.pertinence = pertinence;
-		
-	}
+	//creare il monitor con un for dove passo l'arraylist di categories e per ogni elemento prendo nome di categoria e categoria stessa.
 	
-	public Monitor(Category[] pertinence, String name) {
+	public Monitor(Category c, String name) {
 		
 		this.name = name;
-		this.pertinence = pertinence;
+		this.pertinence = c;
 		
 	}
 	
 	public String print(Order order) {
 		
-		String temp = "";
+		String temp = "Monitor " + pertinence.toString() + "\n\n";
 		
 		for (Serving serving : order.getServings()) {
 			
-			for (Category category : pertinence) {
 				
-				if(category.equals(serving.getCategory())) {
+				if(pertinence.equals(serving.getCategory())) {
 						
-						temp += serving.getQuantity() + serving.getName() + "\n";
+						temp += serving.getName();
 					
 						for (Modifier modifier : serving.getModifiers()) {
 						
-							temp += "\t+" + modifier.getName() + "\n\n";	
-							
-					}
-				
+							temp += " + " + modifier.getName();	
 				}
 				
-			}
+			} else continue;
+				
+				temp += "\n";
 			
 		}
 		

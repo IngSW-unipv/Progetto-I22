@@ -3,6 +3,15 @@ package it.unipv.po.cosi.restaurant.controller;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.time.Instant;
 import java.util.Date;
 
@@ -60,6 +69,29 @@ public class ButtonHandler extends MVCController {
 	  					t.getOrder().setDateTime(Date.from(Instant.now()).toString());
 	  	            	model.addOrder(t.getOrder());
 	  					view.getOrderView().getSource().setBackground(new Color(0,191,57));
+	  					
+	  					try {
+	  						
+	  						String savePath = "/ricevute/";
+	  						File directory = new File("ricevute");
+	  						
+	  						if(! directory.exists()) {
+	  							directory.mkdir();
+	  						}
+	  						
+	  						
+	  						File file = new File("ricevute/Ricevuta" + t.getOrder().getId() + ".txt");
+	  					    FileWriter fw = new FileWriter(file.getAbsoluteFile());
+	  					    BufferedWriter bw = new BufferedWriter(fw);
+	  					    bw.write(t.getBill());
+	  					    bw.close();
+	  					   
+
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+	  					
 	  					DbControllerSingleton.getInstance().insertOrder(t.getOrder());
 	  					t.setOrder(null);
 	  				}

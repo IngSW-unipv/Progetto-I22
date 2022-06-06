@@ -2,6 +2,7 @@
 
 import java.util.ArrayList;
 
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 public class Order {
@@ -100,7 +101,11 @@ public class Order {
 		
 		for (Serving serving : servings) {
 			
-			tmp += serving.getPrice();			
+			tmp += serving.getPrice();
+			
+			for (Modifier m : serving.getModifiers()) {
+				tmp += m.getPrice();
+			}			
 		}
 		
 		this.total = tmp;

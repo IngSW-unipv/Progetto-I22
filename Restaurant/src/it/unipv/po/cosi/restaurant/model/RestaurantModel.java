@@ -3,6 +3,7 @@ package it.unipv.po.cosi.restaurant.model;
 import java.util.ArrayList;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.*;
 import it.unipv.po.cosi.restaurant.model.orderModel.*;
+import it.unipv.po.cosi.restaurant.model.outputModel.monitorModel.Monitor;
 
 public class RestaurantModel {
 
@@ -11,7 +12,7 @@ public class RestaurantModel {
 	private ArrayList<Modifier> modifiers;
 	private ArrayList<Order> orders;
 	private ArrayList<Category> categories;
-	
+	private ArrayList<Monitor> monitors;
 	private static RestaurantModel jRestaurant;
 	
 	private RestaurantModel() {
@@ -23,6 +24,7 @@ public class RestaurantModel {
 		this.orders = new ArrayList<Order>();
 		this.modifiers = new ArrayList<Modifier>();
 		this.categories = new ArrayList<Category>();
+		this.monitors = new ArrayList<Monitor>();
 		
 	}
 	
@@ -102,8 +104,18 @@ public class RestaurantModel {
 		this.orders.add(o);
 	}
 	
+	//MONITORS
+	
+	public void populateMonitors(ArrayList<Monitor> m) {
+		this.monitors = m;
+	}
+	
 	// GETTER and SETTERS //
 	
+	public ArrayList<Monitor> getMonitors() {
+		return monitors;
+	}
+
 	public ArrayList<Serving> getServingsArray() {
 		return servings;
 	}

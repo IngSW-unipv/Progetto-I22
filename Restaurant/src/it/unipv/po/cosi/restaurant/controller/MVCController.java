@@ -42,6 +42,8 @@ public class MVCController {
 	      ModifierHandler.addListeners(model, view);
 	      SettingHandler.addListeners(model, view);
 	      ButtonHandler.addListeners(model, view);
+	      MonitorsHandler.createMonitors(model);
+	      MonitorsHandler.addListeners(model, view);
 	     
 	 }      
 	 

@@ -31,13 +31,14 @@ public class Table {
 			
 			for (Serving serving : order.getServings()) {
 							
-				temp += serving.getName() + serving.getQuantity() + "\t" + serving.getPrice() + "\n";
+				temp += serving.getName() + "\t" + serving.getPrice();
 						
 				for (Modifier modifier : serving.getModifiers()) {
 							
-					temp += " + " + modifier.getName() + "\n";	
+					temp += " + " + modifier.getName();	
 					
 				}
+				temp += "\n";
 				
 			}
 		

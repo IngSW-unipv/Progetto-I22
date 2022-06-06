@@ -53,8 +53,10 @@ public class OrderView extends JPanel{
 	private JButton confirmModifiers;
 	private JButton rejectModifiers;
 	private CardLayout c1;
+	private JButton send;
 	
 	
+
 	public OrderView(ArrayList<Category> categories) {
 		  
 		initComponents(categories);
@@ -174,20 +176,27 @@ public class OrderView extends JPanel{
 	// BACK BUTTON //
 		
 		mainButtonPane = new JPanel();
-		mainButtonPane.setLayout(new BorderLayout());
-		mainButtonPane.add(backButton = new JButton("Indietro"), BorderLayout.WEST);
+		mainButtonPane.setLayout(new GridLayout(1,4));
+		mainButtonPane.add(backButton = new JButton("Indietro"));
 		backButton.setFont(new java.awt.Font("Arial", 1, 36));
 		backButton.setIcon(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/back.png"));
+		
+		orderTitle = new JTextField("      Ordine: ");
+		orderTitle.setEditable(false);
+		orderTitle.setFont(new java.awt.Font("Arial", 0, 40));
+		mainButtonPane.add(orderTitle);
+		
+		mainButtonPane.add(send = new JButton("Invia Ordine"));
+		send.setFont(new java.awt.Font("Arial", 1, 36));
 		closeOrderButton = new JButton("Close/Pay order");
 		closeOrderButton.setBackground(Color.decode("#D00000"));
 		closeOrderButton.setForeground(Color.white);
 		closeOrderButton.setFont(new java.awt.Font("Arial", 0, 36));
-		orderTitle = new JTextField("      Ordine: ");
-		orderTitle.setEditable(false);
-		orderTitle.setFont(new java.awt.Font("Arial", 0, 40));
+		mainButtonPane.add(closeOrderButton);
 //		orderTitle.setCaretPosition(JTextField.CENTER);
-		mainButtonPane.add(closeOrderButton, BorderLayout.EAST);
-		mainButtonPane.add(orderTitle, BorderLayout.CENTER);
+		
+		
+		
 		
 		// STATUS CONTROL PANE //
 		
@@ -331,7 +340,9 @@ public class OrderView extends JPanel{
 		return closeOrderButton;
 	}
 
-	
+	public JButton getSend() {
+		return send;
+	}
 	
 	
 	
