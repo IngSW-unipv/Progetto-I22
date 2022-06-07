@@ -7,15 +7,14 @@ import java.util.List;
 
 import it.unipv.po.cosi.restaurant.controller.MVCController;
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
+import it.unipv.po.cosi.restaurant.exception.ExceptionFileChooser;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
-import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
-import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.view2.MainView;
 
 
 public class GUITest {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ExceptionFileChooser {
 
 		
 			DbControllerSingleton dbc = DbControllerSingleton.getInstance();
@@ -33,26 +32,23 @@ public class GUITest {
 			RestaurantModel m = RestaurantModel.getInstance();
 			MainView v = new MainView(m.getServingsArray(), m.getCategoriesArray(), m.getModifiersArray(), m.getTablesArray(),0,0);
 			v.setVisible(true);
-			
-//			m.getServingsArray().get(40).setActiveFlag(true);
-//			dbc.updateActiveServings();
-			
-//			Order o = new Order(m.getTablesArray().get(0));
-//			o.addServing(m.getServingsArray().get(0));
-//			m.getTablesArray().get(0).setOrder(o);
-//			m.getTablesArray().get(1).setOrder(o);
-			
-			@SuppressWarnings("unused")
-			MVCController c = new MVCController(m, v);
+			MVCController c = new MVCController(m, v);			
+			//throw new ExceptionFileChooser();
+////			m.getServingsArray().get(40).setActiveFlag(true);
+////			dbc.updateActiveServings();
+//			
+////			Order o = new Order(m.getTablesArray().get(0));
+////			o.addServing(m.getServingsArray().get(0));
+////			m.getTablesArray().get(0).setOrder(o);
+////			m.getTablesArray().get(1).setOrder(o);
+//			
+//			@SuppressWarnings("unused")
+
 //			System.out.println(m.getModifiersArray().get(0).getCategory().equals(m.getCategoriesArray().get(0)));
 //			for (Modifier string : m.getModifiersArray()) {
 //				System.out.println(string.getCategory());
 //			}
-			for (Order o : m.getOrdersArray()) {
-				for (Serving s : o.getServings()) {
-					System.out.println("\n  diocane" + s.getPrice());
-				}
-			}
+			
 //			v.getHistoryView().getHistoryTable().setModel(c.getOrderDefaultList(dbc.selectAllOrders()));	
 	}
 

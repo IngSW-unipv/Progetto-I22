@@ -104,7 +104,7 @@ public class SettingHandler extends MVCController{
 					DbControllerSingleton.getInstance().updateActiveModifiers();
 					DbControllerSingleton.getInstance().updateActiveCategories();
 					DbControllerSingleton.getInstance().updateActiveTables();
-					if(updatedFlag) throw new WarningFrameException();
+					if(updatedFlag) throw new WarningFrameException("Riavvio necessario");
 					
 				}
 	  

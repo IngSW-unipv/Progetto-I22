@@ -45,6 +45,7 @@ public class WarningFrame extends JFrame {
 		buttonPane.add(ignoreButton, BorderLayout.WEST);
 		add(buttonPane, BorderLayout.SOUTH);
 		add(text, BorderLayout.CENTER);
+		this.setVisible(true);
 		
 	}
 

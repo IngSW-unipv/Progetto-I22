@@ -11,9 +11,9 @@ import it.unipv.po.cosi.restaurant.view2.WarningFrame;
 
 public class WarningFrameException extends Throwable{
 
-	public WarningFrameException() {
+	public WarningFrameException(String s) {
 		
-		WarningFrame warning = new WarningFrame("Riavvio necessario");
+		WarningFrame warning = new WarningFrame(s);
 		warning.setVisible(true);
 		
 		ActionListener confirmWarningListener = new ActionListener() {

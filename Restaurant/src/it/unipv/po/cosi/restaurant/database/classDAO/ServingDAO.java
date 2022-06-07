@@ -14,6 +14,7 @@ import java.util.Observable;
 
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
+import it.unipv.po.cosi.restaurant.exception.ExceptionFileChooser;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
@@ -30,12 +31,31 @@ public class ServingDAO implements IDao{
 		
 		c = DatabaseConnection.startConnection(c, schema);
 		
-		File f	 = new File("src/it/unipv/po/cosi/restaurant/database/config/servings.csv");
-	  	String absolutePath = f.getAbsolutePath();
-	  	
-		try {
+try {
+			
+			String path = "src/it/unipv/po/cosi/restaurant/database/config/servings.csv";
+		  	String absolutePath;
+			
+			try {
+				File f = new File(path);
+				absolutePath = f.getAbsolutePath();
+				if(!f.isFile()) {
+					
+					
+					
+					throw new ExceptionFileChooser("Servings.csv");
+				}
+			} catch (ExceptionFileChooser e) {
+				
+					path = e.getPath();
+
+			}
+			
+			File f = new File(path);
+			absolutePath = f.getAbsolutePath();
 			FileReader fr = new FileReader(absolutePath);
 			BufferedReader br = new BufferedReader(fr);
+			
 			int i = 0;
 			Statement st1, st2;
 			ResultSet rs, rs1;
@@ -93,9 +113,6 @@ public class ServingDAO implements IDao{
 			br.close();
 			fr.close();
 			
-		} catch (FileNotFoundException e1) {
-			
-			e1.printStackTrace();
 		} catch (IOException e) {
 			
 			e.printStackTrace();
