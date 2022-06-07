@@ -42,7 +42,7 @@ public class Table {
 				
 			}
 		
-		return temp + "\n\nTOTAL PRICE: " + order.getSubtotal();
+		return temp + "\n\nTOTAL PRICE: " + order.updateTotal();
 		
 	}
 	

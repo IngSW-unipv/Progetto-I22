@@ -104,6 +104,11 @@ public class RestaurantModel {
 	public void addOrder(Order o) {
 		
 		this.orders.add(o);
+		for (Order ord : getOrdersArray()) {
+			for (Serving s : ord.getServings()) {
+				System.out.println("\n  diocane" + s.getPrice());
+			}
+		}
 	}
 	
 	//MONITORS

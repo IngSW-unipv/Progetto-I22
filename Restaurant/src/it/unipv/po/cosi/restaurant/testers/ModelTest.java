@@ -16,7 +16,7 @@ public class ModelTest {
 		c.populateCategoriesArray();
 		c.populateModifiersArray();
 		c.populateServingsArray();
-		c.populateTalesArray();
+		c.populateTablesArray();
 		
 		for (Serving a : RestaurantModel.getInstance().getServingsArray()) {
 			System.out.println(a);

@@ -115,16 +115,34 @@ public class ButtonHandler extends MVCController {
 			    	private void manageAction() {
 			    		
 			    		view.getC1().show(view.getCardPane(),"4");
-			    		view.getHistoryView().getHistoryTable().setModel(getOrderDefaultList(DbControllerSingleton.getInstance().selectAllOrders()));
+			    		view.getHistoryView().getHistoryTable().setModel(getDefaultTable(DbControllerSingleton.getInstance().selectAllOrders()));
 			    	}
 			    	
 			      };
 			      
 			      view.getHistoryButton().addActionListener(hystoryButtonListener);
 			      
+			      // ORDER SELECTION LISTEER //
 			      
+			      ActionListener orderSelectionListrener = new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						manageAction();
+					}
+					
+			    	private void manageAction() {
+			    			int selectedRow = view.getHistoryView().getHistoryTable().getSelectedRow();
+			    			int id = Integer.parseInt((String)(view.getHistoryView().getHistoryTable().getValueAt(selectedRow, 0)));
+			    			
+			    			if(selectedRow != -1) {
+			    				view.getHistoryView().getServingTable().setModel(getDefaultTable(DbControllerSingleton.getInstance().selectAllServingFromOrders(id)));
+			    			}
+			    		}  
+			      };
 			      
-			      
+			      view.getHistoryView().getOpenOrderButton().addActionListener(orderSelectionListrener);
 			      //back button listeners
 			      
 			      ActionListener backListener = new ActionListener() {

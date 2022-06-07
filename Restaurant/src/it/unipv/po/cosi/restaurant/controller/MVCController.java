@@ -88,9 +88,14 @@ public class MVCController {
 			return s;
 		}
 		
-		public static DefaultTableModel getOrderDefaultList(ArrayList<String[]> source) {
+		public static DefaultTableModel getDefaultTable(ArrayList<String[]> source) {
 			
-			DefaultTableModel model = new DefaultTableModel(0,0);
+			DefaultTableModel model = new DefaultTableModel(0,0) {
+				@Override
+				public boolean isCellEditable(int row, int col) {
+					return false;
+				}
+			};
 			
 //			model.addRow("",new String[] {"ID ORDINE", "PIATTO", "TOTALE", "DATA" });
 			
@@ -101,5 +106,6 @@ public class MVCController {
 			
 			return model;
 		}
+		
 
 }

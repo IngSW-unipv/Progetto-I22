@@ -67,15 +67,21 @@ public class Serving implements Comparable<Serving> {
 
 	public float getPrice() {
 		
-		float temp = 0.0f;
+//		System.out.println("price before  "+price);
+		float temp = price*quantity;
 		
 		for (Modifier modifier : modifiers) {
 			
 			temp += modifier.getPrice();
 			
 		}
+		if(quantity>0) {
+//			System.out.println("diobestiacaneporco");
+		}
 		
-		return price + temp;
+//		System.out.println("quantita: " + quantity + " temp  " + temp + " price " + price + " finale: "+ p);
+		return temp;
+		
 	}
 
 	public int getQuantity() {
@@ -144,7 +150,7 @@ public class Serving implements Comparable<Serving> {
 
 	public Serving copy() {
 		
-		Serving sCopy = new Serving(this.getId(), this.getName(), this.getPrice(), this.getCategory());
+		Serving sCopy = new Serving(this.getId(), this.getName(), this.getSinglePrice(), this.getCategory());
 		
 		return sCopy;
 	}
@@ -153,7 +159,9 @@ public class Serving implements Comparable<Serving> {
 		this.modifiers = modifiers;
 	}
 	
-	
+	public float getSinglePrice() {
+		return price;
+	}
 
 	
 }

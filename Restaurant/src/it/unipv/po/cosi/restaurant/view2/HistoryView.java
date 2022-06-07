@@ -10,37 +10,51 @@ import javax.swing.table.TableModel;
 public class HistoryView extends JPanel{
 
 	private JButton backButton;
-	//private JButton printButton;
+	private JButton openOrderButton;
+	private JPanel tablePane;
 	private JTable historyTable;
+	private JTable servingTable;
 	private JPanel buttonPane;
-	private JScrollPane scrollPane;
+	private JScrollPane scrollPaneHistory;
+	private JScrollPane scrollPaneServing;
 	
 	public HistoryView() {
 		super();
 			
 		this.setLayout(new BorderLayout());
 		buttonPane = new JPanel(new BorderLayout());
+		tablePane = new JPanel(new GridLayout(1,2));
 		historyTable = new JTable(0,0);
-		scrollPane = new JScrollPane(historyTable);
+		historyTable.setCellEditor(null);
+		historyTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		servingTable = new JTable(0,0);
+		scrollPaneHistory = new JScrollPane(historyTable);
+		scrollPaneServing = new JScrollPane(servingTable);
 		this.add(buttonPane, BorderLayout.NORTH);
 		backButton = new JButton("Indietro");
-		//printButton = new JButton("Stampa");
+		openOrderButton = new JButton("Apri Ordine");
 		backButton.setFont(new java.awt.Font("Arial", 1, 36));
+		openOrderButton.setFont(new java.awt.Font("Arial", 1, 36));
 		backButton.setIcon(new ImageIcon("src/it/unipv/po/cosi/restaurant/view2/icons/back.png"));
 //		printButton.setFont(new java.awt.Font("Synchro LET", 1, 36));
 		buttonPane.add(backButton, BorderLayout.WEST);
+		buttonPane.add(openOrderButton, BorderLayout.EAST);
 //		buttonPane.add(printButton, BorderLayout.EAST);
+		tablePane.add(scrollPaneHistory);
+		tablePane.add(scrollPaneServing);
 
 //		historyTable.setMinimumSize(new Dimension(0, 30));
 		historyTable.setRowHeight(30);
+		servingTable.setRowHeight(30);
 //		historyTable.getrow
 		DefaultTableCellRenderer centerRender = new DefaultTableCellRenderer();
 		centerRender.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
 		historyTable.setDefaultRenderer(String.class, centerRender);
+		servingTable.setDefaultRenderer(String.class, centerRender);
 		
 		historyTable.setFont(new java.awt.Font("Arial", 0, 18));
-		this.add(scrollPane, BorderLayout.CENTER);
-		
+		servingTable.setFont(new java.awt.Font("Arial", 0, 18));
+		this.add(tablePane, BorderLayout.CENTER);
 		
 	}
 
@@ -48,9 +62,9 @@ public class HistoryView extends JPanel{
 		return backButton;
 	}
 
-//	public JButton getPrintButton() {
-//		return printButton;
-//	}
+	public JButton getOpenOrderButton() {
+		return openOrderButton;
+	}
 
 	public JTable getHistoryTable() {
 		return historyTable;
@@ -58,6 +72,10 @@ public class HistoryView extends JPanel{
 
 	public JPanel getButtonPane() {
 		return buttonPane;
+	}
+
+	public JTable getServingTable() {
+		return servingTable;
 	}
 	
 	

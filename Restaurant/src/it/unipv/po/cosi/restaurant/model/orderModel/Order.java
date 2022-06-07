@@ -77,12 +77,13 @@ public class Order {
 			s.incrementQuantity();
 			
 		}
-		
+		updateTotal();
 	}
 	
 	public void addServingWithModifiers(Serving serving) {
 		
 		servings.add(serving);
+		updateTotal();
 	}
 	
 	
@@ -115,17 +116,17 @@ public class Order {
 		return this.servings.remove(serving);
 	}
 
-	public float getSubtotal() {
+	public float updateTotal() {
 		
 		float tmp = 0.0f;
 		
 		for (Serving serving : servings) {
+
+			System.out.println("single price= "+serving.getSinglePrice() + "price = " + serving.getPrice());
 			
 			tmp += serving.getPrice();
-			
-			for (Modifier m : serving.getModifiers()) {
-				tmp += m.getPrice();
-			}			
+		
+//			System.out.println("\ntemp = " +tmp);
 		}
 		
 		this.total = tmp;

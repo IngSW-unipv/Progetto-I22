@@ -34,10 +34,9 @@ public class OrderDAO implements IDao{
 		
 		ArrayList<String[]> rslt = new ArrayList<>();
 		
-		int maxId = this.getOrderServingMaxId();
+		int maxId = this.getOrderingMaxId();
 		
 		String idArray[] = new String[maxId+1];
-		String servingNameArray[] = new String[maxId+1];
 		String totalArray[] = new String[maxId+1];
 		String dateArray[] = new String[maxId+1];
 //		
@@ -51,12 +50,15 @@ public class OrderDAO implements IDao{
 		try {
 			st1 = c.createStatement();
 			
-			String query = "SELECT id, name as Piatto, total as Totale, time_date FROM "
-					+ "(SELECT ordering AS id, serving FROM order_serving) A "
-					+ "NATURAL JOIN "
-					+ "(SELECT * FROM restaurant.ordering) B "
-					+ "NATURAL JOIN "
-					+ "(SELECT id as serving, name  from serving) C";
+//			String query = "SELECT id, total as Totale, time_date FROM "
+//					+ "(SELECT ordering AS id, serving FROM order_serving) A "
+//					+ "NATURAL JOIN "
+//					+ "(SELECT * FROM restaurant.ordering) B"
+//					+ "NATURAL JOIN "
+//					+ "(SELECT id as serving, name  from serving) C";
+			
+			String query = "SELECT id, total, time_date FROM ordering";
+			
 			
 			rs1 = st1.executeQuery(query);
 	
@@ -68,7 +70,6 @@ public class OrderDAO implements IDao{
 //				System.out.println(rs1.getString(4));
 			
 				idArray[0] = "ID ORDINE";
-				servingNameArray[0] = "PIATTO";
 				totalArray[0] = "TOTALE";
 				dateArray[0] = "DATA E ORA";
 				
@@ -80,12 +81,10 @@ public class OrderDAO implements IDao{
 				for(int i = 1;rs1.next();i++ ) {
 					
 					idArray[i] = rs1.getString(1);
-					servingNameArray[i] = rs1.getString(2);
-					totalArray[i] = rs1.getString(3)+" euro";
-					dateArray[i] = rs1.getString(4);
+					totalArray[i] = rs1.getString(2) + " euro";
+					dateArray[i] = rs1.getString(3);
 					
 					System.out.println(idArray[i]);
-					System.out.println(servingNameArray[i]);
 					System.out.println(totalArray[i]);
 					System.out.println(dateArray[i]);
 					
@@ -98,7 +97,7 @@ public class OrderDAO implements IDao{
 			}
 			
 			rslt.add(idArray);
-			rslt.add(servingNameArray);
+//			rslt.add(servingNameArray);
 			rslt.add(totalArray);
 			rslt.add(dateArray);
 		}
@@ -115,6 +114,62 @@ public class OrderDAO implements IDao{
 		
 		
 	}
+
+	public ArrayList<String[]> selectServingFromOrder(int id) {
+		
+		c = DatabaseConnection.startConnection(c, schema);
+		ArrayList<String[]> rslt = new ArrayList<>();
+		
+		try {
+		
+			Statement st;
+			ResultSet rs;
+			int dim = getOderSize(id);
+			String servingNameArray[] = new String[dim+1];
+			String quantityArray[] = new String[dim+1];
+			String priceArray[] = new String[dim+1];
+			
+			st = c.createStatement();
+			
+			String query = "SELECT name, quantity, (price*quantity) FROM "
+					 + "(SELECT id FROM ordering WHERE id = " + id + ") A "
+					 + "NATURAL JOIN "
+					 + "(SELECT ordering as id, serving, quantity FROM order_serving) B "
+					 + "NATURAL JOIN "
+					 + "(SELECT id as serving, name, price FROM serving) C;";
+			
+			rs = st.executeQuery(query);
+			
+			servingNameArray[0] = "PIATTO";
+			quantityArray[0] = "QUANTITA'";
+			priceArray[0] = "PREZZO";
+			
+			for(int i = 1; rs.next(); i++) {
+				
+				servingNameArray[i] = rs.getString(1);
+				quantityArray[i] = rs.getString(2);
+				priceArray[i] = rs.getString(3);
+			
+				System.out.println(servingNameArray[i]);
+				System.out.println(quantityArray[i]);
+				System.out.println(priceArray[i]);
+			}
+			
+			rslt.add(servingNameArray);
+			rslt.add(quantityArray);
+			rslt.add(priceArray);
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		DatabaseConnection.closeConnection(c);
+		return rslt;
+		
+	}
 	
 	public void insertOrder(Order order) {
 		
@@ -123,7 +178,7 @@ public class OrderDAO implements IDao{
 
 		try {
 			st1 = c.createStatement();
-			String query = "INSERT INTO RESTAURANT.ORDERING VALUES (" + order.getId() + "," + order.getTable().getNumber() + "," + order.getSubtotal() + ",'" + order.getDateTime() + "');";
+			String query = "INSERT INTO RESTAURANT.ORDERING VALUES (" + order.getId() + "," + order.getTable().getNumber() + "," + order.getTotal() + ",'" + order.getDateTime() + "');";
 			st1.executeUpdate(query);
 			
 			for (Serving serving : order.getServings()) {
@@ -133,7 +188,7 @@ public class OrderDAO implements IDao{
 						+ "DROP FOREIGN KEY `FK4`;");
 				st1.addBatch("ALTER TABLE `restaurant`.`order_serving` "
 						+ "DROP FOREIGN KEY `FK5`;");
-				st1.addBatch("INSERT INTO order_serving (ordering, serving) VALUES (" + order.getId() + "," + serving.getId() + " );");
+				st1.addBatch("INSERT INTO order_serving (ordering, serving, quantity) VALUES (" + order.getId() + "," + serving.getId() + "," + serving.getQuantity() + ");");
 				st1.addBatch("ALTER TABLE `restaurant`.`order_serving` "
 						+ "ADD CONSTRAINT `FK4` "
 						+ "FOREIGN KEY (`ordering`) "
@@ -230,7 +285,7 @@ public class OrderDAO implements IDao{
 		
 	}
 	
-public int getOrderServingMaxId() {
+	public int getOrderServingMaxId() {
 		
 		c = DatabaseConnection.startConnection(c, schema);
 		Statement st1;
@@ -253,6 +308,31 @@ public int getOrderServingMaxId() {
 		
 	}
 
+	private int getOderSize(int id) {
+				
+
+		try {
+
+			Statement st;
+			ResultSet rs;	
+				
+			st = c.createStatement();
+			
+			String query = "select count(id) from order_serving where ordering = " + id;
+			
+			rs = st.executeQuery(query);
+			rs.next();
+			
+			return rs.getInt(1);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		return 0;
+		
+	}
 	@Override
 	public String booleanToString(Boolean flag) {
 		// TODO Auto-generated method stub

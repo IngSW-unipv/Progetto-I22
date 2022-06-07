@@ -8,6 +8,8 @@ import java.util.List;
 import it.unipv.po.cosi.restaurant.controller.MVCController;
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
+import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.view2.MainView;
 
 
@@ -26,7 +28,7 @@ public class GUITest {
 			dbc.populateCategoriesArray();
 			dbc.populateServingsArray();
 			dbc.populateModifiersArray();
-			dbc.populateTalesArray();
+			dbc.populateTablesArray();
 			
 			RestaurantModel m = RestaurantModel.getInstance();
 			MainView v = new MainView(m.getServingsArray(), m.getCategoriesArray(), m.getModifiersArray(), m.getTablesArray(),0,0);
@@ -46,7 +48,11 @@ public class GUITest {
 //			for (Modifier string : m.getModifiersArray()) {
 //				System.out.println(string.getCategory());
 //			}
-			
+			for (Order o : m.getOrdersArray()) {
+				for (Serving s : o.getServings()) {
+					System.out.println("\n  diocane" + s.getPrice());
+				}
+			}
 //			v.getHistoryView().getHistoryTable().setModel(c.getOrderDefaultList(dbc.selectAllOrders()));	
 	}
 

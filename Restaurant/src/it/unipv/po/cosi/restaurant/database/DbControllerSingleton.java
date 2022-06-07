@@ -107,6 +107,10 @@ public class DbControllerSingleton {
 		return DaoFactory.getOrderDAO().selectOrder(id, RestaurantModel.getInstance().getCategoriesArray());
 	}
 	
+	public ArrayList<String[]> selectAllServingFromOrders(int id) {
+		return DaoFactory.getOrderDAO().selectServingFromOrder(id);
+	}
+
 
 //MODIFIER
 	
@@ -155,7 +159,7 @@ public class DbControllerSingleton {
 
 	}
 	
-	public void populateTalesArray() {
+	public void populateTablesArray() {
 		
 		populateTablesHiding();
 	}

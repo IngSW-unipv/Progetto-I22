@@ -210,7 +210,6 @@ public class ServingDAO implements IDao{
 				
 				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(4), cat, rs1.getBoolean(5));
 				rslt.add(serving);
-								
 			}
 		}
 		
