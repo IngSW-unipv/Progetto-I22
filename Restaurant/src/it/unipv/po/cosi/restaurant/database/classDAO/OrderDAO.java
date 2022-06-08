@@ -148,7 +148,7 @@ public class OrderDAO implements IDao{
 				
 				servingNameArray[i] = rs.getString(1);
 				quantityArray[i] = rs.getString(2);
-				priceArray[i] = rs.getString(3);
+				priceArray[i] = rs.getString(3) +" euro";
 			
 				System.out.println(servingNameArray[i]);
 				System.out.println(quantityArray[i]);
