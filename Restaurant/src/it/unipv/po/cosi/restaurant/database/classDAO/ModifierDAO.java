@@ -15,6 +15,7 @@ import java.util.Observable;
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
 //import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DAOClass;
 import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
+import it.unipv.po.cosi.restaurant.database.config.CheckConfigFile;
 import it.unipv.po.cosi.restaurant.exception.ExceptionFileChooser;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
@@ -37,20 +38,8 @@ try {
 			String path = "src/it/unipv/po/cosi/restaurant/database/config/modifiers.csv";
 			String absolutePath;
 			
-			try {
-				File f = new File(path);
-				absolutePath = f.getAbsolutePath();
-				if(!f.isFile()) {
-					
-					
-					
-					throw new ExceptionFileChooser("Modifiers.csv");
-				}
-			} catch (ExceptionFileChooser e) {
-				
-					path = e.getPath();
-
-			}
+			
+		  	path = CheckConfigFile.pathFinder(path, pathDoc, "Modifier");
 			
 			File f = new File(path);
 			absolutePath = f.getAbsolutePath();

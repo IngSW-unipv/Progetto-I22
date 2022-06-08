@@ -9,5 +9,6 @@ public interface IDao {
 	public final static String schema = "restaurant";
 	public void initialize() throws ExceptionFileChooser, FileNotFoundException;
 	public String booleanToString(Boolean flag);
+	public final static String pathDoc ="src/it/unipv/po/cosi/restaurant/database/config/pathConfig.txt";
 	
 }
