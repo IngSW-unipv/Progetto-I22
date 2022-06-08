@@ -1,5 +1,5 @@
-#Wed Jun 08 15:33:07 CEST 2022
-Category=C\:\\Users\\backt\\Desktop\\categories.csv
-Modifier=C\:\\Users\\backt\\Desktop\\modifiers.csv
+#Wed Jun 08 15:39:15 CEST 2022
 Serving=C\:\\Users\\backt\\git\\Progetto-I22\\Restaurant\\src\\it\\unipv\\po\\cosi\\restaurant\\database\\classDAO\\servings.csv
+Category=C\:\\Users\\backt\\Desktop\\categories.csv
 Table=C\:\\Users\\backt\\Desktop\\tables.csv
+Modifier=/Users/Paul/git/Progetto-I22/Restaurant/src/it/unipv/po/cosi/restaurant/database/classDAO/modifiers.csv

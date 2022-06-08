@@ -125,9 +125,9 @@ public class OrderDAO implements IDao{
 			Statement st;
 			ResultSet rs;
 			int dim = getOderSize(id);
-			String servingNameArray[] = new String[dim+1];
-			String quantityArray[] = new String[dim+1];
-			String priceArray[] = new String[dim+1];
+			String servingNameArray[] = new String[dim];
+			String quantityArray[] = new String[dim];
+			String priceArray[] = new String[dim];
 			
 			st = c.createStatement();
 			
@@ -284,29 +284,29 @@ public class OrderDAO implements IDao{
 		return 0;
 		
 	}
-	
-	public int getOrderServingMaxId() {
-		
-		c = DatabaseConnection.startConnection(c, schema);
-		Statement st1;
-		ResultSet rs;
-		
-		try {
-			
-			st1 = c.createStatement();
-			String qry = "select max(id) from restaurant.order_serving";
-			rs = st1.executeQuery(qry);
-			rs.next();
-			return rs.getInt(1);
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return 0;
-		
-	}
+//	
+//	public int getOrderServingMaxId() {
+//		
+//		c = DatabaseConnection.startConnection(c, schema);
+//		Statement st1;
+//		ResultSet rs;
+//		
+//		try {
+//			
+//			st1 = c.createStatement();
+//			String qry = "select max(id) from restaurant.order_serving";
+//			rs = st1.executeQuery(qry);
+//			rs.next();
+//			return rs.getInt(1);
+//			
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		return 0;
+//		
+//	}
 
 	private int getOderSize(int id) {
 				
