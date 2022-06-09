@@ -125,9 +125,10 @@ public class OrderDAO implements IDao{
 			Statement st;
 			ResultSet rs;
 			int dim = getOderSize(id);
-			String servingNameArray[] = new String[dim];
-			String quantityArray[] = new String[dim];
-			String priceArray[] = new String[dim];
+			
+			String servingNameArray[] = new String[dim+1];
+			String quantityArray[] = new String[dim+1];
+			String priceArray[] = new String[dim+1];
 			
 			st = c.createStatement();
 			

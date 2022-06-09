@@ -135,6 +135,7 @@ public class ButtonHandler extends MVCController {
 			    	private void manageAction() {
 			    			int selectedRow = view.getHistoryView().getHistoryTable().getSelectedRow();
 			    			int id = Integer.parseInt((String)(view.getHistoryView().getHistoryTable().getValueAt(selectedRow, 0)));
+			    			System.out.println("ID = " + id);
 			    			
 			    			if(selectedRow != -1) {
 			    				view.getHistoryView().getServingTable().setModel(getDefaultTable(DbControllerSingleton.getInstance().selectAllServingFromOrders(id)));
