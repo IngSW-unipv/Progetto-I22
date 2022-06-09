@@ -10,6 +10,7 @@ public class Serving implements Comparable<Serving> {
 	private float price;
 	private ArrayList<Modifier> modifiers;
 	private int quantity;
+	private int served;
 	private boolean activeFlag;
 	//	public Serving(int id, String name, float price, Category category) {
 //		
@@ -30,6 +31,7 @@ public class Serving implements Comparable<Serving> {
 			modifiers = new ArrayList<Modifier>();
 			this.activeFlag = activeFlag;
 			this.quantity = 0;
+			this.served = 0;
 			
 		}
 	
@@ -41,6 +43,7 @@ public class Serving implements Comparable<Serving> {
 		this.price = price;	
 		modifiers = new ArrayList<Modifier>();
 		this.quantity = 0;
+		this.served = 0;
 		
 	}
 	
@@ -151,7 +154,7 @@ public class Serving implements Comparable<Serving> {
 	public Serving copy() {
 		
 		Serving sCopy = new Serving(this.getId(), this.getName(), this.getSinglePrice(), this.getCategory());
-		
+		sCopy.setQuantity(this.getQuantity());
 		return sCopy;
 	}
 
@@ -161,6 +164,14 @@ public class Serving implements Comparable<Serving> {
 	
 	public float getSinglePrice() {
 		return price;
+	}
+
+	public int getServed() {
+		return served;
+	}
+
+	public void setServed(int served) {
+		this.served = served;
 	}
 
 	

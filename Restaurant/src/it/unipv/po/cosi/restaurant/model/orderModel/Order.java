@@ -11,6 +11,7 @@ public class Order {
 	private int id;
 	private static int startingId;
 	private ArrayList<Serving> servings;
+	private ArrayList<Serving> sent;
 	private Table table;
 	private float total;
 	private String dateTime;
@@ -21,6 +22,7 @@ public class Order {
 		
 		id = ++startingId;
 		servings = new ArrayList<Serving>();
+		sent = new ArrayList<Serving>();
 		this.total = 0;	
 		this.dateTime = null;
 	}
@@ -29,6 +31,7 @@ public class Order {
 		
 		id = ++startingId;
 		servings = new ArrayList<Serving>();
+		sent = new ArrayList<Serving>();
 		this.table = table;
 		this.total = 0;
 		this.dateTime = null;
@@ -38,6 +41,7 @@ public class Order {
 		
 		this.id = id;
 		servings = new ArrayList<Serving>();
+		sent = new ArrayList<Serving>();
 		this.total = 0;
 		this.dateTime = null;
 	}
@@ -47,6 +51,7 @@ public class Order {
 		this.total = total;
 		this.id = id;
 		servings = new ArrayList<Serving>();
+		sent = new ArrayList<Serving>();
 		this.dateTime = null;	
 	}
 	
@@ -54,6 +59,7 @@ public class Order {
 		
 		this.id = id;
 		servings = new ArrayList<Serving>();
+		sent = new ArrayList<Serving>();
 		this.table = table;
 		this.total = 0;
 		this.dateTime = null;
@@ -171,6 +177,12 @@ public class Order {
 		this.dateTime = dateTime;
 	}
 	
+	public ArrayList<Serving> getSent() {
+		return sent;
+	}
 	
+	public void setSent(ArrayList<Serving> sent) {
+		this.sent = sent;
+	}
 	
 }

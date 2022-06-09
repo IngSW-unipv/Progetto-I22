@@ -32,7 +32,13 @@ public class MainView extends JFrame {
 	private JLabel legendImage;
 	private JButton historyButton;
 	private HistoryView historyView;
+	private MonitorView monitors;
+	private JButton monitorButton;
 	
+	public JButton getMonitorButton() {
+		return monitorButton;
+	}
+
 	public MainView(ArrayList<Serving> servings, ArrayList<Category> categories, ArrayList<Modifier> modifiers, ArrayList<Table> tables, int r, int c) throws IOException {
 		super();
 
@@ -55,6 +61,10 @@ public class MainView extends JFrame {
 		cardPane = new JPanel();
 		cardPane.setLayout(c1);
 
+		// MONITORS
+		monitors = new MonitorView(categories);
+		
+		
 		// TABLE PANEL //
 		int nTables = tables.size();
 		orderView = new OrderView(categories);
@@ -94,13 +104,26 @@ public class MainView extends JFrame {
 		shutDownButton.setBackground(Color.decode("#D00000"));
 //		editButton.setContentAreaFilled(false);
 //		editPane.add(editButton, BorderLayout.SOUTH);
+		
+		monitorButton = new JButton("Monitor");
+		monitorButton.setFont(new java.awt.Font("Arial", 1, 24));
+		
+		
+		
+		
 		editPane.add(pane, BorderLayout.NORTH);
 		pane.add(editButton);
 		pane.add(shutDownButton);
+		
 		historyButton = new JButton("Storico ordini");
 		historyButton.setFont(new java.awt.Font("Arial", 1, 24));
 		historyView = new HistoryView();
-		editPane.add(historyButton, BorderLayout.SOUTH);
+		
+		JPanel temporaryPanel = new JPanel(new GridLayout(2,1));
+		temporaryPanel.add(monitorButton);
+		temporaryPanel.add(historyButton);
+		//editPane.add(historyButton, BorderLayout.SOUTH);
+		editPane.add(temporaryPanel, BorderLayout.SOUTH);
 		editPane.add(legendPane, BorderLayout.CENTER);
 		cardPane.add(historyView,"4");
 		
@@ -136,6 +159,7 @@ public class MainView extends JFrame {
 		  cardPane.add(mainPane, "1");
 		  cardPane.add(orderView, "2");
 		  cardPane.add(settingsView, "3");
+		  cardPane.add(monitors, "5");
 		  c1.show(cardPane, "1");
 		  mainPane.setVisible(true);
 		  add(cardPane);
@@ -202,7 +226,9 @@ public class MainView extends JFrame {
 		return historyView;
 	}
 	
-	
+	public MonitorView getMonitors() {
+		return monitors;
+	}
 
 	
 }
