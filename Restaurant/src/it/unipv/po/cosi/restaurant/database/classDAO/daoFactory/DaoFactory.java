@@ -28,7 +28,7 @@ public class DaoFactory {
 
 			try {
 				Properties p = new Properties(System.getProperties());
-				p.load(new FileInputStream("src/it/unipv/po/cosi/restaurant/database/classDAO/provaFactory/properties.txt"));
+				p.load(new FileInputStream("src/it/unipv/po/cosi/restaurant/database/classDAO/daoFactory/properties.txt"));
 				categoryClassName=p.getProperty(C_PROPERTYNAME);
 
 				categories = (CategoryDAO)Class.forName(categoryClassName).newInstance();
@@ -50,7 +50,7 @@ public class DaoFactory {
 
 			try {
 				Properties p = new Properties(System.getProperties());
-				p.load(new FileInputStream("src/it/unipv/po/cosi/restaurant/database/classDAO/provaFactory/properties.txt"));
+				p.load(new FileInputStream("src/it/unipv/po/cosi/restaurant/database/classDAO/daoFactory/properties.txt"));
 				modifierClassName=p.getProperty(M_PROPERTYNAME);
 
 				modifiers = (ModifierDAO)Class.forName(modifierClassName).newInstance();
@@ -72,7 +72,7 @@ public class DaoFactory {
 
 			try {
 				Properties p = new Properties(System.getProperties());
-				p.load(new FileInputStream("src/it/unipv/po/cosi/restaurant/database/classDAO/provaFactory/properties.txt"));
+				p.load(new FileInputStream("src/it/unipv/po/cosi/restaurant/database/classDAO/daoFactory/properties.txt"));
 				ordersClassName=p.getProperty(O_PROPERTYNAME);
 
 				orders = (OrderDAO)Class.forName(ordersClassName).newInstance();
@@ -94,7 +94,7 @@ public class DaoFactory {
 
 			try {
 				Properties p = new Properties(System.getProperties());
-				p.load(new FileInputStream("src/it/unipv/po/cosi/restaurant/database/classDAO/provaFactory/properties.txt"));
+				p.load(new FileInputStream("src/it/unipv/po/cosi/restaurant/database/classDAO/daoFactory/properties.txt"));
 				servingClassName=p.getProperty(S_PROPERTYNAME);
 
 				servings = (ServingDAO)Class.forName(servingClassName).newInstance();
@@ -117,7 +117,7 @@ public class DaoFactory {
 
 			try {
 				Properties p = new Properties(System.getProperties());
-				p.load(new FileInputStream("src/it/unipv/po/cosi/restaurant/database/classDAO/provaFactory/properties.txt"));
+				p.load(new FileInputStream("src/it/unipv/po/cosi/restaurant/database/classDAO/daoFactory/properties.txt"));
 				tablesClassName=p.getProperty(T_PROPERTYNAME);
 
 				tables = (TableDAO)Class.forName(tablesClassName).newInstance();
