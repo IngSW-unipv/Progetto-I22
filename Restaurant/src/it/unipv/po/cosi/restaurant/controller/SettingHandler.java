@@ -96,7 +96,7 @@ public class SettingHandler extends MVCController{
 					DbControllerSingleton.getInstance().updateActiveModifiers();
 					DbControllerSingleton.getInstance().updateActiveCategories();
 					DbControllerSingleton.getInstance().updateActiveTables();
-					if(updatedFlag) throw new WarningFrameException("Riavvio necessario");
+					if(updatedFlag) throw new WarningFrameException("Riavvio necessario", "\n\t\tATTENZIONE:\n E' necessario riavviare l'applicazione per completare l'operazione  \n Il riavvio del sistema provocherà la perdita degli ordini aperti\n \n\t\tContinuare?");
 					
 				}
 	  
