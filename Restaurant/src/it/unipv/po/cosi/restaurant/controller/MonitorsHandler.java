@@ -3,6 +3,8 @@ package it.unipv.po.cosi.restaurant.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
+import it.unipv.po.cosi.restaurant.exception.ConfirmSendOrderException;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
@@ -25,11 +27,15 @@ public class MonitorsHandler {
 
 				Order o = view.getOrderView().getSource().getTable().getOrder();
 				
-				manageAction(o);
+				try {
+					manageAction(o);
+				} catch (ConfirmSendOrderException e1) {}
+				
+				
 				
 			}
 			
-			public void manageAction(Order o) {
+			public void manageAction(Order o) throws ConfirmSendOrderException {
 				
 				ArrayList<Monitor> monitors = view.getMonitors().getMonitor();
 				ArrayList<Serving> addedServ = new ArrayList<Serving>();
@@ -60,6 +66,7 @@ public class MonitorsHandler {
 				}
 				
 				addedServ.clear();
+				throw new ConfirmSendOrderException();
 			}
 		};
 		

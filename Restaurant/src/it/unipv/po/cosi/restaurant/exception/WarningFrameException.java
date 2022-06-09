@@ -13,9 +13,9 @@ public class WarningFrameException extends Throwable{
 
 	private static final long serialVersionUID = 1L;
 
-	public WarningFrameException(String s) {
+	public WarningFrameException(String s, String msg) {
 		
-		WarningFrame warning = new WarningFrame(s);
+		WarningFrame warning = new WarningFrame(s, msg);
 		warning.setVisible(true);
 		
 		ActionListener confirmWarningListener = new ActionListener() {
