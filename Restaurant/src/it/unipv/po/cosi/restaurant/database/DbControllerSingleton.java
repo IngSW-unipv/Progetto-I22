@@ -100,7 +100,7 @@ public class DbControllerSingleton {
 	}
 //	
 	public void insertOrder(Order order) {
-		DaoFactory.getOrderDAO().insertOrder(order);
+		DaoFactory.getOrderDAO().insertOrder(order, RestaurantModel.getInstance().getServingsArray());
 	}
 	
 	public Order selectOrder(int id) {

@@ -59,19 +59,26 @@ public class ModifierHandler extends MVCController{
 				}
 		    	private void manageAction() {
 		    		
-		    		view.getOrderView().getC1().show(view.getOrderView().getMenuCardPane(), "1");
-		    		List<Modifier> mod = view.getOrderView().getModifierList().getSelectedValuesList();
 		    		
-		    		Serving s = view.getOrderView().getServingList().getSelectedValue();
-		    		Serving s1 = new Serving(model.getMaxId()+1, s.getName(), s.getPrice(), s.getCategory());
-		    		
-		    		for (Modifier modifier : mod) {
-						s1.addModifier(modifier);
-					}
-		    		Order o = view.getOrderView().getSource().getTable().getOrder();
-		    		o.addServingWithModifiers(s1);
-		    		populateOrderList(o.getServings());
-		    		view.getOrderView().getSource().setBackground(new Color(252,93,93));
+		    		if(!view.getOrderView().getModifierList().getSelectedValuesList().isEmpty()) {
+			    		view.getOrderView().getC1().show(view.getOrderView().getMenuCardPane(), "1");
+			    		List<Modifier> mod = view.getOrderView().getModifierList().getSelectedValuesList();
+			    		
+			    		model.initializeMaxId();
+			    		Serving s = view.getOrderView().getServingList().getSelectedValue();
+			    		Serving s1 = new Serving(model.getMaxId()+1, s.getName(), s.getSinglePrice(), s.getCategory());
+			    		model.setMaxId(model.getMaxId()+1);
+			    		
+			    		for (Modifier modifier : mod) {
+							s1.addModifier(modifier);
+							
+						}
+			    		Order o = view.getOrderView().getSource().getTable().getOrder();
+			    		o.addServingWithModifiers(s1);
+			    		populateOrderList(o.getServings());
+			    		view.getOrderView().getSource().setBackground(new Color(252,93,93));
+		    		}
+		    		else {}
 		    	}
 		    	
 		      };

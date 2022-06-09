@@ -63,15 +63,11 @@ public class Serving implements Comparable<Serving> {
 	public float getPrice() {
 		
 		float temp = price*quantity;
-		
+		System.out.println("temp = " + temp + "single price = " + this.getSinglePrice() + "quantity = " + this.getQuantity());
 		for (Modifier modifier : modifiers) {
 			
-			temp += modifier.getPrice();
-			
+			temp = temp + modifier.getPrice();
 		}
-		if(quantity>0) {
-		}
-		
 		return temp;
 		
 	}

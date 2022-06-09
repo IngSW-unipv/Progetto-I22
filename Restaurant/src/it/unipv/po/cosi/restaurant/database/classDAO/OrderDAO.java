@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
 import it.unipv.po.cosi.restaurant.database.classDAO.daoFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
+import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import java.sql.Connection;
@@ -98,10 +99,10 @@ public class OrderDAO implements IDao{
 			
 			st = c.createStatement();
 			
-			String query = "SELECT name, quantity, (price*quantity) FROM "
+			String query = "SELECT name, quantity, ((price*quantity)+overprice) FROM "
 					 + "(SELECT id FROM ordering WHERE id = " + id + ") A "
 					 + "NATURAL JOIN "
-					 + "(SELECT ordering as id, serving, quantity FROM order_serving) B "
+					 + "(SELECT ordering as id, serving, quantity, overprice FROM order_serving) B "
 					 + "NATURAL JOIN "
 					 + "(SELECT id as serving, name, price FROM serving) C;";
 			
@@ -136,8 +137,8 @@ public class OrderDAO implements IDao{
 		return rslt;
 		
 	}
-	
-	public void insertOrder(Order order) {
+
+	public void insertOrder(Order order, ArrayList<Serving> servings) {
 		
 		c = DatabaseConnection.startConnection(c, schema);
 		Statement st1;
@@ -146,15 +147,29 @@ public class OrderDAO implements IDao{
 			st1 = c.createStatement();
 			String query = "INSERT INTO RESTAURANT.ORDERING VALUES (" + order.getId() + "," + order.getTable().getNumber() + "," + order.getTotal() + ",'" + order.getDateTime() + "');";
 			st1.executeUpdate(query);
-			
+		
 			for (Serving serving : order.getServings()) {
+			
+				float overprice = 0;
+				
+				for (Modifier mod : serving.getModifiers()) {
+					overprice += mod.getPrice() ;
+				}
+				
+				if(serving.getId()>this.getServingMaxId()) {
+					for (Serving serving2 : servings) {
+						if(serving2.getName().equals(serving.getName())) {
+							serving.setId(serving2.getId());
+						}
+					}
+				}
 				
 				st1 = c.createStatement();
 				st1.addBatch("ALTER TABLE `restaurant`.`order_serving` "
 						+ "DROP FOREIGN KEY `FK4`;");
 				st1.addBatch("ALTER TABLE `restaurant`.`order_serving` "
 						+ "DROP FOREIGN KEY `FK5`;");
-				st1.addBatch("INSERT INTO order_serving (ordering, serving, quantity) VALUES (" + order.getId() + "," + serving.getId() + "," + serving.getQuantity() + ");");
+				st1.addBatch("INSERT INTO order_serving (ordering, serving, quantity, overprice) VALUES (" + order.getId() + "," + serving.getId() + "," + serving.getQuantity() + ","+ overprice + ");");
 				st1.addBatch("ALTER TABLE `restaurant`.`order_serving` "
 						+ "ADD CONSTRAINT `FK4` "
 						+ "FOREIGN KEY (`ordering`) "
@@ -238,6 +253,28 @@ public class OrderDAO implements IDao{
 			
 			st1 = c.createStatement();
 			String qry = "select max(id) from restaurant.ordering";
+			rs = st1.executeQuery(qry);
+			rs.next();
+			return rs.getInt(1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+		
+	}
+	
+	public int getServingMaxId() {
+		
+		c = DatabaseConnection.startConnection(c, schema);
+		Statement st1;
+		ResultSet rs;
+		
+		try {
+			
+			st1 = c.createStatement();
+			String qry = "select max(id) from restaurant.serving";
 			rs = st1.executeQuery(qry);
 			rs.next();
 			return rs.getInt(1);

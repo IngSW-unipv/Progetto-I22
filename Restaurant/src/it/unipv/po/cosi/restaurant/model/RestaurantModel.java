@@ -179,6 +179,10 @@ public class RestaurantModel {
 	
 	public int getMaxId() {
 		return maxId;
+	}
+
+	public void setMaxId(int maxId) {
+		this.maxId = maxId;
 	}	
 	
 	

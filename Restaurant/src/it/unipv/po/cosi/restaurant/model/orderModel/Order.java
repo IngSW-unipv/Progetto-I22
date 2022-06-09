@@ -87,6 +87,7 @@ public class Order {
 	public void addServingWithModifiers(Serving serving) {
 		
 		servings.add(serving);
+		serving.incrementQuantity();
 		updateTotal();
 	}
 	

@@ -24,7 +24,7 @@ public class Modifier {
 		return category;
 	}
 
-	public double getPrice() {
+	public float getPrice() {
 		return price;
 	}	
 	

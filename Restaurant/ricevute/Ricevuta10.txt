@@ -1,3 +1,7 @@
+Marinara	4.0
+Marinara	6.0 + doppia mozzarella
+Marinara	8.0 + doppia mozzarella + prosc. cotto
+Marinara	10.0 + doppia mozzarella + prosc. cotto + prosc. crudo
 
 
-TOTAL PRICE: 0.0
+TOTAL PRICE: 28.0
