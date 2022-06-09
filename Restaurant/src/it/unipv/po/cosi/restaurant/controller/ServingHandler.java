@@ -12,14 +12,13 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Status;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
-import it.unipv.po.cosi.restaurant.view2.MainView;
+import it.unipv.po.cosi.restaurant.view.MainView;
 
 public class ServingHandler extends MVCController{
 
 	
 	public ServingHandler(RestaurantModel m, MainView v) {
 		super(m, v);
-		// TODO Auto-generated constructor stub
 	}
 
 	public static void addListeners(RestaurantModel model, MainView view) {
@@ -56,7 +55,7 @@ public class ServingHandler extends MVCController{
 	      
 	      // REMOVE SERVING LISTENER //
 	      
-	      ActionListener removeServingListener = new ActionListener( ) {
+	      ActionListener decrementServingListener = new ActionListener( ) {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -70,16 +69,39 @@ public class ServingHandler extends MVCController{
 					
 					Order o = view.getOrderView().getSource().getTable().getOrder();
 					Serving s = view.getOrderView().getOrderList().getSelectedValue();
-					o.removeServing(s);
+					o.decrementServing(s);
 					populateOrderList(o.getServings());
 				}
 			}
 	    	  
 	      };
 	      
-	      view.getOrderView().getRemoveFromOrderButton().addActionListener(removeServingListener);
+	      view.getOrderView().getDecrementFromOrderButton().addActionListener(decrementServingListener);
 	      
 	      
+	      
+	      ActionListener removeServingListener = new ActionListener( ) {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					manageAction();
+					
+				}
+				
+				private void manageAction() {
+					
+					if(view.getOrderView().getOrderList().getSelectedValue()!= null) {
+						
+						Order o = view.getOrderView().getSource().getTable().getOrder();
+						Serving s = view.getOrderView().getOrderList().getSelectedValue();
+						o.removeServing(s);
+						populateOrderList(o.getServings());
+					}
+				}
+		    	  
+		      };
+		      
+		      view.getOrderView().getRemoveFromOrderButton().addActionListener(removeServingListener);
 	      
 	      //----------------------------//
 	      // SERVING SELECTION LISTENER //

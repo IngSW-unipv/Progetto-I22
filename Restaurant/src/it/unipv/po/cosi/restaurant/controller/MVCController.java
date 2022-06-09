@@ -6,7 +6,7 @@ import javax.swing.DefaultListModel;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
-import it.unipv.po.cosi.restaurant.view2.MainView;
+import it.unipv.po.cosi.restaurant.view.MainView;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -53,9 +53,7 @@ public class MVCController {
 	 
 	 protected static void populateOrderList(ArrayList<Serving> servings) {
 		 
-//		 view.getOrderView().setListModel(model.getOrders().get(0).getServinNamesArray());
 		 view.getOrderView().getOrderList().setModel(getServingDefaultList(servings));
-
 
 	 }
 	 
@@ -91,13 +89,15 @@ public class MVCController {
 		public static DefaultTableModel getDefaultTable(ArrayList<String[]> source) {
 			
 			DefaultTableModel model = new DefaultTableModel(0,0) {
+				
+				private static final long serialVersionUID = 1L;
+
 				@Override
 				public boolean isCellEditable(int row, int col) {
 					return false;
 				}
 			};
 			
-//			model.addRow("",new String[] {"ID ORDINE", "PIATTO", "TOTALE", "DATA" });
 			
 			for (String[] array : source) {
 				

@@ -12,7 +12,6 @@ public class Category {
 		
 	}
 
-	//ASSIGNMONITOR
 	
 	public String getName() {
 		return name;

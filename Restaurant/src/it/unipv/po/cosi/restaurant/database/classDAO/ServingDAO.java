@@ -2,7 +2,6 @@ package it.unipv.po.cosi.restaurant.database.classDAO;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -10,12 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Observable;
-
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
-import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
+import it.unipv.po.cosi.restaurant.database.classDAO.daoFactory.IDao;
 import it.unipv.po.cosi.restaurant.database.config.CheckConfigFile;
-import it.unipv.po.cosi.restaurant.exception.ExceptionFileChooser;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
@@ -133,7 +129,6 @@ try {
 		
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -227,9 +222,6 @@ try {
 		DatabaseConnection.closeConnection(c);
 		return rslt;
 	}
-	
-
-
 
 	public String booleanToString(Boolean flag) {
 		
@@ -239,15 +231,6 @@ try {
 	
 	return "false";
 }
-
-
-
-
-
-
-
-
-
 
 }
 

@@ -3,17 +3,12 @@ package it.unipv.po.cosi.restaurant.database.classDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Observable;
-
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
-import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
+import it.unipv.po.cosi.restaurant.database.classDAO.daoFactory.IDao;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
-import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 import java.sql.Connection;
 
 public class OrderDAO implements IDao{
@@ -39,10 +34,6 @@ public class OrderDAO implements IDao{
 		String idArray[] = new String[maxId+1];
 		String totalArray[] = new String[maxId+1];
 		String dateArray[] = new String[maxId+1];
-//		
-//		ArrayList<String> servingNameArray = new ArrayList<>();
-//		ArrayList<String> totalArray = new ArrayList<>();
-//		ArrayList<String> dateArray = new ArrayList<>();
 
 		Statement st1;
 		ResultSet rs1;
@@ -50,34 +41,16 @@ public class OrderDAO implements IDao{
 		try {
 			st1 = c.createStatement();
 			
-//			String query = "SELECT id, total as Totale, time_date FROM "
-//					+ "(SELECT ordering AS id, serving FROM order_serving) A "
-//					+ "NATURAL JOIN "
-//					+ "(SELECT * FROM restaurant.ordering) B"
-//					+ "NATURAL JOIN "
-//					+ "(SELECT id as serving, name  from serving) C";
-			
 			String query = "SELECT id, total, time_date FROM ordering";
 			
 			
 			rs1 = st1.executeQuery(query);
 	
-//			while(rs1.next()) {
-				
-//				System.out.println(rs1.getString(1));
-//				System.out.println(rs1.getString(2));
-//				System.out.println(rs1.getString(3));
-//				System.out.println(rs1.getString(4));
 			
 				idArray[0] = "ID ORDINE";
 				totalArray[0] = "TOTALE";
 				dateArray[0] = "DATA E ORA";
 				
-//				idArray[2] = "";
-//				servingNameArray[2] = "";
-//				totalArray[2] = "";
-//				dateArray[2] = "";
-			
 				for(int i = 1;rs1.next();i++ ) {
 					
 					idArray[i] = rs1.getString(1);
@@ -88,16 +61,9 @@ public class OrderDAO implements IDao{
 					System.out.println(totalArray[i]);
 					System.out.println(dateArray[i]);
 					
-//					idArray.add(rs1.getString(1));
-//					servingNameArray.add(rs1.getString(2));
-//					totalArray.add(rs1.getString(3));
-//					dateArray.add(rs1.getString(4));
-					
-//				}
 			}
 			
 			rslt.add(idArray);
-//			rslt.add(servingNameArray);
 			rslt.add(totalArray);
 			rslt.add(dateArray);
 		}
@@ -163,7 +129,6 @@ public class OrderDAO implements IDao{
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -278,36 +243,12 @@ public class OrderDAO implements IDao{
 			return rs.getInt(1);
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return 0;
 		
 	}
-//	
-//	public int getOrderServingMaxId() {
-//		
-//		c = DatabaseConnection.startConnection(c, schema);
-//		Statement st1;
-//		ResultSet rs;
-//		
-//		try {
-//			
-//			st1 = c.createStatement();
-//			String qry = "select max(id) from restaurant.order_serving";
-//			rs = st1.executeQuery(qry);
-//			rs.next();
-//			return rs.getInt(1);
-//			
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		return 0;
-//		
-//	}
 
 	private int getOderSize(int id) {
 				
@@ -327,7 +268,6 @@ public class OrderDAO implements IDao{
 			return rs.getInt(1);
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
@@ -336,12 +276,7 @@ public class OrderDAO implements IDao{
 	}
 	@Override
 	public String booleanToString(Boolean flag) {
-		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-
-
 
 }

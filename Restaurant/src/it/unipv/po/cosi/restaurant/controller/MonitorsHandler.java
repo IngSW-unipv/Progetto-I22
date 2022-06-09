@@ -3,24 +3,15 @@ package it.unipv.po.cosi.restaurant.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
-import javax.swing.JTextArea;
-
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
-import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
-import it.unipv.po.cosi.restaurant.view2.MainView;
-import it.unipv.po.cosi.restaurant.view2.Monitor;
+import it.unipv.po.cosi.restaurant.view.MainView;
+import it.unipv.po.cosi.restaurant.view.Monitor;
 
 public class MonitorsHandler {
 
-	public static void createMonitors(RestaurantModel model) {
-
-		ArrayList<Category> c = model.getActiveCategories();
-		ArrayList<Monitor> m = new ArrayList<Monitor>();
-		
-	}
+	public static void createMonitors(RestaurantModel model) {}
 		
 	
 	public static void addListeners(RestaurantModel model, MainView view) {
@@ -69,59 +60,6 @@ public class MonitorsHandler {
 				}
 				
 				addedServ.clear();
-				
-				
-//				ArrayList<Serving> oldserv = new ArrayList<Serving>();
-//				ArrayList<Serving> tempServ = new ArrayList<Serving>();
-//			
-//				
-//				
-//				
-//				if(oldserv.isEmpty()) {
-//
-//					for (Serving serving : serv) {
-//						oldserv.add(serving.copy());
-//						tempServ.add(serving.copy());
-//					}
-//					
-//					o.setSent(oldserv);
-//					System.out.println("cipolla");
-//				} else {
-//					
-//					tempServ.clear();
-//				
-//					for (Serving serving : oldserv) {
-//						tempServ.add(serving);
-//					}
-//					
-//					for (Serving serving : serv) {
-//						for (Serving serving2 : oldserv) {
-//							if(serving.getName().equals(serving2.getName()) && (serving.getQuantity() - serving2.getQuantity())<=0) {
-//								tempServ.remove(serving2);
-//							} 
-//							else
-//								if(serving.getName().equals(serving2.getName()) && (serving.getQuantity() - serving2.getQuantity())>0){
-//								
-//								serving2.setQuantity(serving.getQuantity() - serving2.getQuantity());
-//								System.out.println("polpetta");
-//								
-//							}
-//						}
-//					}
-//					
-//					oldserv.clear();
-//					for (Serving serving : tempServ) {
-//						System.out.println("pizza"+oldserv);
-//						oldserv.add(serving);
-//						
-//					}
-//					o.setSent(oldserv);
-//				}
-				
-				
-
-				
-				
 			}
 		};
 		
@@ -140,8 +78,6 @@ public class MonitorsHandler {
 						
 				view.getMonitorButton().addActionListener(monitorListener);
 		
-				System.out.println("vito svita una vite vitale");
-				
 				
 		ActionListener backMonitorListener = new ActionListener() {
 			

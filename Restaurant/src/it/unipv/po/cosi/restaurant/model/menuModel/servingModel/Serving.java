@@ -12,16 +12,8 @@ public class Serving implements Comparable<Serving> {
 	private int quantity;
 	private int served;
 	private boolean activeFlag;
-	//	public Serving(int id, String name, float price, Category category) {
-//		
-//		this.id = id;
-//		this.name = name;
-//		this.category = category;
-//		this.price = price;	
-//		modifiers = new ArrayList<Modifier>();
-//		
-//	}
-//	
+
+	
 	public Serving(int id, String name, float price, Category category, boolean activeFlag) {
 			
 			this.id = id;
@@ -70,7 +62,6 @@ public class Serving implements Comparable<Serving> {
 
 	public float getPrice() {
 		
-//		System.out.println("price before  "+price);
 		float temp = price*quantity;
 		
 		for (Modifier modifier : modifiers) {
@@ -79,10 +70,8 @@ public class Serving implements Comparable<Serving> {
 			
 		}
 		if(quantity>0) {
-//			System.out.println("diobestiacaneporco");
 		}
 		
-//		System.out.println("quantita: " + quantity + " temp  " + temp + " price " + price + " finale: "+ p);
 		return temp;
 		
 	}

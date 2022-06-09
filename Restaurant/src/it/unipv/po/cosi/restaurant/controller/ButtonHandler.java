@@ -5,26 +5,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.time.Instant;
 import java.util.Date;
-
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
-import it.unipv.po.cosi.restaurant.view2.MainView;
+import it.unipv.po.cosi.restaurant.view.MainView;
 
 public class ButtonHandler extends MVCController {
 
 	public ButtonHandler(RestaurantModel m, MainView v) {
 		super(m, v);
-		// TODO Auto-generated constructor stub
 	}
 
 	public static void addListeners(RestaurantModel model, MainView view) {
@@ -50,7 +43,7 @@ public class ButtonHandler extends MVCController {
 	      view.getShutDownButton().addActionListener(shutDownListener);
 		
 	      
-	      //CLOSE ORDER LISTENER	//
+	      //CLOSE ORDER LISTENER//
 			
 			
 	  			ActionListener closeOrderListener = new ActionListener() {
@@ -72,7 +65,6 @@ public class ButtonHandler extends MVCController {
 	  					
 	  					try {
 	  						
-	  						String savePath = "/ricevute/";
 	  						File directory = new File("ricevute");
 	  						
 	  						if(! directory.exists()) {
@@ -88,7 +80,7 @@ public class ButtonHandler extends MVCController {
 	  					   
 
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 	  					
@@ -122,7 +114,7 @@ public class ButtonHandler extends MVCController {
 			      
 			      view.getHistoryButton().addActionListener(hystoryButtonListener);
 			      
-			      // ORDER SELECTION LISTEER //
+			      // ORDER SELECTION LISTENER //
 			      
 			      ActionListener orderSelectionListrener = new ActionListener() {
 
@@ -144,7 +136,9 @@ public class ButtonHandler extends MVCController {
 			      };
 			      
 			      view.getHistoryView().getOpenOrderButton().addActionListener(orderSelectionListrener);
-			      //back button listeners
+
+
+			      //BACK BUTTON LISTENER
 			      
 			      ActionListener backListener = new ActionListener() {
 			    	  @Override
@@ -156,7 +150,6 @@ public class ButtonHandler extends MVCController {
 			    	  
 			    	  private void manageAction() {
 			    		  
-//			    		  view.getOrderView().dispose();
 			    		  view.getC1().show(view.getCardPane(), "1");
 
 			    	  }

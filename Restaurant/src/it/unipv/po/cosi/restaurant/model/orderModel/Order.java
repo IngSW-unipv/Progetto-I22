@@ -2,12 +2,10 @@
 
 import java.util.ArrayList;
 
-import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 public class Order {
 
-	@SuppressWarnings("unused")
 	private int id;
 	private static int startingId;
 	private ArrayList<Serving> servings;
@@ -128,11 +126,8 @@ public class Order {
 		
 		for (Serving serving : servings) {
 
-			System.out.println("single price= "+serving.getSinglePrice() + "price = " + serving.getPrice());
-			
 			tmp += serving.getPrice();
 		
-//			System.out.println("\ntemp = " +tmp);
 		}
 		
 		this.total = tmp;

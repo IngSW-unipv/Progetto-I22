@@ -3,7 +3,6 @@ package it.unipv.po.cosi.restaurant.model;
 import java.util.ArrayList;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.*;
 import it.unipv.po.cosi.restaurant.model.orderModel.*;
-import it.unipv.po.cosi.restaurant.model.outputModel.monitorModel.Monitor;
 
 public class RestaurantModel {
 
@@ -12,20 +11,17 @@ public class RestaurantModel {
 	private ArrayList<Modifier> modifiers;
 	private ArrayList<Order> orders;
 	private ArrayList<Category> categories;
-	private ArrayList<Monitor> monitors;
 	private static RestaurantModel jRestaurant;
 	private int maxId;
 	
 	private RestaurantModel() {
 		
-		//Using Exoert pattern
 		
 		this.servings = new ArrayList<Serving>();
 		this.tables = new ArrayList<Table>();
 		this.orders = new ArrayList<Order>();
 		this.modifiers = new ArrayList<Modifier>();
 		this.categories = new ArrayList<Category>();
-		this.monitors = new ArrayList<Monitor>();
 		this.initializeMaxId();
 		
 	}
@@ -104,24 +100,10 @@ public class RestaurantModel {
 	public void addOrder(Order o) {
 		
 		this.orders.add(o);
-		for (Order ord : getOrdersArray()) {
-			for (Serving s : ord.getServings()) {
-				System.out.println("\n  diocane" + s.getPrice());
-			}
-		}
+		
 	}
 	
-	//MONITORS
-	
-	public void populateMonitors(ArrayList<Monitor> m) {
-		this.monitors = m;
-	}
-	
-	// GETTER and SETTERS //
-	
-	public ArrayList<Monitor> getMonitors() {
-		return monitors;
-	}
+
 
 	public ArrayList<Serving> getServingsArray() {
 		return servings;
@@ -199,15 +181,5 @@ public class RestaurantModel {
 		return maxId;
 	}	
 	
-	// METODO CHE NON SO A COSA SERVA //
-	
-
-
-	public boolean update() {
-		
-		return true;
-		
-	}
-
 	
 }

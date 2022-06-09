@@ -7,9 +7,11 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 
 import it.unipv.po.cosi.restaurant.testers.GUITest;
-import it.unipv.po.cosi.restaurant.view2.WarningFrame;
+import it.unipv.po.cosi.restaurant.view.WarningFrame;
 
 public class WarningFrameException extends Throwable{
+
+	private static final long serialVersionUID = 1L;
 
 	public WarningFrameException(String s) {
 		

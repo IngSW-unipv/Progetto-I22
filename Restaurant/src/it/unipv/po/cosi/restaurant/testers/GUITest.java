@@ -1,15 +1,11 @@
 package it.unipv.po.cosi.restaurant.testers;
 
-import java.io.File;
 import java.io.IOException;
-import java.lang.management.ManagementFactory;
-import java.util.List;
-
 import it.unipv.po.cosi.restaurant.controller.MVCController;
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.exception.ExceptionFileChooser;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
-import it.unipv.po.cosi.restaurant.view2.MainView;
+import it.unipv.po.cosi.restaurant.view.MainView;
 
 
 public class GUITest {
@@ -33,23 +29,6 @@ public class GUITest {
 			MainView v = new MainView(m.getServingsArray(), m.getCategoriesArray(), m.getModifiersArray(), m.getTablesArray(),0,0);
 			v.setVisible(true);
 			MVCController c = new MVCController(m, v);			
-			//throw new ExceptionFileChooser();
-////			m.getServingsArray().get(40).setActiveFlag(true);
-////			dbc.updateActiveServings();
-//			
-////			Order o = new Order(m.getTablesArray().get(0));
-////			o.addServing(m.getServingsArray().get(0));
-////			m.getTablesArray().get(0).setOrder(o);
-////			m.getTablesArray().get(1).setOrder(o);
-//			
-//			@SuppressWarnings("unused")
-
-//			System.out.println(m.getModifiersArray().get(0).getCategory().equals(m.getCategoriesArray().get(0)));
-//			for (Modifier string : m.getModifiersArray()) {
-//				System.out.println(string.getCategory());
-//			}
-			
-//			v.getHistoryView().getHistoryTable().setModel(c.getOrderDefaultList(dbc.selectAllOrders()));	
 	}
 
 

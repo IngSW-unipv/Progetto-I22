@@ -2,26 +2,19 @@ package it.unipv.po.cosi.restaurant.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import java.lang.management.ManagementFactory;
-
 import it.unipv.po.cosi.restaurant.database.DbControllerSingleton;
 import it.unipv.po.cosi.restaurant.exception.WarningFrameException;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
-import it.unipv.po.cosi.restaurant.testers.GUITest;
-import it.unipv.po.cosi.restaurant.view2.CategoryCheckBox;
-import it.unipv.po.cosi.restaurant.view2.MainView;
-import it.unipv.po.cosi.restaurant.view2.ModifierCheckBox;
-import it.unipv.po.cosi.restaurant.view2.ServingCheckBox;
-import it.unipv.po.cosi.restaurant.view2.TableCheckBox;
-import it.unipv.po.cosi.restaurant.view2.WarningFrame;
+import it.unipv.po.cosi.restaurant.view.CategoryCheckBox;
+import it.unipv.po.cosi.restaurant.view.MainView;
+import it.unipv.po.cosi.restaurant.view.ModifierCheckBox;
+import it.unipv.po.cosi.restaurant.view.ServingCheckBox;
+import it.unipv.po.cosi.restaurant.view.TableCheckBox;
 
 public class SettingHandler extends MVCController{
 
 	public SettingHandler(RestaurantModel m, MainView v) {
 		super(m, v);
-		// TODO Auto-generated constructor stub
 	}
 
 	public static void addListeners(RestaurantModel model, MainView view) {
@@ -37,7 +30,6 @@ public class SettingHandler extends MVCController{
 			}
 	    	
 			private void manageAction() {
-				// TODO
 				view.getC1().show(view.getCardPane(), "3");
 			}
 			

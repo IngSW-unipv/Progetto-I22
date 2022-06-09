@@ -2,9 +2,7 @@ package it.unipv.po.cosi.restaurant.database;
 
 import java.sql.Connection;
 import java.util.ArrayList;
-
-import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.DaoFactory;
-import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
+import it.unipv.po.cosi.restaurant.database.classDAO.daoFactory.DaoFactory;
 import it.unipv.po.cosi.restaurant.exception.ExceptionFileChooser;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
@@ -30,7 +28,7 @@ public class DbControllerSingleton {
 
 	}
 
-// populate table with menu .csv file //		
+	// populate table with menu .csv file //		
 	
 	public static DbControllerSingleton getInstance() {
 		
@@ -77,7 +75,8 @@ public class DbControllerSingleton {
 	}
 	
 	
-//SERVING
+	//SERVING
+	
 	public ArrayList<Serving> selectAllServings() {
 		
 		return DaoFactory.getServingDAO().selectAllServings(RestaurantModel.getInstance().getCategoriesArray());
@@ -94,8 +93,8 @@ public class DbControllerSingleton {
 		DaoFactory.getServingDAO().updateActiveServings(RestaurantModel.getInstance().getServingsArray());
 	}
 	
-//ORDER
-//	
+	//ORDER
+
 	public ArrayList<String[]> selectAllOrders() {
 		return DaoFactory.getOrderDAO().selectAllOrders();
 	}
@@ -113,7 +112,7 @@ public class DbControllerSingleton {
 	}
 
 
-//MODIFIER
+	//MODIFIER
 	
 	public ArrayList<Modifier> selectAllModifiers() {
 		
@@ -133,7 +132,7 @@ public class DbControllerSingleton {
 	}
 	
 	
-//CATEGORY
+	//CATEGORY
 	
 	public ArrayList<Category> selectAllCategories() {
 	
@@ -152,7 +151,7 @@ public class DbControllerSingleton {
 	}
 	
 
-//TABLE
+	//TABLE
 	
 	public ArrayList<Table> selectAllTables() {
 		

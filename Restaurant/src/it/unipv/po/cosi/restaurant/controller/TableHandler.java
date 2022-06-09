@@ -10,9 +10,9 @@ import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Status;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
-import it.unipv.po.cosi.restaurant.view2.JStatusButton;
-import it.unipv.po.cosi.restaurant.view2.JTableButton;
-import it.unipv.po.cosi.restaurant.view2.MainView;
+import it.unipv.po.cosi.restaurant.view.JStatusButton;
+import it.unipv.po.cosi.restaurant.view.JTableButton;
+import it.unipv.po.cosi.restaurant.view.MainView;
 
 public class TableHandler extends MVCController{
 
@@ -35,7 +35,6 @@ public class TableHandler extends MVCController{
 	         }
 
 	         private void manageAction(Table table) {
-//	            view.getOrderView().setVisible(true);
 	        	 view.getC1().show(view.getCardPane(), "2");
 	            
 	            
@@ -48,7 +47,7 @@ public class TableHandler extends MVCController{
 					o.setTable(table);
 	            	populateOrderList(o.getServings());
 	            }
-	            view.getOrderView().getOrderTitle().setText("      Ordine N° " + table.getOrder().getId()+" (Tavolo " +table.getNumber() + ")");   
+	            view.getOrderView().getOrderTitle().setText("Ordine N° " + table.getOrder().getId()+" (Tavolo " +table.getNumber() + ")");   
 	         }
 	      };
 	      	for (JButton cb : view.getTableButtons()) {
@@ -91,7 +90,7 @@ public class TableHandler extends MVCController{
 		    			 break;
 		    		
 		    		 default:
-		    			break; // could add an exception for index not valid
+		    			break;
 		    		 }
 		    	  }
 		      };

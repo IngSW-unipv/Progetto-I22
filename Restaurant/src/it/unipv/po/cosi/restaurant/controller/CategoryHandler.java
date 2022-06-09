@@ -7,14 +7,13 @@ import java.util.ArrayList;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
-import it.unipv.po.cosi.restaurant.view2.JCategoryButton;
-import it.unipv.po.cosi.restaurant.view2.MainView;
+import it.unipv.po.cosi.restaurant.view.JCategoryButton;
+import it.unipv.po.cosi.restaurant.view.MainView;
 
 public class CategoryHandler extends MVCController{
 
 	public CategoryHandler(RestaurantModel m, MainView v) {
 		super(m, v);
-		// TODO Auto-generated constructor stub
 	}
 
 	public static void addListeners(RestaurantModel model, MainView view) {
@@ -44,7 +43,4 @@ public class CategoryHandler extends MVCController{
 	      }
 	      
 	}
-	
-	
-	
 }

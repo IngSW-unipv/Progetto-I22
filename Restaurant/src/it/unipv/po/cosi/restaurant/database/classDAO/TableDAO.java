@@ -10,12 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Observable;
-
 import it.unipv.po.cosi.restaurant.database.DatabaseConnection;
-import it.unipv.po.cosi.restaurant.database.classDAO.provaFactory.IDao;
+import it.unipv.po.cosi.restaurant.database.classDAO.daoFactory.IDao;
 import it.unipv.po.cosi.restaurant.database.config.CheckConfigFile;
-import it.unipv.po.cosi.restaurant.exception.ExceptionFileChooser;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
 public class TableDAO implements IDao{
@@ -97,13 +94,10 @@ public class TableDAO implements IDao{
 			fr.close();
 
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		}
 
