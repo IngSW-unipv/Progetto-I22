@@ -252,7 +252,7 @@ public class OrderDAO implements IDao{
 		try {
 			
 			st1 = c.createStatement();
-			String qry = "select max(id) from restaurant.ordering";
+			String qry = "select count(id) from restaurant.ordering";
 			rs = st1.executeQuery(qry);
 			rs.next();
 			return rs.getInt(1);
