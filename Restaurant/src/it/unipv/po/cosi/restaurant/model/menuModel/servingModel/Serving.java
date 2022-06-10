@@ -39,6 +39,7 @@ public class Serving implements Comparable<Serving> {
 		
 	}
 	
+
 	public boolean addModifier(Modifier modifier) {
 		
 		if(modifier.getCategory().equals(getCategory())) {
@@ -124,7 +125,6 @@ public class Serving implements Comparable<Serving> {
 		for (Modifier modifier : modifiers) {
 			
 			rslt = rslt + " + " + modifier.getName();
-			
 		}
 		
 		return rslt;
@@ -140,6 +140,7 @@ public class Serving implements Comparable<Serving> {
 		
 		Serving sCopy = new Serving(this.getId(), this.getName(), this.getSinglePrice(), this.getCategory());
 		sCopy.setQuantity(this.getQuantity());
+		sCopy.setModifiers(this.getModifiers());
 		return sCopy;
 	}
 

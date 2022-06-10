@@ -67,6 +67,7 @@ public class ModifierHandler extends MVCController{
 			    		model.initializeMaxId();
 			    		Serving s = view.getOrderView().getServingList().getSelectedValue();
 			    		Serving s1 = new Serving(model.getMaxId()+1, s.getName(), s.getSinglePrice(), s.getCategory());
+			    		
 			    		model.setMaxId(model.getMaxId()+1);
 			    		
 			    		for (Modifier modifier : mod) {
@@ -78,7 +79,6 @@ public class ModifierHandler extends MVCController{
 			    		populateOrderList(o.getServings());
 			    		view.getOrderView().getSource().setBackground(new Color(252,93,93));
 		    		}
-		    		else {}
 		    	}
 		    	
 		      };
