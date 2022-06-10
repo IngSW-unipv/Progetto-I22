@@ -72,7 +72,7 @@ public class OrderView extends JPanel{
 		addToOrderButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view/icons/add.png"));
 		addToOrderButton.setText("Aggiungi");
 		addToOrderButton.setFont(new java.awt.Font("Arial", 0, 36));
-		decrementFromOrderButton = new JButton("src/it/unipv/po/cosi/restaurant/view/icons/decrement.png");
+		decrementFromOrderButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view/icons/decrement.png"));
 		decrementFromOrderButton.setText("Decrementa");
 		decrementFromOrderButton.setFont(new java.awt.Font("Arial", 0, 36));
 		removeButton = new JButton(new ImageIcon("src/it/unipv/po/cosi/restaurant/view/icons/revert.png"));

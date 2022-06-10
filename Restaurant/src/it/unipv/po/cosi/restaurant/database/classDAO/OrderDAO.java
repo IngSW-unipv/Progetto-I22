@@ -30,7 +30,7 @@ public class OrderDAO implements IDao{
 		
 		ArrayList<String[]> rslt = new ArrayList<>();
 		
-		int maxId = this.getOrderingMaxId();
+		int maxId = this.getOrderingCountId();
 		
 		String idArray[] = new String[maxId+1];
 		String totalArray[] = new String[maxId+1];
@@ -252,7 +252,7 @@ public class OrderDAO implements IDao{
 		try {
 			
 			st1 = c.createStatement();
-			String qry = "select count(id) from restaurant.ordering";
+			String qry = "select max(id) from restaurant.ordering";
 			rs = st1.executeQuery(qry);
 			rs.next();
 			return rs.getInt(1);
@@ -265,6 +265,27 @@ public class OrderDAO implements IDao{
 		
 	}
 	
+	public int getOrderingCountId() {
+		
+		c = DatabaseConnection.startConnection(c, schema);
+		Statement st1;
+		ResultSet rs;
+		
+		try {
+			
+			st1 = c.createStatement();
+			String qry = "select count(id) from restaurant.ordering";
+			rs = st1.executeQuery(qry);
+			rs.next();
+			return rs.getInt(1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+		
+	}
 	public int getServingMaxId() {
 		
 		c = DatabaseConnection.startConnection(c, schema);

@@ -32,7 +32,6 @@ public class CategoryHandler extends MVCController{
 			private void manageAction(Category category) {
 
 				ArrayList<Serving> s = model.getServingsPerCategory(category);
-//				s.sort(null);
 				view.getOrderView().getServingList().setModel(getServingDefaultList(s));
 			}
 	    	  

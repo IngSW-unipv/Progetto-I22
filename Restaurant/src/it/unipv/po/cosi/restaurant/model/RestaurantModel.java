@@ -1,6 +1,8 @@
 package it.unipv.po.cosi.restaurant.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.*;
 import it.unipv.po.cosi.restaurant.model.orderModel.*;
 
@@ -62,6 +64,7 @@ public class RestaurantModel {
 	public void populateServing(ArrayList<Serving> s) {
 		
 		this.servings = s;
+		Collections.sort(s);
 		
 	}
 	
@@ -76,7 +79,6 @@ public class RestaurantModel {
 	public void populateModifiers(ArrayList<Modifier> m) {
 		
 		this.modifiers = m;
-		
 	}
 	
 	// TABLES //

@@ -52,7 +52,7 @@ public class MVCController {
 		
 	 
 	 protected static void populateOrderList(ArrayList<Serving> servings) {
-		 
+
 		 view.getOrderView().getOrderList().setModel(getServingDefaultList(servings));
 
 	 }

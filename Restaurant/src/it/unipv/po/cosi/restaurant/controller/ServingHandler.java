@@ -3,6 +3,7 @@ package it.unipv.po.cosi.restaurant.controller;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collections;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -40,6 +41,7 @@ public class ServingHandler extends MVCController{
 							
 						Order o = view.getOrderView().getSource().getTable().getOrder();
 		            	o.addServing(view.getOrderView().getServingList().getSelectedValue());
+		            	Collections.sort(o.getServings());
 		            	populateOrderList(o.getServings());
 		    			view.getSingleButton(view.getOrderView().getSource().getTable().getNumber()).setBackground(new Color(252,93,93));   // RED
 		    			view.getSingleButton(view.getOrderView().getSource().getTable().getNumber()).getTable().setStatus(Status.ORDERED);

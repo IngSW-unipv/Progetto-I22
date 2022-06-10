@@ -1,7 +1,9 @@
-Marinara	4.0
-Marinara	6.0 + doppia mozzarella
-Marinara	8.0 + doppia mozzarella + prosc. cotto
-Marinara	10.0 + doppia mozzarella + prosc. cotto + prosc. crudo
+Hugo	14.0
+Fanta	3.5
+Negroni sbagliato	7.0
+Quattro formaggi 	7.0 + prova prova
+pizza blu	8.0 + in bianco
+ciao	9.0 + no formaggio
 
 
-TOTAL PRICE: 28.0
+TOTAL PRICE: 48.5
