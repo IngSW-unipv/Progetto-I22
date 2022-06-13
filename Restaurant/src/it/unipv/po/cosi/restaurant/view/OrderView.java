@@ -10,10 +10,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.CardLayout;
-
+import java.awt.FlowLayout;
 
 /**
- * @author      così
+ * @author      cosï¿½
  * @version     1.0                 (current version number of program)
  */
 public class OrderView extends JPanel{
@@ -52,7 +52,7 @@ public class OrderView extends JPanel{
 	private JButton confirmModifiers;
 	private JButton rejectModifiers;
 	private CardLayout c1;
-	private JButton send;
+	private JButton sendButton;
 	
 	
 
@@ -174,23 +174,28 @@ public class OrderView extends JPanel{
 	// BACK BUTTON //
 		
 		mainButtonPane = new JPanel();
-		mainButtonPane.setLayout(new GridLayout(1,4));
-		mainButtonPane.add(backButton = new JButton("Indietro"));
+		mainButtonPane.setLayout(new GridLayout(1,3));
+		JPanel backPane = new JPanel(new BorderLayout(1,2));
+		mainButtonPane.add(backPane);
+		backButton = new JButton("Indietro");
 		backButton.setFont(new java.awt.Font("Arial", 1, 36));
 		backButton.setIcon(new ImageIcon("src/it/unipv/po/cosi/restaurant/view/icons/back.png"));
-		
+		backPane.add(backButton, BorderLayout.WEST);
 		orderTitle = new JTextField("      Ordine: ");
 		orderTitle.setEditable(false);
 		orderTitle.setFont(new java.awt.Font("Arial", 0, 40));
 		mainButtonPane.add(orderTitle);
 		
-		mainButtonPane.add(send = new JButton("Invia Ordine"));
-		send.setFont(new java.awt.Font("Arial", 1, 36));
+		JPanel littlePane = new JPanel(new FlowLayout());
+		sendButton = new JButton("Invia Ordine");
+		sendButton.setFont(new java.awt.Font("Arial", 1, 36));
+		littlePane.add(sendButton);
 		closeOrderButton = new JButton("Close/Pay order");
 		closeOrderButton.setBackground(Color.decode("#D00000"));
 		closeOrderButton.setForeground(Color.white);
 		closeOrderButton.setFont(new java.awt.Font("Arial", 0, 36));
-		mainButtonPane.add(closeOrderButton);
+		littlePane.add(closeOrderButton);
+		mainButtonPane.add(littlePane);
 		
 		
 		
@@ -604,7 +609,7 @@ public class OrderView extends JPanel{
 	 * @return send text text text.
 	 */
 	public JButton getSend() {
-		return send;
+		return sendButton;
 	}
 	
 }

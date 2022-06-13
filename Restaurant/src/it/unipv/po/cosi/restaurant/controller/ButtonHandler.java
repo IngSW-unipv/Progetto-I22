@@ -16,7 +16,7 @@ import it.unipv.po.cosi.restaurant.view.MainView;
 
 
 /**
- * @author      così
+ * @author      cosï¿½
  * @version     1.0                 (current version number of program)
  */
 public class ButtonHandler extends MVCController {
@@ -107,36 +107,39 @@ public class ButtonHandler extends MVCController {
 	  				 */
 	  				private void manageAction() {
 	  					
-	  					view.getC1().show(view.getCardPane(), "1");
 	  					Table t = view.getOrderView().getSource().getTable();
-	  					t.getOrder().setDateTime(Date.from(Instant.now()).toString());
-	  	            	model.addOrder(t.getOrder());
-	  					view.getOrderView().getSource().setBackground(new Color(0,191,57));
 	  					
-	  					try {
-	  						
-	  						File directory = new File("ricevute");
-	  						
-	  						if(! directory.exists()) {
-	  							directory.mkdir();
-	  						}
-	  						
-	  						
-	  						File file = new File("ricevute/Ricevuta" + t.getOrder().getId() + ".txt");
-	  					    FileWriter fw = new FileWriter(file.getAbsoluteFile());
-	  					    BufferedWriter bw = new BufferedWriter(fw);
-	  					    bw.write(t.getBill());
-	  					    bw.close();
-	  					   
-
-						} catch (IOException e) {
-
-							e.printStackTrace();
-						}
-	  					
-	  					DbControllerSingleton.getInstance().insertOrder(t.getOrder());
-	  					t.setOrder(null);
-	  				}
+	  					if(!t.getOrder().getServings().isEmpty()) {
+		  					view.getC1().show(view.getCardPane(), "1");
+		  					t.getOrder().setDateTime(Date.from(Instant.now()).toString());
+		  	            	model.addOrder(t.getOrder());
+		  					view.getOrderView().getSource().setBackground(new Color(0,191,57));
+		  					
+		  					try {
+		  						
+		  						File directory = new File("ricevute");
+		  						
+		  						if(! directory.exists()) {
+		  							directory.mkdir();
+		  						}
+		  						
+		  						
+		  						File file = new File("ricevute/Ricevuta" + t.getOrder().getId() + ".txt");
+		  					    FileWriter fw = new FileWriter(file.getAbsoluteFile());
+		  					    BufferedWriter bw = new BufferedWriter(fw);
+		  					    bw.write(t.getBill());
+		  					    bw.close();
+		  					   
+	
+							} catch (IOException e) {
+	
+								e.printStackTrace();
+							}
+		  					
+		  					DbControllerSingleton.getInstance().insertOrder(t.getOrder());
+		  					t.setOrder(null);
+	  					}
+		  			}
 	  				
 	  			};
 
