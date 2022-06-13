@@ -8,6 +8,10 @@ import it.unipv.po.cosi.restaurant.database.classDAO.OrderDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.ServingDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.TableDAO;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class DaoFactory {
 	private static CategoryDAO categories;
 	private static ServingDAO servings;
@@ -21,6 +25,16 @@ public class DaoFactory {
 	private static final String T_PROPERTYNAME="table.class.name";
 	private static final String M_PROPERTYNAME="modifier.class.name";
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return categories text text text.
+	 */
 	public static CategoryDAO getCategoryDAO() {
 		
 		if(categories == null){
@@ -43,6 +57,16 @@ public class DaoFactory {
 		return categories;
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return modifiers text text text.
+	 */
 	public static ModifierDAO getModifierDAO() {
 		
 		if(modifiers == null){
@@ -65,6 +89,16 @@ public class DaoFactory {
 		return modifiers;
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return orders text text text.
+	 */
 	public static OrderDAO getOrderDAO() {
 		
 		if(orders == null){
@@ -87,6 +121,16 @@ public class DaoFactory {
 		return orders;
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return servings text text text.
+	 */
 	public static ServingDAO getServingDAO() {
 		
 		if(servings == null){
@@ -109,6 +153,16 @@ public class DaoFactory {
 		return servings;
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return tables text text text.
+	 */
 	@SuppressWarnings("deprecation")
 	public static TableDAO getTableDAO() {
 		

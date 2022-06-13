@@ -6,6 +6,10 @@ import it.unipv.po.cosi.restaurant.exception.ExceptionFileChooser;
 import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.view.MainView;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class Restaurant {
 
 	public static void main(String args[]) throws ExceptionFileChooser, IOException {

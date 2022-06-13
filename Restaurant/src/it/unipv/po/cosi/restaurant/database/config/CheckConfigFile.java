@@ -9,10 +9,24 @@ import java.util.Properties;
 
 import it.unipv.po.cosi.restaurant.exception.ExceptionFileChooser;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class CheckConfigFile {
 
 	private static String path;
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return path text text text.
+	 */
 	public static String pathFinder(String sourcePath, String pathDoc, String className) {
 		
 

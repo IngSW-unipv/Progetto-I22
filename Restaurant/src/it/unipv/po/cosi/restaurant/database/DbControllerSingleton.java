@@ -11,6 +11,10 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class DbControllerSingleton {
 	
 	private static DbControllerSingleton instance;
@@ -39,10 +43,29 @@ public class DbControllerSingleton {
 		
 		return instance;
 	}
+	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void initializeOrders() {
 		DaoFactory.getOrderDAO().initialize();
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void initializeServings() {
 		
 		
@@ -51,6 +74,15 @@ public class DbControllerSingleton {
 	}
 			
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void initializeCategories() throws ExceptionFileChooser {
 	
 		
@@ -59,6 +91,15 @@ public class DbControllerSingleton {
 	}
 						
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void initializeModifiers() {
 	
 		
@@ -66,7 +107,15 @@ public class DbControllerSingleton {
 	
 	}
 			
-	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void initializeTables() {
 	
 		
@@ -76,18 +125,44 @@ public class DbControllerSingleton {
 	
 	
 	//SERVING
-	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public ArrayList<Serving> selectAllServings() {
 		
 		return DaoFactory.getServingDAO().selectAllServings(RestaurantModel.getInstance().getCategoriesArray());
 		
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void populateServingsArray() {
 		
 		populateServingHiding();
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void updateActiveServings() {
 		
 		DaoFactory.getServingDAO().updateActiveServings(RestaurantModel.getInstance().getServingsArray());
@@ -95,37 +170,99 @@ public class DbControllerSingleton {
 	
 	//ORDER
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public ArrayList<String[]> selectAllOrders() {
 		return DaoFactory.getOrderDAO().selectAllOrders();
 	}
 //	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void insertOrder(Order order) {
 		DaoFactory.getOrderDAO().insertOrder(order, RestaurantModel.getInstance().getServingsArray());
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public Order selectOrder(int id) {
 		return DaoFactory.getOrderDAO().selectOrder(id, RestaurantModel.getInstance().getCategoriesArray());
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public ArrayList<String[]> selectAllServingFromOrders(int id) {
 		return DaoFactory.getOrderDAO().selectServingFromOrder(id);
 	}
 
 
 	//MODIFIER
-	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public ArrayList<Modifier> selectAllModifiers() {
 		
 		return DaoFactory.getModifierDAO().selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray());
 		
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void populateModifiersArray() {
 		
 		populateModifiersHiding();
 		
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void updateActiveModifiers() {
 		
 		DaoFactory.getModifierDAO().updateActiveModifiers(RestaurantModel.getInstance().getModifiersArray());
@@ -133,18 +270,44 @@ public class DbControllerSingleton {
 	
 	
 	//CATEGORY
-	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public ArrayList<Category> selectAllCategories() {
 	
 		return DaoFactory.getCategoryDAO().selectAllCategories();
 		
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void populateCategoriesArray() {
 		
 		populateCategoriesHiding();
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void updateActiveCategories() {
 		
 		DaoFactory.getCategoryDAO().updateActiveCategories(RestaurantModel.getInstance().getCategoriesArray());
@@ -152,40 +315,101 @@ public class DbControllerSingleton {
 	
 
 	//TABLE
-	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public ArrayList<Table> selectAllTables() {
 		
 		return DaoFactory.getTableDAO().selectAllTable();
 
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void populateTablesArray() {
 		
 		populateTablesHiding();
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void updateActiveTables() {
 		
 		DaoFactory.getTableDAO().updateActiveTables(RestaurantModel.getInstance().getTablesArray());
 	}
 	
 	// STRUCTURE HIDING PATTERN //
-	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	private void populateServingHiding() {  
 		
 		RestaurantModel.getInstance().populateServing(DaoFactory.getServingDAO().selectAllServings(RestaurantModel.getInstance().getCategoriesArray()));
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	private void populateModifiersHiding() {
 		
 		RestaurantModel.getInstance().populateModifiers(DaoFactory.getModifierDAO().selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray()));
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	private void populateCategoriesHiding() {
 		
 		RestaurantModel.getInstance().populateCategories(DaoFactory.getCategoryDAO().selectAllCategories());
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	private void populateTablesHiding() {
 		
 		RestaurantModel.getInstance().populateTables(DaoFactory.getTableDAO().selectAllTable());

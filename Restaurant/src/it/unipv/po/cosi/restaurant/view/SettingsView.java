@@ -8,6 +8,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class SettingsView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -129,26 +133,86 @@ public class SettingsView extends JPanel {
 		
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return tableChecks text text text.
+	 */
 	public ArrayList<TableCheckBox> getTableChecks() {
 		return tableChecks;
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return servingChecks text text text.
+	 */
 	public ArrayList<ServingCheckBox> getServingChecks() {
 		return servingChecks;
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return modifierChecks text text text.
+	 */
 	public ArrayList<ModifierCheckBox> getModifierChecks() {
 		return modifierChecks;
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return categoryChecks text text text.
+	 */
 	public ArrayList<CategoryCheckBox> getCategoryChecks() {
 		return categoryChecks;
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return backButton text text text.
+	 */
 	public JButton getBackButton() {
 		return backButton;
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return confirmButton text text text.
+	 */
 	public JButton getConfirmButton() {
 		return confirmButton;
 	}

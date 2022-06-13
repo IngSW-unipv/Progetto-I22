@@ -15,6 +15,10 @@ import it.unipv.po.cosi.restaurant.database.config.CheckConfigFile;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class ServingDAO implements IDao{
 	
 	private Connection c;
@@ -108,7 +112,17 @@ try {
 		DatabaseConnection.closeConnection(c);
 	}
 	
-	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 *
+	 * @param  servings Description text text text.          (3)
+	 */
 	public void updateActiveServings(ArrayList<Serving> servings) {
 		
 		c = DatabaseConnection.startConnection(c, schema);
@@ -133,7 +147,18 @@ try {
 		}
 	}
 	
-	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 *
+	 * @param  categories Description text text text.          (3)
+	 * @return result text text text.
+	 */
 	public ArrayList<Serving> selectAllServings(ArrayList<Category> categories) {
 		
 		c = DatabaseConnection.startConnection(c, schema);
@@ -179,7 +204,18 @@ try {
 	}
 
 	
-	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 *
+	 * @param  categories Description text text text.          (3)
+	 * @return rslt text text text.
+	 */
 	public ArrayList<Serving> initializeActiveServings(ArrayList<Category> categories) {
 		
 		c = DatabaseConnection.startConnection(c, schema);
@@ -223,6 +259,18 @@ try {
 		return rslt;
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 *
+	 * @param  flag Description text text text.          (3)
+	 * @return Description text text text.
+	 */
 	public String booleanToString(Boolean flag) {
 		
 	if(flag) {

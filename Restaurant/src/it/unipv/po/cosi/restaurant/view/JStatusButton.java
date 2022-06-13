@@ -4,6 +4,10 @@ import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JButton;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class JStatusButton extends JButton {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +40,16 @@ public class JStatusButton extends JButton {
 		this.ID = ID;
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return ID text text text.
+	 */
 	public int getID() {
 		return ID;
 	}

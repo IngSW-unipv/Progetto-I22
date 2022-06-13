@@ -8,6 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class MonitorView extends JPanel{
 
 	private static final long serialVersionUID = 1L;
@@ -47,16 +51,45 @@ public class MonitorView extends JPanel{
 		
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return monitors text text text.
+	 */
 	public ArrayList<Monitor> getMonitor() {
 		return monitors;
 	}
 
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void setMonitors(ArrayList<Monitor> monitors) {
 		this.monitors = monitors;
 	}
 
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return backButton text text text.
+	 */
 	public JButton getBackButton() {
 		return backButton;
 	}

@@ -3,6 +3,10 @@ package it.unipv.po.cosi.restaurant.model.orderModel;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class Table {
 
 	private int number;
@@ -25,6 +29,16 @@ public class Table {
 		
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return temp + "\n\nTOTAL PRICE: " + order.updateTotal() text text text.
+	 */
 	public String getBill() {
 		
 	String temp = "";
@@ -46,34 +60,125 @@ public class Table {
 		
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return number text text text.
+	 */
 	public int getNumber() {
 		return number;
 	}
+	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void setNumber(int number) {
 		this.number = number;
 	}
+	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return status text text text.
+	 */
 	public Status getStatus() {
 		return status;
 	}
+	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return order text text text.
+	 */
 	public Order getOrder() {
 		return order;
 	}
+	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void setOrder(Order order) {
 		this.order = order;
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return number + "" text text text.
+	 */
 	@Override
 	public String toString() {
 		return number + "";
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return activeFlag text text text.
+	 */
 	public boolean isActiveFlag() {
 		return activeFlag;
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public void setActiveFlag(boolean activeFlag) {
 		this.activeFlag = activeFlag;
 	}

@@ -9,10 +9,23 @@ import java.lang.management.ManagementFactory;
 import it.unipv.po.cosi.restaurant.testers.GUITest;
 import it.unipv.po.cosi.restaurant.view.WarningFrame;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class WarningFrameException extends Throwable{
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public WarningFrameException(String s, String msg) {
 		
 		WarningFrame warning = new WarningFrame(s, msg);

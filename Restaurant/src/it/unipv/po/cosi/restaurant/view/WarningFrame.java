@@ -9,6 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class WarningFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -46,14 +50,45 @@ public class WarningFrame extends JFrame {
 		
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return ignoreButton text text text.
+	 */
 	public JButton getIgnoreButton() {
 		return ignoreButton;
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return text text text text.
+	 */
 	public JTextArea getText() {
 		return text;
 	}
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 *
+	 * @return confirmButton text text text.
+	 */
 	public JButton getConfirmButton() {
 		return confirmButton;
 	}

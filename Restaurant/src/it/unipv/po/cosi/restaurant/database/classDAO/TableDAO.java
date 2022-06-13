@@ -15,6 +15,10 @@ import it.unipv.po.cosi.restaurant.database.classDAO.daoFactory.IDao;
 import it.unipv.po.cosi.restaurant.database.config.CheckConfigFile;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class TableDAO implements IDao{
 
 	private Connection c;
@@ -104,6 +108,16 @@ public class TableDAO implements IDao{
 		DatabaseConnection.closeConnection(c);
 	}	
 
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 * @return result text text text.
+	 */
 	public ArrayList<Table> selectAllTable() {
 
 		c = DatabaseConnection.startConnection(c, schema);
@@ -137,6 +151,17 @@ public class TableDAO implements IDao{
 
 	}
 	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 *
+	 * @param  tables Description text text text.          (3)
+	 */
 	public void updateActiveTables(ArrayList<Table> tables) {
 		
 		c = DatabaseConnection.startConnection(c, schema);
@@ -164,7 +189,18 @@ public class TableDAO implements IDao{
 		
 	}
 	
-	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 *
+	 * @param  flag Description text text text.          (3)
+	 * @return Description text text text.
+	 */
 	public String booleanToString(Boolean flag) {
 		
 	if(flag) {

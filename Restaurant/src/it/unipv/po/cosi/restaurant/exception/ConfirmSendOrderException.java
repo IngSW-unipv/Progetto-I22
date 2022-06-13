@@ -11,10 +11,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * @author      così
+ * @version     1.0                 (current version number of program)
+ */
 public class ConfirmSendOrderException extends Exception{
 
 	private static final long serialVersionUID = 1L;
-
+	
+	/**
+	 * Short one line description.                           (1)
+	 * <p>
+	 * Longer description. If there were any, it would be    (2)
+	 * here.
+	 * <p>
+	 * And even more explanations to follow in consecutive
+	 * paragraphs separated by HTML paragraph breaks.
+	 */
 	public ConfirmSendOrderException() {
 		
 		Toolkit kit = Toolkit.getDefaultToolkit(); 
