@@ -5,8 +5,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 3
+ * @since 		iterazione 1
  */
 public class HistoryView extends JPanel{
 
@@ -57,70 +58,35 @@ public class HistoryView extends JPanel{
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return backButton text text text.
+	 * @return backButton
 	 */
 	public JButton getBackButton() {
 		return backButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return openOrderButton text text text.
+	 * @return openOrderButton 
 	 */
 	public JButton getOpenOrderButton() {
 		return openOrderButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return historyTable text text text.
+	 * @return historyTable 
 	 */
 	public JTable getHistoryTable() {
 		return historyTable;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return buttonPane text text text.
+	 * @return buttonPane 
 	 */
 	public JPanel getButtonPane() {
 		return buttonPane;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return servingTable text text text.
+	 * @return servingTable 
 	 */
 	public JTable getServingTable() {
 		return servingTable;

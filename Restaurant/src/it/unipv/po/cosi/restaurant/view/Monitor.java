@@ -4,8 +4,9 @@ import javax.swing.JTextArea;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 3
+ * @since		iterazione 3
  */
 public class Monitor {
 
@@ -18,64 +19,28 @@ public class Monitor {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return Description
 	 */
 	public String getCategory() {
 		return category;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return Description
 	 */
 	public JTextArea getDisplay() {
 		return display;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @param c String c
 	 */
 	public void setCategory(String c) {
 		category = c;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @param  d JTextArea 
 	 */
 	public void setDisplay(JTextArea d) {
 		display = d;

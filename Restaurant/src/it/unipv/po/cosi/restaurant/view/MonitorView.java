@@ -10,8 +10,9 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
 
 /**
- * @author      cos�
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 3
+ * @since 		iterazione 3
  */
 public class MonitorView extends JPanel{
 
@@ -57,14 +58,7 @@ public class MonitorView extends JPanel{
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return monitors text text text.
+	 * @return monitors 
 	 */
 	public ArrayList<Monitor> getMonitor() {
 		return monitors;
@@ -72,13 +66,7 @@ public class MonitorView extends JPanel{
 
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * 
 	 */
 	public void setMonitors(ArrayList<Monitor> monitors) {
 		this.monitors = monitors;
@@ -86,14 +74,7 @@ public class MonitorView extends JPanel{
 
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return backButton text text text.
+	 * @return backButton 
 	 */
 	public JButton getBackButton() {
 		return backButton;

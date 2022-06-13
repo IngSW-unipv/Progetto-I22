@@ -11,17 +11,26 @@ import javax.swing.JTextArea;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 2
  */
 public class WarningFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	/**
+	 * the text displayed on the warning frame, describing the warning
+	 */
 	private JTextArea text;
 	private JButton confirmButton;
 	private JButton ignoreButton;
 	private JPanel buttonPane;
 	
+	/**
+	 * the constructor for this class
+	 * @param title title of the JFrame
+	 * @param msg message displayed in the JFrame
+	 * @throws HeadlessException exception
+	 */
 	public WarningFrame(String title, String msg) throws HeadlessException {
 		super(title);
 		
@@ -52,43 +61,24 @@ public class WarningFrame extends JFrame {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return ignoreButton text text text.
+	 * getter for ignore button
+	 * @return JButton ignoreButton 
 	 */
 	public JButton getIgnoreButton() {
 		return ignoreButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return text text text text.
+	 * getter for the warning text
+	 * @return jText text
 	 */
 	public JTextArea getText() {
 		return text;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @return confirmButton text text text.
+	 * getter for the ConfirmButton
+	 * @return JButton confirmButton
 	 */
 	public JButton getConfirmButton() {
 		return confirmButton;

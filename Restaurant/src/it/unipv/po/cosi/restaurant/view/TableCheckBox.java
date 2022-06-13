@@ -6,8 +6,8 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 2
  */
 public class TableCheckBox extends JCheckBox{
 	
@@ -25,14 +25,8 @@ public class TableCheckBox extends JCheckBox{
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return table text text text.
+	 * getter for the table attribute
+	 * @return Table table 
 	 */
 	public Table getTable() {
 		return table;

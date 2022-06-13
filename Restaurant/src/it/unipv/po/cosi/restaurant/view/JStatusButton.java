@@ -6,8 +6,9 @@ import javax.swing.JButton;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 1
+ * @since 		iterazione 1
  */
 public class JStatusButton extends JButton {
 
@@ -42,14 +43,7 @@ public class JStatusButton extends JButton {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return ID text text text.
+	 * @return ID 
 	 */
 	public int getID() {
 		return ID;

@@ -6,8 +6,8 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 2
  */
 public class ServingCheckBox extends JCheckBox {
 
@@ -25,14 +25,7 @@ public class ServingCheckBox extends JCheckBox {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return serving text text text.
+	 * @return serving 
 	 */
 	public Serving getServing() {
 		return serving;

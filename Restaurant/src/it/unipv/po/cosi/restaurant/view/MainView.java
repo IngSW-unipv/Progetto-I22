@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 3
+ * @since		iterazione 1
  */
 public class MainView extends JFrame {
 
@@ -141,176 +142,78 @@ public class MainView extends JFrame {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return Description 
 	 */
 	public ArrayList<JTableButton> getTableButtons() {
 		return tableButtons;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return c1
 	 */
 	public CardLayout getC1() {
 		return c1;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return cardPane
 	 */
 	public JPanel getCardPane() {
 		return cardPane;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return mainPane
 	 */
 	public JPanel getMainPane() {
 		return mainPane;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return tablePane 
 	 */
 	public JPanel getTablePane() {
 		return tablePane;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return editPane 
 	 */
 	public JPanel getEditPane() {
 		return editPane;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return editButton text text text.
 	 */
 	public JButton getEditButton() {
 		return editButton;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return shutDownButton text text text.
 	 */
 	public JButton getShutDownButton() {
 		return shutDownButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return orderView
 	 */
 	public OrderView getOrderView() {
 		return orderView;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return settingsView 
 	 */
 	public SettingsView getSettingsView() {
 		return settingsView;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @param  id Description 
+	 * @return b or null
 	 */
 	public JTableButton getSingleButton(int id) {
 		
@@ -324,48 +227,21 @@ public class MainView extends JFrame {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return historyButton
 	 */
 	public JButton getHistoryButton() {
 		return historyButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return historyView text text text.
 	 */
 	public HistoryView getHistoryView() {
 		return historyView;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return monitors 
 	 */
 	public MonitorView getMonitors() {
 		return monitors;

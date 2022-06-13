@@ -6,8 +6,9 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 2
+ * @since 		iterazione 1
  */
 public class JCategoryButton extends JButton {
 
@@ -20,16 +21,7 @@ public class JCategoryButton extends JButton {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  variable Description text text text.          (3)
-	 * @return Description text text text.
+	 * @return category
 	 */
 	public Category getCategory() {
 		return category;

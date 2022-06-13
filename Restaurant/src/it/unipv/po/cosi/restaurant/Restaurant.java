@@ -8,8 +8,9 @@ import it.unipv.po.cosi.restaurant.view.MainView;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 3
+ * @since    	iterazione 1
  */
 public class Restaurant {
 

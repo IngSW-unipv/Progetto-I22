@@ -10,8 +10,8 @@ import javax.swing.*;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 2
  */
 public class SettingsView extends JPanel {
 
@@ -135,84 +135,46 @@ public class SettingsView extends JPanel {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return tableChecks text text text.
+	 * getter for the table checks
+	 * @return  ArrayList of tableChecks 
 	 */
 	public ArrayList<TableCheckBox> getTableChecks() {
 		return tableChecks;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return servingChecks text text text.
+	 * getter for the ServingChecks
+	 * @return ArrayList of servingChecks 
 	 */
 	public ArrayList<ServingCheckBox> getServingChecks() {
 		return servingChecks;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return modifierChecks text text text.
+	 * getter for the Modifier
+	 * @return Array list of modifierChecks 
 	 */
 	public ArrayList<ModifierCheckBox> getModifierChecks() {
 		return modifierChecks;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return categoryChecks text text text.
+
+	 * @return categoryChecks 
 	 */
 	public ArrayList<CategoryCheckBox> getCategoryChecks() {
 		return categoryChecks;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return backButton text text text.
+	 * @return backButton 
 	 */
 	public JButton getBackButton() {
 		return backButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return confirmButton text text text.
+	 * @return confirmButton 
 	 */
 	public JButton getConfirmButton() {
 		return confirmButton;

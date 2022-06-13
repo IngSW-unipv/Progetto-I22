@@ -13,8 +13,9 @@ import java.awt.CardLayout;
 import java.awt.FlowLayout;
 
 /**
- * @author      cos�
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 3
+ * @since 		iterazione 1
  */
 public class OrderView extends JPanel{
 	
@@ -236,377 +237,190 @@ public class OrderView extends JPanel{
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return orderScroller text text text.
+	 * @return orderScroller
 	 */
 	public JScrollPane getListScroller() {
 		return orderScroller;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return mainButtonPane text text text.
+	 * @return mainButtonPane
 	 */
 	public JPanel getMainButtonPane() {
 		return mainButtonPane;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return statusControlPane text text text.
+
+	 * @return statusControlPane 
 	 */
 	public JPanel getStatusControlPane() {
 		return statusControlPane;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return backButton text text text.
+	 * @return backButton 
 	 */
 	public JButton getBackButton() {
 		return backButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return freeButton text text text.
+	 * @return freeButton
 	 */
 	public JStatusButton getFreeButton() {
 		return freeButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return orderedButton text text text.
+	 * @return orderedButton 
 	 */
 	public JStatusButton getOrderedButton() {
 		return orderedButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return waitingButton text text text.
+	 * @return waitingButton 
 	 */
 	public JStatusButton getWaitingButton() {
 		return waitingButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return source text text text.
+	 * @return source 
 	 */
 	public JTableButton getSource() {
 		return source;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * 
 	 */
 	public void setSource(JTableButton source) {
 		this.source = source;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return payingSoonButton text text text.
+	 * @return payingSoonButton 
 	 */
 	public JStatusButton getPayingSoonButton() {
 		return payingSoonButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return prenotedButton text text text.
+	 * @return prenotedButton 
 	 */
 	public JStatusButton getPrenotedButton() {
 		return prenotedButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return servingList text text text.
+	 * @return servingList 
 	 */
 	public JList<Serving> getServingList() {
 		return servingList;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return servingScroller text text text.
+	 * @return servingScroller 
 	 */
 	public JScrollPane getServingScroller() {
 		return servingScroller;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return orderList text text text.
+	 * @return orderList 
 	 */
 	public JList<Serving> getOrderList() {
 		return orderList;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return categoryButtons text text text.
+	 * @return categoryButtons 
 	 */
 	public ArrayList<JCategoryButton> getCategoryButtons() {
 		return categoryButtons;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return addToOrderButton text text text.
+	 * @return addToOrderButton 
 	 */
 	public JButton getAddToOrderButton() {
 		return addToOrderButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return decrementFromOrderButton text text text.
+	 * @return decrementFromOrderButton 
 	 */
 	public JButton getDecrementFromOrderButton() {
 		return decrementFromOrderButton;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return removeButton text text text.
+	 * @return removeButton 
 	 */
 	public JButton getRemoveFromOrderButton() {
 		return removeButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return addModifierButton text text text.
+	 * @return addModifierButton 
 	 */
 	public JButton getAddModifierButton() {
 		return addModifierButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return orderTitle text text text.
+	 * @return orderTitle 
 	 */
 	public JTextField getOrderTitle() {
 		return orderTitle;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return modifierList text text text.
+	 * @return modifierList 
 	 */
 	public JList<Modifier> getModifierList() {
 		return modifierList;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return confirmModifiers text text text.
+	 * @return confirmModifiers 
 	 */
 	public JButton getConfirmModifiers() {
 		return confirmModifiers;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return rejectModifiers text text text.
+	 * @return rejectModifiers 
 	 */
 	public JButton getRejectModifiers() {
 		return rejectModifiers;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return menuCardPane text text text.
+	 * @return menuCardPane 
 	 */
 	public JPanel getMenuCardPane() {
 		return menuCardPane;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return c1 text text text.
+	 * @return c1 
 	 */
 	public CardLayout getC1() {
 		return c1;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return closeOrderButton text text text.
+	 * @return closeOrderButton
 	 */
 	public JButton getCloseOrderButton() {
 		return closeOrderButton;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return send text text text.
+	 * @return send 
 	 */
 	public JButton getSend() {
 		return sendButton;
