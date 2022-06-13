@@ -10,7 +10,7 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
 
 /**
- * @author      così
+ * @author      cosï¿½
  * @version     1.0                 (current version number of program)
  */
 public class MonitorView extends JPanel{
@@ -35,16 +35,20 @@ public class MonitorView extends JPanel{
 		
 		for (Category category : c) {
 			
-			JTextArea display = new JTextArea(category.getName());
-			display.setFont(new java.awt.Font("Arial", 1, 24));
-			display.setBackground(Color.BLACK);
-			display.setForeground(Color.GREEN);
-			display.setEditable(false);
-			Monitor m = new Monitor(category.getName(), display);
-			mainPanel.setLayout(new GridLayout());
-			mainPanel.add(display);
-			mainPanel.setVisible(true);
-			monitors.add(m);
+			if(category.isActiveFlag())
+			{
+
+				JTextArea display = new JTextArea(category.getName());
+				display.setFont(new java.awt.Font("Arial", 1, 24));
+				display.setBackground(Color.BLACK);
+				display.setForeground(Color.GREEN);
+				display.setEditable(false);
+				Monitor m = new Monitor(category.getName(), display);
+				mainPanel.setLayout(new GridLayout());
+				mainPanel.add(display);
+				mainPanel.setVisible(true);
+				monitors.add(m);
+			}
 			
 		}
 		
