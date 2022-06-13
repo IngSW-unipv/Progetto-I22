@@ -1,5 +1,6 @@
 package it.unipv.po.cosi.restaurant.database.classDAO.daoFactory;
 
+
 import java.io.FileInputStream;
 import java.util.Properties;
 import it.unipv.po.cosi.restaurant.database.classDAO.CategoryDAO;
