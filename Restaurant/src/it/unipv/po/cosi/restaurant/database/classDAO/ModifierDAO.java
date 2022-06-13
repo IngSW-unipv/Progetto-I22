@@ -15,6 +15,7 @@ import it.unipv.po.cosi.restaurant.database.config.CheckConfigFile;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 
+
 /**
  * @author      così
  * @version     1.0                 (current version number of program)

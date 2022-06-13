@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+
 /**
  * @author      così
  * @version     1.0                 (current version number of program)

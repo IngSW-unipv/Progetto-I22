@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
+
 /**
  * @author      così
  * @version     1.0                 (current version number of program)

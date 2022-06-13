@@ -9,6 +9,7 @@ import java.sql.SQLException;
  */
 public class DatabaseConnection {
 
+	
 	/**
 	 * Short one line description.                           (1)
 	 * <p>

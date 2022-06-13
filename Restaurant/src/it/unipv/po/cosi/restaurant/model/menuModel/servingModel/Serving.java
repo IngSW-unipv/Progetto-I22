@@ -2,6 +2,7 @@ package it.unipv.po.cosi.restaurant.model.menuModel.servingModel;
 
 import java.util.ArrayList;
 
+
 /**
  * @author      così
  * @version     1.0                 (current version number of program)

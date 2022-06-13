@@ -2,6 +2,7 @@ package it.unipv.po.cosi.restaurant.view;
 
 import javax.swing.JTextArea;
 
+
 /**
  * @author      così
  * @version     1.0                 (current version number of program)
