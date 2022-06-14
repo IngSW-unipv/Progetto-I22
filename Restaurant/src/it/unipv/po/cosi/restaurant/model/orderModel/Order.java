@@ -6,21 +6,45 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iteration 3.0
+ * @since		iteration 1.0
  */
 public class Order {
 
+	/**
+	 * number to identify an order instance
+	 */
 	private int id;
+	/**
+	 * int value that identify the starting id which is the maximum if of the previous orders
+	 */
 	private static int startingId;
+	/**
+	 * servings list which contains the ordered servings in this instance
+	 */
 	private ArrayList<Serving> servings;
+	/**
+	 * servings list which contains the already sent servings in this order instance
+	 */
 	private ArrayList<Serving> sent;
+	/**
+	 * table instance on which the order has been taken
+	 */
 	private Table table;
+	/**
+	 * float total order price value
+	 */
 	private float total;
+	/**
+	 * date and time of the order closing in a 0timestamp string
+	 */
 	private String dateTime;
 	
 
-
+	/**
+	 * order class construnctor
+	 */	
 	public Order() {
 		
 		id = ++startingId;
@@ -30,6 +54,11 @@ public class Order {
 		this.dateTime = null;
 	}
 	
+	/**
+	 * order class construnctor
+	 * @param table table attribute
+	 * @see table
+	 */	
 	public Order(Table table) {
 		
 		id = ++startingId;
@@ -40,6 +69,11 @@ public class Order {
 		this.dateTime = null;
 	}
 	
+	/**
+	 * order class construnctor
+	 * @param id id attribute
+	 * @see id
+	 */	
 	public Order(int id) {
 		
 		this.id = id;
@@ -49,6 +83,13 @@ public class Order {
 		this.dateTime = null;
 	}
 	
+	/**
+	 * order class construnctor
+	 * @param id id attribute
+	 * @see id
+	 * @param total total attribute
+	 * @see total
+	 */	
 	public Order(int id, float total) {
 			
 		this.total = total;
@@ -58,6 +99,13 @@ public class Order {
 		this.dateTime = null;	
 	}
 	
+	/**
+	 * serving class construnctor
+	 * @param table table attribute
+	 * @see table
+	 * @param id id attribute
+	 * @see id
+	 */	
 	public Order(Table table, int id) {
 		
 		this.id = id;
@@ -69,13 +117,15 @@ public class Order {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
+	 * adds a serving in the servings attribute
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * it checks if there is a serving with the same id of the param serving
+	 * into the servings attribute arrayList.
+	 * if it is true the method will increment the quantity of this serving,
+	 * else it will copy the param serving and it will adds it and its modifiers 
+	 * into the arraylist and will increment the quantity.
+	 * it will also update the total price
+	 * @param serving serving which will be added to the servings attribute
 	 */
 	public void addServing(Serving serving) {
 		
@@ -99,13 +149,11 @@ public class Order {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
+	 * adds the serving into the servings arraylist attribute
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * it adds the serving into the servings attribute, increments the quantity
+	 * and updates the total price of the order
+	 * @param serving serving that will be added to the servings attribute
 	 */
 	public void addServingWithModifiers(Serving serving) {
 		
@@ -116,13 +164,11 @@ public class Order {
 	
 	
 	/**
-	 * Short one line description.                           (1)
+	 * decrements the quantity of the serving
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * it decrements the quantity of the param serving in the servings arraylist attribute
+	 * and removes it if the quantity reaches 0
+	 * @return boolean
 	 */
 	public boolean decrementServing(Serving serving) {
 		
@@ -149,14 +195,8 @@ public class Order {
 	
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return this.servings.remove(serving) text text text.
+	 * removes a serving from the servings attribute arraylist
+	 * @return boolean value from ArrayList.remove() method
 	 */
 	public boolean removeServing(Serving serving) {
 		
@@ -164,16 +204,10 @@ public class Order {
 	}
 
 	/**
-	 * Short one line description.                           (1)
+	 * updates the total price of the order
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  tmp Description text text text.          (3)
-	 * @return tmp text text text.
+	 * it updates the total price of the order adding to it the new added serving prices
+	 * @return the updated total price of the order
 	 */
 	public float updateTotal() {
 		
@@ -182,7 +216,7 @@ public class Order {
 		for (Serving serving : servings) {
 
 			tmp += serving.getPrice();
-		
+			
 		}
 		
 		this.total = tmp;
@@ -192,150 +226,88 @@ public class Order {
 	
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return id text text text.
+	 * getter for the id attribute
+	 * @return id id attribute
 	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return servings text text text.
+	 * getter for servings attribute arraylist
+	 * @return servings attribute
 	 */
 	public ArrayList<Serving> getServings() {
 		return servings;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return table text text text.
+	 * getter for the table attribute
+	 * @return the table attribute
 	 */
 	public Table getTable() {
 		return table;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * setter for the table attribute
+	 * @param table table which will be assigned to the table attribute
 	 */
 	public void setTable(Table table) {
 		this.table = table;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return total text text text.
+	 * getter for the total price attribute
+	 * @return total attribute
 	 */
 	public float getTotal() {
 		return total;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return startingId text text text.
+	 * getter for the startingId attribute
+	 * @return startingId attribute
 	 */
 	public static int getStartingId() {
 		return startingId;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * setter for the startingId attribute
+	 * @param startingId value which will be assigned to the startingId attribute
 	 */
 	public static void setStartingId(int startingId) {
 		Order.startingId = startingId;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return dateTime text text text.
+	 * getter for the datetime attribute
+	 * @return the string datetime attribute
 	 */
 	public String getDateTime() {
 		return dateTime;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * setter for the datetime attribute
+	 * @param dateTime string that will be assigned to the dateTime attribute
 	 */
 	public void setDateTime(String dateTime) {
 		this.dateTime = dateTime;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return sent text text text.
+	 * getter for the sent attribute
+	 * @return sent arraylist of serving attribute
 	 */
 	public ArrayList<Serving> getSent() {
 		return sent;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * setter for the sent attribute
+	 * @param sent arraylist of serving that will be assigned to the sent attribute
 	 */
 	public void setSent(ArrayList<Serving> sent) {
 		this.sent = sent;
