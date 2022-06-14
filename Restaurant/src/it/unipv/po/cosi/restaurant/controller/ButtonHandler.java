@@ -26,8 +26,7 @@ public class ButtonHandler extends MVCController {
 	/**
 	 * constructor for this handler
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
+	 * Longer description.
 	 * <p>
 	 * And even more explanations to follow in consecutive
 	 * paragraphs separated by HTML paragraph breaks.
