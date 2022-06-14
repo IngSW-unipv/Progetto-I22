@@ -199,8 +199,6 @@ public class OrderView extends JPanel{
 		mainButtonPane.add(littlePane);
 		
 		
-		
-		
 		// STATUS CONTROL PANE //
 		
 		statusControlPane = new JPanel();
