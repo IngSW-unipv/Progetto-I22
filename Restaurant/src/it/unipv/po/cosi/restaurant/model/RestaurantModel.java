@@ -8,19 +8,48 @@ import it.unipv.po.cosi.restaurant.model.orderModel.*;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 3
+ * @since		iterazione 1
  */
 public class RestaurantModel {
 
+	/**
+	 * arrayList containing all the servings of the model
+	 */
 	private ArrayList<Serving> servings;
+	/**
+	 * arrayList containing all the tables of the model
+	 */
 	private ArrayList<Table> tables;
+	/**
+	 * arrayList containing all the modifiers of the model
+	 */
 	private ArrayList<Modifier> modifiers;
+	/**
+	 * arrayList containing all the orders of the model
+	 */
 	private ArrayList<Order> orders;
+	/**
+	 * arrayList containing all the categories of the model
+	 */
 	private ArrayList<Category> categories;
+	/**
+	 * singleton pattern: static variable of the ResturantModel class instance
+	 */
 	private static RestaurantModel jRestaurant;
+	/**
+	 * the maximum id of all servings
+	 */
 	private int maxId;
 	
+	
+	/**
+	 * the constructor of the RestaurantModel class 
+	 * <p>
+	 * the method is private because of the use of singleton pattern;
+	 * initializes all the ArrayLists
+	 */
 	private RestaurantModel() {
 		
 		
@@ -34,14 +63,8 @@ public class RestaurantModel {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return jRestaurant text text text.
+	 * singleton pattern static method that allows to get the singular instance of the class
+	 * @return jRestaurant instance 
 	 */
 	public static RestaurantModel getInstance() {
 		
@@ -58,14 +81,11 @@ public class RestaurantModel {
 
 
 	/**
-	 * Short one line description.                           (1)
+	 * method that allows to get a single serving from the ArrayList of servings, searching it by name
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return serving text text text.
+	 * if not found, the return value is null
+	 * @param name the name you are looking for
+	 * @return serving the result if it exists
 	 */
 	public Serving getServing(String name) {
 		
@@ -87,13 +107,10 @@ public class RestaurantModel {
 	// SERVINGS //
 	
 	/**
-	 * Short one line description.                           (1)
+	 *  assigns the source ArrayList to the attribute servings
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * it also sorts the ArrayList
+	 * @param s the source ArrayList
 	 */
 	public void populateServing(ArrayList<Serving> s) {
 		
@@ -103,13 +120,7 @@ public class RestaurantModel {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * method that allows to add a single serving to the servings ArrayList
 	 */
 	public void addServing(Serving serving) {
 		
@@ -119,15 +130,8 @@ public class RestaurantModel {
 	
 	// MODIFIERS //
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  m Description text text text.          (3)
+	 *  assigns the source ArrayList to the attribute modifiers 
+	 * @param m the source ArrayList
 	 */
 	public void populateModifiers(ArrayList<Modifier> m) {
 		
@@ -136,15 +140,8 @@ public class RestaurantModel {
 	
 	// TABLES //
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  t Description text text text.          (3)
+	 *  assigns the source ArrayList to the attribute tables 
+	 * @param t the source ArrayList
 	 */
 	public void populateTables(ArrayList<Table> t) {
 		
@@ -154,15 +151,8 @@ public class RestaurantModel {
 	
 	// CATEGORIES //
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  c Description text text text.          (3)
+	 *  assigns the source ArrayList to the attribute categories 
+	 * @param c the source ArrayList
 	 */
 	public void populateCategories(ArrayList<Category> c) {
 		
@@ -172,15 +162,8 @@ public class RestaurantModel {
 	
 	// ORDERS //
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  o Description text text text.          (3)
+	 *  method that allows to add an order to the ArrayList
+	 * @param o the order that gets inserted
 	 */
 	public void addOrder(Order o) {
 		
@@ -191,84 +174,50 @@ public class RestaurantModel {
 
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return servings text text text.
+	 * the getter for the ArrayList of servings
+	 * @return ArrayList<Serving> servings
 	 */
 	public ArrayList<Serving> getServingsArray() {
 		return servings;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return tables text text text.
+	 * the getter for the ArrayList of tables
+	 * @return ArrayList<table> tables
 	 */
 	public ArrayList<Table> getTablesArray() {
 		return tables;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return modifiers text text text.
+	 * the getter for the ArrayList of modifiers
+	 * @return ArrayList<modifier> modifiers
 	 */
 	public ArrayList<Modifier> getModifiersArray() {
 		return modifiers;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return orders text text text.
+	 * the getter for the ArrayList of orders
+	 * @return ArrayList<order> serving
 	 */
 	public ArrayList<Order> getOrdersArray() {
 		return orders;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return categories text text text.
+	 * the getter for the ArrayList of categories
+	 * @return ArrayList<category> serving
 	 */
 	public ArrayList<Category> getCategoriesArray() {
 		return categories;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
+	 * returns the ArrayLists composed of all the active categories 
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return rslt text text text.
+	 * a category whose activeFlag is true is active
+	 * @return rslt ArrayList of all the active categories
 	 */
 	public ArrayList<Category> getActiveCategories(){
 		
@@ -285,14 +234,11 @@ public class RestaurantModel {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
+	 * returns the ArrayLists composed of all the active servings that belong to the given category 
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return rslt text text text.
+	 * each serving that contains the given category and has the activeFlag true, is returned
+	 * @param c the category whose ArrayList of servings is requested
+	 * @return rslt ArrayList of all the active servings in the category
 	 */
 	public ArrayList<Serving> getServingsPerCategory(Category c) {
 		
@@ -308,16 +254,11 @@ public class RestaurantModel {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
+	 * returns the ArrayLists composed of all the active modifiers that belong to the given category 
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  c Description text text text.          (3)
-	 * @return rslt text text text.
+	 * each modifier that contains the given category and has the activeFlag true, is returned
+	 * @param c the category whose ArrayList of modifiers is requested
+	 * @return rslt ArrayList of all the active modifiers in the category
 	 */
 	public ArrayList<Modifier> getModifiersPerCategory(Category c) {
 		
@@ -333,13 +274,7 @@ public class RestaurantModel {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * initializes the maxId attribute with the maximum serving id contained into servings attributes
 	 */
 	public void initializeMaxId() {
 		
@@ -354,27 +289,18 @@ public class RestaurantModel {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return maxId text text text.
+	 * method that gets the maxId
+	 * @see initializeMaxId
+	 * @see maxId
+	 * @return int maxId 
 	 */
 	public int getMaxId() {
 		return maxId;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * method that sets the maxId
+	 * @see maxId
 	 */
 	public void setMaxId(int maxId) {
 		this.maxId = maxId;
