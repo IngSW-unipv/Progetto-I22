@@ -191,7 +191,7 @@ public class OrderView extends JPanel{
 		sendButton = new JButton("Invia Ordine");
 		sendButton.setFont(new java.awt.Font("Arial", 1, 36));
 		littlePane.add(sendButton);
-		closeOrderButton = new JButton("Close/Pay order");
+		closeOrderButton = new JButton(" Paga ordine ");
 		closeOrderButton.setBackground(Color.decode("#D00000"));
 		closeOrderButton.setForeground(Color.white);
 		closeOrderButton.setFont(new java.awt.Font("Arial", 0, 36));
@@ -208,7 +208,7 @@ public class OrderView extends JPanel{
 		statusControlPane.add(freeButton = new JStatusButton("LIBERO", 1));
 		statusControlPane.add(prenotedButton = new JStatusButton("PRENOTATO", 5));
 		statusControlPane.add(orderedButton = new JStatusButton("ORDINATO", 2));
-		statusControlPane.add(waitingButton = new JStatusButton("ATTESA DOLCE", 3));
+		statusControlPane.add(waitingButton = new JStatusButton("ORDINATO DOLCE", 3));
 		statusControlPane.add(payingSoonButton = new JStatusButton("IN USCITA", 4));
 		
 		freeButton.setFont(new java.awt.Font("Arial", 4, 26));
