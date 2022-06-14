@@ -16,6 +16,9 @@ public class ExceptionFileChooser extends Exception {
 
 
 	private static final long serialVersionUID = 1L;
+	/**
+	 * string into which is saved the instance variable path
+	 */
 	private String path;
 
 

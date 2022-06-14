@@ -123,6 +123,7 @@ public class RestaurantModel {
 	
 	/**
 	 * method that allows to add a single serving to the servings ArrayList
+	 * @param serving serving
 	 */
 	public void addServing(Serving serving) {
 		

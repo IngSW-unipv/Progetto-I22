@@ -26,7 +26,13 @@ public class Modifier {
 	 * the String that describes the name of this Modifier instance
 	 */
 	private boolean activeFlag;
-	
+	/**
+	 * Modifier Constructor
+	 * @param name name
+	 * @param category category
+	 * @param price price
+	 * @param activeFlag activeFlag
+	 */
 	public Modifier(String name, Category category, float price, boolean activeFlag) {
 		
 		this.name = name;

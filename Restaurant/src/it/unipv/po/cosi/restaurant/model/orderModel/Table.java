@@ -97,6 +97,7 @@ public class Table {
 	
 	/**
 	 * setter for the number attribute
+	 * @param number table number
 	 */
 	public void setNumber(int number) {
 		this.number = number;
@@ -128,7 +129,7 @@ public class Table {
 	
 	/**
 	 * setter for the status attribute
-	 * @param order 
+	 * @param order order
 	 */
 	public void setOrder(Order order) {
 		this.order = order;

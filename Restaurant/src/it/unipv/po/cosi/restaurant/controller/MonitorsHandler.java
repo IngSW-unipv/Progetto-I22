@@ -22,6 +22,11 @@ import it.unipv.po.cosi.restaurant.view.Monitor;
 public class MonitorsHandler {
 
 	/**
+	 * Default Constructor
+	 */
+	public MonitorsHandler() {}
+	
+	/**
 	 * 
 	 * This method adds the listeners for monitors
 	 * <p>

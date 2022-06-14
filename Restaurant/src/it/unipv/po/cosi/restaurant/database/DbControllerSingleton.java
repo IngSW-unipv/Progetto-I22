@@ -77,7 +77,7 @@ public class DbControllerSingleton {
 
 	/**
 	 * Method initialize of class CategoryDAO
-	 * @throws ExceptionFileChooser
+	 * @throws ExceptionFileChooser ExceptionFileChooser
 	 */
 	public void initializeCategories() throws ExceptionFileChooser {
 
@@ -102,6 +102,10 @@ public class DbControllerSingleton {
 	
 	//SERVING
 
+	/**
+	 * selectAllServings method
+	 * @return all the servings from the DB
+	 */
 	public ArrayList<Serving> selectAllServings() {
 		
 		return DaoFactory.getServingDAO().selectAllServings(RestaurantModel.getInstance().getCategoriesArray());
@@ -115,7 +119,9 @@ public class DbControllerSingleton {
 		populateServingHiding();
 	}
 	
-
+	/**
+	 * updateActiveServings method
+	 */
 	public void updateActiveServings() {
 		
 		DaoFactory.getServingDAO().updateActiveServings(RestaurantModel.getInstance().getServingsArray());
@@ -124,28 +130,44 @@ public class DbControllerSingleton {
 	//ORDER
 	/**
 	 * Method selectAllOrders of class OrderDAO
+	 * @return all the order from the DB
 	 */
 	public ArrayList<String[]> selectAllOrders() {
 		return DaoFactory.getOrderDAO().selectAllOrders();
 	}
 
-	
+	/**
+	 * insertOrder method
+	 * @param order order
+	 */
 	public void insertOrder(Order order) {
 		DaoFactory.getOrderDAO().insertOrder(order, RestaurantModel.getInstance().getServingsArray());
 	}
 	
-
+	/**
+	 * selectOrder method
+	 * @param id order identifier
+	 * @return select an order from DB
+	 */
 	public Order selectOrder(int id) {
 		return DaoFactory.getOrderDAO().selectOrder(id, RestaurantModel.getInstance().getCategoriesArray());
 	}
 	
-
+	/**
+	 * selectAllServingFromOrders method
+	 * @param id order identifier
+	 * @return all the servings from an order from the DB
+	 */
 	public ArrayList<String[]> selectAllServingFromOrders(int id) {
 		return DaoFactory.getOrderDAO().selectServingFromOrder(id);
 	}
 
 	//MODIFIER
 
+	/**
+	 * selectAllModifiers method
+	 * @return all the modifiers from the DB
+	 */
 	public ArrayList<Modifier> selectAllModifiers() {
 		
 		return DaoFactory.getModifierDAO().selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray());
@@ -161,14 +183,20 @@ public class DbControllerSingleton {
 		
 	}
 	
-	
+	/**
+	 * updateActiveModifiers method
+	 */
 	public void updateActiveModifiers() {
 		
 		DaoFactory.getModifierDAO().updateActiveModifiers(RestaurantModel.getInstance().getModifiersArray());
 	}
 	
 	//CATEGORY
-
+	
+	/**
+	 * selectAllCategories method
+	 * @return all the categories from the DB
+	 */
 	public ArrayList<Category> selectAllCategories() {
 	
 		return DaoFactory.getCategoryDAO().selectAllCategories();
@@ -182,7 +210,9 @@ public class DbControllerSingleton {
 		populateCategoriesHiding();
 	}
 	
-
+	/**
+	 * updateActiveCategories method
+	 */
 	public void updateActiveCategories() {
 		
 		DaoFactory.getCategoryDAO().updateActiveCategories(RestaurantModel.getInstance().getCategoriesArray());
@@ -190,6 +220,8 @@ public class DbControllerSingleton {
 
 	//TABLE
 	/**
+	 * selectAllTables method
+	 * @return all the tables from the DB
 	 */
 	public ArrayList<Table> selectAllTables() {
 		
@@ -204,29 +236,43 @@ public class DbControllerSingleton {
 		populateTablesHiding();
 	}
 	
-
+	/**
+	 * updateActiveTables method
+	 */
 	public void updateActiveTables() {
 		
 		DaoFactory.getTableDAO().updateActiveTables(RestaurantModel.getInstance().getTablesArray());
 	}
 	
 	// STRUCTURE HIDING PATTERN //
+	/**
+	 * Structure Hiding Pattern
+	 */
 	private void populateServingHiding() {  
 		
 		RestaurantModel.getInstance().populateServing(DaoFactory.getServingDAO().selectAllServings(RestaurantModel.getInstance().getCategoriesArray()));
 	}
-	
+
+	/**
+	 * Structure Hiding Pattern
+	 */
 	private void populateModifiersHiding() {
 		
 		RestaurantModel.getInstance().populateModifiers(DaoFactory.getModifierDAO().selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray()));
 	}
 	
+	/**
+	 * Structure Hiding Pattern
+	 */
 	private void populateCategoriesHiding() {
 		
 		RestaurantModel.getInstance().populateCategories(DaoFactory.getCategoryDAO().selectAllCategories());
 	}
 	
-	void populateTablesHiding() {
+	/**
+	 * Structure Hiding Pattern
+	 */
+	private void populateTablesHiding() {
 		
 		RestaurantModel.getInstance().populateTables(DaoFactory.getTableDAO().selectAllTable());
 	}

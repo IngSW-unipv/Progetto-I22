@@ -171,6 +171,7 @@ public class Order {
 	 * <p>
 	 * it decrements the quantity of the param serving in the servings arraylist attribute
 	 * and removes it if the quantity reaches 0
+	 * @param serving serving
 	 * @return boolean
 	 */
 	public boolean decrementServing(Serving serving) {
@@ -199,6 +200,7 @@ public class Order {
 
 	/**
 	 * removes a serving from the servings attribute arraylist
+	 * @param serving serving
 	 * @return boolean value from ArrayList.remove() method
 	 */
 	public boolean removeServing(Serving serving) {

@@ -14,6 +14,16 @@ import it.unipv.po.cosi.restaurant.view.MainView;
  */
 public class Restaurant {
 
+	/**
+	 * Default Constructor
+	 */
+	public Restaurant() {}
+	/**
+	 * main method
+	 * @param args args
+	 * @throws ExceptionFileChooser throwable exception
+	 * @throws IOException throwable exception
+	 */
 	public static void main(String args[]) throws ExceptionFileChooser, IOException {
 		
 		DbControllerSingleton dbc = DbControllerSingleton.getInstance();
