@@ -4,21 +4,58 @@ import java.util.ArrayList;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iteration 2                 (current version number of program)
+ * @since		iteration 1
+ * 
  */
 public class Serving implements Comparable<Serving> {
-	
+	/**
+	 * number to identify an instance of the serving class
+	 */
 	private int id;
+	/**
+	 * string to describe the serving instance
+	 */
 	private String name;
+	/**
+	 * category that contains the serving instance
+	 */
 	private Category category;
+	/**
+	 * float number that indicates the serving price
+	 */
 	private float price;
+	/**
+	 * list of possible modifiers associated to a serving
+	 */
 	private ArrayList<Modifier> modifiers;
+	/**
+	 * number that identifies the quantity of the serving
+	 */
 	private int quantity;
+	/**
+	 * counter that identifies the quantity of the servings that has been already sent
+	 */
 	private int served;
+	/**
+	 * flag that allows to enable or disable the serving instance in the GUI
+	 */
 	private boolean activeFlag;
 
-	
+	/**
+	 * serving class construnctor
+	 * @param id id attribute
+	 * @see id
+	 * @param name name attribute
+	 * @see name
+	 * @param price price attribute
+	 * @see price
+	 * @param category category attribute
+	 * @see category
+	 * @param activeFlag attribute
+	 * @see activeFlag
+	 */	
 	public Serving(int id, String name, float price, Category category, boolean activeFlag) {
 			
 			this.id = id;
@@ -32,6 +69,17 @@ public class Serving implements Comparable<Serving> {
 			
 		}
 	
+	/**
+	 * serving class construnctor
+	 * @param id id attribute
+	 * @see id
+	 * @param name name attribute
+	 * @see name
+	 * @param price price attribute
+	 * @see price
+	 * @param category category attribute
+	 * @see category
+	 */	
 	public Serving(int id, String name, float price, Category category) {
 		
 		this.id = id;
@@ -46,14 +94,13 @@ public class Serving implements Comparable<Serving> {
 	
 
 	/**
-	 * Short one line description.                           (1)
+	 * method that adds a modifier into the modifiers attribute
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return Description text text text.
+	 * if the modifier category is equal to the serving category the modifier
+	 * will be added into the modifiers attribute of this instance and will
+	 * returns true, else returns false.
+	 * @param modifier modifier that will be added to the modifiers arraylist
+	 * @return boolean
 	 */
 	public boolean addModifier(Modifier modifier) {
 		
@@ -69,42 +116,27 @@ public class Serving implements Comparable<Serving> {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return name text text text.
+	 * getter for the name attribute
+	 * @return the name attribute of this instance
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return category text text text.
+	 * getter for the category attribute
+	 * @return category attribute of this instance
 	 */
 	public Category getCategory() {
 		return category;
 	}
 
 	/**
-	 * Short one line description.                           (1)
+	 * returns price attribute
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return temp text text text.
+	 * it returns the total price which includes the quantity of the serving,
+	 * and all the added modifiers to it
+	 * @return the total price
 	 */
 	public float getPrice() {
 		
@@ -119,150 +151,78 @@ public class Serving implements Comparable<Serving> {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return quantity text text text.
+	 * getter for the quantity attribute
+	 * @return quantity attribute
 	 */
 	public int getQuantity() {
 		return quantity;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * setter for the quantity attribute
+	 * @param quantity int value that will be assigned to the quantity attribute
 	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * incements the quantity attribute
 	 */
 	public void incrementQuantity() {
 		quantity++;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * decrement the quantity attribute
 	 */
 	public void decrementQuantity() {
 		quantity--;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return modifiers text text text.
+	 * getter for the modifiers attribute
+	 * @return modifiers arrayList attribute
 	 */
 	public ArrayList<Modifier> getModifiers() {
 		return modifiers;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return id text text text.
+	 * getter for the id attribute
+	 * @return id attribute
 	 */
 	public int getId() {
 		return id;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return activeFlag text text text.
+	 * getter for the activeFlag attribute
+	 * @return activeFlag attribute
 	 */
 	public boolean isActiveFlag() {
 		return activeFlag;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * setter for the activeFlag attribute
+	 * @param activeFlag the boolean value that will be assigned to the activeFlag attribute
 	 */
 	public void setActiveFlag(boolean activeFlag) {
 		this.activeFlag = activeFlag;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * Setter for the id attribute
+	 * @param id serving identifier
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-	 
-	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  id Description text text text.          (3)
-	 */
-	public static void setStartingID(int id) {
-		
-	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return rslt text text text.
+	 * returns a string made of attributes chaining
+	 * @return a string of attributes chaining
 	 */
 	@Override
 	public String toString() {
@@ -283,14 +243,9 @@ public class Serving implements Comparable<Serving> {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return name.compareTo(o.getName()) text text text.
+	 * compares the names of the servings using compareTo method from String class
+	 * @return name.compareTo(o.getName())
+	 * @see String.compareTo()
 	 */
 	@Override
 	public int compareTo(Serving o) {
@@ -299,14 +254,8 @@ public class Serving implements Comparable<Serving> {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return sCopy text text text.
+	 * returns a copy of this serving instance
+	 * @return sCopy serving instance copy
 	 */
 	public Serving copy() {
 		
@@ -316,54 +265,32 @@ public class Serving implements Comparable<Serving> {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * setter for the modifiers attribute
+	 * @param modifiers modifier arrayList that will be assigned to the modifiers attribute
 	 */
 	public void setModifiers(ArrayList<Modifier> modifiers) {
 		this.modifiers = modifiers;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return price text text text.
+	 * getter for the price attribute
+	 * @return price price attribute
 	 */
 	public float getSinglePrice() {
 		return price;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return served text text text.
+	 * getter for the served attribute
+	 * @return served served attribute
 	 */
 	public int getServed() {
 		return served;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * setter for the served attribute
+	 * @param served int value that will be assigned to the served attribute
 	 */
 	public void setServed(int served) {
 		this.served = served;
