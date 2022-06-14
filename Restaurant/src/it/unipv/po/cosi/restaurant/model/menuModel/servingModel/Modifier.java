@@ -2,14 +2,27 @@ package it.unipv.po.cosi.restaurant.model.menuModel.servingModel;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iteration 2
+ * @since 		iteration 1
  */
 public class Modifier {
 
+	/**
+	 * the String that describes the name of this Modifier instance
+	 */
 	private String name;
+	/**
+	 * the Category whose this serving belongs
+	 */
 	private Category category;
+	/**
+	 *  the price of this Serving instance
+	 */
 	private float price;
+	/**
+	 * the String that describes the name of this Modifier instance
+	 */
 	private boolean activeFlag;
 	
 	public Modifier(String name, Category category, float price, boolean activeFlag) {
@@ -22,84 +35,48 @@ public class Modifier {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return name text text text.
+	 * getter that gets the name of the modifier
+	 * @return string containing the name of the modifier
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return category text text text.
+	 * getter that gets the Category of the modifier
+	 * @return category containing the category of the modifier
 	 */
 	public Category getCategory() {
 		return category;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return price text text text.
+	 * getter that gets the price of the modifier
+	 * @return float containing the price of the modifier
 	 */
 	public float getPrice() {
 		return price;
 	}	
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return name text text text.
+	 * overrides the toString method 
+	 * @return string containing the name attribute of the modifier 
 	 */
 	@Override
 	public String toString() {
 		return name;
 	}
-
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return activeFlag text text text.
+	 * getter for the isActiveFlag 
+	 * @return boolean value of the activeFlag of the modifier
 	 */
 	public boolean isActiveFlag() {
 		return activeFlag;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * sets active the activeFlag of the modifier
+	 * @param activeFlag boolean value
 	 */
 	public void setActiveFlag(boolean activeFlag) {
 		this.activeFlag = activeFlag;

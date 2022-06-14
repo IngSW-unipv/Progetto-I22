@@ -2,14 +2,28 @@ package it.unipv.po.cosi.restaurant.model.menuModel.servingModel;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iterazione 2
+ * @since 		iterazione 1
  */
 public class Category {
 
+	/**
+	 * the string containing the name attribute of the category 
+	 */
 	private String name;
+	/**
+	 * the activeFlag showing if a category is active or not
+	 */
 	private boolean activeFlag;
 	
+	/**
+	 * constructor of the category class
+	 * @param name string 
+	 * @see name
+	 * @param activeFlag boolean
+	 * @see activeflag
+	 */
 	public Category(String name, boolean activeFlag){
 		
 		this.name = name;
@@ -19,28 +33,16 @@ public class Category {
 
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return name text text text.
+	 * getter that gets the name of the category
+	 * @return string containing the name of the category
 	 */
 	public String getName() {
 		return name;
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return name text text text.
+	 * overrides the toString method 
+	 * @return string containing the name attribute of the category 
 	 */
 	@Override
 	public String toString() {
@@ -48,27 +50,16 @@ public class Category {
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return activeFlag text text text.
+	 * getter for the isActiveFlag 
+	 * @return boolean value of the activeFlag of the category
 	 */
 	public boolean isActiveFlag() {
 		return activeFlag;
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * sets active the activeFlag of the category
+	 * @param activeFlag boolean value
 	 */
 	public void setActiveFlag(boolean activeFlag) {
 		this.activeFlag = activeFlag;
