@@ -1,7 +1,8 @@
 package it.unipv.po.cosi.restaurant.model.menuModel.servingModel;
 
-
 /**
+ * class that allows to separate the servings in different categories
+ * 
  * @author      cosi'
  * @version     iteration 2
  * @since 		iteration 1

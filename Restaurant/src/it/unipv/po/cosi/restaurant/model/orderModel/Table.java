@@ -5,6 +5,8 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 
 /**
+ * class which rappresents the actual tables in the restaurant
+ * 
  * @author      cosi'
  * @version     iterazione 2
  * @since 		iterazione 1

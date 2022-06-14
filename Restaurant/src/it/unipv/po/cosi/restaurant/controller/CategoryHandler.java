@@ -13,6 +13,7 @@ import it.unipv.po.cosi.restaurant.view.MainView;
 /**
  * Handler Event Handling is the mechanism that controls the event and decides what should happen if an event occurs. 
  * This mechanism have the code which is known as event handler that is executed when an event occurs.
+ * 
  * @author      cosi'
  * @version     iteration 3
  * @since		iteration 3
@@ -21,8 +22,8 @@ public class CategoryHandler extends MVCController{
 
 	/**
 	 * Constructor
-	 * @param m Model
-	 * @param v View
+	 * @param m model parameter
+	 * @param v view parameter
 	 */
 	public CategoryHandler(RestaurantModel m, MainView v) {
 		super(m, v);
@@ -30,8 +31,8 @@ public class CategoryHandler extends MVCController{
 
 	/**
 	 * This method, when the user clicks on a category, shows the related servings 
-	 * @param model
-	 * @param view
+	 * @param model model parameter
+	 * @param view view parameter
 	 */
 	public static void addListeners(RestaurantModel model, MainView view) {
 		 

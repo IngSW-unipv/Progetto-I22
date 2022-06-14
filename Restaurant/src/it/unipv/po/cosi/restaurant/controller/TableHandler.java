@@ -16,10 +16,11 @@ import it.unipv.po.cosi.restaurant.view.MainView;
 
 /**
  * Handler Event Handling is the mechanism that controls the event and decides what should happen if an event occurs. 
- * This mechanism have the code which is known as event handler that is executed when an event occurs.
+ * This mechanism have the code which is known as event handler that is executed when an event occurs.ù
+ * 
  * @author 		cosi'
- * @version 	iterazione 3
- * @since		iterazione 3
+ * @version 	iteration 3
+ * @since		iteration 3
  */
 
 public class TableHandler extends MVCController{
@@ -37,8 +38,8 @@ public class TableHandler extends MVCController{
 	 * This method adds the listeners for Tables
 	 * tableListener: shows the order view when the user clicks on a table
 	 * statusListener: set the status of the table
-	 * @param model
-	 * @param view
+	 * @param model model parameter
+	 * @param view view parameter
 	 * 
 	 */
 	public static void addListeners(RestaurantModel model, MainView view) {

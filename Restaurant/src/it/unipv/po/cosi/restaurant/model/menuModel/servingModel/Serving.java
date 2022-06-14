@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 
 /**
+ * class which rappresents the servings that could be ordered in the restaurant
+ * 
  * @author      cosi'
  * @version     iteration 2                 (current version number of program)
  * @since		iteration 1

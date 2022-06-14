@@ -15,6 +15,8 @@ import it.unipv.po.cosi.restaurant.view.MainView;
 
 
 /**
+ * Handler Event Handling is the mechanism that controls the event and decides what should happen if an event occurs. 
+ * This mechanism have the code which is known as event handler that is executed when an event occurs.
  * 
  * @author      cosi'
  * @version     iteration 3
@@ -42,7 +44,7 @@ public class ModifierHandler extends MVCController{
 	 */
 	public static void addListeners(RestaurantModel model, MainView view) {
 		
-		 //----------------------------//
+		//----------------------------//
 	    // ADDING MODIFIERS LISTENERS //
 	      
 	      ActionListener modifyServingListener = new ActionListener() {

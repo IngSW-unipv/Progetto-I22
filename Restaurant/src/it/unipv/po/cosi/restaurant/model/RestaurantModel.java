@@ -8,6 +8,8 @@ import it.unipv.po.cosi.restaurant.model.orderModel.*;
 
 
 /**
+ * class that describes the actual model of the client's restaurant
+ * 
  * @author      cosi'
  * @version     iterazione 3
  * @since		iterazione 1

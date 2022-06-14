@@ -2,6 +2,8 @@ package it.unipv.po.cosi.restaurant.model.menuModel.servingModel;
 
 
 /**
+ * class that rappresents the addable modifiers to each serving (based on their category)
+ * 
  * @author      cosi'
  * @version     iteration 2
  * @since 		iteration 1

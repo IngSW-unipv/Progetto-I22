@@ -6,6 +6,9 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 
 /**
+ * class that permits to create a list of the ordered servings and their modifiers.
+ * once the order gets closed it will be printed as the bill
+ * 
  * @author      cosi'
  * @version     iteration 3.0
  * @since		iteration 1.0

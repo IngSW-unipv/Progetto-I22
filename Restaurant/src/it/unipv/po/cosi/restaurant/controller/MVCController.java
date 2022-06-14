@@ -14,9 +14,10 @@ import javax.swing.table.DefaultTableModel;
 /**
  * The front controller design pattern means that all requests that come for a resource in an application will 
  * be handled by a single handler and then dispatched to the appropriate handler for that type of request.
+ * 
  * @author      cosi'
- * @version     iteration 3.0
- * @since		iteration 1.0
+ * @version     iteration 3
+ * @since		iteration 1
  */
 
 
@@ -34,9 +35,9 @@ public class MVCController {
 	
 	/**
 	 * Constructor
-	 * @param m
+	 * @param m model parameter
 	 * @see model
-	 * @param v
+	 * @param v view parameter
 	 * @see view
 	 */
 	public MVCController(RestaurantModel m, MainView v) {
@@ -77,7 +78,7 @@ public class MVCController {
 	 
 	 /**
 	  * this method takes an ArrayList of servings in input and set the view
-	  * @param servings
+	  * @param servings servings arraylist which populates the orderlist
 	  */
 	 protected static void populateOrderList(ArrayList<Serving> servings) {
 
@@ -87,8 +88,8 @@ public class MVCController {
 	 
 	 /**
 	  * this method takes an ArrayList of serving in input and converts it in a DefaultListModel
-	  * @param servings
-	  * @return s
+	  * @param servings servings arraylist which will be converted in DefaultListModel
+	  * @return the converted DefaultListModel of Serving
 	  */
 		public static DefaultListModel<Serving> getServingDefaultList(ArrayList<Serving> servings) {
 			
@@ -106,8 +107,8 @@ public class MVCController {
 		
 		 /**
 		  * this method takes an ArrayList of Modifier in input and converts it in a DefaultListModel
-		  * @param modifiers
-		  * @return s
+		  * @param modifiers modifiers arraylist which will be converted in DefalutListModel
+		  * @return the DefaultListModel of Modifier
 		  */
 		public static DefaultListModel<Modifier> getModifierDefaultList(ArrayList<Modifier> modifiers) {
 			
@@ -124,7 +125,11 @@ public class MVCController {
 		}
 		
 		/**
-		 * da commentare 
+		 * this method takes an ArrayList of Strings in input and converts it in a DefaultTableModel
+		 * <p>
+		 * (each array is converted in a table column)
+		 * @param source source arrayList which will be converted in DefaultTableModel
+		 * @return the converted DefaultTableModel
 		 */
 		public static DefaultTableModel getDefaultTable(ArrayList<String[]> source) {
 			
