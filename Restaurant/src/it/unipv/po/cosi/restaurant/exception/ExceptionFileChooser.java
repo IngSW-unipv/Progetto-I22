@@ -7,8 +7,9 @@ import javax.swing.filechooser.FileSystemView;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iteration 3
+ * @since		iteration 3
  */
 public class ExceptionFileChooser extends Exception {
 
@@ -18,15 +19,8 @@ public class ExceptionFileChooser extends Exception {
 
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  s Description text text text.          (3)
+	 * This method creates a new JFileChooser to handle "file not found exception"
+	 * @param  s missing file's name
 	 */
 	public ExceptionFileChooser (String s) {
 			

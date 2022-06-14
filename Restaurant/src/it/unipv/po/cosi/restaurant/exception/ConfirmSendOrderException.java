@@ -12,22 +12,21 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
+
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iteration 3
+ * @since		iteration 3
  */
 public class ConfirmSendOrderException extends Exception{
 
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * Short one line description.                           (1)
+	 * This method creates a new frame to notify the order has been sent
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * This method creates a new frame to notify the order has been sent
+	 * okButtonListener closes the frame
 	 */
 	public ConfirmSendOrderException() {
 		
