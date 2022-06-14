@@ -3,8 +3,8 @@ package it.unipv.po.cosi.restaurant.model.menuModel.servingModel;
 
 /**
  * @author      cosi'
- * @version     iterazione 2
- * @since 		iterazione 1
+ * @version     iteration 2
+ * @since 		iteration 1
  */
 public class Category {
 

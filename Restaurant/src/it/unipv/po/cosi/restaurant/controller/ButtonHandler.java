@@ -16,19 +16,23 @@ import it.unipv.po.cosi.restaurant.view.MainView;
 
 
 /**
- * @author      cos�
- * @version     1.0                 (current version number of program)
+ * 
+ * @author      cosi'
+ * @version     iteration 3
+ * @since		iteration 2
  */
 public class ButtonHandler extends MVCController {
 
 	/**
-	 * Short one line description.                           (1)
+	 * constructor for this handler
 	 * <p>
 	 * Longer description. If there were any, it would be    (2)
 	 * here.
 	 * <p>
 	 * And even more explanations to follow in consecutive
 	 * paragraphs separated by HTML paragraph breaks.
+	 * @param m
+	 * @param v
 	 */
 	public ButtonHandler(RestaurantModel m, MainView v) {
 		super(m, v);
