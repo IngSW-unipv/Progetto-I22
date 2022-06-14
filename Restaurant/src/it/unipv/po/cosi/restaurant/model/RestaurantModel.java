@@ -177,7 +177,7 @@ public class RestaurantModel {
 
 	/**
 	 * the getter for the ArrayList of servings
-	 * @return ArrayList<Serving> servings
+	 * @return servings
 	 */
 	public ArrayList<Serving> getServingsArray() {
 		return servings;
@@ -185,7 +185,7 @@ public class RestaurantModel {
 
 	/**
 	 * the getter for the ArrayList of tables
-	 * @return ArrayList<table> tables
+	 * @return tables
 	 */
 	public ArrayList<Table> getTablesArray() {
 		return tables;
@@ -193,7 +193,7 @@ public class RestaurantModel {
 
 	/**
 	 * the getter for the ArrayList of modifiers
-	 * @return ArrayList<modifier> modifiers
+	 * @return modifiers
 	 */
 	public ArrayList<Modifier> getModifiersArray() {
 		return modifiers;
@@ -201,7 +201,7 @@ public class RestaurantModel {
 
 	/**
 	 * the getter for the ArrayList of orders
-	 * @return ArrayList<order> serving
+	 * @return serving
 	 */
 	public ArrayList<Order> getOrdersArray() {
 		return orders;
@@ -209,7 +209,7 @@ public class RestaurantModel {
 
 	/**
 	 * the getter for the ArrayList of categories
-	 * @return ArrayList<category> serving
+	 * @return serving
 	 */
 	public ArrayList<Category> getCategoriesArray() {
 		return categories;
@@ -302,6 +302,7 @@ public class RestaurantModel {
 
 	/**
 	 * method that sets the maxId
+	 * @param maxId maximum id
 	 * @see maxId
 	 */
 	public void setMaxId(int maxId) {

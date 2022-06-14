@@ -16,7 +16,7 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
 
 /**
- * @author      così
+ * @author      cosi'
  * @version     1.0                 (current version number of program)
  */
 public class CategoryDAO implements IDao{	

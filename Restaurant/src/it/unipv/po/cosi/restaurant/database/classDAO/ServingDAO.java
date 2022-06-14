@@ -17,7 +17,7 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 
 /**
- * @author      così
+ * @author      cosi'
  * @version     1.0                 (current version number of program)
  */
 public class ServingDAO implements IDao{

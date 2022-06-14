@@ -50,10 +50,10 @@ public class Table {
 	}
 	/**
 	 * constructor of the Table class
-	 * @param number number attrubute
+	 * @param number number attribute
 	 * @see number
-	 * @param status status attribute
-	 * @see status
+	 * @param activeFlag active flag
+	 * 
 	 */
 	public Table(int number, boolean activeFlag) {
 		

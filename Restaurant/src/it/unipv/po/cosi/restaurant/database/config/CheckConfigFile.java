@@ -11,22 +11,26 @@ import it.unipv.po.cosi.restaurant.exception.ExceptionFileChooser;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * This class manages configFile
+ * @author      cosi'
+ * @version     iteration 3
+ * @since 		iteration 3
  */
 public class CheckConfigFile {
 
 	private static String path;
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return path text text text.
+	 * Default Constructor
+	 */
+	public CheckConfigFile() {}
+	
+	/**
+	 * This method tries to find the path of the document "className.csv"
+	 * @param sourcePath path of the document "className.csv"
+	 * @param pathDoc path of the file "pathConfig"
+	 * @param className name to "match" in file "pathConfig"
+	 * @return path path of the className.csv File
 	 */
 	public static String pathFinder(String sourcePath, String pathDoc, String className) {
 		

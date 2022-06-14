@@ -23,7 +23,7 @@ public class Category {
 	 * @param name string 
 	 * @see name
 	 * @param activeFlag boolean
-	 * @see activeflag
+	 * @see activeFlag
 	 */
 	public Category(String name, boolean activeFlag){
 		

@@ -247,7 +247,6 @@ public class Serving implements Comparable<Serving> {
 	/**
 	 * compares the names of the servings using compareTo method from String class
 	 * @return name.compareTo(o.getName())
-	 * @see String.compareTo()
 	 */
 	@Override
 	public int compareTo(Serving o) {

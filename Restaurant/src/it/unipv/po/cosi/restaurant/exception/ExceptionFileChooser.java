@@ -7,6 +7,7 @@ import javax.swing.filechooser.FileSystemView;
 
 
 /**
+ * This class represents a customized exception.  Creates a new JFileChooser to handle "file not found exception"
  * @author      cosi'
  * @version     iteration 3
  * @since		iteration 3
@@ -41,15 +42,8 @@ public class ExceptionFileChooser extends Exception {
 
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param path Description text text text.          (3)
+	 * method used to get path
+	 * @return path string that represent the path chosen from the JFileChooser
 	 */
 	public String getPath() {
 		return path;

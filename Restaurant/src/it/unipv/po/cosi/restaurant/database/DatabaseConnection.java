@@ -4,11 +4,23 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
+ * this class create and manage a connection to the database
  * @author      cosi'
  * @version     iteration 1
  */
 public class DatabaseConnection {
 
+	/**
+	 * Default Constructor
+	 */
+	public DatabaseConnection() {}
+	
+	/**
+	 * Constructor
+	 * @param c  Connection to open
+	 * @param schema DataBase schema
+	 * @return c opened connection
+	 */
 	public static Connection startConnection( Connection c, String schema ) {
 		String DbDriver = null;
 		String DbURL = null;
@@ -39,6 +51,11 @@ public class DatabaseConnection {
 	
 	}
 	
+	/**
+	 * This method checks if the Connection "c" is open
+	 * @param c  Connection 
+	 * @return boolean
+	 */
 	public static boolean isOpen(Connection c) {
 		if( c == null) {
 			return false;
@@ -46,6 +63,11 @@ public class DatabaseConnection {
 		return true;
 	}
 	
+	/**
+	 * This method closes the Connection "c"
+	 * @param c  Connection 
+	 * @return boolean
+	 */
 	public static boolean closeConnection(Connection c) {
 		if(!isOpen(c)) {
 			return false;

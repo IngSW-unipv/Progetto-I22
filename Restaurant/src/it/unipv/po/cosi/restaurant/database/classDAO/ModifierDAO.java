@@ -17,7 +17,7 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 
 
 /**
- * @author      così
+ * @author      cosi'
  * @version     1.0                 (current version number of program)
  */
 public class ModifierDAO implements IDao{

@@ -7,7 +7,7 @@ import it.unipv.po.cosi.restaurant.model.RestaurantModel;
 import it.unipv.po.cosi.restaurant.view.MainView;
 
 
-/**
+/** Main Class
  * @author      cosi'
  * @version     iterazione 3
  * @since    	iterazione 1

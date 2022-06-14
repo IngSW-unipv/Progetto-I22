@@ -13,7 +13,8 @@ import javax.swing.JTextField;
 
 
 
-/**
+/** 
+ * This class represents a customized exception to notify the order has been sent
  * @author      cosi'
  * @version     iteration 3
  * @since		iteration 3
@@ -23,9 +24,8 @@ public class ConfirmSendOrderException extends Exception{
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * This method creates a new frame to notify the order has been sent
-	 * <p>
-	 * This method creates a new frame to notify the order has been sent
+	 * Constructor
+	 * the method creates a new frame
 	 * okButtonListener closes the frame
 	 */
 	public ConfirmSendOrderException() {

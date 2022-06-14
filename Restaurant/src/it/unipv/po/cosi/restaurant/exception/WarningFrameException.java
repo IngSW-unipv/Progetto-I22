@@ -11,6 +11,7 @@ import it.unipv.po.cosi.restaurant.view.WarningFrame;
 
 
 /**
+ * This class represents a customized exception
  * @author      cosi'
  * @version     iteration 3
  * @since		iteration 3
@@ -21,10 +22,13 @@ public class WarningFrameException extends Throwable{
 
 	/**
 	 * This method creates a new frame to handle an exception
+	 * @param s frame's title
+	 * @param msg message to display
 	 * <p>
 	 * This method creates a new frame to handle an exception
 	 * confirmWarningListener: restarts the program
 	 * ignoreWarningListener: close the warning frame
+	 * 
 	 */
 	public WarningFrameException(String s, String msg) {
 		

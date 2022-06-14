@@ -12,7 +12,8 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
 
-/**
+/** 
+ * this class represents the database. The methods allow to do query in the database
  * @author      cosi'
  * @version    	iteration 1
  */
@@ -59,7 +60,7 @@ public class DbControllerSingleton {
 	}
 	
 	/**
-	 * @see OrderDAO.initialize()
+	 * Method initialize of class OrderDAO
 	 */
 	public void initializeOrders() {
 	
@@ -67,7 +68,7 @@ public class DbControllerSingleton {
 	}
 	
 	/**
-	 * @see ServingDAO.initialize()
+	 * Method initialize of class ServingDAO
 	 */
 	public void initializeServings() {
 		
@@ -75,7 +76,8 @@ public class DbControllerSingleton {
 	}
 
 	/**
-	 * @see CategoryDAO.initialize()
+	 * Method initialize of class CategoryDAO
+	 * @throws ExceptionFileChooser
 	 */
 	public void initializeCategories() throws ExceptionFileChooser {
 
@@ -83,7 +85,7 @@ public class DbControllerSingleton {
 	}
 
 	/**
-	 * @see ModifierDAO.initialize()
+	 * Method initialize of class ModifierDAO
 	 */
 	public void initializeModifiers() {
 		
@@ -91,7 +93,7 @@ public class DbControllerSingleton {
 	}
 	
 	/**
-	 * @see TableDAO.initialize() 
+	 * Method initialize of class TableDAO
 	 */
 	public void initializeTables() {
 		
@@ -99,9 +101,7 @@ public class DbControllerSingleton {
 	}
 	
 	//SERVING
-	/**
-	 * @see ServingDAO.selectAllServings()
-	 */
+
 	public ArrayList<Serving> selectAllServings() {
 		
 		return DaoFactory.getServingDAO().selectAllServings(RestaurantModel.getInstance().getCategoriesArray());
@@ -115,9 +115,7 @@ public class DbControllerSingleton {
 		populateServingHiding();
 	}
 	
-	/**
-	 * @see ServingDAO.updateActiveServing()
-	 */
+
 	public void updateActiveServings() {
 		
 		DaoFactory.getServingDAO().updateActiveServings(RestaurantModel.getInstance().getServingsArray());
@@ -125,37 +123,29 @@ public class DbControllerSingleton {
 	
 	//ORDER
 	/**
-	 * @see OrderDAO.selectAllOrders()
+	 * Method selectAllOrders of class OrderDAO
 	 */
 	public ArrayList<String[]> selectAllOrders() {
 		return DaoFactory.getOrderDAO().selectAllOrders();
 	}
 
-	/**
-	 * @see OrderDAO.insertOrder()
-	 */
+	
 	public void insertOrder(Order order) {
 		DaoFactory.getOrderDAO().insertOrder(order, RestaurantModel.getInstance().getServingsArray());
 	}
 	
-	/**
-	 * @see OrderDAO.selectOrder()
-	 */
+
 	public Order selectOrder(int id) {
 		return DaoFactory.getOrderDAO().selectOrder(id, RestaurantModel.getInstance().getCategoriesArray());
 	}
 	
-	/**
-	 * @see OrderDAO.selectServingFromOrder()
-	 */
+
 	public ArrayList<String[]> selectAllServingFromOrders(int id) {
 		return DaoFactory.getOrderDAO().selectServingFromOrder(id);
 	}
 
 	//MODIFIER
-	/**
-	 * @see ModifierDAO.selectAllModifiers()
-	 */
+
 	public ArrayList<Modifier> selectAllModifiers() {
 		
 		return DaoFactory.getModifierDAO().selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray());
@@ -171,18 +161,14 @@ public class DbControllerSingleton {
 		
 	}
 	
-	/**
-	 * @see ModifierDAO.updateActiveModifiers()
-	 */
+	
 	public void updateActiveModifiers() {
 		
 		DaoFactory.getModifierDAO().updateActiveModifiers(RestaurantModel.getInstance().getModifiersArray());
 	}
 	
 	//CATEGORY
-	/**
-	 * @see CategoryDAO.selectAllCategories()
-	 */
+
 	public ArrayList<Category> selectAllCategories() {
 	
 		return DaoFactory.getCategoryDAO().selectAllCategories();
@@ -196,9 +182,7 @@ public class DbControllerSingleton {
 		populateCategoriesHiding();
 	}
 	
-	/**
-	 * @see CategoryDAO.updateActiveCategories()
-	 */
+
 	public void updateActiveCategories() {
 		
 		DaoFactory.getCategoryDAO().updateActiveCategories(RestaurantModel.getInstance().getCategoriesArray());
@@ -206,7 +190,6 @@ public class DbControllerSingleton {
 
 	//TABLE
 	/**
-	 * @see TableDAO.selectAllTable()
 	 */
 	public ArrayList<Table> selectAllTables() {
 		
@@ -221,9 +204,7 @@ public class DbControllerSingleton {
 		populateTablesHiding();
 	}
 	
-	/**
-	 * @see TableDAO.updateActiveTables()
-	 */
+
 	public void updateActiveTables() {
 		
 		DaoFactory.getTableDAO().updateActiveTables(RestaurantModel.getInstance().getTablesArray());

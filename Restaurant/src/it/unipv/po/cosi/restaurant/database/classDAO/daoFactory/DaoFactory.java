@@ -10,7 +10,7 @@ import it.unipv.po.cosi.restaurant.database.classDAO.ServingDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.TableDAO;
 
 /**
- * @author      così
+ * @author      cosi'
  * @version     1.0                 (current version number of program)
  */
 public class DaoFactory {
