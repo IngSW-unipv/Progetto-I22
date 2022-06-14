@@ -17,7 +17,7 @@ public class Order {
 	 */
 	private int id;
 	/**
-	 * int value that identify the starting id which is the maximum if of the previous orders
+	 * int value that identify the starting id which is the maximum id of the previous orders
 	 */
 	private static int startingId;
 	/**
@@ -37,13 +37,13 @@ public class Order {
 	 */
 	private float total;
 	/**
-	 * date and time of the order closing in a 0timestamp string
+	 * date and time of the order closing in a timestamp string
 	 */
 	private String dateTime;
 	
 
 	/**
-	 * order class construnctor
+	 * order class constructor
 	 */	
 	public Order() {
 		
@@ -55,7 +55,7 @@ public class Order {
 	}
 	
 	/**
-	 * order class construnctor
+	 * order class constructor
 	 * @param table table attribute
 	 * @see table
 	 */	
@@ -70,7 +70,7 @@ public class Order {
 	}
 	
 	/**
-	 * order class construnctor
+	 * order class constructor
 	 * @param id id attribute
 	 * @see id
 	 */	
@@ -84,7 +84,7 @@ public class Order {
 	}
 	
 	/**
-	 * order class construnctor
+	 * order class constructor
 	 * @param id id attribute
 	 * @see id
 	 * @param total total attribute
@@ -100,7 +100,7 @@ public class Order {
 	}
 	
 	/**
-	 * serving class construnctor
+	 * serving class constructor
 	 * @param table table attribute
 	 * @see table
 	 * @param id id attribute

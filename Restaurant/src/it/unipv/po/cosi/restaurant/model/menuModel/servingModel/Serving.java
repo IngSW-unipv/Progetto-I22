@@ -44,7 +44,7 @@ public class Serving implements Comparable<Serving> {
 	private boolean activeFlag;
 
 	/**
-	 * serving class construnctor
+	 * serving class constructor
 	 * @param id id attribute
 	 * @see id
 	 * @param name name attribute
@@ -70,7 +70,7 @@ public class Serving implements Comparable<Serving> {
 		}
 	
 	/**
-	 * serving class construnctor
+	 * serving class constructor
 	 * @param id id attribute
 	 * @see id
 	 * @param name name attribute
