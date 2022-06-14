@@ -4,22 +4,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version     iteration 1
  */
 public class DatabaseConnection {
 
-	
-	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return c text text text.
-	 */
 	public static Connection startConnection( Connection c, String schema ) {
 		String DbDriver = null;
 		String DbURL = null;
@@ -50,18 +39,6 @@ public class DatabaseConnection {
 	
 	}
 	
-	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  c Description text text text.          (3)
-	 * @return Description text text text.
-	 */
 	public static boolean isOpen(Connection c) {
 		if( c == null) {
 			return false;
@@ -69,18 +46,6 @@ public class DatabaseConnection {
 		return true;
 	}
 	
-	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  c Description text text text.          (3)
-	 * @return Description text text text.
-	 */
 	public static boolean closeConnection(Connection c) {
 		if(!isOpen(c)) {
 			return false;
@@ -99,9 +64,7 @@ public class DatabaseConnection {
 		}
 		
 		return true;
-	}
-	
-	
+	}	
 	
 }
 

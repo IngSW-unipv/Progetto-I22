@@ -13,18 +13,27 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
 
 /**
- * @author      così
- * @version     1.0                 (current version number of program)
+ * @author      cosi'
+ * @version    	iteration 1
  */
 public class DbControllerSingleton {
 	
+	/**
+	 * instance attribute
+	 */
 	private static DbControllerSingleton instance;
-	
+	/**
+	 * database schema name
+	 */
 	private String schema;
+	/**
+	 * connection attribute linked to the used database
+	 */
 	private Connection c;
 
-	
-	
+	/**
+	 * dbControllerSingleton constructor
+	 */
 	private DbControllerSingleton() {
 		
 		super();
@@ -35,6 +44,10 @@ public class DbControllerSingleton {
 
 	// populate table with menu .csv file //		
 	
+	/**
+	 * it return this instance if exist, else it will create a new one and it will assigns it to the instance attribute
+	 * @return the dbControllerSingleton instance
+	 */
 	public static DbControllerSingleton getInstance() {
 		
 		if (instance == null) {
@@ -46,109 +59,56 @@ public class DbControllerSingleton {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see OrderDAO.initialize()
 	 */
 	public void initializeOrders() {
+	
 		DaoFactory.getOrderDAO().initialize();
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see ServingDAO.initialize()
 	 */
 	public void initializeServings() {
 		
-		
-		DaoFactory.getServingDAO().initialize();
-		
+		DaoFactory.getServingDAO().initialize();		
 	}
-			
-	
+
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see CategoryDAO.initialize()
 	 */
 	public void initializeCategories() throws ExceptionFileChooser {
-	
-		
+
 		DaoFactory.getCategoryDAO().initialize();
-	
 	}
-						
-	
+
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see ModifierDAO.initialize()
 	 */
 	public void initializeModifiers() {
-	
 		
 		DaoFactory.getModifierDAO().initialize();
-	
 	}
-			
+	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see TableDAO.initialize() 
 	 */
 	public void initializeTables() {
-	
 		
 		DaoFactory.getTableDAO().initialize();
-	
 	}
-	
 	
 	//SERVING
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see ServingDAO.selectAllServings()
 	 */
 	public ArrayList<Serving> selectAllServings() {
 		
 		return DaoFactory.getServingDAO().selectAllServings(RestaurantModel.getInstance().getCategoriesArray());
-		
 	}
-	
+
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * it populates the servings array
 	 */
 	public void populateServingsArray() {
 		
@@ -156,13 +116,7 @@ public class DbControllerSingleton {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see ServingDAO.updateActiveServing()
 	 */
 	public void updateActiveServings() {
 		
@@ -170,84 +124,46 @@ public class DbControllerSingleton {
 	}
 	
 	//ORDER
-
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see OrderDAO.selectAllOrders()
 	 */
 	public ArrayList<String[]> selectAllOrders() {
 		return DaoFactory.getOrderDAO().selectAllOrders();
 	}
-//	
+
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see OrderDAO.insertOrder()
 	 */
 	public void insertOrder(Order order) {
 		DaoFactory.getOrderDAO().insertOrder(order, RestaurantModel.getInstance().getServingsArray());
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see OrderDAO.selectOrder()
 	 */
 	public Order selectOrder(int id) {
 		return DaoFactory.getOrderDAO().selectOrder(id, RestaurantModel.getInstance().getCategoriesArray());
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see OrderDAO.selectServingFromOrder()
 	 */
 	public ArrayList<String[]> selectAllServingFromOrders(int id) {
 		return DaoFactory.getOrderDAO().selectServingFromOrder(id);
 	}
 
-
 	//MODIFIER
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see ModifierDAO.selectAllModifiers()
 	 */
 	public ArrayList<Modifier> selectAllModifiers() {
 		
 		return DaoFactory.getModifierDAO().selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray());
 		
 	}
-	
+
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * it populates the modifiers array 
 	 */
 	public void populateModifiersArray() {
 		
@@ -256,44 +172,24 @@ public class DbControllerSingleton {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see ModifierDAO.updateActiveModifiers()
 	 */
 	public void updateActiveModifiers() {
 		
 		DaoFactory.getModifierDAO().updateActiveModifiers(RestaurantModel.getInstance().getModifiersArray());
 	}
 	
-	
 	//CATEGORY
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see CategoryDAO.selectAllCategories()
 	 */
 	public ArrayList<Category> selectAllCategories() {
 	
 		return DaoFactory.getCategoryDAO().selectAllCategories();
-		
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * it populates the categories array
 	 */
 	public void populateCategoriesArray() {
 		
@@ -301,44 +197,24 @@ public class DbControllerSingleton {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see CategoryDAO.updateActiveCategories()
 	 */
 	public void updateActiveCategories() {
 		
 		DaoFactory.getCategoryDAO().updateActiveCategories(RestaurantModel.getInstance().getCategoriesArray());
 	}
-	
 
 	//TABLE
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see TableDAO.selectAllTable()
 	 */
 	public ArrayList<Table> selectAllTables() {
 		
 		return DaoFactory.getTableDAO().selectAllTable();
-
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * it populates tables array
 	 */
 	public void populateTablesArray() {
 		
@@ -346,13 +222,7 @@ public class DbControllerSingleton {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * @see TableDAO.updateActiveTables()
 	 */
 	public void updateActiveTables() {
 		
@@ -360,58 +230,22 @@ public class DbControllerSingleton {
 	}
 	
 	// STRUCTURE HIDING PATTERN //
-	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 */
 	private void populateServingHiding() {  
 		
 		RestaurantModel.getInstance().populateServing(DaoFactory.getServingDAO().selectAllServings(RestaurantModel.getInstance().getCategoriesArray()));
 	}
 	
-	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 */
 	private void populateModifiersHiding() {
 		
 		RestaurantModel.getInstance().populateModifiers(DaoFactory.getModifierDAO().selectAllModifiers(RestaurantModel.getInstance().getCategoriesArray()));
 	}
 	
-	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 */
 	private void populateCategoriesHiding() {
 		
 		RestaurantModel.getInstance().populateCategories(DaoFactory.getCategoryDAO().selectAllCategories());
 	}
 	
-	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 */
-	private void populateTablesHiding() {
+	void populateTablesHiding() {
 		
 		RestaurantModel.getInstance().populateTables(DaoFactory.getTableDAO().selectAllTable());
 	}
