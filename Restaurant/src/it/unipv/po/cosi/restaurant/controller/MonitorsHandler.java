@@ -11,11 +11,27 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.view.MainView;
 import it.unipv.po.cosi.restaurant.view.Monitor;
 
+/**
+ * Handler Event Handling is the mechanism that controls the event and decides what should happen if an event occurs. 
+ * This mechanism have the code which is known as event handler that is executed when an event occurs.
+ * @author 		cosi'
+ * @version 	iterazione 3
+ * @since		iterazione 3
+ */
 public class MonitorsHandler {
 
-	public static void createMonitors(RestaurantModel model) {}
-		
-	
+	/**
+	 * 
+	 * This method adds the listeners for monitors
+	 * <p>
+	 * This method adds the listeners for monitors
+	 * submitOrderListener: sends the servings of the order to the relative category
+	 * monitorListener: shows monitorView
+	 * backMonitorListener: shows the main view
+	 * @param model
+	 * @param view
+	 * 
+	 */
 	public static void addListeners(RestaurantModel model, MainView view) {
 		
 		

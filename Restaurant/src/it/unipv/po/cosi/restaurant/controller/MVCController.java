@@ -10,11 +10,35 @@ import it.unipv.po.cosi.restaurant.view.MainView;
 
 import javax.swing.table.DefaultTableModel;
 
+
+/**
+ * The front controller design pattern means that all requests that come for a resource in an application will 
+ * be handled by a single handler and then dispatched to the appropriate handler for that type of request.
+ * @author      cosi'
+ * @version     iteration 3.0
+ * @since		iteration 1.0
+ */
+
+
 public class MVCController {
 	
+	/**
+	 * model represents the restaurant's domain
+	 */
 	private static RestaurantModel model;
+
+	/*
+	 * Main view
+	 */
 	private static MainView view;
 	
+	/**
+	 * Constructor
+	 * @param m
+	 * @see model
+	 * @param v
+	 * @see view
+	 */
 	public MVCController(RestaurantModel m, MainView v) {
 		
 		model = m;
@@ -22,6 +46,9 @@ public class MVCController {
 		initComponents();
 	}
 	
+	/**
+	 * This method adds the listeners and returns an MVCController Object
+	 */
 	private void initComponents() {
 		
 		
@@ -42,21 +69,27 @@ public class MVCController {
 	      ModifierHandler.addListeners(model, view);
 	      SettingHandler.addListeners(model, view);
 	      ButtonHandler.addListeners(model, view);
-	      MonitorsHandler.createMonitors(model);
 	      MonitorsHandler.addListeners(model, view);
 	     
 	 }      
 	 
 	 
 	 
-		
-	 
+	 /**
+	  * this method takes an ArrayList of servings in input and set the view
+	  * @param servings
+	  */
 	 protected static void populateOrderList(ArrayList<Serving> servings) {
 
 		 view.getOrderView().getOrderList().setModel(getServingDefaultList(servings));
 
 	 }
 	 
+	 /**
+	  * this method takes an ArrayList of serving in input and converts it in a DefaultListModel
+	  * @param servings
+	  * @return s
+	  */
 		public static DefaultListModel<Serving> getServingDefaultList(ArrayList<Serving> servings) {
 			
 			DefaultListModel<Serving> s = new DefaultListModel<Serving>();
@@ -71,7 +104,11 @@ public class MVCController {
 			return s;
 		}
 		
-
+		 /**
+		  * this method takes an ArrayList of Modifier in input and converts it in a DefaultListModel
+		  * @param modifiers
+		  * @return s
+		  */
 		public static DefaultListModel<Modifier> getModifierDefaultList(ArrayList<Modifier> modifiers) {
 			
 			DefaultListModel<Modifier> s = new DefaultListModel<Modifier>();
@@ -86,6 +123,9 @@ public class MVCController {
 			return s;
 		}
 		
+		/**
+		 * da commentare 
+		 */
 		public static DefaultTableModel getDefaultTable(ArrayList<String[]> source) {
 			
 			DefaultTableModel model = new DefaultTableModel(0,0) {
