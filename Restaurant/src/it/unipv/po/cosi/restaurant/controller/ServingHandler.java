@@ -17,11 +17,25 @@ import it.unipv.po.cosi.restaurant.view.MainView;
 
 public class ServingHandler extends MVCController{
 
-	
+	/**
+	 * servingHandler constructor
+	 * @param m model parameter
+	 * @param v view parameter
+	 */
 	public ServingHandler(RestaurantModel m, MainView v) {
 		super(m, v);
 	}
 
+	/**
+	 * creates and adds serving actionlisteners:
+	 * <p>
+	 * addServingListener: it adds the selected (if it is not null) serving in the order list
+	 * decrementServingListener: it decrements the quantity of the selected serving in the current order
+	 * removeServingListener: it removes the selected serving from the current order
+	 * servingSelectionListener: it shows the modify button once a serving is selected
+	 * @param model model parameter
+	 * @param view view parameter
+	 */
 	public static void addListeners(RestaurantModel model, MainView view) {
 	      
 		  // ADD SERVING LISTENER //

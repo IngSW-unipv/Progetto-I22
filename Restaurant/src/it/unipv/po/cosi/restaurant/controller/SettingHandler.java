@@ -13,10 +13,23 @@ import it.unipv.po.cosi.restaurant.view.TableCheckBox;
 
 public class SettingHandler extends MVCController{
 
+	/**
+	 * settingHandler constructor
+	 * @param m model parameter
+	 * @param v view parameter
+	 */
 	public SettingHandler(RestaurantModel m, MainView v) {
 		super(m, v);
 	}
-
+	
+	/**
+	 * creates and adds setting actionlisteners:
+	 * <p>
+	 * settingsButtonListener: it shows the setting view
+	 * confirmListener: it confirm the changes done and it will update the menu, if it possible, else it will open a warning frame
+	 * @param model model parameter
+	 * @param view view parameter
+	 */
 	public static void addListeners(RestaurantModel model, MainView view) {
 		
 		   // SETTINGS BUTTON LISTENER //

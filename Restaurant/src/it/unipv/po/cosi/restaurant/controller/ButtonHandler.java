@@ -19,32 +19,29 @@ import it.unipv.po.cosi.restaurant.view.MainView;
  * 
  * @author      cosi'
  * @version     iteration 3
- * @since		iteration 2
+ * @since		iteration 3
  */
 public class ButtonHandler extends MVCController {
 
 	/**
-	 * constructor for this handler
-	 * <p>
-	 * Longer description.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @param m
-	 * @param v
+	 * buttonHandler constructor
+	 * @param m model parameter
+	 * @param v view parameter
 	 */
 	public ButtonHandler(RestaurantModel m, MainView v) {
 		super(m, v);
 	}
 
 	/**
-	 * Short one line description.                           (1)
+	 * creates and adds generic buttons actionlisteners
 	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * shutDownListener: it turns off the software, closing it in the correct way
+	 * closeOrderListener: it closes the order, it sets the current table to "free" status,
+	 * it inserts the order into the DB, it prints the bill and goes back to the tableView
+	 * historyButtonListener: it opens the order history view
+	 * backListener: it goes back to the table view
+	 * @param model
+	 * @param view
 	 */
 	public static void addListeners(RestaurantModel model, MainView view) {
 		
@@ -59,15 +56,6 @@ public class ButtonHandler extends MVCController {
 				manageAction();
 			}
 			
-			/**
-			 * Short one line description.                           (1)
-			 * <p>
-			 * Longer description. If there were any, it would be    (2)
-			 * here.
-			 * <p>
-			 * And even more explanations to follow in consecutive
-			 * paragraphs separated by HTML paragraph breaks.
-			 */
 			private void manageAction() {
 			
 				System.exit(0);
@@ -83,15 +71,6 @@ public class ButtonHandler extends MVCController {
 			
 	  			ActionListener closeOrderListener = new ActionListener() {
 
-	  				/**
-	  				 * Short one line description.                           (1)
-	  				 * <p>
-	  				 * Longer description. If there were any, it would be    (2)
-	  				 * here.
-	  				 * <p>
-	  				 * And even more explanations to follow in consecutive
-	  				 * paragraphs separated by HTML paragraph breaks.
-	  				 */
 	  				@Override
 	  				public void actionPerformed(ActionEvent e) {
 	  					
@@ -99,15 +78,6 @@ public class ButtonHandler extends MVCController {
 	  					
 	  				}
 
-	  				/**
-	  				 * Short one line description.                           (1)
-	  				 * <p>
-	  				 * Longer description. If there were any, it would be    (2)
-	  				 * here.
-	  				 * <p>
-	  				 * And even more explanations to follow in consecutive
-	  				 * paragraphs separated by HTML paragraph breaks.
-	  				 */
 	  				private void manageAction() {
 	  					
 	  					Table t = view.getOrderView().getSource().getTable();
@@ -154,15 +124,6 @@ public class ButtonHandler extends MVCController {
 				
 				ActionListener hystoryButtonListener = new ActionListener() {
 
-					/**
-					 * Short one line description.                           (1)
-					 * <p>
-					 * Longer description. If there were any, it would be    (2)
-					 * here.
-					 * <p>
-					 * And even more explanations to follow in consecutive
-					 * paragraphs separated by HTML paragraph breaks.
-					 */
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						
@@ -170,15 +131,6 @@ public class ButtonHandler extends MVCController {
 						
 					}
 					
-					/**
-					 * Short one line description.                           (1)
-					 * <p>
-					 * Longer description. If there were any, it would be    (2)
-					 * here.
-					 * <p>
-					 * And even more explanations to follow in consecutive
-					 * paragraphs separated by HTML paragraph breaks.
-					 */
 			    	private void manageAction() {
 			    		
 			    		view.getC1().show(view.getCardPane(),"4");
@@ -193,32 +145,12 @@ public class ButtonHandler extends MVCController {
 			      
 			      ActionListener orderSelectionListrener = new ActionListener() {
 
-			    	  /**
-			    	   * Short one line description.                           (1)
-			    	   * <p>
-			    	   * Longer description. If there were any, it would be    (2)
-			    	   * here.
-			    	   * <p>
-			    	   * And even more explanations to follow in consecutive
-			    	   * paragraphs separated by HTML paragraph breaks.
-			    	   *
-			    	   * @param  e Description text text text.          (3)
-			    	   */
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						
 						manageAction();
 					}
 					
-					/**
-					 * Short one line description.                           (1)
-					 * <p>
-					 * Longer description. If there were any, it would be    (2)
-					 * here.
-					 * <p>
-					 * And even more explanations to follow in consecutive
-					 * paragraphs separated by HTML paragraph breaks.
-					 */
 			    	private void manageAction() {
 			    			int selectedRow = view.getHistoryView().getHistoryTable().getSelectedRow();
 			    			int id = Integer.parseInt((String)(view.getHistoryView().getHistoryTable().getValueAt(selectedRow, 0)));

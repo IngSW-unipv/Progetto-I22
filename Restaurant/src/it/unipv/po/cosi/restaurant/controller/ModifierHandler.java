@@ -13,12 +13,33 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import it.unipv.po.cosi.restaurant.view.MainView;
 
+
+/**
+ * 
+ * @author      cosi'
+ * @version     iteration 3
+ * @since		iteration 3
+ */
 public class ModifierHandler extends MVCController{
 
+	/**
+	 * ModifierHandler constructor
+	 * @param m model parameter
+	 * @param v view parameter
+	 */
 	public ModifierHandler(RestaurantModel m, MainView v) {
 		super(m, v);
 	}
 
+	/**
+	 * creates and adds modifiers actionlisteners
+	 * <p>
+	 * modifyServingListener: it shows the modifiers list populated with the allowed ones for the selected serving (by category)
+	 * confirmModifierListener: creates a new serving with a new id  with the selected modifiers and adds it into the order list
+	 * rejectedModifierListener: it use cardLayout to go back to serving list ignoring the selected modifiers
+	 * @param model model parameter
+	 * @param view view parameter
+	 */
 	public static void addListeners(RestaurantModel model, MainView view) {
 		
 		 //----------------------------//
@@ -32,6 +53,7 @@ public class ModifierHandler extends MVCController{
 				manageAction();
 				
 			}
+			
 	    	private void manageAction() {
 	    		
 	    		view.getOrderView().getC1().show(view.getOrderView().getMenuCardPane(), "2");
