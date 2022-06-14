@@ -5,8 +5,8 @@ import javax.swing.JTextArea;
 
 /**
  * @author      cosi'
- * @version     iterazione 3
- * @since		iterazione 3
+ * @version     iteration 3
+ * @since		iteration 3
  */
 public class Monitor {
 
@@ -18,30 +18,18 @@ public class Monitor {
 		display = d;
 	}
 	
-	/**
-	 * @return Description
-	 */
 	public String getCategory() {
 		return category;
 	}
 	
-	/**
-	 * @return Description
-	 */
 	public JTextArea getDisplay() {
 		return display;
 	}
 	
-	/**
-	 * @param c String c
-	 */
 	public void setCategory(String c) {
 		category = c;
 	}
 	
-	/**
-	 * @param  d JTextArea 
-	 */
 	public void setDisplay(JTextArea d) {
 		display = d;
 	}

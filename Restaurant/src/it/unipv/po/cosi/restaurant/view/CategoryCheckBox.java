@@ -7,8 +7,8 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
 /**
  * @author      cosi'
- * @version     iterazione 2
- * @since 		iterazione 2
+ * @version     iteration 2
+ * @since 		iteration 2
  */
 public class CategoryCheckBox extends JCheckBox {
 
@@ -25,9 +25,6 @@ public class CategoryCheckBox extends JCheckBox {
 		this.category = category;
 	}
 
-	/**
-	 * @return category 
-	 */
 	public Category getCategory() {
 		return category;
 	}

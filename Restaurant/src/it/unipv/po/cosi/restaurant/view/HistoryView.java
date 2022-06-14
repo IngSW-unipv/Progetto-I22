@@ -6,8 +6,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  * @author      cosi'
- * @version     iterazione 3
- * @since 		iterazione 1
+ * @version     iteration 3
+ * @since 		iteration 1
  */
 public class HistoryView extends JPanel{
 
@@ -56,38 +56,23 @@ public class HistoryView extends JPanel{
 		this.add(tablePane, BorderLayout.CENTER);
 		
 	}
-
-	/**
-	 * @return backButton
-	 */
+	
 	public JButton getBackButton() {
 		return backButton;
 	}
 
-	/**
-	 * @return openOrderButton 
-	 */
 	public JButton getOpenOrderButton() {
 		return openOrderButton;
 	}
 
-	/**
-	 * @return historyTable 
-	 */
 	public JTable getHistoryTable() {
 		return historyTable;
 	}
 
-	/**
-	 * @return buttonPane 
-	 */
 	public JPanel getButtonPane() {
 		return buttonPane;
 	}
 
-	/**
-	 * @return servingTable 
-	 */
 	public JTable getServingTable() {
 		return servingTable;
 	}

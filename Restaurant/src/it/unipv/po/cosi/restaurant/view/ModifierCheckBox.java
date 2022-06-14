@@ -7,8 +7,8 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 
 /**
  * @author      cosi'
- * @version     iterazione 2
- * @since 		iterazione 2
+ * @version     iteration 2
+ * @since 		iteration 2
  */
 public class ModifierCheckBox extends JCheckBox{
 
@@ -25,9 +25,6 @@ public class ModifierCheckBox extends JCheckBox{
 		this.modifier = modifier;
 	}
 
-	/**
-	 * @return modifier 
-	 */
 	public Modifier getModifier() {
 		return modifier;
 	}

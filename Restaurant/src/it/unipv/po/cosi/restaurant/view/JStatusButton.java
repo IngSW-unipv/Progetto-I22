@@ -7,8 +7,8 @@ import javax.swing.JButton;
 
 /**
  * @author      cosi'
- * @version     iterazione 1
- * @since 		iterazione 1
+ * @version     iteration 1
+ * @since 		iteration 1
  */
 public class JStatusButton extends JButton {
 
@@ -42,9 +42,6 @@ public class JStatusButton extends JButton {
 		this.ID = ID;
 	}
 
-	/**
-	 * @return ID 
-	 */
 	public int getID() {
 		return ID;
 	}

@@ -11,7 +11,7 @@ import javax.swing.*;
 
 /**
  * @author      cosi'
- * @version     iterazione 2
+ * @version     iteration 2
  */
 public class SettingsView extends JPanel {
 
@@ -134,48 +134,26 @@ public class SettingsView extends JPanel {
 		
 	}
 
-	/**
-	 * getter for the table checks
-	 * @return  ArrayList of tableChecks 
-	 */
 	public ArrayList<TableCheckBox> getTableChecks() {
 		return tableChecks;
 	}
 
-	/**
-	 * getter for the ServingChecks
-	 * @return ArrayList of servingChecks 
-	 */
 	public ArrayList<ServingCheckBox> getServingChecks() {
 		return servingChecks;
 	}
 
-	/**
-	 * getter for the Modifier
-	 * @return Array list of modifierChecks 
-	 */
 	public ArrayList<ModifierCheckBox> getModifierChecks() {
 		return modifierChecks;
 	}
 
-	/**
-
-	 * @return categoryChecks 
-	 */
 	public ArrayList<CategoryCheckBox> getCategoryChecks() {
 		return categoryChecks;
 	}
 
-	/**
-	 * @return backButton 
-	 */
 	public JButton getBackButton() {
 		return backButton;
 	}
 
-	/**
-	 * @return confirmButton 
-	 */
 	public JButton getConfirmButton() {
 		return confirmButton;
 	}

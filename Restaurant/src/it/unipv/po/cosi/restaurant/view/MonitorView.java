@@ -11,8 +11,8 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
 /**
  * @author      cosi'
- * @version     iterazione 3
- * @since 		iterazione 3
+ * @version     iteration 3
+ * @since 		iteration 3
  */
 public class MonitorView extends JPanel{
 
@@ -57,25 +57,14 @@ public class MonitorView extends JPanel{
 		
 	}
 
-	/**
-	 * @return monitors 
-	 */
 	public ArrayList<Monitor> getMonitor() {
 		return monitors;
 	}
 
-
-	/**
-	 * 
-	 */
 	public void setMonitors(ArrayList<Monitor> monitors) {
 		this.monitors = monitors;
 	}
 
-
-	/**
-	 * @return backButton 
-	 */
 	public JButton getBackButton() {
 		return backButton;
 	}

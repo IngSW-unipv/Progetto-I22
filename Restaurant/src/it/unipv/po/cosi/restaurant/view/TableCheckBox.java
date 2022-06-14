@@ -7,7 +7,7 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
 /**
  * @author      cosi'
- * @version     iterazione 2
+ * @version     iteration 2
  */
 public class TableCheckBox extends JCheckBox{
 	
@@ -24,10 +24,6 @@ public class TableCheckBox extends JCheckBox{
 		this.table = table;
 	}
 
-	/**
-	 * getter for the table attribute
-	 * @return Table table 
-	 */
 	public Table getTable() {
 		return table;
 	}

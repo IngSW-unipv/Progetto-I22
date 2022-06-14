@@ -14,8 +14,8 @@ import java.awt.FlowLayout;
 
 /**
  * @author      cosi'
- * @version     iterazione 3
- * @since 		iterazione 1
+ * @version     iteration 3
+ * @since 		iteration 1
  */
 public class OrderView extends JPanel{
 	
@@ -234,192 +234,110 @@ public class OrderView extends JPanel{
 		
 	}
 
-	/**
-	 * @return orderScroller
-	 */
 	public JScrollPane getListScroller() {
 		return orderScroller;
 	}
 
-	/**
-	 * @return mainButtonPane
-	 */
 	public JPanel getMainButtonPane() {
 		return mainButtonPane;
 	}
 
-	/**
-
-	 * @return statusControlPane 
-	 */
 	public JPanel getStatusControlPane() {
 		return statusControlPane;
 	}
 
-	/**
-	 * @return backButton 
-	 */
 	public JButton getBackButton() {
 		return backButton;
 	}
 
-	/**
-	 * @return freeButton
-	 */
 	public JStatusButton getFreeButton() {
 		return freeButton;
 	}
 
-	/**
-	 * @return orderedButton 
-	 */
 	public JStatusButton getOrderedButton() {
 		return orderedButton;
 	}
 
-	/**
-	 * @return waitingButton 
-	 */
 	public JStatusButton getWaitingButton() {
 		return waitingButton;
 	}
 
-	/**
-	 * @return source 
-	 */
 	public JTableButton getSource() {
 		return source;
 	}
 
-	/**
-	 * 
-	 */
 	public void setSource(JTableButton source) {
 		this.source = source;
 	}
 
-	/**
-	 * @return payingSoonButton 
-	 */
 	public JStatusButton getPayingSoonButton() {
 		return payingSoonButton;
 	}
 
-	/**
-	 * @return prenotedButton 
-	 */
 	public JStatusButton getPrenotedButton() {
 		return prenotedButton;
 	}
 
-	/**
-	 * @return servingList 
-	 */
 	public JList<Serving> getServingList() {
 		return servingList;
 	}
 
-	/**
-	 * @return servingScroller 
-	 */
 	public JScrollPane getServingScroller() {
 		return servingScroller;
 	}
 
-	/**
-	 * @return orderList 
-	 */
 	public JList<Serving> getOrderList() {
 		return orderList;
 	}
 
-	/**
-	 * @return categoryButtons 
-	 */
 	public ArrayList<JCategoryButton> getCategoryButtons() {
 		return categoryButtons;
 	}
 
-	/**
-	 * @return addToOrderButton 
-	 */
 	public JButton getAddToOrderButton() {
 		return addToOrderButton;
 	}
 
-	/**
-	 * @return decrementFromOrderButton 
-	 */
 	public JButton getDecrementFromOrderButton() {
 		return decrementFromOrderButton;
 	}
 	
-	/**
-	 * @return removeButton 
-	 */
 	public JButton getRemoveFromOrderButton() {
 		return removeButton;
 	}
 
-	/**
-	 * @return addModifierButton 
-	 */
 	public JButton getAddModifierButton() {
 		return addModifierButton;
 	}
 
-	/**
-	 * @return orderTitle 
-	 */
 	public JTextField getOrderTitle() {
 		return orderTitle;
 	}
 
-	/**
-	 * @return modifierList 
-	 */
 	public JList<Modifier> getModifierList() {
 		return modifierList;
 	}
 
-	/**
-	 * @return confirmModifiers 
-	 */
 	public JButton getConfirmModifiers() {
 		return confirmModifiers;
 	}
 
-	/**
-	 * @return rejectModifiers 
-	 */
 	public JButton getRejectModifiers() {
 		return rejectModifiers;
 	}
 
-	/**
-	 * @return menuCardPane 
-	 */
 	public JPanel getMenuCardPane() {
 		return menuCardPane;
 	}
 
-	/**
-	 * @return c1 
-	 */
 	public CardLayout getC1() {
 		return c1;
 	}
 
-	/**
-	 * @return closeOrderButton
-	 */
 	public JButton getCloseOrderButton() {
 		return closeOrderButton;
 	}
 
-	/**
-	 * @return send 
-	 */
 	public JButton getSend() {
 		return sendButton;
 	}

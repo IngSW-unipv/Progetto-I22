@@ -11,8 +11,8 @@ import javax.swing.*;
 
 /**
  * @author      cosi'
- * @version     iterazione 3
- * @since		iterazione 1
+ * @version     iteration 3
+ * @since		iteration 1
  */
 public class MainView extends JFrame {
 
@@ -141,80 +141,46 @@ public class MainView extends JFrame {
 		  
 	}
 
-	/**
-	 * @return Description 
-	 */
 	public ArrayList<JTableButton> getTableButtons() {
 		return tableButtons;
 	}
 	
-	/**
-	 * @return c1
-	 */
 	public CardLayout getC1() {
 		return c1;
 	}
 	
-	/**
-	 * @return cardPane
-	 */
 	public JPanel getCardPane() {
 		return cardPane;
 	}
 
-	/**
-	 * @return mainPane
-	 */
 	public JPanel getMainPane() {
 		return mainPane;
 	}
 
-	/**
-	 * @return tablePane 
-	 */
 	public JPanel getTablePane() {
 		return tablePane;
 	}
 
-	/**
-	 * @return editPane 
-	 */
 	public JPanel getEditPane() {
 		return editPane;
 	}
 
-	/**
-	 * @return editButton text text text.
-	 */
 	public JButton getEditButton() {
 		return editButton;
 	}
 	
-	/**
-	 * @return shutDownButton text text text.
-	 */
 	public JButton getShutDownButton() {
 		return shutDownButton;
 	}
 
-	/**
-	 * @return orderView
-	 */
 	public OrderView getOrderView() {
 		return orderView;
 	}
 	
-	/**
-	 * @return settingsView 
-	 */
 	public SettingsView getSettingsView() {
 		return settingsView;
 	}
 
-	/**
-	 * @param  id Description 
-	 * @return b or null
-	 */
 	public JTableButton getSingleButton(int id) {
 		
 		for(JTableButton b: tableButtons) {
@@ -226,23 +192,14 @@ public class MainView extends JFrame {
 		return null;
 	}
 
-	/**
-	 * @return historyButton
-	 */
 	public JButton getHistoryButton() {
 		return historyButton;
 	}
 
-	/**
-	 * @return historyView text text text.
-	 */
 	public HistoryView getHistoryView() {
 		return historyView;
 	}
 	
-	/**
-	 * @return monitors 
-	 */
 	public MonitorView getMonitors() {
 		return monitors;
 	}

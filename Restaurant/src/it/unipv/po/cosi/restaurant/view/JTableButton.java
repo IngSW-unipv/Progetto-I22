@@ -9,8 +9,8 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
 /**
  * @author      cosi'
- * @version     iterazione 2
- * @since 		iterazione 1
+ * @version     iteration 2
+ * @since 		iteration 1
  */
 public class JTableButton extends JButton {
 
@@ -44,9 +44,6 @@ public class JTableButton extends JButton {
 		this.table = table;
 	}
 
-	/**
-	 * @return Table table 
-	 */
 	public Table getTable() {
 		return table;
 	}
