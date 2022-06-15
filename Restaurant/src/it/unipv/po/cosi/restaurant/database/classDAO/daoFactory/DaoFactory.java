@@ -10,8 +10,12 @@ import it.unipv.po.cosi.restaurant.database.classDAO.ServingDAO;
 import it.unipv.po.cosi.restaurant.database.classDAO.TableDAO;
 
 /**
+ * Factory class that creates the Database access Object for every table in the DB
+ * This class represents the implementation of creational pattern Factory.
+ * Contains method for the creation of CategoryDAO, ServingDAO, OrderDAO, ModifierDAO, TableDAO
  * @author      cosi'
- * @version     1.0                 (current version number of program)
+ * @version     iteration 3
+ * @since		iteration 2
  */
 public class DaoFactory {
 	private static CategoryDAO categories;
@@ -27,14 +31,13 @@ public class DaoFactory {
 	private static final String M_PROPERTYNAME="modifier.class.name";
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return categories text text text.
+	 * Default Constructor
+	 */
+	public DaoFactory() {}
+	
+	/**
+	 * This method creates an CategoryDAO object using java reflection
+	 * @return CategoryDAO is used to manage the Category Table on the DB
 	 */
 	public static CategoryDAO getCategoryDAO() {
 		
@@ -59,14 +62,8 @@ public class DaoFactory {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return modifiers text text text.
+	 * This method creates an ModifierDAO object using java reflection
+	 * @return ModifierDAO is used to manage the Modifier Table on the DB
 	 */
 	public static ModifierDAO getModifierDAO() {
 		
@@ -91,14 +88,8 @@ public class DaoFactory {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return orders text text text.
+	 * This method creates an OrderDAO object using java reflection
+	 * @return OrderDAO is used to manage the Ordering and Order_serving Tables on the DB
 	 */
 	public static OrderDAO getOrderDAO() {
 		
@@ -123,14 +114,8 @@ public class DaoFactory {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return servings text text text.
+	 * This method creates an ServingDAO object using java reflection
+	 * @return ServingDAO is used to manage the Serving table on the DB
 	 */
 	public static ServingDAO getServingDAO() {
 		
@@ -155,16 +140,9 @@ public class DaoFactory {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return tables text text text.
+	 * This method creates an TableDAO object using java reflection
+	 * @return TableDAO is used to manage the "Tables" Table on the DB
 	 */
-	@SuppressWarnings("deprecation")
 	public static TableDAO getTableDAO() {
 		
 		if(tables == null){
