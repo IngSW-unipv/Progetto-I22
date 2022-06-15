@@ -16,18 +16,29 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Category;
 
 
 /**
+ * DAO class which manages the DB operations on category
+ * 
  * @author      cosi'
- * @version     1.0                 (current version number of program)
+ * @version     iteration 3
+ * @since 		iteration 1
  */
 public class CategoryDAO implements IDao{	
-	
-	private Connection c;
 
+	/**
+	 * connection attribute
+	 */
+	private Connection c;
+	
+	/**
+	 * default constructor
+	 */
 	public CategoryDAO() {
 		
 	}
 	
-	
+	/**
+	 * it initializes the category table in the DB
+	 */
 	public void initialize() {
 		
 		c = DatabaseConnection.startConnection(c, schema);
@@ -109,14 +120,9 @@ public class CategoryDAO implements IDao{
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return result text text text.
+	 * it returns all the categories from the DB
+	 * 
+	 * @return all the categories into an arraylist
 	 */
 	public ArrayList<Category> selectAllCategories() {
 		
@@ -152,15 +158,9 @@ public class CategoryDAO implements IDao{
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  categories Description text text text.          (3)
+	 * it updates the activeFlag in the categories
+	 * 
+	 * @param categories category arraylist
 	 */
 	public void updateActiveCategories(ArrayList<Category> categories) {
 		
@@ -187,17 +187,12 @@ public class CategoryDAO implements IDao{
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  flag Description text text text.          (3)
+	 * it converts the boolean flag parameter into a string with the same meaning ("true" or "false")
+	 * 
+	 * @param flag flag parameter
+	 * @return string with the same meaning of the parameter flag
 	 */
-	public String booleanToString(Boolean flag) {
+	public String booleanToString(boolean flag) {
 		
 	if(flag) {
 		return "true";

@@ -17,23 +17,34 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Serving;
 
 
 /**
+ * DAO class which manages the DB operations on modifier
+ * 
  * @author      cosi'
- * @version     1.0                 (current version number of program)
+ * @version     iteration 3
+ * @since 		iteration 1
  */
 public class ServingDAO implements IDao{
 	
+	/**
+	 * connection attribute
+	 */
 	private Connection c;
 	
+	/**
+	 * default constructor
+	 */
 	public ServingDAO() {
 		
 	}
 		
-		
+	/**
+	 * it initializes the modifier table in the DB
+	 */
 	public void initialize() {
 		
 		c = DatabaseConnection.startConnection(c, schema);
 		
-try {
+		try {
 			
 			String path = "src/it/unipv/po/cosi/restaurant/database/config/servings.csv";
 		  	String absolutePath;
@@ -114,15 +125,9 @@ try {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  servings Description text text text.          (3)
+	 * it updates the activeFlag in the servings
+	 * 
+	 * @param servings servings arraylist parameter
 	 */
 	public void updateActiveServings(ArrayList<Serving> servings) {
 		
@@ -149,16 +154,10 @@ try {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  categories Description text text text.          (3)
-	 * @return result text text text.
+	 * it returns all the servings from the DB
+	 * 
+	 * @param categories category arraylist parameter
+	 * @return returns all the servings in an arraylist
 	 */
 	public ArrayList<Serving> selectAllServings(ArrayList<Category> categories) {
 		
@@ -204,73 +203,11 @@ try {
 		
 	}
 
-	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  categories Description text text text.          (3)
-	 * @return rslt text text text.
-	 */
-	public ArrayList<Serving> initializeActiveServings(ArrayList<Category> categories) {
-		
-		c = DatabaseConnection.startConnection(c, schema);
-		
-		ArrayList<Serving> rslt = new ArrayList<Serving>();
-		Statement st1;
-		ResultSet rs1;
-		
-		try {
-			st1 = c.createStatement();
-			String query = "SELECT * FROM SERVING where active = 1";
-			rs1 = st1.executeQuery(query);
-			
-	
-			while(rs1.next()) {
-				
-				Category cat = null;
-				
-				for (Category category : categories) {
-				
-					if(category.getName().equals(rs1.getString(3))) {
-						
-						cat=category;
-						
-					}
-					
-				}
-				
-				Serving serving = new Serving(rs1.getInt(1), rs1.getString(2), rs1.getFloat(4), cat, rs1.getBoolean(5));
-				rslt.add(serving);
-			}
-		}
-		
-		catch (Exception e) {
-			
-			e.printStackTrace();
-			
-		}
-		
-		DatabaseConnection.closeConnection(c);
-		return rslt;
-	}
-
-	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  flag Description text text text.          (3)
-	 * @return Description text text text.
+	 * it converts the boolean flag parameter into a string with the same meaning ("true" or "false")
+	 * 
+	 * @param flag flag parameter
+	 * @return string with the same meaning of the parameter flag
 	 */
 	public String booleanToString(Boolean flag) {
 		

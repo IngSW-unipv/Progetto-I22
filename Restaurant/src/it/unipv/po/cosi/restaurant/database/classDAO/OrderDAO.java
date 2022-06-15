@@ -13,30 +13,37 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Order;
 import java.sql.Connection;
 
 /**
+ * DAO class which manages the DB operations on order
+ * 
  * @author      cosi'
- * @version     1.0                 (current version number of program)
+ * @version     iteration 3
+ * @since		iteration 1
  */
 public class OrderDAO implements IDao{
 	
+	/**
+	 * connection attribute
+	 */
 	private Connection c;
 
+	/**
+	 * default constructor
+	 */
 	public OrderDAO() {
 		
 	}
 	
+	/**
+	 * it sets the order startingID
+	 */
 	public void initialize() {
 		Order.setStartingId(this.getOrderingMaxId());
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return rslt text text text.
+	 * it returns all the orders from the DB
+	 * 
+	 * @return all the id orders in an string arraylist
 	 */
 	public ArrayList<String[]> selectAllOrders() {
 		
@@ -97,16 +104,10 @@ public class OrderDAO implements IDao{
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  id Description text text text.          (3)
-	 * @return rslt text text text.
+	 * it returns all the servings in an order
+	 * 
+	 * @param id order identifier
+	 * @return all the serving ids of an order in a string arraylist
 	 */
 	public ArrayList<String[]> selectServingFromOrder(int id) {
 		
@@ -165,15 +166,10 @@ public class OrderDAO implements IDao{
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  servings Description text text text.          (3)
+	 * it inserts an order in the DB
+	 * 
+	 * @param order order parameter
+	 * @param servings serving arraylist parameter
 	 */
 	public void insertOrder(Order order, ArrayList<Serving> servings) {
 		
@@ -233,16 +229,11 @@ public class OrderDAO implements IDao{
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  categories Description text text text.          (3)
-	 * @return result text text text.
+	 * returns the chosen order from the DB
+	 * 
+	 * @param id order identifier
+	 * @param categories categories arraylist parameter
+	 * @return the order which has id equal to the id parameter
 	 */
 	public Order selectOrder(int id, ArrayList<Category> categories) {
 		
@@ -293,13 +284,9 @@ public class OrderDAO implements IDao{
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * it gets the order maxId from the DB
+	 * 
+	 * @return the maximum order id
 	 */
 	public int getOrderingMaxId() {
 		
@@ -325,13 +312,9 @@ public class OrderDAO implements IDao{
 	
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * it gets the number of orders from the DB
+	 * 
+	 * @return the numbers of orders
 	 */
 	public int getOrderingCountId() {
 		
@@ -356,13 +339,9 @@ public class OrderDAO implements IDao{
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
+	 * it gets the serving maxId
+	 * 
+	 * @return the maximum serving id
 	 */
 	public int getServingMaxId() {
 		
@@ -387,15 +366,10 @@ public class OrderDAO implements IDao{
 	}
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  id Description text text text.          (3)
+	 * it returns the order size from the DB
+	 * 
+	 * @param id identifier parameter
+	 * @return the number of servings in an order which has the id parameter
 	 */
 	private int getOderSize(int id) {
 				
@@ -420,23 +394,6 @@ public class OrderDAO implements IDao{
 	
 		return 0;
 		
-	}
-	
-	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  flag Description text text text.          (3)
-	 * @return Description text text text.
-	 */
-	@Override
-	public String booleanToString(Boolean flag) {
-		return null;
 	}
 
 }

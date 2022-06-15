@@ -26,13 +26,6 @@ public interface IDao {
 	public void initialize() throws ExceptionFileChooser, FileNotFoundException;
 	
 	/**
-	 * it converts the boolean flag parameter into a string with the same meaning ("true" or "false")
-	 * @param flag flag
-	 * @return boolean
-	 */
-	public String booleanToString(Boolean flag);
-	
-	/**
 	 * path for configFile
 	 */
 	public final static String pathDoc ="src/it/unipv/po/cosi/restaurant/database/config/pathConfig.txt";

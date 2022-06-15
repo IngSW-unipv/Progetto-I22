@@ -17,17 +17,29 @@ import it.unipv.po.cosi.restaurant.model.orderModel.Table;
 
 
 /**
+ * DAO class which manages the DB operations on table
+ * 
  * @author      cosi'
- * @version     1.0                 (current version number of program)
+ * @version     iteration 3
+ * @since 		iteration 1
  */
 public class TableDAO implements IDao{
 
+	/**
+	 * connection attribute
+	 */
 	private Connection c;
 
+	/**
+	 * default constructor
+	 */
 	public TableDAO() {
 		
 	}
-
+	
+	/**
+	 * it initializes the "table" table in the DB
+	 */
 	public void initialize() {
 
 		c = DatabaseConnection.startConnection(c, schema);
@@ -110,14 +122,9 @@ public class TableDAO implements IDao{
 	}	
 
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 * @return result text text text.
+	 * it returns all the tables from the DB
+	 * 
+	 * @return a table arraylist
 	 */
 	public ArrayList<Table> selectAllTable() {
 
@@ -153,15 +160,9 @@ public class TableDAO implements IDao{
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  tables Description text text text.          (3)
+	 * it updates the activeFlag in the tables
+	 * 
+	 * @param tables tables arraylist parameter
 	 */
 	public void updateActiveTables(ArrayList<Table> tables) {
 		
@@ -191,16 +192,10 @@ public class TableDAO implements IDao{
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  flag Description text text text.          (3)
-	 * @return Description text text text.
+	 * it converts the boolean flag parameter into a string with the same meaning ("true" or "false")
+	 * 
+	 * @param flag flag parameter
+	 * @return string with the same meaning of the parameter flag
 	 */
 	public String booleanToString(Boolean flag) {
 		

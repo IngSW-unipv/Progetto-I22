@@ -17,22 +17,34 @@ import it.unipv.po.cosi.restaurant.model.menuModel.servingModel.Modifier;
 
 
 /**
+ * DAO class which manages the DB operations on modifier
+ * 
  * @author      cosi'
- * @version     1.0                 (current version number of program)
+ * @version     iteration 3
+ * @since 		iteration 1
  */
 public class ModifierDAO implements IDao{
 	
+	/**
+	 * connection attribute
+	 */
 	private Connection c;
 
+	/**
+	 * default constructor
+	 */
 	public ModifierDAO() {
 		
 	}
 	
+	/**
+	 * it initializes the modifier table in the DB
+	 */
 	public void initialize() {
 	    
 		c = DatabaseConnection.startConnection(c, schema);
 		
-try {
+		try {
 			
 			String path = "src/it/unipv/po/cosi/restaurant/database/config/modifiers.csv";
 			String absolutePath;
@@ -112,16 +124,10 @@ try {
 	
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  categories Description text text text.          (3)
-	 * @return result text text text.
+	 * it returns all the modifiers from the DB
+	 * 
+	 * @param categories categories arraylist parameter
+	 * @return all the modifiers into an arraylist
 	 */
 	public ArrayList<Modifier> selectAllModifiers(ArrayList<Category> categories) {
 		
@@ -168,15 +174,9 @@ try {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  modifiers Description text text text.          (3)
+	 * it updates the activeFlag in the modifiers
+	 * 
+	 * @param modifiers modifiers arraylist parameter
 	 */
 	public void updateActiveModifiers(ArrayList<Modifier> modifiers) {
 		
@@ -203,18 +203,12 @@ try {
 	}
 	
 	/**
-	 * Short one line description.                           (1)
-	 * <p>
-	 * Longer description. If there were any, it would be    (2)
-	 * here.
-	 * <p>
-	 * And even more explanations to follow in consecutive
-	 * paragraphs separated by HTML paragraph breaks.
-	 *
-	 * @param  flag Description text text text.          (3)
-	 * @return Description text text text.
+	 * it converts the boolean flag parameter into a string with the same meaning ("true" or "false")
+	 * 
+	 * @param flag flag parameter
+	 * @return string with the same meaning of the parameter flag
 	 */
-	public String booleanToString(Boolean flag) {
+	public String booleanToString(boolean flag) {
 	
 	if(flag) {
 		return "true";
