@@ -81,7 +81,7 @@ public class MonitorsHandler {
 								
 								monitor.getDisplay().append("\n");
 								monitor.getDisplay().append("T:" + o.getTable().getNumber() + "-> ");
-								monitor.getDisplay().append(s.toString());
+								monitor.getDisplay().append(s.printServingForMonitor());
 								
 							}
 						}

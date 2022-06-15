@@ -237,13 +237,33 @@ public class Serving implements Comparable<Serving> {
 		
 		for (Modifier modifier : modifiers) {
 			
-			rslt = rslt + "\n         " + " + " + modifier.getName();
+			rslt = rslt + " + " + modifier.getName();
 			
 		}
 		
 		return rslt;
 	}
 
+	/**
+	 * returns a string made of attributes chaining
+	 * @return a string of attributes chaining
+	 */
+	public String printServingForMonitor() {
+		String rslt = name;
+		
+		if(quantity>1) {
+			rslt = "x" + quantity + " " + rslt;
+		}
+		
+		for (Modifier modifier : modifiers) {
+			
+			rslt = rslt +"\n         " + " + " + modifier.getName();
+			
+		}
+		
+		return rslt;
+	}
+	
 	/**
 	 * compares the names of the servings using compareTo method from String class
 	 * @return name.compareTo(o.getName())

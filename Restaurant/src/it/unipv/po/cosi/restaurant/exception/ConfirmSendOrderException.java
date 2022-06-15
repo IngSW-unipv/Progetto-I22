@@ -50,6 +50,7 @@ public class ConfirmSendOrderException extends Exception{
 		okFrame.add(panel);
 		okFrame.setVisible(true);
 		okFrame.setSize(350, 150);
+		okFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		ActionListener okButtonListener = new ActionListener() {
 			
 			@Override
