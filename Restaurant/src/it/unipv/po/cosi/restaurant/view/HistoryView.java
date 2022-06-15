@@ -20,6 +20,7 @@ public class HistoryView extends JPanel{
 	private JPanel buttonPane;
 	private JScrollPane scrollPaneHistory;
 	private JScrollPane scrollPaneServing;
+	private JTextField viewTitle;
 	
 	public HistoryView() {
 		super();
@@ -39,19 +40,22 @@ public class HistoryView extends JPanel{
 		backButton.setFont(new java.awt.Font("Arial", 1, 36));
 		openOrderButton.setFont(new java.awt.Font("Arial", 1, 36));
 		backButton.setIcon(new ImageIcon("src/it/unipv/po/cosi/restaurant/view/icons/back.png"));
+		viewTitle = new JTextField("  STORICO ORDINI  ");
+		viewTitle.setFont(new java.awt.Font("Arial", 1, 36));
+		buttonPane.add(viewTitle, BorderLayout.CENTER);
 		buttonPane.add(backButton, BorderLayout.WEST);
 		buttonPane.add(openOrderButton, BorderLayout.EAST);
 		tablePane.add(scrollPaneHistory);
 		tablePane.add(scrollPaneServing);
 
-		historyTable.setRowHeight(30);
+		historyTable.setRowHeight(40);
 		servingTable.setRowHeight(30);
 		DefaultTableCellRenderer centerRender = new DefaultTableCellRenderer();
 		centerRender.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
 		historyTable.setDefaultRenderer(String.class, centerRender);
 		servingTable.setDefaultRenderer(String.class, centerRender);
 		
-		historyTable.setFont(new java.awt.Font("Arial", 0, 18));
+		historyTable.setFont(new java.awt.Font("Arial", 0, 20));
 		servingTable.setFont(new java.awt.Font("Arial", 0, 18));
 		this.add(tablePane, BorderLayout.CENTER);
 		

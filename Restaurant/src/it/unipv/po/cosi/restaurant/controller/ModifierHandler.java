@@ -65,7 +65,7 @@ public class ModifierHandler extends MVCController{
 	    		view.getOrderView().getModifierList().setModel(getModifierDefaultList(modifiers));
 	    		
 	    	}
-	    
+	   
 	      };
 	      
 	      view.getOrderView().getAddModifierButton().addActionListener(modifyServingListener);

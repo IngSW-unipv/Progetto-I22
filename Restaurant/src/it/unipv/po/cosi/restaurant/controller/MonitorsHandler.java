@@ -68,6 +68,7 @@ public class MonitorsHandler {
 					
 					if(diff>0) {
 						Serving s = serving.copy();
+						s.setModifiers(serving.getModifiers());
 						s.setQuantity(diff);
 						addedServ.add(s);
 						serving.setServed(serving.getQuantity());
