@@ -40,7 +40,7 @@ public class HistoryView extends JPanel{
 		backButton.setFont(new java.awt.Font("Arial", 1, 36));
 		openOrderButton.setFont(new java.awt.Font("Arial", 1, 36));
 		backButton.setIcon(new ImageIcon("src/it/unipv/po/cosi/restaurant/view/icons/back.png"));
-		viewTitle = new JTextField("  STORICO ORDINI  ");
+		viewTitle = new JTextField("                                                STORICO ORDINI  ");
 		viewTitle.setFont(new java.awt.Font("Arial", 1, 36));
 		buttonPane.add(viewTitle, BorderLayout.CENTER);
 		buttonPane.add(backButton, BorderLayout.WEST);
