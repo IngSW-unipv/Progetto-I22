@@ -237,7 +237,7 @@ public class Serving implements Comparable<Serving> {
 		
 		for (Modifier modifier : modifiers) {
 			
-			rslt = rslt + " + " + modifier.getName();
+			rslt = rslt + "\n         " + " + " + modifier.getName();
 			
 		}
 		
