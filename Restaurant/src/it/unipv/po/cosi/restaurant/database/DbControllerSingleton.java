@@ -27,12 +27,8 @@ public class DbControllerSingleton {
 	/**
 	 * dbControllerSingleton constructor
 	 */
-	private DbControllerSingleton() {
-		
-		super();
-
-	}
-
+	private DbControllerSingleton() {}
+	 
 	// populate table with menu .csv file //		
 	
 	/**
