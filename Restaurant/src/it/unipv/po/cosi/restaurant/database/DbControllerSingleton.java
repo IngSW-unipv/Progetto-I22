@@ -23,14 +23,6 @@ public class DbControllerSingleton {
 	 * instance attribute
 	 */
 	private static DbControllerSingleton instance;
-	/**
-	 * database schema name
-	 */
-	private String schema;
-	/**
-	 * connection attribute linked to the used database
-	 */
-	private Connection c;
 
 	/**
 	 * dbControllerSingleton constructor
@@ -38,8 +30,6 @@ public class DbControllerSingleton {
 	private DbControllerSingleton() {
 		
 		super();
-		this.schema = "restaurant";
-		c = DatabaseConnection.startConnection(c, schema);
 
 	}
 
