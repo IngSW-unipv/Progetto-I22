@@ -136,7 +136,7 @@ public class TableDAO implements IDao{
 
 		try {
 			st1 = c.createStatement();
-			String query = "SELECT * FROM RESTAURANT.TABLE;";
+			String query = "SELECT * FROM restaurant.table;";
 			rs1 = st1.executeQuery(query);
 
 			while(rs1.next()) {

@@ -134,7 +134,7 @@ public class CategoryDAO implements IDao{
 		
 		try {
 			st1 = c.createStatement();
-			String query = "SELECT * FROM CATEGORY;";
+			String query = "SELECT * FROM category;";
 			rs1 = st1.executeQuery(query);
 	
 			while(rs1.next()) {

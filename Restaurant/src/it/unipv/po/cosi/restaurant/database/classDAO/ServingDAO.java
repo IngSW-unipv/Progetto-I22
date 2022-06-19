@@ -169,7 +169,7 @@ public class ServingDAO implements IDao{
 		
 		try {
 			st1 = c.createStatement();
-			String query = "SELECT * FROM SERVING";
+			String query = "SELECT * FROM serving";
 			rs1 = st1.executeQuery(query);
 	
 			while(rs1.next()) {

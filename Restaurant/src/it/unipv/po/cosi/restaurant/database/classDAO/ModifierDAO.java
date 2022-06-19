@@ -139,7 +139,7 @@ public class ModifierDAO implements IDao{
 		
 		try {
 			st1 = c.createStatement();
-			String query = "SELECT * FROM MODIFIER;";
+			String query = "SELECT * FROM modifier;";
 			rs1 = st1.executeQuery(query);
 	
 			while(rs1.next()) {
